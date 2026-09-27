@@ -1,0 +1,64 @@
+{
+  "axis_contract": {
+    "cache_array": "Z,H,W",
+    "nifti_array": "H,W,Z",
+    "slice_axis": 2
+  },
+  "case_id": "radiopaedia_29_86490_1",
+  "dataset_id": "segdb2",
+  "inverse_rule": "remove saved padding, then nearest-neighbor resize predictions back to original HxW",
+  "original_affine": [
+    [
+      -0.6835939884185791,
+      -0.0,
+      0.0,
+      159.0
+    ],
+    [
+      -0.0,
+      0.6835939884185791,
+      0.0,
+      174.0
+    ],
+    [
+      0.0,
+      0.0,
+      6.0,
+      -246.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "original_orientation": "LAS",
+  "original_shape": [
+    630,
+    630,
+    42
+  ],
+  "original_spacing": [
+    0.6835939884185791,
+    0.6835939884185791,
+    6.0
+  ],
+  "preprocessing_sha256": "51a6259ebe818087309abfc8600996281b972ec23618e0051e8c91a66ed684fe",
+  "provenance_stratum": "radiopaedia_named",
+  "resize_pad": {
+    "original_h": 630,
+    "original_w": 630,
+    "pad_bottom": 0,
+    "pad_left": 0,
+    "pad_right": 0,
+    "pad_top": 0,
+    "resized_h": 336,
+    "resized_w": 336,
+    "scale_x": 0.5333333333333333,
+    "scale_y": 0.5333333333333333,
+    "target_h": 336,
+    "target_w": 336
+  },
+  "source_split": "fitting"
+}
