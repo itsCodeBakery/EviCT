@@ -1,0 +1,21 @@
+{
+  "timestamp_utc": "2026-09-27T10:46:49.505079+00:00",
+  "stage": "NOTEBOOK_04D",
+  "seed": 42,
+  "precision": "FP32",
+  "final_step": 4000,
+  "last_validation_step": 4000,
+  "best_macro_case_dice": 0.7670852235345222,
+  "best_step": 2000,
+  "final_patience": 8,
+  "total_image_exposures": 64000,
+  "recovery_archive": "EviCT_Notebook04D_seed42_final_step4000_Recovery.tar",
+  "recovery_archive_sha256": "d93117969c6eea6a601430959bd61a73553f84420612727e22bc541f851caedc",
+  "github_release_tag": "evict-nb04d-seed42-final-step4000",
+  "github_release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb04d-seed42-final-step4000",
+  "tar_asset_id": 592714815,
+  "sha_asset_id": 592715669,
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "status": "DURABLE_COMPLETE"
+}
