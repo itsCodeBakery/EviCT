@@ -1,0 +1,180 @@
+{
+  "audit_stage": "NOTEBOOK_00",
+  "cpu": {
+    "logical_cores": 4,
+    "logical_cores_psutil": 4,
+    "lscpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               GenuineIntel\nModel name:                              Intel(R) Xeon(R) CPU @ 2.00GHz\nCPU family:                              6\nModel:                                   85\nThread(s) per core:                      2\nCore(s) per socket:                      2\nSocket(s):                               1\nStepping:                                3\nBogoMIPS:                                4000.42\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves arat md_clear arch_capabilities\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               64 KiB (2 instances)\nL1i cache:                               64 KiB (2 instances)\nL2 cache:                                2 MiB (2 instances)\nL3 cache:                                38.5 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Mitigation; PTE Inversion\nVulnerability Mds:                       Mitigation; Clear CPU buffers; SMT Host state unknown\nVulnerability Meltdown:                  Mitigation; PTI\nVulnerability Mmio stale data:           Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Mitigation; IBRS\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; IBRS; IBPB conditional; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Mitigation; Clear CPU buffers; SMT Host state unknown\nVulnerability Vmscape:                   Not affected",
+    "physical_cores": 2
+  },
+  "cuda": {
+    "bf16_supported": true,
+    "cuda_available": true,
+    "cudnn_enabled": true,
+    "cudnn_version": 91002,
+    "torch_cuda_version": "12.8",
+    "torch_version": "2.10.0+cu128"
+  },
+  "disk": {
+    "free_gb": 19.502,
+    "path": "/kaggle/working",
+    "total_gb": 19.518,
+    "used_gb": 0.001
+  },
+  "gpu": {
+    "device_count": 2,
+    "devices": [
+      {
+        "compute_capability": "7.5",
+        "free_memory_gb": 14.46,
+        "index": 0,
+        "multi_processor_count": 40,
+        "name": "Tesla T4",
+        "total_memory_gb": 14.562
+      },
+      {
+        "compute_capability": "7.5",
+        "free_memory_gb": 14.46,
+        "index": 1,
+        "multi_processor_count": 40,
+        "name": "Tesla T4",
+        "total_memory_gb": 14.562
+      }
+    ],
+    "nvidia_smi_available": true,
+    "nvidia_smi_error": null,
+    "nvidia_smi_raw": "0, Tesla T4, 580.159.04, 15360, 14909, 7.5\n1, Tesla T4, 580.159.04, 15360, 14909, 7.5"
+  },
+  "gpu_smoke_test_status": "PASS",
+  "memory": {
+    "available_gb": 29.985,
+    "percent_used": 4.3,
+    "total_gb": 31.348,
+    "used_gb": 0.917
+  },
+  "network": {
+    "available": true,
+    "error": null,
+    "status": 200,
+    "test_url": "https://pypi.org"
+  },
+  "packages": {
+    "Pillow": {
+      "distribution_version": "11.3.0",
+      "installed": true,
+      "module_version": "11.3.0"
+    },
+    "SimpleITK": {
+      "distribution_version": "2.5.5",
+      "installed": true,
+      "module_version": "2.5.5"
+    },
+    "albumentations": {
+      "distribution_version": "2.0.8",
+      "installed": true,
+      "module_version": "2.0.8"
+    },
+    "matplotlib": {
+      "distribution_version": "3.10.0",
+      "installed": true,
+      "module_version": "3.10.0"
+    },
+    "nibabel": {
+      "distribution_version": "5.4.2",
+      "installed": true,
+      "module_version": "5.4.2"
+    },
+    "numpy": {
+      "distribution_version": "2.0.2",
+      "installed": true,
+      "module_version": "2.0.2"
+    },
+    "open_clip_torch": {
+      "distribution_version": null,
+      "installed": false,
+      "module_version": null
+    },
+    "opencv-python": {
+      "distribution_version": "4.13.0.92",
+      "installed": true,
+      "module_version": "4.13.0"
+    },
+    "pandas": {
+      "distribution_version": "2.3.3",
+      "installed": true,
+      "module_version": "2.3.3"
+    },
+    "scikit-learn": {
+      "distribution_version": "1.6.1",
+      "installed": true,
+      "module_version": "1.6.1"
+    },
+    "scipy": {
+      "distribution_version": "1.16.3",
+      "installed": true,
+      "module_version": "1.16.3"
+    },
+    "timm": {
+      "distribution_version": "1.0.26",
+      "installed": true,
+      "module_version": "1.0.26"
+    },
+    "torch": {
+      "distribution_version": "2.10.0+cu128",
+      "installed": true,
+      "module_version": "2.10.0+cu128"
+    },
+    "torchvision": {
+      "distribution_version": "0.25.0+cu128",
+      "installed": true,
+      "module_version": "0.25.0+cu128"
+    },
+    "transformers": {
+      "distribution_version": "5.0.0",
+      "installed": true,
+      "module_version": "5.0.0"
+    }
+  },
+  "paths": {
+    "dataset_items": {
+      "ct_scans": {
+        "file_count": 20,
+        "type": "directory"
+      },
+      "infection_mask": {
+        "file_count": 20,
+        "type": "directory"
+      },
+      "lung_and_infection_mask": {
+        "file_count": 20,
+        "type": "directory"
+      },
+      "lung_mask": {
+        "file_count": 20,
+        "type": "directory"
+      },
+      "metadata.csv": {
+        "size_bytes": 5500,
+        "type": "file"
+      }
+    },
+    "dataset_readable": true,
+    "dataset_root": "/kaggle/input/datasets/andrewmvd/covid19-ct-scans",
+    "project_root": "/kaggle/working/EviCT",
+    "working_writable": true
+  },
+  "platform": {
+    "hostname": "6dd7b6616688",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "release": "6.12.90+",
+    "system": "Linux",
+    "version": "#1 SMP Sat May 30 15:40:53 UTC 2026"
+  },
+  "project": "EviCT",
+  "python": {
+    "executable": "/usr/bin/python3",
+    "implementation": "CPython",
+    "version": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]"
+  },
+  "timestamp_utc": "2026-09-27T04:39:10.572412+00:00"
+}

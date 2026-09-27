@@ -1,59 +1,111 @@
 # EviCT Execution State
 
 ## Project
+
 EviCT — Uncertainty-Aware Vision-Language Segmentation and Evidence-Grounded Lung CT Reporting
 
 ## Current stage
-BOOTSTRAP_COMPLETE
+
+NOTEBOOK_00_COMPLETE
 
 ## Timestamp
-2026-09-27T04:36:49.724149+00:00
 
-## GitHub
-Repository: https://github.com/itsCodeBakery/EviCT.git
+2026-09-27T04:40:03.656343+00:00
+
+## Repository
+
+https://github.com/itsCodeBakery/EviCT
+
 Branch: main
 
 ## Kaggle project root
+
 /kaggle/working/EviCT
 
-## Attached dataset
+## Dataset currently attached
+
 COVID-19 CT scans
 
-Kaggle path:
+Path:
+
 /kaggle/input/datasets/andrewmvd/covid19-ct-scans
 
-Bootstrap verification:
-- dataset root exists: YES
-- ct_scans exists: YES
-- infection_mask exists: YES
-- lung_mask exists: YES
-- lung_and_infection_mask exists: YES
-- metadata.csv exists: YES
+## Notebook 00 — Environment audit
+
+GPU:
+GPU 0: Tesla T4, 14.562 GB; GPU 1: Tesla T4, 14.562 GB
+
+CUDA available:
+True
+
+PyTorch:
+2.10.0+cu128
+
+PyTorch CUDA:
+12.8
+
+BF16 supported:
+True
+
+FP16 smoke test:
+PASS
+
+Working disk free:
+19.502 GB
+
+Internet available during audit:
+True
+
+## Validation checks
+
+{
+  "project_repository_exists": true,
+  "dataset_exists": true,
+  "working_directory_writable": true,
+  "torch_imported": true,
+  "environment_json_written": true,
+  "requirements_lock_written": true,
+  "gpu_fp16_smoke_test": true
+}
+
+## Outputs
+
+- config/environment.json
+- config/gpu_smoke_test.json
+- requirements-lock.txt
+- STATE.md
+- handoff/STATE.md
 
 ## Scientific status
-No preprocessing performed.
-No dataset provenance assumptions made.
+
+No image preprocessing performed.
+
 No label mapping assumed.
-No train/validation/test split created.
-No model trained.
-No target evaluation performed.
-No research result produced.
+
+No train/selection/calibration split created.
+
+No segmentation model trained.
+
+No model-selection decision made.
+
+No target dataset evaluated.
+
+No research result has been produced.
 
 ## Next stage
-Notebook 00 — Environment and Resource Audit
 
-Next requirements:
-1. Record GPU and VRAM.
-2. Record CPU/RAM/disk.
-3. Record Python/CUDA/PyTorch/package versions.
-4. Test FP16 forward/backward execution.
-5. Save environment.json.
-6. Save requirements-lock.txt.
-7. Update STATE.md.
+Notebook 01 — Source and Reproduction Audit
 
-## Recovery rule
-Clone the GitHub repository into:
+Notebook 01 must audit:
 
-/kaggle/working/EviCT
+1. Original dataset provenance.
+2. Exact case inventory.
+3. CT/mask pairing.
+4. NIfTI dimensions and geometry.
+5. Label values.
+6. Infection/lung mask semantics.
+7. Intensity provenance.
+8. Original-source correspondence.
+9. Potential duplicate/overlap issues.
+10. Track R versus Track C eligibility.
 
-Then attach the required Kaggle datasets and execute the current stage.
