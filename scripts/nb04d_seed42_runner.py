@@ -227,6 +227,18 @@ def ensure_seed42_checkpoint() -> None:
 
 
 def git_sync(message: str) -> None:
+    # Fresh Kaggle runtimes do not always have a Git author configured.
+    subprocess.run(
+        ["git", "config", "user.name", "itsCodeBakery"],
+        cwd=str(ROOT),
+        check=True,
+    )
+    subprocess.run(
+        ["git", "config", "user.email", "itsCodeBakery@users.noreply.github.com"],
+        cwd=str(ROOT),
+        check=True,
+    )
+
     result = subprocess.run(
         [sys.executable, str(GIT_SYNC), message],
         cwd=str(ROOT),
