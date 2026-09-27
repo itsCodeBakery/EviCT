@@ -1,0 +1,2 @@
+step,selection_loss,macro_case_dice,macro_case_iou,macro_case_sensitivity,macro_case_specificity,macro_slice_dice,pooled_dice,pooled_iou,n_cases,n_slices,threshold,precision,encoder_lr_next,decoder_lr_next,is_best,best_score,best_step,patience_count
+250,0.36056177974364917,0.5869165929018677,0.43984301657691294,0.4974705843474616,0.9985658609502602,0.6089656075088702,0.7385397964661549,0.5854642060028649,4,579,0.5,FP32,9.997322937381829e-05,0.00029991968812145484,True,0.5869165929018677,250,0
