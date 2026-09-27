@@ -1,6 +1,6 @@
 {
   "seed": 42,
-  "step": 1250,
+  "step": 1750,
   "dtype": "float32",
   "space": "padded_336x336_raw_logits",
   "sigmoid_applied": false,
@@ -13,7 +13,7 @@
         336,
         336
       ],
-      "sha256": "0fd2e0f469b2dfac28fc8ba078f61f5e2ff269f85b1bafa40a1d8d3665d9e2da"
+      "sha256": "6992b26fdf54a10396c86bc5a2495aa51c5daa22b0791f24cda2aed864d01d1e"
     },
     {
       "case_id": "coronacases_010",
@@ -22,7 +22,7 @@
         336,
         336
       ],
-      "sha256": "9e7a47e16f7f402925ef3301440f3ae5f48d5b72e51c6dc4ab59d5f9bf68ddd4"
+      "sha256": "6931def781dd5d01238715e6e63cf2f8ecb02b25d3d07e348f4cec0e20f29fa9"
     },
     {
       "case_id": "radiopaedia_10_85902_1",
@@ -31,7 +31,7 @@
         336,
         336
       ],
-      "sha256": "da70f3aca55df5c8e8de2147e65b5a8354bcf9206e63f5c5941139c48452dae2"
+      "sha256": "cfa33740132223c9c4d4fffe62b1a10f31d43c717ff4f40e6a0d70e58dab0e4f"
     },
     {
       "case_id": "radiopaedia_4_85506_1",
@@ -40,7 +40,7 @@
         336,
         336
       ],
-      "sha256": "da58a414e654ca6454f704ad3cb352f87292b6f84a7baf82648fb56b5fa31939"
+      "sha256": "7ac61270248055dfdda8c39d0cc04be59bcaf4638246bed2cb7038752b41b7a9"
     }
   ]
 }
