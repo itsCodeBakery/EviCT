@@ -1,31 +1,39 @@
 {
-  "timestamp_utc": "2026-09-27T04:48:37.076375+00:00",
+  "timestamp_utc": "2026-09-27T05:17:12.750921+00:00",
   "dataset_id": "segdb2",
-  "dataset_root": "/kaggle/input/datasets/andrewmvd/covid19-ct-scans",
-  "nifti_backend": "nibabel",
-  "case_count": 40,
-  "complete_pair_count": 0,
-  "geometry_valid_count": 0,
-  "excluded_case_count": 40,
-  "exact_duplicate_records": 0,
+  "pairing_method": "metadata_csv_explicit_mapping",
+  "case_count": 20,
+  "complete_pair_count": 20,
+  "geometry_valid_count": 20,
+  "excluded_case_count": 0,
   "provenance_counts": {
-    "coronacases_named": 20,
-    "radiopaedia_named": 20
+    "coronacases_named": 10,
+    "radiopaedia_named": 10
   },
   "observed_labels": {
-    "infection_mask": [],
-    "lung_mask": [],
-    "lung_and_infection_mask": []
+    "infection_mask": [
+      0.0,
+      1.0
+    ],
+    "lung_mask": [
+      0.0,
+      1.0,
+      2.0
+    ],
+    "lung_and_infection_mask": [
+      0.0,
+      1.0,
+      2.0,
+      3.0
+    ]
   },
-  "infection_binary_compatible": false,
-  "metadata_rows": 20,
-  "metadata_columns": [
-    "ct_scan",
-    "lung_mask",
-    "infection_mask",
-    "lung_and_infection_mask"
-  ],
-  "base_paper_repository_reachable": false,
-  "track_R_status": "NOT_READY",
-  "track_C_status": "SEGDB2_AUDITED_PENDING_SEGDB1"
+  "infection_mask_binary_compatible": true,
+  "initial_pairing_bug": {
+    "status": "CORRECTED",
+    "incorrect_result": "40 IDs, 0 paired cases",
+    "cause": "CT and masks use different filename naming conventions.",
+    "correction": "Use metadata.csv explicit CT-mask associations."
+  },
+  "track_R": "NOT_READY",
+  "track_C": "SEGDB2_AUDITED_PENDING_SEGDB1"
 }

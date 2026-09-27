@@ -1,158 +1,91 @@
 # EviCT Protocol Audit
 
-## Audit stage
+## Notebook 01A — SegDB-2
 
-Notebook 01A — SegDB-2 source audit
+Timestamp: 2026-09-27T05:17:12.751475+00:00
 
-Timestamp: 2026-09-27T04:48:37.071697+00:00
+## Pairing correction
 
----
+The first Notebook 01A implementation assumed that the CT volume
+and its mask files had identical filename stems.
 
-## Dataset currently audited
+That was incorrect.
 
-Execution copy:
+The dataset's `metadata.csv` explicitly maps each CT volume to its
+lung mask, infection mask, and combined mask.
 
-`/kaggle/input/datasets/andrewmvd/covid19-ct-scans`
+The corrected audit therefore uses `metadata.csv` rather than
+filename-stem inference.
 
-Observed unique volume identifiers:
+The failed audit remains preserved in Git history.
 
-**40**
+## Corrected source audit
 
-Cases with CT + infection mask + lung mask + combined mask:
+Metadata-defined cases: **20**
 
-**0/40**
+Geometry-valid cases: **20/20**
 
-Cases with header-level image/mask geometry consistency:
+Excluded cases: **0**
 
-**0/40**
+### Provenance groups
 
-Exact duplicate file records detected within the same role:
+{
+  "coronacases_named": 10,
+  "radiopaedia_named": 10
+}
 
-**0**
+## Observed mask values
 
----
+Infection:
 
-## Observed mask labels
+`[0.0, 1.0]`
 
-### Infection mask
+Lung:
 
-[]
+`[0.0, 1.0, 2.0]`
 
-Binary-compatible:
+Combined:
 
-False
+`[0.0, 1.0, 2.0, 3.0]`
 
-### Lung mask
+Infection mask binary-compatible:
 
-[]
+**True**
 
-No numeric left/right mapping is assumed at this stage.
+## Intensity policy
 
-### Lung-and-infection mask
+No preprocessing has been applied.
 
-[]
+No stored value is being assumed to be raw Hounsfield units solely
+because the file is NIfTI.
 
-No combined-label semantic mapping is assumed at this stage.
-
----
-
-## Intensity handling
-
-CT intensity values were inspected only through deterministic sampled
-statistics.
-
-No HU conversion, clipping, normalization, windowing, resizing,
-interpolation, or augmentation has been performed.
-
-The file suffix `.nii` or `.nii.gz` is not treated as proof that stored
-values are raw Hounsfield units.
-
-The Radiopaedia-named and coronacases-named records are retained as
-separate provenance strata for the subsequent preprocessing audit.
-
----
+Radiopaedia-named and coronacases-named records remain identifiable
+for provenance-specific preprocessing decisions.
 
 ## Grouping
 
-`case_id` is the volume-file identifier.
+One metadata row corresponds to one complete CT volume and its
+associated masks.
 
-For this audit, `group_id` equals `case_id` only to preserve volume-level
-independence.
+`group_id` currently represents complete-volume identity.
 
-This is NOT being presented as a recovered patient identifier.
+It is not being claimed as an independently recovered patient ID.
 
-No synthetic patient IDs were created.
+## Track R
 
----
-
-## Kaggle copy versus authoritative source
-
-The Kaggle dataset is being treated as the execution copy.
-
-File-level SHA-256 hashes were calculated for the attached files.
-
-The extracted Kaggle files have NOT yet been independently compared byte
-for byte against the official source archives.
-
-Therefore exact mirror equivalence is not yet claimed.
-
----
-
-## CT-Insight VLM reproduction status
-
-Linked repository tested:
-
-`https://github.com/Owais-CodeHub/CT-Insight-VLM.git`
-
-Repository reachable from this Kaggle session:
-
-**False**
-
-A matched reproduction of the base paper is NOT yet declared.
-
-The following remain unresolved until recovered directly from code,
-supplementary material, source records, or authors:
-
-1. Exact SegDB-2 367-slice selection.
-2. Exact source/target training partitions.
-3. Exact binary lesion mapping used in the paper.
-4. Caption repository / caption-bank construction.
-5. Decoder implementation details.
-6. Complete optimizer and epoch/update schedule.
-7. Exact checkpoint selection rule.
-8. Metric reduction convention.
-9. Exact author code revision.
-10. Exact preprocessing sequence.
-
-Historical published numbers must therefore remain separate from future
-EviCT rerun results.
-
----
-
-## Track status
-
-### Track R — matched reproduction
+Matched CT-Insight VLM reproduction:
 
 **NOT READY**
 
-Reason: critical base-paper protocol details remain unresolved.
+Critical unresolved items include the original 367-slice selection,
+training partitions, caption bank, preprocessing details, optimizer
+schedule, model-selection convention, and metric reduction.
 
-### Track C — controlled benchmark
+## Track C
 
-**SEGDB-2 DATA AUDIT IN PROGRESS**
+SegDB-2 source audit:
 
-The dataset may proceed to later preprocessing only after this audit
-passes and the second core dataset is independently audited.
+**PASS**
 
----
-
-## Scientific actions prohibited at this point
-
-- No target-based model tuning.
-- No threshold selection.
-- No train/selection/calibration split yet.
-- No hidden-label access policy yet.
-- No preprocessing decisions from target performance.
-- No model training.
-- No claim of outperforming CT-Insight VLM.
-
+SegDB-1 / MedSeg still requires independent audit before the
+bidirectional controlled protocol can be frozen.

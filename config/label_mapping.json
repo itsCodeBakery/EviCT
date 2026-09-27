@@ -1,21 +1,32 @@
 {
   "dataset_id": "segdb2",
-  "timestamp_utc": "2026-09-27T04:48:36.879508+00:00",
+  "timestamp_utc": "2026-09-27T05:17:12.746436+00:00",
+  "pairing_source": "metadata.csv",
   "infection_mask": {
-    "observed_values": [],
-    "source_semantics": "infection mask",
-    "binary_compatible": false,
-    "proposed_future_binary_mapping": null,
-    "status": "REQUIRES_MANUAL_RESOLUTION"
+    "observed_values": [
+      0.0,
+      1.0
+    ],
+    "binary_compatible": true,
+    "dataset_role": "infection_mask",
+    "status": "OBSERVED_BINARY_COMPATIBLE"
   },
   "lung_mask": {
-    "observed_values": [],
-    "source_semantics": "lung mask; left/right labels require explicit verification before semantic mapping",
-    "status": "VALUES_OBSERVED_SEMANTIC_MAPPING_NOT_ASSUMED"
+    "observed_values": [
+      0.0,
+      1.0,
+      2.0
+    ],
+    "status": "VALUES_OBSERVED; NUMERIC LEFT/RIGHT MEANINGS NOT YET ASSUMED"
   },
   "lung_and_infection_mask": {
-    "observed_values": [],
-    "status": "VALUES_OBSERVED_SEMANTIC_MAPPING_NOT_ASSUMED"
+    "observed_values": [
+      0.0,
+      1.0,
+      2.0,
+      3.0
+    ],
+    "status": "VALUES_OBSERVED; COMBINED CLASS SEMANTICS NOT YET ASSUMED"
   },
-  "rule": "No label meaning is invented from numeric value alone."
+  "rule": "No numeric class meaning is invented from value alone."
 }

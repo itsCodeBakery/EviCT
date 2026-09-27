@@ -2,39 +2,66 @@
 
 ## Current stage
 
-NOTEBOOK_01A_PAIRING_REPAIRED
+NOTEBOOK_01A_SEGDB2_AUDIT_COMPLETE
 
 ## Timestamp
 
-2026-09-27T05:15:34.206571+00:00
+2026-09-27T05:17:12.752263+00:00
 
-## Completed
+## Completed stages
 
 - Bootstrap: COMPLETE
 - Notebook 00: COMPLETE
-- Correct SegDB-2 metadata-based CT/mask pairing: COMPLETE
+- SegDB-2 metadata pairing repair: COMPLETE
+- Notebook 01A SegDB-2 audit: COMPLETE
 
-## SegDB-2 pairing
+## SegDB-2
 
-metadata.csv rows: 20
+Correct metadata-defined cases:
 
-Correct CT/mask groups: 20
+20
 
-The earlier 40-case result was caused by an invalid filename-stem
-matching assumption.
+Geometry-valid cases:
 
-The repair now uses the dataset's explicit metadata.csv mapping.
+20/20
+
+Observed infection-mask values:
+
+[0.0, 1.0]
+
+Observed lung-mask values:
+
+[0.0, 1.0, 2.0]
+
+Observed combined-mask values:
+
+[0.0, 1.0, 2.0, 3.0]
+
+Excluded cases:
+
+0
+
+## Important correction
+
+The historical 40-case / 0-pair result was caused by an invalid
+filename-stem matching rule.
+
+The corrected implementation uses metadata.csv.
 
 ## Scientific status
 
 No preprocessing performed.
 
-No training performed.
+No HU conversion performed.
 
-No split created.
+No train/selection/calibration split created.
+
+No model trained.
 
 No target evaluation performed.
 
-## Next
+Track R remains NOT READY.
 
-Complete SegDB-2 geometry and label audit.
+## Next stage
+
+Attach and audit SegDB-1 / MedSeg.
