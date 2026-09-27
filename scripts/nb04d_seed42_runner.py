@@ -346,7 +346,7 @@ def main(mode: str) -> None:
 
     run_config_hash = stable_json_hash(run_config)
     split_hash = stable_json_hash({
-        "splits": sha256_file(SPLITS_PATH),
+        "splits_csv": sha256_file(SPLITS_PATH),
         "train_manifest": sha256_file(TRAIN_MANIFEST),
         "selection_manifest": sha256_file(SELECTION_MANIFEST),
     })
@@ -624,6 +624,17 @@ def main(mode: str) -> None:
     sampler.load_state_dict(checkpoint["sampler_state"])
     saved_rng = checkpoint["rng_state"]
     del checkpoint
+
+    # Exact durable seed-42 step-1000 anchor recorded before migration.
+    if global_step == 1000:
+        assert abs(best_score - 0.69968571) < 1e-8, (
+            f"Unexpected best score at step 1000: {best_score}"
+        )
+        assert best_step == 750, f"Unexpected best step: {best_step}"
+        assert patience_count == 1, f"Unexpected patience: {patience_count}"
+        assert last_validation_step == 1000
+        assert images_seen == 16000
+        print("✓ Step-1000 scientific state matches durable anchor")
 
     truncate_unique_log(TRAIN_LOG, global_step)
     truncate_unique_log(SELECTION_LOG, last_validation_step)
