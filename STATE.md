@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_05C_UNET_SEED_42_COMPLETE_DURABLE
+NOTEBOOK_05C_UNET_SEED_2026_RUNNING_STEP_250
 
 ## Timestamp
 
-2026-09-27T18:47:20.435052+00:00
+2026-09-27T18:51:41.062586+00:00
 
 ## Baseline
 
@@ -28,7 +28,7 @@ FROZEN FROM SEED-17 PILOT
 
 Training seed:
 
-42
+2026
 
 Split seed:
 
@@ -40,23 +40,23 @@ FP32
 
 Optimizer step:
 
-4000
+250
 
 Best source-selection macro case Dice:
 
-0.70757153
+0.57916291
 
 Best checkpoint step:
 
-2000
+250
 
 Patience:
 
-8 / 8
+0 / 8
 
 Image exposures:
 
-64000
+4000
 
 Selection threshold:
 
