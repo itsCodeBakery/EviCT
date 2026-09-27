@@ -1,0 +1,28 @@
+{
+  "timestamp_utc": "2026-09-27T06:14:12.085969+00:00",
+  "stage": "NOTEBOOK_03A",
+  "manual_visual_qc": "PASS",
+  "reviewed_cases": [
+    {
+      "case_id": "coronacases_003",
+      "provenance": "coronacases_named",
+      "roundtrip_mask_iou": 0.924612
+    },
+    {
+      "case_id": "radiopaedia_10_85902_1",
+      "provenance": "radiopaedia_named",
+      "roundtrip_mask_iou": 0.937456
+    }
+  ],
+  "checks": {
+    "anatomical_orientation_plausible": true,
+    "infection_mask_alignment_plausible": true,
+    "no_visible_transpose_error": true,
+    "no_visible_rotation_error": true,
+    "resize_preserves_geometry": true,
+    "inverse_geometry_acceptable": true
+  },
+  "valid_mask_visualization_note": "Both reviewed slices are square and resize directly to 336x336 with zero padding. Therefore their valid masks are constant ones. Future plots must use vmin=0 and vmax=1 so constant valid masks display correctly.",
+  "target_accessed": false,
+  "decision": "Proceed to deterministic full SegDB-2 source preprocessing/cache construction."
+}
