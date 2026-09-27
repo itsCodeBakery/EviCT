@@ -1378,6 +1378,92 @@ def run_full_candidate(
 
     assert local_checkpoint_candidates
 
+    # Self-heal one specific interrupted-audit state:
+    # the previous runner could successfully execute 1000->1020 and save
+    # recovery.pt, then fail while verifying RNG state before writing the
+    # resume-audit JSON. In that case last.pt is still the validated step-1000
+    # anchor and recovery.pt is step 1020. We deliberately replay those 20
+    # updates from step 1000 rather than accepting an unaudited step-1020 file.
+    if not paths["resume_audit"].exists():
+        last_meta = next(
+            (
+                item
+                for item in local_checkpoint_candidates
+                if item["path"] == paths["last_pt"]
+            ),
+            None,
+        )
+        recovery_meta = next(
+            (
+                item
+                for item in local_checkpoint_candidates
+                if item["path"] == paths["recovery_pt"]
+            ),
+            None,
+        )
+
+        if (
+            last_meta is not None
+            and recovery_meta is not None
+            and int(last_meta["global_step"]) == 1000
+            and int(recovery_meta["global_step"]) == 1020
+        ):
+            interrupted_record = {
+                "timestamp_utc": base.utc_now(),
+                "stage": "NOTEBOOK_05B",
+                "candidate_name": candidate_name,
+                "learning_rate": learning_rate,
+                "detected_state": "INTERRUPTED_1000_TO_1020_AUDIT",
+                "last_checkpoint_step": 1000,
+                "unaudited_recovery_step": 1020,
+                "action": (
+                    "Discard unaudited local step-1020 recovery and replay "
+                    "the 20-update recovery audit from the validated step-1000 last.pt anchor."
+                ),
+                "calibration_accessed": False,
+                "target_accessed": False,
+                "status": "REPAIR_APPLIED",
+            }
+
+            repair_path = AUDIT_ROOT / (
+                f"notebook05b_unet_seed17_{candidate_name}_"
+                "interrupted_resume_repair.json"
+            )
+            base.atomic_text(
+                repair_path,
+                json.dumps(interrupted_record, indent=2),
+            )
+
+            shutil.copy2(
+                paths["last_pt"],
+                paths["recovery_pt"],
+            )
+
+            print(
+                f"✓ {candidate_name}: detected interrupted step-1020 "
+                "audit; restored validated step-1000 anchor for replay."
+            )
+
+            local_checkpoint_candidates = []
+
+            for path in [
+                paths["last_pt"],
+                paths["recovery_pt"],
+            ]:
+                if path.exists():
+                    local_checkpoint_candidates.append(
+                        checkpoint_metadata(
+                            path,
+                            candidate_name=candidate_name,
+                            learning_rate=learning_rate,
+                            config_hash=config_hash,
+                            split_hash=split_hash,
+                            model_code_hash=model_code_hash,
+                            metrics_code_hash=metrics_code_hash,
+                            init_hash=init_hash,
+                        )
+                    )
+
     newest = max(
         local_checkpoint_candidates,
         key=lambda x: x["global_step"],
