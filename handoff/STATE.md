@@ -2,73 +2,133 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED17_FP32_RUNNING_STEP_5000
+NOTEBOOK_04D_SEED17_COMPLETE_AWAITING_KAGGLE_SAVE_VERSION
 
 ## Timestamp
 
-2026-09-27T09:24:11.738446+00:00
+2026-09-27T09:24:15.065449+00:00
 
-## Model
+## Notebook 04D
+
+Model:
 
 Supervised SegFormer MiT-B1
 
-## Seed
+Seed:
 
 17
 
-## Precision
+Precision:
 
 FP32
 
-## Optimizer progress
+## Completion
 
-Current optimizer step:
+Final optimizer step:
 
-5000 / 5000
+5000
 
-Images seen:
+Completion reason:
+
+MAXIMUM_5000_UPDATES
+
+Maximum allowed step:
+
+5000
+
+## Training exposures
+
+Images per optimizer update:
+
+16
+
+Total image exposures:
 
 80000
 
-## Source-selection model selection
+## Validation
 
-Best macro case Dice:
+Every:
 
-0.75258052
-
-Best checkpoint step:
-
-3500
+250 optimizer updates
 
 Last validation step:
 
 5000
 
-Patience:
+## Best source-selection checkpoint
+
+Macro case Dice:
+
+0.75258052
+
+Best step:
+
+3500
+
+Final patience:
 
 6 / 8
 
-## Checkpoints
+Checkpoint-selection threshold:
 
-recovery.pt:
+0.5
 
-every 50 successful updates
+Threshold optimization performed:
 
-last.pt:
+NO
 
-every 250 updates
+## Durable artifacts
 
 best.pt:
 
-source-selection improvement only
+YES
+
+last.pt:
+
+YES
+
+last_known_good.pt:
+
+YES
+
+best raw source-selection logits:
+
+YES
+
+## Resume integrity
+
+CPU-first checkpoint loading:
+
+PASS
+
+CPU RNG restore:
+
+PASS
+
+CUDA RNG restore:
+
+PASS
+
+Patient sampler restore:
+
+PASS
+
+Optimizer restore:
+
+PASS
+
+Scheduler restore:
+
+PASS
 
 ## Isolation
 
-Training:
+Training data:
 
 12 fitting cases only
 
-Selection:
+Selection data:
 
 4 complete source-selection cases only
 
@@ -83,3 +143,9 @@ NO
 ## Target lock
 
 ACTIVE
+
+## Next
+
+SAVE THIS COMPLETED SEED-17 RUN AS A KAGGLE VERSION.
+
+After durable save, continue with the next protocol stage.
