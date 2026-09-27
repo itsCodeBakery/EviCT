@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_04B_MODEL_SMOKE_PASS_TINY_OVERFIT_PENDING
+NOTEBOOK_04C_TINY_OVERFIT_PASS_FULL_BASELINE_PENDING
 
 ## Timestamp
 
-2026-09-27T07:31:41.612509+00:00
+2026-09-27T07:48:08.200352+00:00
 
 ## Completed stages
 
@@ -14,180 +14,145 @@ NOTEBOOK_04B_MODEL_SMOKE_PASS_TINY_OVERFIT_PENDING
 - Notebook 01: COMPLETE
 - Notebook 02: COMPLETE
 - Notebook 03 preprocessing/geometry: FROZEN
-- Notebook 04A segmentation metrics: PASS
+- Notebook 04A metrics/unit tests: PASS
 - Notebook 04B MiT-B1 forward/backward smoke: PASS
+- Notebook 04C tiny-set overfit sanity: PASS
 
-## Supervised visual baseline
+## Notebook 04C
 
-Encoder:
+Purpose:
 
-MiT-B1
+PIPELINE SANITY / DEBUGGING ONLY
 
-Checkpoint repository:
+Research result:
 
-nvidia/mit-b1
+NO
 
-Pinned revision:
+Training images:
 
-13ddceec4e8bdf401e7cd7acf5aebc526222518c
+2
 
-Checkpoint SHA-256:
+Unique cases:
 
-980b86b60db37b1b1528086f6c53d253d879e9e09ebe07397b40fd275738a3bf
+2
 
-Initialization:
+Source provenance groups:
 
-ImageNet-1k encoder only
+2
 
-Encoder hidden sizes:
+Small lesion included:
 
-[64, 128, 320, 512]
+YES
 
-Decoder:
+Representative lesion included:
 
-SegFormer four-level MLP decoder
+YES
 
-Decoder channels:
+## Geometry criterion
 
-256
+Required round-trip IoU:
 
-Decoder resolution for 336x336 input:
+>= 0.85
 
-84x84
+Threshold lowered:
 
-Visual head:
+NO
 
-1x1 binary lesion-logit convolution
+Reference round-trip IoUs:
 
-Final output:
+[0.8888888888888888, 0.9020356234096693]
 
-336x336
+Prediction round-trip IoUs:
 
-## Frozen cache contract used
+[0.9037267080745341, 0.9057635675220866]
 
-Image cache:
-
-[Z,336,336]
-
-Infection-mask cache:
-
-[Z,336,336]
-
-Valid-pixel mask:
-
-[336,336]
-
-Valid-pixel mask is case-level and shared across slices.
-
-## Smoke batch
-
-Real SegDB-2 fitting slices only.
-
-Samples:
-
-[
-  {
-    "case_id": "coronacases_001",
-    "provenance": "coronacases_named",
-    "z_index": 118,
-    "lesion_pixels": 6004,
-    "valid_pixels": 112896,
-    "valid_fraction": 1.0,
-    "image_min": 0.1527099609375,
-    "image_max": 1.0
-  },
-  {
-    "case_id": "radiopaedia_14_85914_0",
-    "provenance": "radiopaedia_named",
-    "z_index": 43,
-    "lesion_pixels": 7151,
-    "valid_pixels": 71904,
-    "valid_fraction": 0.636904776096344,
-    "image_min": 0.0,
-    "image_max": 1.0
-  }
-]
-
-## Supervised objective
-
-0.5 soft Dice + 0.5 BCE
-
-Padding:
-
-Excluded through valid-pixel masks.
-
-## Forward/backward result
-
-Total loss:
-
-0.84930503
-
-Soft Dice loss:
-
-0.85314131
-
-BCE loss:
-
-0.84546876
-
-Encoder gradients finite/non-zero:
-
-True / True
-
-Decoder gradients finite/non-zero:
-
-True / True
-
-Visual-head gradients finite/non-zero:
-
-True / True
-
-Optimizer update verified:
-
-True
-
-## GPU
-
-Tesla T4
-
-FP16 smoke:
+## Empty-mask metrics
 
 PASS
 
-Peak allocated GPU memory:
+## Tiny-set memorization
 
-0.438 GiB
+Optimizer steps:
 
-Peak reserved GPU memory:
+100
 
-0.547 GiB
+Final mean Dice:
+
+0.987520
+
+Final minimum Dice:
+
+0.984595
+
+Small-lesion Dice:
+
+0.990446
+
+Representative-lesion Dice:
+
+0.984595
+
+## Audit recovery
+
+A previous finalization assertion failed because a correct metadata value:
+
+geometry_threshold_lowered = False
+
+was incorrectly included inside all(checks.values()).
+
+No scientific criterion failed.
+
+Training was NOT rerun.
+
+Geometry threshold was NOT changed.
+
+## Figure policy
+
+Required manuscript font:
+
+Times New Roman
+
+Exact Times New Roman available in Kaggle:
+
+NO
+
+Substitute font used:
+
+NO
+
+Text-free debugging overlays:
+
+GENERATED
+
+Labeled manuscript figure:
+
+PENDING
 
 ## Target lock
 
 ACTIVE
 
-No MedSeg images, masks, metrics or prompts accessed.
+No MedSeg images, labels, prompts or performance metrics accessed.
 
-## Figure standard
+## Important
 
-Times New Roman
-Bold readable labels
-600-dpi PNG
-Vector PDF
-No captions embedded in figures
+Notebook 04C deliberately memorizes known training images.
+
+Its Dice values are debugging evidence only and must never be
+reported as model performance.
 
 ## Next
 
-Notebook 04C — deliberate tiny-set overfit.
+Notebook 04D — full-label source supervised SegFormer-B1 baseline.
 
-Use 2-4 visible source-fitting images, including a small lesion.
+Before launch:
 
-PASS requires:
-
-- finite optimization;
-- strong deliberate memorization of the tiny training set;
-- prediction-mask alignment;
-- empty-mask metric sanity;
-- no target access.
-
-Only after Notebook 04C passes may the full supervised baseline begin.
+1. restore normal stochastic regularization;
+2. train only on the frozen 12 fitting cases;
+3. use only the 4 source-selection cases for model selection;
+4. keep the 4 source-calibration cases untouched;
+5. use resumable best.pt and last.pt checkpoints;
+6. checkpoint every 250 optimizer updates;
+7. store structured training logs;
+8. store raw source-selection logits;
+9. preserve the target-performance lock.

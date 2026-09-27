@@ -1,0 +1,3 @@
+role,case_id,z_index,tp,tn,fp,fn,valid_pixels,dice,iou,sensitivity,specificity,empty_reference,empty_prediction
+Small Lesion,coronacases_005,64,311,112579,3,3,112896,0.9904458598726115,0.9810725552050473,0.9904458598726115,0.9999733527562132,False,False
+Representative Lesion,radiopaedia_7_85703_0,17,2205,110622,47,22,112896,0.9845947756195579,0.9696569920844327,0.9901212393354288,0.9995753101591232,False,False

@@ -1,0 +1,16 @@
+{
+  "timestamp_utc": "2026-09-27T07:48:08.195623+00:00",
+  "stage": "NOTEBOOK_04C",
+  "selected_samples_sha256": "c57f212e28f53ce647e944d8cd7de49d64e2a1fe1d679c7d0f3aed71bb856b30",
+  "train_log_sha256": "b32da5eb3ebc2956d3d9c4c8e986f27c9f28e3249c2ae97d39732c95a65bde26",
+  "final_metrics_sha256": "d080ec9f02b647e4d9de64a79a024d8f131de174f2cfc9f0cbc438ac093cb3a2",
+  "config_sha256": "b33357e959721be291ddcb8054f0bb9af0a72d05cc25643c10d99d756331ea7a",
+  "report_sha256": "cdda47637aac7a3c023484f8ccf338ac45b0d3b07fcc7f13ad95908ecccce649",
+  "recovery_record_sha256": "b9773d9d8c0f0d0fc818f0c903ba5481c500fcf5c3e42cf7423f13de96d14d4f",
+  "debug_images": {
+    "notebook04c_debug_small_reference.png": "80194879ffd206be08bf6ff10c93c5fc64c36afb280bf44c36d9f553eeb236f9",
+    "notebook04c_debug_small_prediction.png": "03a785e0b4ce6927fa672aefdab148a0b8792295dc1dd72fc9a11b791b403566",
+    "notebook04c_debug_representative_reference.png": "f8aec8c2ea3698d62372c80b2ab16c2897842c34bcabe42a9e9876846dd23b0f",
+    "notebook04c_debug_representative_prediction.png": "e8b0e1cfd62aee4baa32edcf06e313992bc52f5b4e235c023eb96ed490cdb2ba"
+  }
+}

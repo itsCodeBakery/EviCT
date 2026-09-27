@@ -1,0 +1,35 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_04C",
+  "timestamp_utc": "2026-09-27T07:45:44.420118+00:00",
+  "experiment_type": "DEBUGGING_ONLY_TINY_SET_OVERFIT",
+  "research_result": false,
+  "source_only": true,
+  "target_accessed": false,
+  "training_images": 2,
+  "geometry_candidate_policy": {
+    "reference_roundtrip_min_iou": 0.85,
+    "small_lesion_percentile": 0.15,
+    "representative_percentile": 0.6,
+    "threshold_weakened": false
+  },
+  "empty_mask_tested": true,
+  "optimizer": {
+    "encoder_lr": 0.0003,
+    "decoder_lr": 0.001,
+    "weight_decay": 0.0,
+    "debug_only": true
+  },
+  "actual_steps": 100,
+  "pass_thresholds": {
+    "mean_dice": 0.98,
+    "minimum_dice": 0.97
+  },
+  "figure_policy": {
+    "required_final_font": "Times New Roman",
+    "times_new_roman_available": false,
+    "font_substitution": false,
+    "debug_overlays_text_free": true,
+    "publication_figure": "PENDING"
+  }
+}

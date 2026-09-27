@@ -1,0 +1,11 @@
+{
+  "timestamp_utc": "2026-09-27T07:48:08.195091+00:00",
+  "stage": "NOTEBOOK_04C",
+  "issue": "Boolean audit-semantics bug in previous final assertion.",
+  "incorrect_check": "geometry_threshold_lowered=False was passed to all(checks.values()).",
+  "scientific_failure": false,
+  "training_rerun_required": false,
+  "geometry_threshold_changed": false,
+  "geometry_threshold": 0.85,
+  "resolution": "Moved negative metadata outside pass-check logic and replaced with the positive condition geometry_threshold_not_lowered=True."
+}

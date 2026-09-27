@@ -1,0 +1,82 @@
+{
+  "timestamp_utc": "2026-09-27T07:48:08.193273+00:00",
+  "stage": "NOTEBOOK_04C",
+  "status": "PASS",
+  "experiment_type": "PIPELINE_SANITY_DEBUG_ONLY",
+  "research_result": false,
+  "source_only": true,
+  "target_accessed": false,
+  "training_images": 2,
+  "actual_optimizer_steps": 100,
+  "initial_mean_dice": 0.1593682699210337,
+  "final_mean_dice": 0.9875203177460847,
+  "final_minimum_dice": 0.984594775619558,
+  "small_lesion_dice": 0.9904458598726116,
+  "representative_lesion_dice": 0.984594775619558,
+  "empty_mask_test": {
+    "tp": 0,
+    "tn": 4096,
+    "fp": 0,
+    "fn": 0,
+    "valid_pixels": 4096,
+    "dice": 1.0,
+    "iou": 1.0,
+    "sensitivity": NaN,
+    "specificity": 1.0,
+    "empty_reference": true,
+    "empty_prediction": true
+  },
+  "reference_geometry": [
+    {
+      "role": "Small Lesion",
+      "case_id": "coronacases_005",
+      "reference_roundtrip_iou": 0.8888888888888888
+    },
+    {
+      "role": "Representative Lesion",
+      "case_id": "radiopaedia_7_85703_0",
+      "reference_roundtrip_iou": 0.9020356234096693
+    }
+  ],
+  "prediction_geometry": [
+    {
+      "case_id": "coronacases_005",
+      "role": "Small Lesion",
+      "prediction_roundtrip_iou": 0.9037267080745341
+    },
+    {
+      "case_id": "radiopaedia_7_85703_0",
+      "role": "Representative Lesion",
+      "prediction_roundtrip_iou": 0.9057635675220866
+    }
+  ],
+  "metadata": {
+    "geometry_threshold": 0.85,
+    "geometry_threshold_lowered": false,
+    "font_required_for_manuscript": "Times New Roman",
+    "times_new_roman_available_in_kaggle": false,
+    "substitute_font_used": false,
+    "labeled_publication_figure_status": "PENDING",
+    "text_free_debug_overlays": true
+  },
+  "gpu": "Tesla T4",
+  "gpu_peak_allocated_gib": 0.5744147300720215,
+  "gpu_peak_reserved_gib": 0.607421875,
+  "checks": {
+    "source_fitting_only": true,
+    "target_not_accessed": true,
+    "two_unique_cases": true,
+    "two_provenance_groups": true,
+    "small_lesion_included": true,
+    "reference_geometry_threshold_preserved": true,
+    "geometry_threshold_not_lowered": true,
+    "empty_mask_metrics_pass": true,
+    "training_log_finite": true,
+    "near_perfect_mean_fit": true,
+    "near_perfect_minimum_fit": true,
+    "prediction_geometry_pass": true,
+    "no_font_substitution": true,
+    "debug_overlays_exist": true
+  },
+  "audit_bug_note": "Previous finalization failed only because 'geometry_threshold_lowered=False' was incorrectly placed inside all(checks.values()). No scientific criterion failed."
+}
