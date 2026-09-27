@@ -1,0 +1,8 @@
+{
+  "timestamp_utc": "2026-09-27T04:48:37.070784+00:00",
+  "url": "https://github.com/Owais-CodeHub/CT-Insight-VLM.git",
+  "reachable": false,
+  "returncode": 128,
+  "head": null,
+  "error": "fatal: could not read Username for 'https://github.com': No such device or address"
+}

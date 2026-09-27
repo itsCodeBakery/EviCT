@@ -1,0 +1,21 @@
+{
+  "dataset_id": "segdb2",
+  "timestamp_utc": "2026-09-27T04:48:36.879508+00:00",
+  "infection_mask": {
+    "observed_values": [],
+    "source_semantics": "infection mask",
+    "binary_compatible": false,
+    "proposed_future_binary_mapping": null,
+    "status": "REQUIRES_MANUAL_RESOLUTION"
+  },
+  "lung_mask": {
+    "observed_values": [],
+    "source_semantics": "lung mask; left/right labels require explicit verification before semantic mapping",
+    "status": "VALUES_OBSERVED_SEMANTIC_MAPPING_NOT_ASSUMED"
+  },
+  "lung_and_infection_mask": {
+    "observed_values": [],
+    "status": "VALUES_OBSERVED_SEMANTIC_MAPPING_NOT_ASSUMED"
+  },
+  "rule": "No label meaning is invented from numeric value alone."
+}

@@ -1,0 +1,24 @@
+{
+  "path": "/kaggle/input/datasets/andrewmvd/covid19-ct-scans/metadata.csv",
+  "rows": 20,
+  "columns": 4,
+  "column_names": [
+    "ct_scan",
+    "lung_mask",
+    "infection_mask",
+    "lung_and_infection_mask"
+  ],
+  "dtypes": {
+    "ct_scan": "object",
+    "lung_mask": "object",
+    "infection_mask": "object",
+    "lung_and_infection_mask": "object"
+  },
+  "null_counts": {
+    "ct_scan": 0,
+    "lung_mask": 0,
+    "infection_mask": 0,
+    "lung_and_infection_mask": 0
+  },
+  "duplicate_row_count": 0
+}

@@ -6,11 +6,11 @@ EviCT — Uncertainty-Aware Vision-Language Segmentation and Evidence-Grounded L
 
 ## Current stage
 
-NOTEBOOK_00_COMPLETE
+NOTEBOOK_01A_BLOCKED
 
 ## Timestamp
 
-2026-09-27T04:40:03.656343+00:00
+2026-09-27T04:48:37.077232+00:00
 
 ## Repository
 
@@ -18,94 +18,110 @@ https://github.com/itsCodeBakery/EviCT
 
 Branch: main
 
-## Kaggle project root
+---
 
-/kaggle/working/EviCT
+## Completed stages
 
-## Dataset currently attached
+- Bootstrap: COMPLETE
+- Notebook 00 environment/resource audit: COMPLETE
+- Notebook 01A SegDB-2 source audit: BLOCKED
 
-COVID-19 CT scans
+---
+
+## SegDB-2 execution copy
 
 Path:
 
-/kaggle/input/datasets/andrewmvd/covid19-ct-scans
+`/kaggle/input/datasets/andrewmvd/covid19-ct-scans`
 
-## Notebook 00 — Environment audit
+Case identifiers found:
 
-GPU:
-GPU 0: Tesla T4, 14.562 GB; GPU 1: Tesla T4, 14.562 GB
+40
 
-CUDA available:
-True
+Complete CT/mask sets:
 
-PyTorch:
-2.10.0+cu128
+0/40
 
-PyTorch CUDA:
-12.8
+Header-level geometry valid:
 
-BF16 supported:
-True
+0/40
 
-FP16 smoke test:
-PASS
+Exact duplicate records:
 
-Working disk free:
-19.502 GB
+0
 
-Internet available during audit:
-True
+Observed infection-mask labels:
 
-## Validation checks
+[]
 
-{
-  "project_repository_exists": true,
-  "dataset_exists": true,
-  "working_directory_writable": true,
-  "torch_imported": true,
-  "environment_json_written": true,
-  "requirements_lock_written": true,
-  "gpu_fp16_smoke_test": true
-}
+Observed lung-mask labels:
 
-## Outputs
+[]
 
-- config/environment.json
-- config/gpu_smoke_test.json
-- requirements-lock.txt
+Observed combined-mask labels:
+
+[]
+
+---
+
+## Base paper repository
+
+URL:
+
+https://github.com/Owais-CodeHub/CT-Insight-VLM.git
+
+Reachable during audit:
+
+False
+
+Matched reproduction status:
+
+NOT READY
+
+See `protocol_audit.md`.
+
+---
+
+## Generated artifacts
+
+- manifests/segdb2_source_inventory.csv
+- manifests/segdb2_file_pairing.csv
+- manifests/segdb2_exact_duplicates.csv
+- manifests/segdb2_metadata_summary.json
+- manifests/segdb2_audit_summary.json
+- manifests/cases.csv
+- manifests/exclusions.csv
+- config/source_registry_segdb2.json
+- config/label_mapping.json
+- config/ct_insight_repository_status.json
+- artifacts/audit/segdb2_metadata_preview.csv
+- protocol_audit.md
 - STATE.md
 - handoff/STATE.md
 
+---
+
 ## Scientific status
 
-No image preprocessing performed.
+No preprocessing performed.
 
-No label mapping assumed.
+No HU assumption made from file format alone.
+
+No images resized.
 
 No train/selection/calibration split created.
 
-No segmentation model trained.
-
-No model-selection decision made.
+No model trained.
 
 No target dataset evaluated.
 
-No research result has been produced.
+No published result has been entered as an executed result.
+
+No claim of improvement has been made.
+
+---
 
 ## Next stage
 
-Notebook 01 — Source and Reproduction Audit
-
-Notebook 01 must audit:
-
-1. Original dataset provenance.
-2. Exact case inventory.
-3. CT/mask pairing.
-4. NIfTI dimensions and geometry.
-5. Label values.
-6. Infection/lung mask semantics.
-7. Intensity provenance.
-8. Original-source correspondence.
-9. Potential duplicate/overlap issues.
-10. Track R versus Track C eligibility.
+Resolve failed SegDB-2 source-audit checks.
 

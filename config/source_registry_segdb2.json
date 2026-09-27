@@ -1,0 +1,21 @@
+{
+  "dataset_id": "segdb2",
+  "execution_copy": {
+    "provider": "Kaggle",
+    "dataset_name": "COVID-19 CT scans",
+    "kaggle_slug": "andrewmvd/covid19-ct-scans",
+    "mounted_path": "/kaggle/input/datasets/andrewmvd/covid19-ct-scans",
+    "status": "EXECUTION_COPY_AUDITED_LOCALLY"
+  },
+  "authoritative_identity_from_research_plan": {
+    "dataset_name": "COVID-19 CT Lung and Infection Segmentation Dataset",
+    "version": "1.0",
+    "official_record": "https://zenodo.org/records/3757476",
+    "benchmark_repository": "https://github.com/JunMa11/COVID-19-CT-Seg-Benchmark",
+    "expected_volume_count": 20
+  },
+  "verification_status": {
+    "kaggle_copy_exactly_matched_to_official_archives": false,
+    "reason": "The current Kaggle input is an extracted execution copy. File-level SHA-256 hashes have been recorded, but the official archives have not yet been independently downloaded and hash-compared in this notebook."
+  }
+}
