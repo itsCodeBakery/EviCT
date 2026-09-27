@@ -1,0 +1,1 @@
+dataset_id,slice_id,case_id,group_id,z_index,source_split,provenance_stratum,image_path,image_array_index,valid_mask_path,transform_path,original_shape,original_spacing,original_orientation,cache_dtype,target_height,target_width,seed,budget_id,label_visible
