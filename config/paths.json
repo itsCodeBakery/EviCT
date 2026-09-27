@@ -1,0 +1,27 @@
+{
+  "project": "EviCT",
+  "repository": "https://github.com/itsCodeBakery/EviCT.git",
+  "kaggle_project_root": "/kaggle/working/EviCT",
+  "datasets": {
+    "segdb2_kaggle_copy": {
+      "root": "/kaggle/input/datasets/andrewmvd/covid19-ct-scans",
+      "ct_scans": "/kaggle/input/datasets/andrewmvd/covid19-ct-scans/ct_scans",
+      "infection_masks": "/kaggle/input/datasets/andrewmvd/covid19-ct-scans/infection_mask",
+      "lung_masks": "/kaggle/input/datasets/andrewmvd/covid19-ct-scans/lung_mask",
+      "lung_and_infection_masks": "/kaggle/input/datasets/andrewmvd/covid19-ct-scans/lung_and_infection_mask",
+      "metadata": "/kaggle/input/datasets/andrewmvd/covid19-ct-scans/metadata.csv",
+      "status": "PATH_VERIFIED_ONLY"
+    }
+  },
+  "outputs": {
+    "config": "/kaggle/working/EviCT/config",
+    "manifests": "/kaggle/working/EviCT/manifests",
+    "runs": "/kaggle/working/EviCT/runs",
+    "predictions": "/kaggle/working/EviCT/predictions",
+    "evidence": "/kaggle/working/EviCT/evidence",
+    "reports": "/kaggle/working/EviCT/reports",
+    "tables": "/kaggle/working/EviCT/tables",
+    "figures": "/kaggle/working/EviCT/figures",
+    "handoff": "/kaggle/working/EviCT/handoff"
+  }
+}

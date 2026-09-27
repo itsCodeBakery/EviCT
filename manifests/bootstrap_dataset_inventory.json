@@ -1,0 +1,28 @@
+{
+  "dataset_name": "COVID-19 CT scans",
+  "kaggle_path": "/kaggle/input/datasets/andrewmvd/covid19-ct-scans",
+  "bootstrap_status": "PATH_AND_STRUCTURE_VERIFIED",
+  "items": {
+    "ct_scans": {
+      "type": "directory",
+      "file_count": 20
+    },
+    "infection_mask": {
+      "type": "directory",
+      "file_count": 20
+    },
+    "lung_and_infection_mask": {
+      "type": "directory",
+      "file_count": 20
+    },
+    "lung_mask": {
+      "type": "directory",
+      "file_count": 20
+    },
+    "metadata.csv": {
+      "type": "file",
+      "size_bytes": 5500
+    }
+  },
+  "note": "This is the Kaggle execution copy. Provenance, original-source identity, checksums, case counts, label mapping, intensity handling and license will be audited in Notebook 01."
+}

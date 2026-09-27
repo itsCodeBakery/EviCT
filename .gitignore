@@ -216,3 +216,55 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# ============================================================
+# EviCT
+# Files that must NOT be committed directly to Git
+# ============================================================
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets
+.env
+*.pem
+*.key
+credentials*
+secrets*
+
+# Raw medical datasets
+data/
+datasets/
+raw_data/
+*.nii
+*.nii.gz
+*.dcm
+
+# Large intermediate arrays
+cache/*
+!cache/.gitkeep
+
+predictions/*
+!predictions/.gitkeep
+
+# Large binary recovery artifacts
+artifacts/large/*
+!artifacts/large/.gitkeep
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+
+# Kaggle temporary material
+kaggle_temp/
