@@ -1,0 +1,58 @@
+{
+  "timestamp_utc": "2026-09-27T14:48:42.447277+00:00",
+  "stage": "NOTEBOOK_05A",
+  "baseline": "competitive_residual_unet2d",
+  "status": "PASS",
+  "device": "Tesla T4",
+  "gpu_total_memory_gib": 14.56219482421875,
+  "precision": "FP32",
+  "amp_enabled": false,
+  "requested_micro_batch": 4,
+  "effective_batch_planned": 16,
+  "gradient_accumulation_planned": 4,
+  "input_shape": [
+    4,
+    3,
+    336,
+    336
+  ],
+  "output_shape": [
+    4,
+    1,
+    336,
+    336
+  ],
+  "total_parameters": 8111297,
+  "trainable_parameters": 8111297,
+  "smoke_loss": 0.8243399858474731,
+  "smoke_dice_loss": 0.97984778881073,
+  "smoke_bce_loss": 0.6688321828842163,
+  "finite_logits": true,
+  "finite_gradients": true,
+  "loss_equivalence_with_notebook04": true,
+  "peak_allocated_gpu_gib": 1.8251781463623047,
+  "peak_reserved_gpu_gib": 2.3515625,
+  "one_optimizer_update_seconds": 1.5883991789999072,
+  "sampled_fitting_cases": [
+    "radiopaedia_29_86490_1",
+    "coronacases_009",
+    "coronacases_001",
+    "radiopaedia_36_86526_0"
+  ],
+  "sampled_z_indices": [
+    33,
+    145,
+    112,
+    19
+  ],
+  "fitting_cases": 12,
+  "selection_cases": 4,
+  "calibration_cases": 4,
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "target_lock": "ACTIVE",
+  "model_code_sha256": "f7f6baae137dd6f16ed91ce834d4c607adcc7686f3187eee590fe07897050b28",
+  "train_manifest_sha256": "c28ea3d8554a8a52262b936570b183683ad13c8c3cdba263d125c7cda2b04268",
+  "selection_manifest_sha256": "d0c824367891906893f6f3b4b936c2ef942c6ab79bde93e499152bb5a43818e9",
+  "splits_sha256": "a3abd2a275f21d2ec3ad5395abbd5326705ddd5ac62b9a52cd3acd8687dc039f"
+}

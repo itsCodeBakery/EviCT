@@ -1,0 +1,121 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_05",
+  "baseline_name": "competitive_residual_unet2d",
+  "baseline_status": "independent_reference_baseline",
+  "architecture": {
+    "family": "2D U-Net",
+    "variant": "Residual U-Net with GroupNorm",
+    "base_channels": 32,
+    "input_channels": 3,
+    "output_channels": 1,
+    "pretraining": "none",
+    "initialization": "random",
+    "external_weights": false
+  },
+  "input_contract": {
+    "height": 336,
+    "width": 336,
+    "grayscale_replicated_to_rgb": true,
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "valid_mask_padding_excluded": true
+  },
+  "data_contract": {
+    "split_seed": 17,
+    "fitting_cases": 12,
+    "selection_cases": 4,
+    "calibration_cases": 4,
+    "budget": "100_percent_full_label",
+    "patient_first_sampling": true,
+    "positive_slice_probability": 0.5,
+    "target_access_allowed": false
+  },
+  "loss": {
+    "soft_dice_weight": 0.5,
+    "bce_weight": 0.5,
+    "per_image_then_batch_reduction": true,
+    "padding_excluded": true,
+    "equivalent_to_notebook04_loss": true
+  },
+  "optimizer_plan": {
+    "type": "AdamW",
+    "weight_decay": 0.01,
+    "pilot_seed": 17,
+    "learning_rate_candidates": [
+      0.0001,
+      0.0003
+    ],
+    "selection_rule": "maximum frozen source-selection macro_case_dice",
+    "architecture_tuning": false,
+    "maximum_lr_configs": 2
+  },
+  "scheduler": {
+    "type": "linear_warmup_then_cosine",
+    "warmup_updates": 200,
+    "maximum_updates": 5000
+  },
+  "batch": {
+    "micro_batch": 4,
+    "gradient_accumulation": 4,
+    "images_per_optimizer_update": 16
+  },
+  "augmentation": {
+    "rotation_degrees": [
+      -10.0,
+      10.0
+    ],
+    "scale": [
+      0.9,
+      1.1
+    ],
+    "translation_fraction": 0.05,
+    "horizontal_flip": false,
+    "brightness": [
+      0.9,
+      1.1
+    ],
+    "contrast": [
+      0.9,
+      1.1
+    ],
+    "gamma": [
+      0.8,
+      1.2
+    ],
+    "noise_probability": 0.3,
+    "maximum_noise_std": 0.03,
+    "blur_probability": 0.2
+  },
+  "validation": {
+    "every_optimizer_updates": 250,
+    "complete_selection_cases": true,
+    "checkpoint_metric": "macro_case_dice",
+    "checkpoint_threshold": 0.5,
+    "threshold_tuning": false
+  },
+  "checkpointing": {
+    "recovery_every": 50,
+    "last_every": 250,
+    "best_on_selection_improvement": true,
+    "first_durable_stop": 1000
+  },
+  "early_stopping": {
+    "patience_validations": 8
+  },
+  "primary_training_seeds": [
+    17,
+    42,
+    2026
+  ],
+  "calibration_accessed": false,
+  "target_accessed": false
+}

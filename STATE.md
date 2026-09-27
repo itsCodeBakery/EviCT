@@ -2,61 +2,131 @@
 
 ## Current stage
 
-NOTEBOOK_04_COMPLETE_SOURCE_BASELINE_FROZEN
+NOTEBOOK_05A_UNET_PROTOCOL_AND_GPU_SMOKE_PASS
 
 ## Timestamp
 
-2026-09-27T14:40:37.697435+00:00
+2026-09-27T14:48:42.452422+00:00
 
-## Frozen supervised baseline
+## Notebook 04
 
-Model:
+Status:
 
-Supervised SegFormer MiT-B1
+COMPLETE_SOURCE_BASELINE_FROZEN
 
-Primary seeds:
+Three-seed source-selection macro case Dice:
 
-17, 42, 2026
+0.75405094 ± 0.01236482
 
-Best source-selection macro case Dice:
+Notebook 04 retraining allowed:
 
-Seed 17: 0.75258052
+NO
 
-Seed 42: 0.76708522
+## Notebook 05
 
-Seed 2026: 0.74248709
+Current baseline:
 
-Three-seed mean macro case Dice:
+Competitive residual 2D U-Net
 
-0.75405094
+Baseline type:
 
-Three-seed sample SD:
+Independent strong source reference
 
-0.01236482
+Pretraining:
 
-Selection threshold:
+NONE
+
+Precision:
+
+FP32
+
+Input:
+
+336 x 336 grayscale replicated to 3 channels
+
+Normalization:
+
+Same ImageNet normalization as frozen SegFormer baseline
+
+Loss:
+
+0.5 soft Dice + 0.5 BCE
+
+Loss-equivalence audit:
+
+PASS
+
+GPU smoke micro-batch:
+
+4
+
+Planned gradient accumulation:
+
+4
+
+Planned effective batch:
+
+16
+
+Peak GPU allocated:
+
+1.8252 GiB
+
+Peak GPU reserved:
+
+2.3516 GiB
+
+Total parameters:
+
+8111297
+
+Trainable parameters:
+
+8111297
+
+Forward:
+
+PASS
+
+Backward:
+
+PASS
+
+Finite gradients:
+
+PASS
+
+## Tuning allowance
+
+Architecture tuning:
+
+NO
+
+Pilot training seed:
+
+17
+
+Allowed learning-rate candidates:
+
+0.0001, 0.0003
+
+Selection criterion:
+
+Frozen source-selection macro case Dice
+
+Threshold:
 
 0.5 fixed
 
-Checkpoint / raw-logit audit:
+## Isolation
 
-PASS
+Fitting cases:
 
-Validation overlays:
+12 frozen source cases
 
-PASS
+Selection cases:
 
-Figure font:
-
-Liberation Sans
-
-PNG:
-
-600 dpi
-
-Vector PDF:
-
-YES
+4 frozen source cases
 
 Calibration accessed:
 
@@ -70,13 +140,8 @@ Target lock:
 
 ACTIVE
 
-## Freeze
-
-Notebook 04 source baseline is frozen.
-
-Do not retrain or retune it.
-
 ## Next
 
-Review the frozen source-baseline handoff,
-then proceed to the next protocol stage.
+Run Notebook 05B U-Net pilot training on seed 17 for the two predeclared
+learning-rate candidates. Select the learning rate using source-selection
+macro case Dice only. Then freeze that setting before seeds 42 and 2026.
