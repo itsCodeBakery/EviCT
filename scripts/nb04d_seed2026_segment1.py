@@ -1351,12 +1351,7 @@ ACTIVE
         )
 
     def do_validation():
-        nonlocal (
-            best_score,
-            best_step,
-            patience_count,
-            last_validation_step,
-        )
+        nonlocal best_score, best_step, patience_count, last_validation_step
 
         print()
         print("=" * 100)
