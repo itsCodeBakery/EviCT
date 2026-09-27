@@ -2,113 +2,65 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED17_RESUME_AUDIT_PASS_STEP1020_FULL_CONTINUATION_PENDING
+NOTEBOOK_04D_SEED17_FP32_RUNNING_STEP_1250
 
 ## Timestamp
 
-2026-09-27T08:36:48.850101+00:00
+2026-09-27T08:49:05.441403+00:00
 
-## Notebook 04D
-
-Model:
+## Model
 
 Supervised SegFormer MiT-B1
 
-Seed:
+## Seed
 
 17
 
-Precision:
+## Precision
 
 FP32
 
-## Durable Kaggle recovery point
-
-Step:
-
-1000
-
-Archive SHA-256:
-
-26dc931c9b5465c663ef3e3b3b21e1a99525252dedd1bbfc5a1651727ce6f8f6
-
-## Resume audit
-
-Source checkpoint:
-
-last.pt at step 1000
-
-Checkpoint loaded with:
-
-map_location=cpu
-
-Reason:
-
-CPU PyTorch RNG state must remain a CPU torch.ByteTensor.
-
-CPU RNG restore:
-
-PASS
-
-CUDA RNG restore:
-
-PASS
-
-Sampler restore:
-
-PASS
-
-Optimizer restore:
-
-PASS
-
-Scheduler restore:
-
-PASS
-
-## Recovery verification
-
-Successful resumed updates:
-
-20
+## Optimizer progress
 
 Current optimizer step:
 
-1020
+1250 / 5000
 
-Last source-selection validation:
+Images seen:
 
-1000
+20000
 
-Best source-selection macro case Dice:
+## Source-selection model selection
 
-0.68108677
+Best macro case Dice:
 
-Best step:
+0.70595201
 
-250
+Best checkpoint step:
+
+1250
+
+Last validation step:
+
+1250
 
 Patience:
 
-3 / 8
+0 / 8
 
-Step-1020 losses finite:
-
-YES
-
-Step-1020 gradients finite:
-
-YES
-
-## Working recovery checkpoint
+## Checkpoints
 
 recovery.pt:
 
-STEP 1020
+every 50 successful updates
 
-SHA-256:
+last.pt:
 
-b8dc3aebabff5a00aa6687b696490ad2c86793e3cbae58257d6476710064a24a
+every 250 updates
+
+best.pt:
+
+source-selection improvement only
 
 ## Isolation
 
@@ -116,23 +68,18 @@ Training:
 
 12 fitting cases only
 
+Selection:
+
+4 complete source-selection cases only
+
 Calibration accessed:
 
 NO
 
-MedSeg / target accessed:
+Target / MedSeg accessed:
 
 NO
 
 ## Target lock
 
 ACTIVE
-
-## Next
-
-Resume from recovery.pt at optimizer step 1020 and
-continue the supervised seed-17 run.
-
-Next source-selection validation:
-
-step 1250
