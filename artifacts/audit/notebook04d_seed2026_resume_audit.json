@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-09-27T12:27:15.600955+00:00",
+  "seed": 2026,
+  "source_step": 1000,
+  "verified_step": 1020,
+  "successful_resume_updates": 20,
+  "best_score": 0.7265923854400631,
+  "best_step": 500,
+  "patience_count": 2,
+  "last_validation_step": 1000,
+  "recovery_sha256": "65e7082f269b066c90b7244222d96366f0aa7dd3c49b2ba9900a936c6f67582e",
+  "calibration_accessed": false,
+  "target_accessed": false
+}
