@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED17_FP32_RUNNING_STEP_1000
+NOTEBOOK_04D_SEED17_STEP1000_AWAITING_KAGGLE_SAVE_VERSION
 
 ## Timestamp
 
-2026-09-27T08:25:44.409816+00:00
+2026-09-27T08:25:47.659861+00:00
 
 ## Notebook 04D
 
@@ -26,81 +26,146 @@ AMP:
 
 DISABLED
 
-Reason:
+## Numerical recovery note
 
-Previous abandoned FP16 attempt produced a non-finite
-scaled gradient before optimizer update 119. No durable
-checkpoint had been reached.
+The original pre-checkpoint FP16 attempt was abandoned after
+a non-finite scaled gradient before optimizer update 119.
 
-Scientific training protocol changed:
+No durable checkpoint existed.
+
+The run was restarted deterministically from optimizer step 0.
+
+Scientific protocol changed:
 
 NO
 
-## Split
+Only execution precision changed from FP16 to FP32.
 
-Fitting:
+## Training schedule
 
-12 cases
+Current optimizer step:
 
-Selection:
+1000 / 5000
 
-4 cases
+Warm-up:
 
-Calibration:
+200 updates
 
-4 cases — UNTOUCHED
+Post-warmup:
 
-## Current optimizer step
+Cosine learning-rate decay
 
-1000
+Encoder base LR:
 
-## Planned maximum
+1e-4
 
-5000
+Decoder base LR:
 
-## Effective labeled images per update
+3e-4
+
+Weight decay:
+
+0.01
+
+Images per successful optimizer update:
 
 16
 
-## Validation frequency
+Total image exposures:
+
+16000
+
+## Split
+
+Training:
+
+12 fitting cases only
+
+Model selection:
+
+4 complete source-selection cases only
+
+Calibration:
+
+4 cases untouched
+
+## Validation
+
+Every:
 
 250 optimizer updates
 
-## Current best source-selection macro case Dice
+Completed validations:
+
+4
+
+Fixed checkpoint-selection threshold:
+
+0.5
+
+Threshold tuning performed:
+
+NO
+
+## Best source-selection checkpoint
+
+Macro case Dice:
 
 0.68108677
 
-## Best step
+Best step:
 
 250
 
-## Patience
+Patience:
 
 3 / 8
 
-## Checkpoints
+## Recovery
 
 recovery.pt:
 
-every 50 successful optimizer updates
+written every 50 successful updates
 
 last.pt:
 
-every 250 optimizer updates
+written every 250 updates
 
 best.pt:
 
-when source-selection macro case Dice improves
+written when source-selection macro case Dice improves
+
+last.pt reload verification:
+
+PASS
+
+## Raw validation logits
+
+Best source-selection raw logits:
+
+SAVED
+
+Dtype:
+
+float32
+
+Sigmoid applied:
+
+NO
+
+Threshold applied:
+
+NO
 
 ## Target lock
 
 ACTIVE
 
-MedSeg accessed:
+Calibration data accessed:
 
 NO
 
-Calibration accessed:
+MedSeg / target accessed:
 
 NO
 
@@ -114,4 +179,9 @@ Fallback:
 
 Calibri -> Arial Narrow -> Arial -> Liberation Sans -> DejaVu Sans
 
-Labels remain present.
+Labels must remain present.
+
+## Next
+
+SAVE A KAGGLE VERSION WITH OUTPUTS BEFORE CONTINUING
+BEYOND OPTIMIZER STEP 1000.
