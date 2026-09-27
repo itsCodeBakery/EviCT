@@ -169,3 +169,70 @@ Confirm these two files are visible:
 2. EviCT_Notebook04D_seed42_step1000_Recovery.sha256
 
 After durable save, continue seed 42 from optimizer step 1000.
+
+
+## GitHub Release Durable Backup
+
+Reason:
+
+Kaggle notebook source exceeded the notebook commit size limit.
+
+Seed:
+
+42
+
+Optimizer step:
+
+1000
+
+Recovery state:
+
+DURABLE
+
+Release tag:
+
+evict-nb04d-seed42-step1000
+
+Release:
+
+https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb04d-seed42-step1000
+
+Recovery TAR:
+
+EviCT_Notebook04D_seed42_step1000_Recovery.tar
+
+Recovery TAR SHA-256:
+
+93c040b55f9d0e858bbf5d3075c6b9bc3116f7460972ed54df3d9d30ed0f1ac0
+
+SHA file:
+
+EviCT_Notebook04D_seed42_step1000_Recovery.sha256
+
+Remote TAR size:
+
+920606720 bytes
+
+Remote SHA-file size:
+
+65 bytes
+
+Normal Git synchronization:
+
+COMPLETE
+
+Large binary synchronization:
+
+COMPLETE VIA GITHUB RELEASE
+
+Resume source preference:
+
+GitHub Release seed-42 step-1000 recovery TAR
+
+Calibration accessed:
+
+NO
+
+Target / MedSeg accessed:
+
+NO
