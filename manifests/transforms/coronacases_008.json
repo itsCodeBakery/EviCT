@@ -1,0 +1,64 @@
+{
+  "axis_contract": {
+    "cache_array": "Z,H,W",
+    "nifti_array": "H,W,Z",
+    "slice_axis": 2
+  },
+  "case_id": "coronacases_008",
+  "dataset_id": "segdb2",
+  "inverse_rule": "remove saved padding, then nearest-neighbor resize predictions back to original HxW",
+  "original_affine": [
+    [
+      -0.7246090173721313,
+      0.0,
+      0.0,
+      187.4975128173828
+    ],
+    [
+      -0.0,
+      0.7246090173721313,
+      0.0,
+      -184.9563446044922
+    ],
+    [
+      0.0,
+      -0.0,
+      1.0,
+      -218.5626220703125
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "original_orientation": "LAS",
+  "original_shape": [
+    512,
+    512,
+    301
+  ],
+  "original_spacing": [
+    0.7246090173721313,
+    0.7246090173721313,
+    1.0
+  ],
+  "preprocessing_sha256": "51a6259ebe818087309abfc8600996281b972ec23618e0051e8c91a66ed684fe",
+  "provenance_stratum": "coronacases_named",
+  "resize_pad": {
+    "original_h": 512,
+    "original_w": 512,
+    "pad_bottom": 0,
+    "pad_left": 0,
+    "pad_right": 0,
+    "pad_top": 0,
+    "resized_h": 336,
+    "resized_w": 336,
+    "scale_x": 0.65625,
+    "scale_y": 0.65625,
+    "target_h": 336,
+    "target_w": 336
+  },
+  "source_split": "fitting"
+}
