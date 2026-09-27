@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED17_FP32_RUNNING_STEP_500
+NOTEBOOK_04D_SEED17_FP32_RUNNING_STEP_750
 
 ## Timestamp
 
-2026-09-27T08:21:09.872214+00:00
+2026-09-27T08:23:27.793941+00:00
 
 ## Notebook 04D
 
@@ -52,7 +52,7 @@ Calibration:
 
 ## Current optimizer step
 
-500
+750
 
 ## Planned maximum
 
@@ -76,7 +76,7 @@ Calibration:
 
 ## Patience
 
-1 / 8
+2 / 8
 
 ## Checkpoints
 
