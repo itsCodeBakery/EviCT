@@ -1,0 +1,114 @@
+{
+  "audit_artifact_sha256": {
+    "segdb1_audit_summary": "1ba0b1a50034886ba8e81b1d67dff60fcb288390ba37a0ac901b78626e13f546",
+    "segdb1_cases": "4040b63d5b11b0f1d5244b92031c8497e3d0d34151f5c459db5ab45445aeffab",
+    "segdb1_grouping_status": "e7ae2a23976591a994cd24045017a2a24aa9800947f3f2ba2401170429cbdcc5",
+    "segdb1_source_inventory": "3604f7c00551c348b664bc5212e6c004ac2c1368c2754b4d1c63f85ad5d01c6b",
+    "segdb2_audit_summary": "05140740b9d90ca3db933db723a84b6c3a038db63184230bece5036e6b94bc27",
+    "segdb2_cases": "eaff99aa2d39e48a7ea0d08c40c3145975c86aee9f372f96a02865fd05b08994",
+    "segdb2_source_inventory": "4233862502c69133016e34ba776478a209c81bccc950acdb998688792da3dcab"
+  },
+  "competition_radiopaedia_arrays": {
+    "eligible_for_evaluation": false,
+    "eligible_for_training": false,
+    "reason": "Potential provenance overlap with the Radiopaedia-derived portion of SegDB-2 has not been resolved.",
+    "status": "QUARANTINED"
+  },
+  "leakage_policy": {
+    "target_calibration_locked": true,
+    "target_performance_locked": true,
+    "target_prompt_tuning_locked": true,
+    "target_retrieval_pool_locked": true,
+    "target_threshold_tuning_locked": true,
+    "target_visual_selection_locked": true,
+    "unlock_condition": "Notebook 08 final source-side protocol freeze / test-ready state."
+  },
+  "policy_version": "1.0",
+  "project": "EviCT",
+  "purpose": "Freeze dataset roles before preprocessing, model selection, calibration, or target performance evaluation.",
+  "segdb1_medseg": {
+    "complete_volumes": false,
+    "core_binary_target": {
+      "channel_2": "non-target; lungs-other representation",
+      "channel_3": "background",
+      "definition": "ground-glass OR consolidation",
+      "kaggle_channels": [
+        0,
+        1
+      ]
+    },
+    "eligible_for_calibration": false,
+    "eligible_for_external_evaluation": true,
+    "eligible_for_hyperparameter_tuning": false,
+    "eligible_for_model_selection": false,
+    "eligible_for_prompt_selection": false,
+    "eligible_for_source_training": false,
+    "eligible_for_threshold_selection": false,
+    "evaluation_scope": "image_level_selected_slice",
+    "evaluation_timing": "Only after source-side architecture, checkpoint, threshold, calibration, uncertainty rules, prompts and metrics have been frozen.",
+    "forbidden": [
+      "Randomly split the 100 slices and claim patient-independent training.",
+      "Use target performance for model or hyperparameter selection.",
+      "Describe MedSeg results as volumetric patient-level metrics."
+    ],
+    "number_of_slices": 100,
+    "patient_grouping_verified": false,
+    "role": "EXTERNAL_TARGET"
+  },
+  "segdb2": {
+    "eligible_for_calibration": true,
+    "eligible_for_selection": true,
+    "eligible_for_training": true,
+    "future_label_budgets": {
+      "100_percent": {
+        "total_fitting_volumes": 12,
+        "visible_fitting_volumes": 12
+      },
+      "25_percent": {
+        "total_fitting_volumes": 12,
+        "visible_fitting_volumes": 3
+      },
+      "50_percent": {
+        "total_fitting_volumes": 12,
+        "visible_fitting_volumes": 6
+      },
+      "budget_seeds": [
+        17,
+        42,
+        2026
+      ],
+      "nested": true
+    },
+    "future_split_policy": {
+      "calibration_fraction": 0.2,
+      "expected_counts": {
+        "calibration": 4,
+        "fitting": 12,
+        "selection": 4
+      },
+      "fitting_fraction": 0.6,
+      "rule": "One fixed 12/4/4 volume partition. The partition must be saved before preprocessing or training.",
+      "selection_fraction": 0.2,
+      "split_seed": 17
+    },
+    "geometry_valid_volumes": 20,
+    "independence_unit": "complete_CT_volume",
+    "number_of_volumes": 20,
+    "role": "SOURCE"
+  },
+  "status": "FROZEN",
+  "timestamp_utc": "2026-09-27T05:39:43.710178+00:00",
+  "track_C": {
+    "external_target_dataset": "segdb1_medseg",
+    "primary_direction": "segdb2_to_segdb1",
+    "reverse_direction": "BLOCKED",
+    "reverse_direction_reason": "Verified MedSeg patient/group mapping has not been recovered.",
+    "source_dataset": "segdb2",
+    "status": "ACTIVE"
+  },
+  "track_R": {
+    "historical_published_results": "Reference only; must never be entered as rerun results.",
+    "reason": "Critical CT-Insight reproduction details remain unresolved.",
+    "status": "NOT_READY"
+  }
+}
