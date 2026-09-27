@@ -1,0 +1,3 @@
+provenance_stratum,sampled_pixel_count,observed_min_bin,observed_max_bin,approx_mean,approx_std,approx_q05,approx_q50,approx_q95,fraction_in_0_to_0p01,fraction_in_0p99_to_1
+coronacases_named,863330,0.15,1.0,0.45527751844601716,0.3155245279155789,0.155,0.245,0.895,0.0,0.017982694913879976
+radiopaedia_named,916458,0.0,1.0,0.44589123560490496,0.35667379081864986,0.005,0.295,0.965,0.17564907502580587,0.016414281941998433

@@ -1,0 +1,23 @@
+{
+  "timestamp_utc": "2026-09-27T06:57:37.048559+00:00",
+  "stage": "NOTEBOOK_03C_SOURCE_INTENSITY_QC",
+  "target_accessed": false,
+  "data_source": "/kaggle/working/EviCT/artifacts/audit/source_intensity_histogram_data.csv",
+  "summary_csv": "/kaggle/working/EviCT/artifacts/audit/source_intensity_distribution_summary.csv",
+  "figure_png": "/kaggle/working/EviCT/figures/source_intensity_distribution_publication.png",
+  "figure_pdf": "/kaggle/working/EviCT/figures/source_intensity_distribution_publication.pdf",
+  "checks": {
+    "both_provenance_groups_present": true,
+    "normalized_range_within_0_1": true,
+    "nonzero_histogram_mass": true,
+    "distribution_not_collapsed_to_single_bin": true,
+    "target_data_used": false
+  },
+  "interpretation": {
+    "coronacases_named": "Distribution reflects the frozen benchmark lung-window transformation.",
+    "radiopaedia_named": "Distribution reflects the frozen windowed display-value transformation; the low-intensity spike is compatible with dark/background regions in the display representation."
+  },
+  "png_sha256": "c05cc5f2269dcf5d65efe791b52fd1ec968285bf40f8faa5c88d0fb6f666cafe",
+  "pdf_sha256": "c52188f34f92ae95daa28a11df6711f5bb7c82e00524a73b4f6a749d1b5b1f86",
+  "summary_sha256": "d1c4dfc9c7dfe9d3ce5be325bd0489cffd0d2ff6af4393d805e5e16ddc384fa0"
+}
