@@ -2,137 +2,149 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED17_COMPLETE_AWAITING_KAGGLE_SAVE_VERSION
+NOTEBOOK_04D_SEED42_RUNNING_STEP_0
 
 ## Timestamp
 
-2026-09-27T09:24:15.065449+00:00
+2026-09-27T09:35:43.333183+00:00
 
-## Notebook 04D
+## Completed primary baseline seeds
+
+Seed 17:
+
+COMPLETE — 5000 / 5000
+
+Best source-selection macro case Dice:
+
+0.75258052
+
+Best seed-17 checkpoint:
+
+step 3500
+
+Seed-17 final Kaggle recovery:
+
+USER-CONFIRMED DURABLE
+
+## Current run
 
 Model:
 
 Supervised SegFormer MiT-B1
 
-Seed:
+Training seed:
 
-17
+42
 
 Precision:
 
 FP32
 
-## Completion
+Current optimizer step:
 
-Final optimizer step:
+0 / 5000
 
-5000
+Current durable segment:
 
-Completion reason:
-
-MAXIMUM_5000_UPDATES
-
-Maximum allowed step:
-
-5000
-
-## Training exposures
+0 -> 1000
 
 Images per optimizer update:
 
 16
 
-Total image exposures:
+Total seed-42 image exposures:
 
-80000
+0
 
 ## Validation
 
-Every:
+Frequency:
 
 250 optimizer updates
 
-Last validation step:
+Last completed validation:
 
-5000
+0
 
-## Best source-selection checkpoint
+Current best source-selection macro case Dice:
 
-Macro case Dice:
+NONE_YET
 
-0.75258052
+Current best step:
 
-Best step:
+0
 
-3500
+Patience:
 
-Final patience:
+0 / 8
 
-6 / 8
+## Recovery
 
-Checkpoint-selection threshold:
+recovery.pt:
 
-0.5
-
-Threshold optimization performed:
-
-NO
-
-## Durable artifacts
-
-best.pt:
-
-YES
+every 50 successful optimizer updates
 
 last.pt:
 
-YES
+every 250 optimizer updates
 
-last_known_good.pt:
+best.pt:
 
-YES
+on source-selection improvement
 
-best raw source-selection logits:
+Resume method:
 
-YES
+CPU-first checkpoint load + RNG/sampler restoration
 
-## Resume integrity
+## GitHub synchronization
 
-CPU-first checkpoint loading:
+Config:
 
-PASS
+config/notebook04d_seed42_config.json
 
-CPU RNG restore:
+Hashes:
 
-PASS
+config/notebook04d_seed42_hashes.json
 
-CUDA RNG restore:
+Training log:
 
-PASS
+artifacts/audit/notebook04d_seed42_train_log.csv
 
-Patient sampler restore:
+Selection metrics:
 
-PASS
+artifacts/audit/notebook04d_seed42_selection_metrics.csv
 
-Optimizer restore:
+Case metrics:
 
-PASS
+artifacts/audit/notebook04d_seed42_selection_case_metrics.csv
 
-Scheduler restore:
+Handoff:
 
-PASS
+handoff/notebook04d_seed42_resume.json
+
+Large checkpoints committed to Git:
+
+NO
+
+Reason:
+
+Repository intentionally ignores artifacts/large and predictions.
+
+Large recovery location:
+
+Kaggle output archive
 
 ## Isolation
 
-Training data:
+Training:
 
-12 fitting cases only
+12 frozen fitting cases only
 
-Selection data:
+Model selection:
 
-4 complete source-selection cases only
+4 frozen complete source-selection cases only
 
-Calibration accessed:
+Calibration cases accessed:
 
 NO
 
@@ -146,6 +158,5 @@ ACTIVE
 
 ## Next
 
-SAVE THIS COMPLETED SEED-17 RUN AS A KAGGLE VERSION.
-
-After durable save, continue with the next protocol stage.
+Continue seed 42 until step 1000, then save a Kaggle
+version containing the seed-42 recovery TAR and SHA-256.
