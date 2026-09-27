@@ -1,0 +1,16 @@
+{
+  "timestamp_utc": "2026-09-27T12:13:08.087775+00:00",
+  "seed": 2026,
+  "split_seed": 17,
+  "initialization": "fresh_pinned_imagenet_mit_b1",
+  "initialized_from_seed17": false,
+  "initialized_from_seed42": false,
+  "precision": "FP32",
+  "run_config_hash": "48aa96a6deadb596096b294550ffa19154de00fbc48274410581f6c2588fa234",
+  "split_hash": "b97670f147a74a2a42f652fc9ac8e1d5c0dc6aa82bb36cdab30af33210f406ce",
+  "model_code_hash": "d731ff16e4b14e86404b2f9dcad3588ac918703620c5d844be7e80514defe570",
+  "metrics_code_hash": "ef961e8da4d00975c48184e571ec9809e660ee27df02f4a9c11cb7b31f6ffaf6",
+  "pretrained_weight_sha256": "980b86b60db37b1b1528086f6c53d253d879e9e09ebe07397b40fd275738a3bf",
+  "calibration_accessed": false,
+  "target_accessed": false
+}

@@ -2,119 +2,81 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED42_COMPLETE_DURABLE
+NOTEBOOK_04D_SEED2026_RUNNING_STEP_250
 
 ## Timestamp
 
-2026-09-27T10:46:49.505824+00:00
+2026-09-27T12:15:32.873863+00:00
 
-## Notebook 04D — Seed 42
+## Notebook 04D
 
 Model:
 
 Supervised SegFormer MiT-B1
 
+Training seed:
+
+2026
+
+Frozen split seed:
+
+17
+
 Precision:
 
 FP32
 
-Final optimizer step:
+Current optimizer step:
+
+250 / 5000
+
+Current durable segment:
+
+0 -> 1000
+
+Images seen:
 
 4000
 
-Last validation step:
+Last source-selection validation:
 
-4000
+250
 
 Best source-selection macro case Dice:
 
-0.76708522
+0.67175663
 
-Best checkpoint step:
+Best step:
 
-2000
+250
 
-Final patience:
+Patience:
 
-8 / 8
+0 / 8
 
-Total image exposures:
+## Initialization
 
-64000
+Pinned ImageNet MiT-B1:
 
-## Final durable recovery
+YES
 
-Recovery TAR:
+Seed-17 checkpoint used:
 
-EviCT_Notebook04D_seed42_final_step4000_Recovery.tar
+NO
 
-SHA-256:
+Seed-42 checkpoint used:
 
-d93117969c6eea6a601430959bd61a73553f84420612727e22bc541f851caedc
-
-GitHub Release:
-
-https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb04d-seed42-final-step4000
-
-Release tag:
-
-evict-nb04d-seed42-final-step4000
-
-Remote TAR:
-
-VERIFIED
-
-Remote SHA file:
-
-VERIFIED
-
-## Recovery components
-
-Model:
-
-PRESERVED
-
-Optimizer:
-
-PRESERVED
-
-Scheduler:
-
-PRESERVED
-
-Sampler:
-
-PRESERVED
-
-CPU RNG:
-
-PRESERVED
-
-CUDA RNG:
-
-PRESERVED
-
-Best raw selection logits:
-
-PRESERVED
-
-Training logs:
-
-PRESERVED
-
-Selection metrics:
-
-PRESERVED
+NO
 
 ## Isolation
 
-Fitting cases:
+Training:
 
-12
+12 frozen fitting cases only
 
-Selection cases:
+Selection:
 
-4
+4 frozen complete source-selection cases only
 
 Calibration accessed:
 
@@ -127,29 +89,3 @@ NO
 ## Target lock
 
 ACTIVE
-
-## Seed status
-
-Seed 17:
-
-COMPLETE
-
-Best Dice:
-
-0.75258052
-
-Seed 42:
-
-COMPLETE
-
-Best Dice:
-
-0.76708522
-
-Seed 2026:
-
-PENDING
-
-## Next
-
-Begin Notebook 04D supervised baseline training seed 2026.

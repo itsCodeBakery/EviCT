@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-09-27T12:15:31.824502+00:00",
+  "seed": 2026,
+  "global_step": 250,
+  "last_validation_step": 250,
+  "best_score": 0.6717566272486509,
+  "best_step": 250,
+  "patience_count": 0,
+  "images_seen": 4000,
+  "precision": "FP32",
+  "target_accessed": false,
+  "calibration_accessed": false,
+  "last_checkpoint_sha256": "f73fc5871578fbf4868823c5d8fa16e003f6e036a77564d6b6f118afd0487af6",
+  "best_checkpoint_sha256": "557c6e57f7d6da22be881a68943721f7c4b7aceb2579bd77e033dc5742322a92"
+}
