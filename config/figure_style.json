@@ -1,0 +1,23 @@
+{
+  "project": "EviCT",
+  "version": "1.0",
+  "timestamp_utc": "2026-09-27T07:05:16.898371+00:00",
+  "status": "FROZEN",
+  "font_family": "Times New Roman",
+  "font_policy": "All manuscript figure headings, panel labels, axis labels, tick labels, legends and data annotations must use Times New Roman.",
+  "font_fallback_allowed": false,
+  "bold_text": true,
+  "minimum_publication_png_dpi": 600,
+  "vector_output_required": true,
+  "required_outputs": [
+    "PNG",
+    "PDF"
+  ],
+  "embedded_caption_allowed": false,
+  "embedded_footnote_allowed": false,
+  "caption_policy": "Scientific captions and explanatory text belong in LaTeX, not inside the figure.",
+  "panel_labels": "(A), (B), (C), ...",
+  "readability_rule": "Text must remain legible after the figure is scaled to its intended LaTeX column or text width.",
+  "panel_density_rule": "Use only the number of panels required to convey the scientific result; avoid crowded grids.",
+  "earlier_qc_figures": "May remain as historical QC artifacts. Regenerate under this style if selected for the final manuscript."
+}

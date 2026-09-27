@@ -1,0 +1,15 @@
+{
+  "project": "EviCT",
+  "timestamp_utc": "2026-09-27T07:05:22.749401+00:00",
+  "notebook_stage": "NOTEBOOK_03_FROZEN",
+  "archive_output_name": "EviCT_Notebook03_Cache.tar",
+  "archive_expected_path": "/kaggle/working/EviCT_Notebook03_Cache.tar",
+  "archive_size_bytes": 1592002560,
+  "archive_sha256": "d88e786cd467816d6cb446333385918016946a83cdd3c258b3011f458fbd3fc4",
+  "checksum_output_name": "EviCT_Notebook03_Cache.sha256",
+  "contains": "cache/segdb2",
+  "source_cases": 20,
+  "source_slices": 3520,
+  "restore_rule": "Extract the TAR into a freshly cloned /kaggle/working/EviCT directory, then verify the TAR checksum and cache hashes before use.",
+  "notebook03_freeze_sha256": "6deebfc0d5ddb4d364953e1156c51bbcca9df308342c8538673d613d6ac2fcee"
+}

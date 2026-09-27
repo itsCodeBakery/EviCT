@@ -1,0 +1,42 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_03",
+  "timestamp_utc": "2026-09-27T07:05:16.904663+00:00",
+  "status": "FROZEN",
+  "source_dataset": "SegDB-2",
+  "source_cases": 20,
+  "source_slices": 3520,
+  "target_accessed_for_performance": false,
+  "target_lock": "ACTIVE",
+  "preprocessing": {
+    "output_size": [
+      336,
+      336
+    ],
+    "images": "float16_[0,1]",
+    "infection_masks": "uint8_[0,1]",
+    "lung_masks": "uint8_[0,1,2]",
+    "image_interpolation": "bilinear",
+    "mask_interpolation": "nearest",
+    "valid_pixel_masks": true,
+    "inverse_transforms": true
+  },
+  "cache": {
+    "root": "/kaggle/working/EviCT/cache/segdb2",
+    "bytes": 1591843840,
+    "gib": 1.4825201034545898,
+    "verified_artifacts": 100
+  },
+  "figure_standard": "/kaggle/working/EviCT/config/figure_style.json",
+  "core_sha256": {
+    "preprocessing.json": "51a6259ebe818087309abfc8600996281b972ec23618e0051e8c91a66ed684fe",
+    "cache_contract.json": "1c4189af987821ba6fc9289568b804d6f50a2ed129d9f8745585a75efe5b7e36",
+    "cache_manifest_hashes.json": "c97d31dd3e478d83c72c23c86b40ca61e5c1ebe6d55e5c42063418c7036d384b",
+    "splits.csv": "a3abd2a275f21d2ec3ad5395abbd5326705ddd5ac62b9a52cd3acd8687dc039f",
+    "budgets.csv": "b0b1eb002986a0b70a25f8b58e68e19d51524339a3d94af12983497ba4a4d11d",
+    "slices.csv": "061b3fdd733cee23f2d197e9436455042a846bb8da6f1e6b76ff154209f76b17",
+    "preprocessing_progress.csv": "67208851c72e159e62f312fe5278c0b4cad4686a527d653ed92bbc37bf304bf8",
+    "figure_style.json": "95402a32264c1c179cd05a8a906a54ed66ebe696ba23866933145946fbc3b8dd"
+  },
+  "next_stage": "Kaggle Save Version with outputs, then Notebook 04 metrics and supervised SegFormer-B1 baseline."
+}
