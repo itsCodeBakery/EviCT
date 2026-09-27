@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_05A_UNET_PROTOCOL_AND_GPU_SMOKE_PASS
+NOTEBOOK_05B_UNET_LR1E4_RUNNING_STEP_250
 
 ## Timestamp
 
-2026-09-27T14:48:42.452422+00:00
+2026-09-27T15:00:06.609950+00:00
 
 ## Notebook 04
 
@@ -14,119 +14,69 @@ Status:
 
 COMPLETE_SOURCE_BASELINE_FROZEN
 
-Three-seed source-selection macro case Dice:
-
-0.75405094 ± 0.01236482
-
-Notebook 04 retraining allowed:
+Notebook 04 retraining:
 
 NO
 
-## Notebook 05
+## Notebook 05B
 
-Current baseline:
+Baseline:
 
 Competitive residual 2D U-Net
 
-Baseline type:
+Pilot seed:
 
-Independent strong source reference
+17
 
-Pretraining:
+Candidate:
 
-NONE
+lr1e4
+
+Learning rate:
+
+0.00010000
 
 Precision:
 
 FP32
 
-Input:
+Optimizer step:
 
-336 x 336 grayscale replicated to 3 channels
+250
 
-Normalization:
+Best source-selection macro case Dice:
 
-Same ImageNet normalization as frozen SegFormer baseline
+0.59911257
 
-Loss:
+Best checkpoint step:
 
-0.5 soft Dice + 0.5 BCE
+250
 
-Loss-equivalence audit:
+Patience:
 
-PASS
+0 / 8
 
-GPU smoke micro-batch:
+Image exposures:
 
-4
+4000
 
-Planned gradient accumulation:
+Selection threshold:
 
-4
-
-Planned effective batch:
-
-16
-
-Peak GPU allocated:
-
-1.8252 GiB
-
-Peak GPU reserved:
-
-2.3516 GiB
-
-Total parameters:
-
-8111297
-
-Trainable parameters:
-
-8111297
-
-Forward:
-
-PASS
-
-Backward:
-
-PASS
-
-Finite gradients:
-
-PASS
-
-## Tuning allowance
+0.5 fixed
 
 Architecture tuning:
 
 NO
 
-Pilot training seed:
-
-17
-
-Allowed learning-rate candidates:
-
-0.0001, 0.0003
-
-Selection criterion:
-
-Frozen source-selection macro case Dice
-
-Threshold:
-
-0.5 fixed
-
 ## Isolation
 
 Fitting cases:
 
-12 frozen source cases
+12 frozen source fitting cases
 
 Selection cases:
 
-4 frozen source cases
+4 frozen complete source-selection cases
 
 Calibration accessed:
 
@@ -140,8 +90,17 @@ Target lock:
 
 ACTIVE
 
+## Pilot contract
+
+Learning-rate candidates:
+
+0.0001, 0.0003
+
+Candidate comparison:
+
+PENDING until both candidates complete the full declared budget or early stopping.
+
 ## Next
 
-Run Notebook 05B U-Net pilot training on seed 17 for the two predeclared
-learning-rate candidates. Select the learning rate using source-selection
-macro case Dice only. Then freeze that setting before seeds 42 and 2026.
+Continue the declared U-Net learning-rate pilot without changing architecture,
+data, loss, selection metric, threshold, or target lock.
