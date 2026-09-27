@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED17_FP32_RUNNING_STEP_3250
+NOTEBOOK_04D_SEED17_FP32_RUNNING_STEP_3500
 
 ## Timestamp
 
-2026-09-27T09:07:44.667427+00:00
+2026-09-27T09:10:06.294423+00:00
 
 ## Model
 
@@ -24,29 +24,29 @@ FP32
 
 Current optimizer step:
 
-3250 / 5000
+3500 / 5000
 
 Images seen:
 
-52000
+56000
 
 ## Source-selection model selection
 
 Best macro case Dice:
 
-0.74216066
+0.75258052
 
 Best checkpoint step:
 
-1500
+3500
 
 Last validation step:
 
-3250
+3500
 
 Patience:
 
-7 / 8
+0 / 8
 
 ## Checkpoints
 
