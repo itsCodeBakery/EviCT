@@ -1,0 +1,44 @@
+{
+  "timestamp_utc": "2026-09-27T15:30:48.332936+00:00",
+  "stage": "NOTEBOOK_05B",
+  "pilot_seed": 17,
+  "segment_stop": 1000,
+  "candidates": [
+    {
+      "candidate_name": "lr1e4",
+      "learning_rate": 0.0001,
+      "seed": 17,
+      "step": 1000,
+      "best_macro_case_dice": 0.6390613648655991,
+      "best_step": 750,
+      "patience_count": 1,
+      "images_seen": 16000,
+      "initialization_hash": "0698a4bf77cbdf2f0ee99f080eab4677f778d8bfbb15b244f00695dc6f0b19b1",
+      "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr1e4-step1000",
+      "recovery_archive_sha256": "629211ee8a430b004169c91f7ad21cc5ee33cced2b427b30360568edabdbf220"
+    },
+    {
+      "candidate_name": "lr3e4",
+      "learning_rate": 0.0003,
+      "seed": 17,
+      "step": 1000,
+      "best_macro_case_dice": 0.6977136730973923,
+      "best_step": 1000,
+      "patience_count": 0,
+      "images_seen": 16000,
+      "initialization_hash": "0698a4bf77cbdf2f0ee99f080eab4677f778d8bfbb15b244f00695dc6f0b19b1",
+      "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr3e4-step1000",
+      "recovery_archive_sha256": "4371a6049cf133a8c6473bfa9607172be5327c3c03f11ccc0a0f2b509c99432d"
+    }
+  ],
+  "identical_initialization": true,
+  "initialization_hash": "0698a4bf77cbdf2f0ee99f080eab4677f778d8bfbb15b244f00695dc6f0b19b1",
+  "architecture_tuning": false,
+  "candidate_winner_selected": false,
+  "winner_selection_deferred_until_full_declared_budget": true,
+  "threshold": 0.5,
+  "threshold_tuned": false,
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "status": "BOTH_CANDIDATES_STEP1000_DURABLE"
+}
