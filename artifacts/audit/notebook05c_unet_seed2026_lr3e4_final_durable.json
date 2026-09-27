@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-09-27T20:06:50.535267+00:00",
+  "stage": "NOTEBOOK_05C",
+  "seed": 2026,
+  "learning_rate": 0.0003,
+  "final_step": 4500,
+  "stop_reason": "EARLY_STOPPING_PATIENCE_8",
+  "best_macro_case_dice": 0.7166614628214616,
+  "best_step": 2500,
+  "initialization_hash": "fe373f18ed30ffd49cfec29d47351767eb30cc89562e7df3966ba796de69b93e",
+  "final_archive": "EviCT_Notebook05C_unet_seed2026_lr3e4_final_step4500_Recovery.tar",
+  "final_archive_sha256": "2d4750b24996ab57489db246cee027c3b900ad8a077a7974096238708b4a5329",
+  "release_tag": "evict-nb05c-unet-seed2026-lr3e4-final-step4500",
+  "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05c-unet-seed2026-lr3e4-final-step4500",
+  "tar_asset_id": 593677205,
+  "sha_asset_id": 593677618,
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "status": "DURABLE_COMPLETE"
+}
