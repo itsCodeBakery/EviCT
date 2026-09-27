@@ -1,0 +1,18 @@
+{
+  "timestamp_utc": "2026-09-27T19:04:51.867235+00:00",
+  "stage": "NOTEBOOK_05C",
+  "seed": 2026,
+  "learning_rate": 0.0003,
+  "step": 1000,
+  "best_macro_case_dice": 0.6625807261203652,
+  "best_step": 1000,
+  "archive_name": "EviCT_Notebook05C_unet_seed2026_lr3e4_Rolling_Recovery.tar",
+  "archive_sha256": "5fdd9588c0480583c2413c2301d4bd5559ec1a051eedc81526504adaa0b03ba5",
+  "release_tag": "evict-nb05c-unet-seed2026-lr3e4-rolling",
+  "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05c-unet-seed2026-lr3e4-rolling",
+  "tar_asset_id": 593569588,
+  "sha_asset_id": 593569713,
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "status": "ROLLING_DURABLE"
+}
