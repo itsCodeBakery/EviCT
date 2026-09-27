@@ -1,0 +1,23 @@
+{
+  "dataset_id": "segdb1_medseg",
+  "execution_copy": {
+    "provider": "Kaggle competition",
+    "competition": "covid-segmentation",
+    "root": "/kaggle/input/competitions/covid-segmentation",
+    "license": "Subject to competition rules"
+  },
+  "original_source_identity": {
+    "name": "MedSeg Covid Dataset 1",
+    "version": 2,
+    "record": "https://figshare.com/articles/dataset/MedSeg_Covid_Dataset_1/13521488",
+    "license": "CC0",
+    "documented_count": 100,
+    "documented_patient_scope": ">40 patients"
+  },
+  "representation_warning": "The Kaggle four-channel representation uses 'lungs other' for channel 2, while the original Figshare description documents pleural effusion as integer label 3. These representations are not silently treated as identical.",
+  "current_use_policy": {
+    "training_source": false,
+    "external_image_level_target": true,
+    "reason": "patient grouping unresolved"
+  }
+}

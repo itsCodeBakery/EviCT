@@ -1,0 +1,171 @@
+{
+  "timestamp_utc": "2026-09-27T05:35:03.057828+00:00",
+  "dataset_id": "segdb1_medseg",
+  "execution_root": "/kaggle/input/competitions/covid-segmentation",
+  "array_descriptions": {
+    "images_medseg": {
+      "name": "images_medseg",
+      "shape": [
+        100,
+        512,
+        512,
+        1
+      ],
+      "ndim": 4,
+      "dtype": "float64",
+      "size": 26214400,
+      "nbytes": 209715200
+    },
+    "masks_medseg": {
+      "name": "masks_medseg",
+      "shape": [
+        100,
+        512,
+        512,
+        4
+      ],
+      "ndim": 4,
+      "dtype": "bool",
+      "size": 104857600,
+      "nbytes": 104857600
+    },
+    "test_images_medseg": {
+      "name": "test_images_medseg",
+      "shape": [
+        10,
+        512,
+        512,
+        1
+      ],
+      "ndim": 4,
+      "dtype": "float64",
+      "size": 2621440,
+      "nbytes": 20971520
+    },
+    "images_radiopedia": {
+      "name": "images_radiopedia",
+      "shape": [
+        829,
+        512,
+        512,
+        1
+      ],
+      "ndim": 4,
+      "dtype": "float64",
+      "size": 217317376,
+      "nbytes": 1738539008
+    },
+    "masks_radiopedia": {
+      "name": "masks_radiopedia",
+      "shape": [
+        829,
+        512,
+        512,
+        4
+      ],
+      "ndim": 4,
+      "dtype": "bool",
+      "size": 869269504,
+      "nbytes": 869269504
+    }
+  },
+  "medseg_image_sample_statistics": {
+    "sample_count": 1000000,
+    "finite_fraction": 1.0,
+    "sample_min": -1606.521728515625,
+    "sample_p01": -1408.5106201171875,
+    "sample_p05": -1252.0,
+    "sample_median": -213.06777954101562,
+    "sample_p95": 149.13357315063453,
+    "sample_p99": 290.6160147094727,
+    "sample_max": 596.593505859375
+  },
+  "test_image_sample_statistics": {
+    "sample_count": 1000000,
+    "finite_fraction": 1.0,
+    "sample_min": -1450.0,
+    "sample_p01": -1443.5714111328125,
+    "sample_p05": -1060.4027099609375,
+    "sample_median": -145.0,
+    "sample_p95": 197.79185256958007,
+    "sample_p99": 375.0,
+    "sample_max": 875.6455688476562
+  },
+  "mask_channel_axis": 3,
+  "channel_names": {
+    "0": "ground_glass",
+    "1": "consolidation",
+    "2": "lungs_other",
+    "3": "background"
+  },
+  "observed_channel_values": {
+    "0": [
+      0.0,
+      1.0
+    ],
+    "1": [
+      0.0,
+      1.0
+    ],
+    "2": [
+      0.0,
+      1.0
+    ],
+    "3": [
+      0.0,
+      1.0
+    ]
+  },
+  "all_masks_finite": true,
+  "all_channels_binary": true,
+  "positive_slice_counts": {
+    "0": 96,
+    "1": 78,
+    "2": 100,
+    "3": 100
+  },
+  "channel_positive_pixel_counts": {
+    "0": 1196461,
+    "1": 589210,
+    "2": 5239132,
+    "3": 19190107
+  },
+  "core_target_positive_slices": 99,
+  "core_target_total_pixels": 1785671,
+  "pixel_channel_relationship": {
+    "total_pixels": 26214400,
+    "exactly_one_active_channel": 26213890,
+    "zero_active_channels": 0,
+    "multiple_active_channels": 510,
+    "one_hot_fraction": 0.9999805450439453,
+    "unassigned_fraction": 0.0,
+    "overlap_fraction": 1.94549560546875e-05
+  },
+  "patient_grouping_recovered": false,
+  "source_training_eligible": false,
+  "external_image_level_target_eligible": true,
+  "radiopedia_competition_arrays": {
+    "images_shape": [
+      829,
+      512,
+      512,
+      1
+    ],
+    "images_dtype": "float64",
+    "masks_shape": [
+      829,
+      512,
+      512,
+      4
+    ],
+    "masks_dtype": "bool",
+    "status": "QUARANTINED_POTENTIAL_PROVENANCE_OVERLAP_WITH_SEGDB2",
+    "permitted_for_core_training": false,
+    "reason": "SegDB-2 already contains Radiopaedia-derived volumes. Explicit overlap/provenance resolution is required before any use."
+  },
+  "track_R_status": "NOT_READY",
+  "track_C_direction_policy": {
+    "segdb2_to_segdb1": "PERMITTED_AS_CONTROLLED IMAGE-LEVEL EXTERNAL EVALUATION AFTER PROTOCOL FREEZE",
+    "segdb1_to_segdb2": "BLOCKED UNTIL VALID MEDSEG PATIENT/GROUP MAPPING IS RECOVERED"
+  }
+}

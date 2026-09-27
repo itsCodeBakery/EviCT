@@ -1,0 +1,30 @@
+{
+  "dataset_id": "segdb1_medseg",
+  "original_medseg_figshare": {
+    "representation": "integer radiologist labels",
+    "documented_labels": {
+      "1": "ground-glass",
+      "2": "consolidation",
+      "3": "pleural effusion"
+    },
+    "source": "MedSeg Covid Dataset 1 v2"
+  },
+  "kaggle_competition_representation": {
+    "representation": "four-channel mask array",
+    "channels": {
+      "0": "ground glass",
+      "1": "consolidations",
+      "2": "lungs other",
+      "3": "background"
+    },
+    "source": "COVID-19 CT Images Segmentation competition"
+  },
+  "reconciliation_policy": {
+    "channel_0": "accepted as GGO target component",
+    "channel_1": "accepted as consolidation target component",
+    "channel_2": "non-target for EviCT core lesion mask; NOT automatically equated with original pleural-effusion label",
+    "channel_3": "background representation",
+    "core_binary_target": "channel_0 OR channel_1"
+  },
+  "status": "CORE_TARGET_SEMANTICS_SUPPORTED; CHANNEL_2_ORIGINAL_LABEL_EQUIVALENCE_UNRESOLVED"
+}

@@ -1,0 +1,13 @@
+{
+  "dataset_id": "segdb1_medseg",
+  "kaggle_training_slices": 100,
+  "source_description_patient_count": ">40",
+  "patient_id_available_per_slice": false,
+  "patient_grouping_recovered": false,
+  "grouping_source": null,
+  "forbidden_action": "Do not randomly split the 100 slices and present the split as patient-independent.",
+  "source_training_eligibility": false,
+  "source_training_reason": "Patient/group mapping for the 100 MedSeg slices has not been recovered from the Kaggle arrays.",
+  "external_image_level_evaluation": true,
+  "external_evaluation_limitation": "May be used only as explicitly image-level/selected-slice external evaluation until valid patient grouping is recovered."
+}
