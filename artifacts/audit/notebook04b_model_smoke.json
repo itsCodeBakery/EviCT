@@ -1,0 +1,167 @@
+{
+  "timestamp_utc": "2026-09-27T07:31:41.611319+00:00",
+  "stage": "NOTEBOOK_04B",
+  "status": "PASS",
+  "device": "cuda:0",
+  "gpu": "Tesla T4",
+  "compute_capability": "7.5",
+  "source_only": true,
+  "target_accessed": false,
+  "training_manifest": "/kaggle/working/EviCT/manifests/slice_loaders/seed_17/b100/labeled_slices.csv",
+  "samples": [
+    {
+      "case_id": "coronacases_001",
+      "provenance": "coronacases_named",
+      "z_index": 118,
+      "lesion_pixels": 6004,
+      "valid_pixels": 112896,
+      "valid_fraction": 1.0,
+      "image_min": 0.1527099609375,
+      "image_max": 1.0
+    },
+    {
+      "case_id": "radiopaedia_14_85914_0",
+      "provenance": "radiopaedia_named",
+      "z_index": 43,
+      "lesion_pixels": 7151,
+      "valid_pixels": 71904,
+      "valid_fraction": 0.636904776096344,
+      "image_min": 0.0,
+      "image_max": 1.0
+    }
+  ],
+  "checkpoint": {
+    "repository": "nvidia/mit-b1",
+    "revision": "13ddceec4e8bdf401e7cd7acf5aebc526222518c",
+    "weight_file": "pytorch_model.bin",
+    "weight_sha256": "980b86b60db37b1b1528086f6c53d253d879e9e09ebe07397b40fd275738a3bf"
+  },
+  "cache_contract": {
+    "valid_mask_shape": [
+      336,
+      336
+    ],
+    "valid_mask_case_level": true,
+    "valid_mask_indexed_by_z": false
+  },
+  "shapes": {
+    "input": [
+      2,
+      3,
+      336,
+      336
+    ],
+    "encoder": [
+      [
+        2,
+        64,
+        84,
+        84
+      ],
+      [
+        2,
+        128,
+        42,
+        42
+      ],
+      [
+        2,
+        320,
+        21,
+        21
+      ],
+      [
+        2,
+        512,
+        11,
+        11
+      ]
+    ],
+    "decoder_features": [
+      2,
+      256,
+      84,
+      84
+    ],
+    "quarter_logits": [
+      2,
+      1,
+      84,
+      84
+    ],
+    "final_logits": [
+      2,
+      1,
+      336,
+      336
+    ],
+    "target": [
+      2,
+      1,
+      336,
+      336
+    ],
+    "valid_mask": [
+      2,
+      1,
+      336,
+      336
+    ]
+  },
+  "loss": {
+    "total": 0.8493050336837769,
+    "soft_dice": 0.8531413078308105,
+    "bce": 0.8454687595367432
+  },
+  "gradients": {
+    "encoder": {
+      "finite": true,
+      "nonzero": true,
+      "grad_norm": 2.589628203568555,
+      "gradient_tensors": 192,
+      "parameter_tensors": 192
+    },
+    "decoder": {
+      "finite": true,
+      "nonzero": true,
+      "grad_norm": 1.0023043919628158,
+      "gradient_tensors": 11,
+      "parameter_tensors": 11
+    },
+    "visual_head": {
+      "finite": true,
+      "nonzero": true,
+      "grad_norm": 1.617048302749712,
+      "gradient_tensors": 2,
+      "parameter_tensors": 2
+    }
+  },
+  "optimizer_parameter_change": 0.0003001876175403595,
+  "gpu_peak_allocated_gib": 0.4377117156982422,
+  "gpu_peak_reserved_gib": 0.546875,
+  "checks": {
+    "gpu_available": true,
+    "checkpoint_revision_pinned": true,
+    "checkpoint_sha256_recorded": true,
+    "source_fitting_manifest_only": true,
+    "target_not_accessed": true,
+    "cache_contract_verified": true,
+    "case_level_valid_mask_correctly_used": true,
+    "input_image_range_valid": true,
+    "infection_mask_binary": true,
+    "valid_mask_binary": true,
+    "four_encoder_levels": true,
+    "decoder_has_256_channels": true,
+    "decoder_at_quarter_resolution": true,
+    "final_logits_336x336": true,
+    "finite_forward_logits": true,
+    "finite_loss": true,
+    "finite_encoder_gradients": true,
+    "finite_decoder_gradients": true,
+    "finite_head_gradients": true,
+    "nonzero_encoder_gradients": true,
+    "nonzero_decoder_gradients": true,
+    "nonzero_head_gradients": true,
+    "optimizer_step_changed_parameter": true
+  }
+}

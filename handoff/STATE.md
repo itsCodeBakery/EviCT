@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_04A_METRICS_PASS_MODEL_SMOKE_PENDING
+NOTEBOOK_04B_MODEL_SMOKE_PASS_TINY_OVERFIT_PENDING
 
 ## Timestamp
 
-2026-09-27T07:18:15.477351+00:00
+2026-09-27T07:31:41.612509+00:00
 
 ## Completed stages
 
@@ -15,65 +15,158 @@ NOTEBOOK_04A_METRICS_PASS_MODEL_SMOKE_PENDING
 - Notebook 02: COMPLETE
 - Notebook 03 preprocessing/geometry: FROZEN
 - Notebook 04A segmentation metrics: PASS
+- Notebook 04B MiT-B1 forward/backward smoke: PASS
 
-## Notebook 04A metric policy
+## Supervised visual baseline
 
-Dice empty-reference + empty-prediction:
+Encoder:
 
-1.0
+MiT-B1
 
-IoU empty-reference + empty-prediction:
+Checkpoint repository:
 
-1.0
+nvidia/mit-b1
 
-Sensitivity with no positive reference:
+Pinned revision:
 
-NaN
+13ddceec4e8bdf401e7cd7acf5aebc526222518c
 
-Specificity with no negative reference:
+Checkpoint SHA-256:
 
-NaN
+980b86b60db37b1b1528086f6c53d253d879e9e09ebe07397b40fd275738a3bf
+
+Initialization:
+
+ImageNet-1k encoder only
+
+Encoder hidden sizes:
+
+[64, 128, 320, 512]
+
+Decoder:
+
+SegFormer four-level MLP decoder
+
+Decoder channels:
+
+256
+
+Decoder resolution for 336x336 input:
+
+84x84
+
+Visual head:
+
+1x1 binary lesion-logit convolution
+
+Final output:
+
+336x336
+
+## Frozen cache contract used
+
+Image cache:
+
+[Z,336,336]
+
+Infection-mask cache:
+
+[Z,336,336]
+
+Valid-pixel mask:
+
+[336,336]
+
+Valid-pixel mask is case-level and shared across slices.
+
+## Smoke batch
+
+Real SegDB-2 fitting slices only.
+
+Samples:
+
+[
+  {
+    "case_id": "coronacases_001",
+    "provenance": "coronacases_named",
+    "z_index": 118,
+    "lesion_pixels": 6004,
+    "valid_pixels": 112896,
+    "valid_fraction": 1.0,
+    "image_min": 0.1527099609375,
+    "image_max": 1.0
+  },
+  {
+    "case_id": "radiopaedia_14_85914_0",
+    "provenance": "radiopaedia_named",
+    "z_index": 43,
+    "lesion_pixels": 7151,
+    "valid_pixels": 71904,
+    "valid_fraction": 0.636904776096344,
+    "image_min": 0.0,
+    "image_max": 1.0
+  }
+]
+
+## Supervised objective
+
+0.5 soft Dice + 0.5 BCE
 
 Padding:
 
-Excluded using valid-pixel mask.
+Excluded through valid-pixel masks.
 
-Primary aggregation:
+## Forward/backward result
 
-Accumulate TP/TN/FP/FN across all valid pixels of each complete case,
-then compute case-level metrics.
+Total loss:
 
-Cross-case reporting:
+0.84930503
 
-Macro-average case-level metrics.
+Soft Dice loss:
 
-Debug probability threshold:
+0.85314131
 
-0.5
+BCE loss:
 
-Final threshold:
+0.84546876
 
-NOT YET SELECTED.
+Encoder gradients finite/non-zero:
 
-Later selection grid:
+True / True
 
-0.3, 0.4, 0.5, 0.6, 0.7
+Decoder gradients finite/non-zero:
 
-Target-driven threshold tuning:
+True / True
 
-PROHIBITED
+Visual-head gradients finite/non-zero:
 
-## Unit tests
+True / True
 
-Passed:
+Optimizer update verified:
 
-28 / 28
+True
+
+## GPU
+
+Tesla T4
+
+FP16 smoke:
+
+PASS
+
+Peak allocated GPU memory:
+
+0.438 GiB
+
+Peak reserved GPU memory:
+
+0.547 GiB
 
 ## Target lock
 
 ACTIVE
 
-No target metrics inspected.
+No MedSeg images, masks, metrics or prompts accessed.
 
 ## Figure standard
 
@@ -85,11 +178,16 @@ No captions embedded in figures
 
 ## Next
 
-Notebook 04B:
+Notebook 04C — deliberate tiny-set overfit.
 
-1. inspect GPU/runtime;
-2. pin/load ImageNet SegFormer MiT-B1;
-3. construct standard segmentation decoder;
-4. forward-pass shape test;
-5. backward-pass finite-gradient test;
-6. then overfit 2–4 fitting images before any long run.
+Use 2-4 visible source-fitting images, including a small lesion.
+
+PASS requires:
+
+- finite optimization;
+- strong deliberate memorization of the tiny training set;
+- prediction-mask alignment;
+- empty-mask metric sanity;
+- no target access.
+
+Only after Notebook 04C passes may the full supervised baseline begin.

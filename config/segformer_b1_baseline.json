@@ -1,0 +1,80 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_04B",
+  "timestamp_utc": "2026-09-27T07:31:41.610454+00:00",
+  "model_name": "Supervised SegFormer MiT-B1",
+  "checkpoint": {
+    "repository": "nvidia/mit-b1",
+    "revision": "13ddceec4e8bdf401e7cd7acf5aebc526222518c",
+    "weight_file": "pytorch_model.bin",
+    "weight_sha256": "980b86b60db37b1b1528086f6c53d253d879e9e09ebe07397b40fd275738a3bf",
+    "initialization": "ImageNet-1k encoder-only",
+    "segmentation_finetuned_checkpoint": false
+  },
+  "input": {
+    "height": 336,
+    "width": 336,
+    "source_channels": 1,
+    "encoder_channels": 3,
+    "grayscale_policy": "repeat single CT channel three times",
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "encoder": {
+    "family": "MiT-B1",
+    "hidden_sizes": [
+      64,
+      128,
+      320,
+      512
+    ],
+    "fine_tuned": true
+  },
+  "decoder": {
+    "type": "SegFormer four-level MLP decoder",
+    "decoder_channels": 256,
+    "decoder_resolution": "1/4 input resolution",
+    "expected_resolution_for_336": [
+      84,
+      84
+    ],
+    "final_head": "1x1 convolution producing one lesion logit",
+    "final_upsampling": "bilinear to padded 336x336 grid"
+  },
+  "supervised_objective": {
+    "soft_dice_weight": 0.5,
+    "bce_weight": 0.5,
+    "epsilon": 1e-06,
+    "reduction": "per-image then batch mean",
+    "padding": "excluded using case-level valid-pixel mask"
+  },
+  "cache_contract": {
+    "image_shape_per_case": "[Z,336,336]",
+    "infection_shape_per_case": "[Z,336,336]",
+    "valid_mask_shape_per_case": "[336,336]",
+    "valid_mask_shared_across_case_slices": true
+  },
+  "smoke_optimizer": {
+    "type": "AdamW",
+    "encoder_lr": 0.0001,
+    "decoder_head_lr": 0.0003,
+    "weight_decay": 0.01,
+    "updates": 1
+  },
+  "mixed_precision": "FP16",
+  "seed": 17,
+  "parameter_counts": {
+    "total": 13677505,
+    "encoder": 13151424,
+    "decoder_and_head": 526081,
+    "trainable": 13677505
+  }
+}
