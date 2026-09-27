@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED2026_RUNNING_STEP_2500
+NOTEBOOK_04D_SEED2026_RUNNING_STEP_2750
 
 ## Timestamp
 
-2026-09-27T12:45:39.853708+00:00
+2026-09-27T12:48:03.438227+00:00
 
 ## Notebook 04D
 
@@ -24,15 +24,15 @@ FP32
 
 Current optimizer step:
 
-2500 / 5000
+2750 / 5000
 
 Images seen:
 
-40000
+44000
 
 Last source-selection validation:
 
-2500
+2750
 
 Best source-selection macro case Dice:
 
@@ -44,7 +44,7 @@ Best step:
 
 Patience:
 
-0 / 8
+1 / 8
 
 ## Recovery
 
