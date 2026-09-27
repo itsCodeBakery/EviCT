@@ -1,0 +1,103 @@
+{
+  "timestamp_utc": "2026-09-27T06:01:48.111743+00:00",
+  "status": "AUTOMATED_PASS_MANUAL_VISUAL_QC_PENDING",
+  "source_only": true,
+  "target_accessed": false,
+  "qc_split": "selection",
+  "qc_case_count": 2,
+  "provenance_strata": [
+    "coronacases_named",
+    "radiopaedia_named"
+  ],
+  "synthetic_roundtrip_iou": 0.9845668186601193,
+  "actual_cases": [
+    {
+      "case_id": "coronacases_003",
+      "provenance_stratum": "coronacases_named",
+      "source_split": "selection",
+      "z_index": 81,
+      "original_height": 512,
+      "original_width": 512,
+      "lesion_pixels_original": 22038,
+      "normalized_min": 0.15133333206176758,
+      "normalized_max": 1.0,
+      "resized_height": 336,
+      "resized_width": 336,
+      "pad_top": 0,
+      "pad_bottom": 0,
+      "pad_left": 0,
+      "pad_right": 0,
+      "valid_pixels": 112896,
+      "padded_pixels": 0,
+      "processed_mask_values": [
+        0,
+        1
+      ],
+      "roundtrip_mask_iou": 0.9246123607774623,
+      "transform": {
+        "original_h": 512,
+        "original_w": 512,
+        "resized_h": 336,
+        "resized_w": 336,
+        "target_h": 336,
+        "target_w": 336,
+        "pad_top": 0,
+        "pad_bottom": 0,
+        "pad_left": 0,
+        "pad_right": 0,
+        "scale_y": 0.65625,
+        "scale_x": 0.65625
+      }
+    },
+    {
+      "case_id": "radiopaedia_10_85902_1",
+      "provenance_stratum": "radiopaedia_named",
+      "source_split": "selection",
+      "z_index": 12,
+      "original_height": 630,
+      "original_width": 630,
+      "lesion_pixels_original": 6925,
+      "normalized_min": 0.0,
+      "normalized_max": 1.0,
+      "resized_height": 336,
+      "resized_width": 336,
+      "pad_top": 0,
+      "pad_bottom": 0,
+      "pad_left": 0,
+      "pad_right": 0,
+      "valid_pixels": 112896,
+      "padded_pixels": 0,
+      "processed_mask_values": [
+        0,
+        1
+      ],
+      "roundtrip_mask_iou": 0.9374563730280608,
+      "transform": {
+        "original_h": 630,
+        "original_w": 630,
+        "resized_h": 336,
+        "resized_w": 336,
+        "target_h": 336,
+        "target_w": 336,
+        "pad_top": 0,
+        "pad_bottom": 0,
+        "pad_left": 0,
+        "pad_right": 0,
+        "scale_y": 0.5333333333333333,
+        "scale_x": 0.5333333333333333
+      }
+    }
+  ],
+  "requirements": {
+    "image_range_0_1": true,
+    "336x336_output": true,
+    "nearest_mask_interpolation": true,
+    "binary_mask_values_only": true,
+    "valid_pixel_mask": true,
+    "padding_zero": true,
+    "inverse_transform": true,
+    "manual_overlay_review": "PENDING"
+  },
+  "preprocessing_config_sha256": "51a6259ebe818087309abfc8600996281b972ec23618e0051e8c91a66ed684fe",
+  "preprocessing_module_sha256": "9316263daa60fe00e0d58b624da646554ad7564820ffec0b7934d4ece6f0c017"
+}

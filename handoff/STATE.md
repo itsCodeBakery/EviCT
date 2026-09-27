@@ -2,41 +2,76 @@
 
 ## Current stage
 
-NOTEBOOK_03A_PREPROCESSING_IMPLEMENTED
+NOTEBOOK_03A_AUTOMATED_PASS_MANUAL_QC_PENDING
 
 ## Timestamp
 
-2026-09-27T06:01:40.939439+00:00
+2026-09-27T06:01:48.114811+00:00
 
-## Frozen preprocessing
+## Completed
 
-Target grid:
+- Notebook 00: COMPLETE
+- Notebook 01: COMPLETE
+- Notebook 02: COMPLETE
+- Notebook 03A automated preprocessing smoke: PASS
 
-336 x 336
+## Frozen source preprocessing
 
 CoronaCases:
 
-benchmark lung-window protocol [-1250, 250] -> [0,1]
+[-1250,250] benchmark lung-window protocol -> [0,1]
 
 Radiopaedia:
 
-windowed display values [0,255] -> [0,1]
+documented windowed display [0,255] -> [0,1]
 
 Geometry:
 
-aspect-ratio preserving resize + symmetric padding
+aspect-ratio preserving resize and symmetric padding to 336x336
 
-Image interpolation:
+Images:
 
-bilinear
+bilinear interpolation
 
-Mask interpolation:
+Masks:
 
-nearest
+nearest-neighbor interpolation
 
-Valid-pixel mask:
+Padding:
 
-required
+excluded using explicit valid-pixel masks
+
+## Automated geometry QC
+
+Synthetic roundtrip IoU:
+
+0.9845668186601193
+
+Source-selection QC cases:
+
+[{'case_id': 'coronacases_003', 'provenance_stratum': 'coronacases_named', 'roundtrip_mask_iou': 0.9246123607774623}, {'case_id': 'radiopaedia_10_85902_1', 'provenance_stratum': 'radiopaedia_named', 'roundtrip_mask_iou': 0.9374563730280608}]
+
+## Target lock
+
+ACTIVE
+
+MedSeg target was not loaded.
+
+## Manual visual QC
+
+PENDING
+
+Inspect:
+
+figures/preprocessing_smoke_gallery.png
+
+Confirm:
+
+1. CT orientation looks anatomically plausible.
+2. Infection masks visibly align with opacities.
+3. No transpose/rotation mismatch is visible.
+4. 336x336 resize preserves aspect ratio.
+5. Padding appears only outside the resized image.
 
 ## Preprocessing config SHA256
 
@@ -46,12 +81,7 @@ required
 
 9316263daa60fe00e0d58b624da646554ad7564820ffec0b7934d4ece6f0c017
 
-## Target lock
-
-ACTIVE
-
-MedSeg has not been loaded.
-
 ## Next
 
-Automated geometry and source-selection visual smoke test.
+After manual visual QC is confirmed, build the full deterministic
+SegDB-2 source cache and slices.csv.
