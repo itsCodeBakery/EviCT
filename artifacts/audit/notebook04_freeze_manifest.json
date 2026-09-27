@@ -1,0 +1,78 @@
+{
+  "timestamp_utc": "2026-09-27T14:40:37.698135+00:00",
+  "status": "PASS",
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "artifacts": [
+    {
+      "path": "tables/notebook04_three_seed_source_baseline.csv",
+      "size_bytes": 649,
+      "sha256": "590e53e28f42511bea5b9c1943f23f9404a212e3ab9b0826f9ec13c4a7f214a8"
+    },
+    {
+      "path": "tables/notebook04_three_seed_case_metrics.csv",
+      "size_bytes": 1298,
+      "sha256": "bfd3562360ffca5034e530acaf360901637b3cc8622928c771020da560d802d5"
+    },
+    {
+      "path": "tables/notebook04_three_seed_case_summary.csv",
+      "size_bytes": 1573,
+      "sha256": "c8056f5369c8f43f6daf61a522c20aa548d69cc0e88c206e6ceebbbed977b392"
+    },
+    {
+      "path": "tables/notebook04_validation_overlay_index.csv",
+      "size_bytes": 708,
+      "sha256": "a94feb5ba35e5f33324ec3cac21d6de192b8fdc5c53bee980d6d2a721d0db67f"
+    },
+    {
+      "path": "artifacts/audit/notebook04_three_seed_source_baseline.json",
+      "size_bytes": 3157,
+      "sha256": "5697a9f5f4c2486914e2a14e5aa0a50c69ce73fed741e43e0528258ba836730c"
+    },
+    {
+      "path": "artifacts/audit/notebook04_checkpoint_logit_audit.json",
+      "size_bytes": 1800,
+      "sha256": "ae16fb0c40247c6e258dc6e83fc1739db5e3bbf17c0c2505461c6484c4ce0830"
+    },
+    {
+      "path": "artifacts/audit/notebook04_final_figure_style.json",
+      "size_bytes": 424,
+      "sha256": "ddd0d9fe4ec268fbd3aa4a1d59b84f163030fd82e56150d7b75c8ca1e9f13400"
+    },
+    {
+      "path": "figures/notebook04/notebook04_three_seed_learning_curves.png",
+      "size_bytes": 509419,
+      "sha256": "ce8f37d8926bb2d4eb4be1945710bc0a31b4154c98a2794065cb79a4e59511ee"
+    },
+    {
+      "path": "figures/notebook04/notebook04_three_seed_learning_curves.pdf",
+      "size_bytes": 15348,
+      "sha256": "858b01552f9838da7ba3d5bfdb9bd789d4c932fe3309e92de429f17b14bba67b"
+    },
+    {
+      "path": "figures/notebook04/notebook04_validation_overlays_three_seed.png",
+      "size_bytes": 2257764,
+      "sha256": "b3da809bdcc4f2daefa56fb5a32e2b6264c96d36e5083265d83ce619b229c8e4"
+    },
+    {
+      "path": "figures/notebook04/notebook04_validation_overlays_three_seed.pdf",
+      "size_bytes": 762117,
+      "sha256": "94fa2d43034a833b80b14a620ed88b76d1438c8acf0a20f7ecd5733589ffbe52"
+    },
+    {
+      "path": "reports/notebook04_source_baseline_report.md",
+      "size_bytes": 726,
+      "sha256": "40ec57f12ba7f65ec938fa51dc5d4a0709f65fac4c49c508c8c92603bf1918f5"
+    },
+    {
+      "path": "STATE.md",
+      "size_bytes": 836,
+      "sha256": "ddd6d9faf04d4672616333e0469741d02082401517fc81bd476cb6c91cb9fae7"
+    },
+    {
+      "path": "handoff/STATE.md",
+      "size_bytes": 836,
+      "sha256": "ddd6d9faf04d4672616333e0469741d02082401517fc81bd476cb6c91cb9fae7"
+    }
+  ]
+}

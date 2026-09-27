@@ -2,111 +2,61 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED2026_COMPLETE_DURABLE
+NOTEBOOK_04_COMPLETE_SOURCE_BASELINE_FROZEN
 
 ## Timestamp
 
-2026-09-27T13:10:12.381254+00:00
+2026-09-27T14:40:37.697435+00:00
 
-## Notebook 04D — Seed 2026
+## Frozen supervised baseline
 
 Model:
 
 Supervised SegFormer MiT-B1
 
-Precision:
+Primary seeds:
 
-FP32
-
-Training seed:
-
-2026
-
-Frozen split seed:
-
-17
-
-Final optimizer step:
-
-5000
-
-Last validation step:
-
-5000
+17, 42, 2026
 
 Best source-selection macro case Dice:
 
-0.74248709
+Seed 17: 0.75258052
 
-Best checkpoint step:
+Seed 42: 0.76708522
 
-4250
+Seed 2026: 0.74248709
 
-Final patience:
+Three-seed mean macro case Dice:
 
-3 / 8
+0.75405094
 
-Total image exposures:
+Three-seed sample SD:
 
-80000
+0.01236482
 
-## Recovery
+Selection threshold:
 
-Model:
+0.5 fixed
 
-PRESERVED
+Checkpoint / raw-logit audit:
 
-Optimizer:
+PASS
 
-PRESERVED
+Validation overlays:
 
-Scheduler:
+PASS
 
-PRESERVED
+Figure font:
 
-Sampler:
+Liberation Sans
 
-PRESERVED
+PNG:
 
-CPU RNG:
+600 dpi
 
-PRESERVED
+Vector PDF:
 
-CUDA RNG:
-
-PRESERVED
-
-## Final durable backup
-
-Recovery TAR:
-
-EviCT_Notebook04D_seed2026_final_step5000_Recovery.tar
-
-SHA-256:
-
-f32656901ed12ae30b5fbe2c524d114bc9b816ea3f1667d610ea2b3489894fd4
-
-GitHub Release:
-
-https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb04d-seed2026-final-step5000
-
-Remote TAR:
-
-VERIFIED
-
-Remote SHA file:
-
-VERIFIED
-
-## Isolation
-
-Training:
-
-12 frozen fitting cases only
-
-Selection:
-
-4 frozen complete source-selection cases only
+YES
 
 Calibration accessed:
 
@@ -116,37 +66,17 @@ Target / MedSeg accessed:
 
 NO
 
-## Target lock
+Target lock:
 
 ACTIVE
 
-## Seed status
+## Freeze
 
-Seed 17:
+Notebook 04 source baseline is frozen.
 
-COMPLETE
-
-Best macro case Dice:
-
-0.75258052
-
-Seed 42:
-
-COMPLETE
-
-Best macro case Dice:
-
-0.76708522
-
-Seed 2026:
-
-COMPLETE
-
-Best macro case Dice:
-
-0.74248709
+Do not retrain or retune it.
 
 ## Next
 
-Perform three-seed baseline aggregation, validation-overlay generation,
-checkpoint/logit audit, and freeze Notebook 04D.
+Review the frozen source-baseline handoff,
+then proceed to the next protocol stage.

@@ -1,0 +1,113 @@
+{
+  "timestamp_utc": "2026-09-27T14:40:30.734468+00:00",
+  "model": "Supervised SegFormer MiT-B1",
+  "primary_seeds": [
+    17,
+    42,
+    2026
+  ],
+  "threshold": 0.5,
+  "threshold_tuned": false,
+  "precision": "FP32",
+  "seed_results": [
+    {
+      "seed": 17,
+      "best_step": 3500,
+      "selection_loss": 0.2673793433037858,
+      "macro_case_dice": 0.7525805220791235,
+      "macro_case_iou": 0.6117492862621372,
+      "macro_case_sensitivity": 0.6643391636212856,
+      "macro_case_specificity": 0.9988097242049788,
+      "macro_slice_dice": 0.7598136931798309,
+      "pooled_dice": 0.8174314700434719,
+      "pooled_iou": 0.6912339110474395,
+      "threshold": 0.5
+    },
+    {
+      "seed": 42,
+      "best_step": 2000,
+      "selection_loss": 0.2661405758536541,
+      "macro_case_dice": 0.7670852235345222,
+      "macro_case_iou": 0.6285495949780746,
+      "macro_case_sensitivity": 0.6955648859790244,
+      "macro_case_specificity": 0.998444763641249,
+      "macro_slice_dice": 0.7574100041138134,
+      "pooled_dice": 0.8277635465950076,
+      "pooled_iou": 0.7061404243065508,
+      "threshold": 0.5
+    },
+    {
+      "seed": 2026,
+      "best_step": 4250,
+      "selection_loss": 0.2674241793793924,
+      "macro_case_dice": 0.7424870867524707,
+      "macro_case_iou": 0.600967966140139,
+      "macro_case_sensitivity": 0.6538982946362932,
+      "macro_case_specificity": 0.9988047462520644,
+      "macro_slice_dice": 0.7582759917585639,
+      "pooled_dice": 0.8242847339593469,
+      "pooled_iou": 0.7010921417523257,
+      "threshold": 0.5
+    }
+  ],
+  "aggregate": {
+    "selection_loss": {
+      "mean": 0.26698136617894414,
+      "sample_std": 0.0007284908007277219,
+      "min": 0.2661405758536541,
+      "max": 0.2674241793793924,
+      "n": 3
+    },
+    "macro_case_dice": {
+      "mean": 0.7540509441220388,
+      "sample_std": 0.01236481657871835,
+      "min": 0.7424870867524707,
+      "max": 0.7670852235345222,
+      "n": 3
+    },
+    "macro_case_iou": {
+      "mean": 0.6137556157934503,
+      "sample_std": 0.01389984104152181,
+      "min": 0.600967966140139,
+      "max": 0.6285495949780746,
+      "n": 3
+    },
+    "macro_case_sensitivity": {
+      "mean": 0.6712674480788677,
+      "sample_std": 0.021680107303111335,
+      "min": 0.6538982946362932,
+      "max": 0.6955648859790244,
+      "n": 3
+    },
+    "macro_case_specificity": {
+      "mean": 0.9986864113660974,
+      "sample_std": 0.00020928786920676822,
+      "min": 0.998444763641249,
+      "max": 0.9988097242049788,
+      "n": 3
+    },
+    "macro_slice_dice": {
+      "mean": 0.758499896350736,
+      "sample_std": 0.0012173866400285033,
+      "min": 0.7574100041138134,
+      "max": 0.7598136931798309,
+      "n": 3
+    },
+    "pooled_dice": {
+      "mean": 0.8231599168659421,
+      "sample_std": 0.005257077285613168,
+      "min": 0.8174314700434719,
+      "max": 0.8277635465950076,
+      "n": 3
+    },
+    "pooled_iou": {
+      "mean": 0.6994888257021054,
+      "sample_std": 0.0075814906946909824,
+      "min": 0.6912339110474395,
+      "max": 0.7061404243065508,
+      "n": 3
+    }
+  },
+  "calibration_accessed": false,
+  "target_accessed": false
+}

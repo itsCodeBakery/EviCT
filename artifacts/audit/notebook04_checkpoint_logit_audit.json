@@ -1,0 +1,52 @@
+{
+  "timestamp_utc": "2026-09-27T14:40:30.735083+00:00",
+  "status": "PASS",
+  "threshold": 0.5,
+  "threshold_tuned": false,
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "seeds": {
+    "17": {
+      "best_step": 3500,
+      "macro_case_dice": 0.7525805220791235,
+      "archive": "EviCT_Notebook04D_seed17_final_step5000_Recovery.tar",
+      "archive_sha256": "7cc9a3d665eed73f970e728e2255a1284e3fa5223f88647338e4e582f08cbe68",
+      "checkpoint": {
+        "global_step": 3500,
+        "best_step": 3500,
+        "best_score": 0.7525805220791235,
+        "precision": "FP32",
+        "sha256": "f68941b755eebc2d016b13d67d127996795022c267d1f19df7a57e52f6e8dcf9"
+      },
+      "raw_logits_verified": true
+    },
+    "42": {
+      "best_step": 2000,
+      "macro_case_dice": 0.7670852235345222,
+      "archive": "EviCT_Notebook04D_seed42_final_step4000_Recovery.tar",
+      "archive_sha256": "d93117969c6eea6a601430959bd61a73553f84420612727e22bc541f851caedc",
+      "checkpoint": {
+        "global_step": 2000,
+        "best_step": 2000,
+        "best_score": 0.7670852235345222,
+        "precision": "FP32",
+        "sha256": "3109d4ad5cad617bdc7601f0d1b3e1823fdf77f0e2ae8f42e231844c06896444"
+      },
+      "raw_logits_verified": true
+    },
+    "2026": {
+      "best_step": 4250,
+      "macro_case_dice": 0.7424870867524707,
+      "archive": "EviCT_Notebook04D_seed2026_final_step5000_Recovery.tar",
+      "archive_sha256": "f32656901ed12ae30b5fbe2c524d114bc9b816ea3f1667d610ea2b3489894fd4",
+      "checkpoint": {
+        "global_step": 4250,
+        "best_step": 4250,
+        "best_score": 0.7424870867524707,
+        "precision": "FP32",
+        "sha256": "418951cc75b414327dd96f4a1a8e69a34227eb40e2dc90d8691876bbb25efbd5"
+      },
+      "raw_logits_verified": true
+    }
+  }
+}

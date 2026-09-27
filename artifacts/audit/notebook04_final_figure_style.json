@@ -1,0 +1,24 @@
+{
+  "timestamp_utc": "2026-09-27T14:40:37.695869+00:00",
+  "font_used": "Liberation Sans",
+  "font_priority": [
+    "Times New Roman",
+    "Calibri",
+    "Arial Narrow",
+    "Arial",
+    "Liberation Sans",
+    "DejaVu Sans"
+  ],
+  "labels_present": true,
+  "panel_labels": [
+    "(A)",
+    "(B)",
+    "(C)",
+    "(D)",
+    "(E)"
+  ],
+  "bold_text": true,
+  "png_dpi": 600,
+  "vector_pdf": true,
+  "embedded_caption": false
+}
