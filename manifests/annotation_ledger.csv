@@ -1,0 +1,10 @@
+dataset_id,seed,budget_id,training_mask_fraction,fitting_total_volumes,fitting_visible_mask_volumes,fitting_hidden_mask_volumes,selection_mask_access_volumes,calibration_mask_access_volumes,total_source_volumes,total_annotation_access_volumes,total_annotation_access_fraction,unlabeled_fitting_available
+segdb2,17,b025,0.25,12,3,9,4,4,20,11,0.55,True
+segdb2,17,b050,0.5,12,6,6,4,4,20,14,0.7,True
+segdb2,17,b100,1.0,12,12,0,4,4,20,20,1.0,False
+segdb2,42,b025,0.25,12,3,9,4,4,20,11,0.55,True
+segdb2,42,b050,0.5,12,6,6,4,4,20,14,0.7,True
+segdb2,42,b100,1.0,12,12,0,4,4,20,20,1.0,False
+segdb2,2026,b025,0.25,12,3,9,4,4,20,11,0.55,True
+segdb2,2026,b050,0.5,12,6,6,4,4,20,14,0.7,True
+segdb2,2026,b100,1.0,12,12,0,4,4,20,20,1.0,False

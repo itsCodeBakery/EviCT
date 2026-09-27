@@ -1,0 +1,66 @@
+{
+  "annotation_budgets": {
+    "budgets": {
+      "b025": {
+        "fraction": 0.25,
+        "visible": 3
+      },
+      "b050": {
+        "fraction": 0.5,
+        "visible": 6
+      },
+      "b100": {
+        "fraction": 1.0,
+        "visible": 12
+      }
+    },
+    "deterministic_order": true,
+    "nested": true,
+    "provenance_balanced": true,
+    "seeds": [
+      17,
+      42,
+      2026
+    ],
+    "total_annotation_access": {
+      "b025": 11,
+      "b050": 14,
+      "b100": 20
+    }
+  },
+  "loader_security": {
+    "calibration_masks_separate": true,
+    "selection_masks_separate": true,
+    "unlabeled_label_statistics_removed": true,
+    "unlabeled_mask_paths_removed": true
+  },
+  "project": "EviCT",
+  "reverse_direction": "BLOCKED",
+  "source_dataset": "segdb2",
+  "split": {
+    "counts": {
+      "calibration": 4,
+      "fitting": 12,
+      "selection": 4
+    },
+    "generator": "numpy.random.PCG64",
+    "lesion_statistics_used": false,
+    "per_stratum_counts": {
+      "calibration": 2,
+      "fitting": 6,
+      "selection": 2
+    },
+    "seed": 17,
+    "strata": [
+      "coronacases_named",
+      "radiopaedia_named"
+    ],
+    "strategy": "stratified_by_audited_acquisition_provenance",
+    "target_information_used": false,
+    "unit": "complete_CT_volume"
+  },
+  "status": "FROZEN",
+  "target_dataset": "segdb1_medseg",
+  "target_lock": true,
+  "timestamp_utc": "2026-09-27T05:47:11.171678+00:00"
+}

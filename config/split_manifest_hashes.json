@@ -1,0 +1,12 @@
+{
+  "artifacts": {
+    "annotation_ledger.csv": "8e154b38de870fad7e90258cddfe370ecf31b0ffee9dd0812e99a7811f6bee6d",
+    "budgets.csv": "b0b1eb002986a0b70a25f8b58e68e19d51524339a3d94af12983497ba4a4d11d",
+    "source_calibration_cases.csv": "3d4d0adf31c6f321d5229095ed1ad67b00e6128db573ca4ae587fef98068506e",
+    "source_selection_cases.csv": "7c06b12ebf8300dee99d906495d43a0c77d693ad33224dd701b50351f971ff07",
+    "split_protocol.json": "d2ae99875c09febc590d10806c1bfe57a6eddd70893d7d2f735526a058a501cc",
+    "splits.csv": "a3abd2a275f21d2ec3ad5395abbd5326705ddd5ac62b9a52cd3acd8687dc039f"
+  },
+  "dataset_policy_sha256": "d23e3bd4941d3884be354ca319fddf086c2153d54198489ddc67e7387227362f",
+  "timestamp_utc": "2026-09-27T05:47:11.172643+00:00"
+}
