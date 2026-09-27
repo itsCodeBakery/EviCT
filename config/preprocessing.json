@@ -1,0 +1,57 @@
+{
+  "augmentation": "not applied during deterministic cache creation; training augmentation will be online",
+  "cache_channels": 1,
+  "geometry": {
+    "image_interpolation": "bilinear_align_corners_false",
+    "inverse_transform_saved": true,
+    "label_interpolation": "nearest",
+    "padding": "symmetric_zero_padding",
+    "padding_excluded_from_loss": true,
+    "padding_excluded_from_metrics": true,
+    "preserve_aspect_ratio": true,
+    "target_height": 336,
+    "target_width": 336,
+    "valid_pixel_mask": true
+  },
+  "imagenet_normalization": "deferred to model loader after grayscale channel repetition",
+  "input_mode": "2D_axial",
+  "intensity": {
+    "coronacases_named": {
+      "clip_max": 250.0,
+      "clip_min": -1250.0,
+      "output_max": 1.0,
+      "output_min": 0.0,
+      "strategy": "benchmark_lung_window",
+      "unit_status": "benchmark CT intensity protocol; stored values are not treated as proof of original DICOM HU metadata"
+    },
+    "radiopaedia_named": {
+      "input_max": 255.0,
+      "input_min": 0.0,
+      "output_max": 1.0,
+      "output_min": 0.0,
+      "strategy": "documented_windowed_display_scaling",
+      "unit_status": "display_values"
+    }
+  },
+  "learned_normalization": null,
+  "mask": {
+    "binary_threshold": 0.5,
+    "interpolation": "nearest",
+    "observed_values": [
+      0,
+      1
+    ],
+    "segdb2_core_target": "infection_mask"
+  },
+  "model_channel_rule": "Repeat normalized grayscale channel three times at loader/model input.",
+  "model_channels": 3,
+  "output_size": [
+    336,
+    336
+  ],
+  "project": "EviCT",
+  "status": "SOURCE_SMOKE_POLICY",
+  "target_dataset_access": false,
+  "timestamp_utc": "2026-09-27T06:01:40.937205+00:00",
+  "version": "1.0"
+}
