@@ -420,31 +420,41 @@ def build_feature_cache(
     weight_hashes: dict,
     config_hash: str,
 ):
+    train_sha = base.sha256_file(TRAIN_MANIFEST_17)
+    selection_sha = base.sha256_file(SELECTION_MANIFEST)
+
+    prior_manifest = None
+    prior_contract_matches = False
+
     if FEATURE_MANIFEST.exists():
-        manifest = json.loads(
+        prior_manifest = json.loads(
             FEATURE_MANIFEST.read_text(encoding="utf-8")
         )
-        if (
-            manifest.get("status") == "COMPLETE"
-            and manifest.get("config_hash") == config_hash
-            and manifest.get("backbone_revision") == pin["revision"]
-            and manifest.get("train_manifest_sha256")
-            == base.sha256_file(TRAIN_MANIFEST_17)
-            and manifest.get("selection_manifest_sha256")
-            == base.sha256_file(SELECTION_MANIFEST)
-        ):
+
+        prior_contract_matches = bool(
+            prior_manifest.get("status") == "COMPLETE"
+            and prior_manifest.get("config_hash") == config_hash
+            and prior_manifest.get("backbone_revision") == pin["revision"]
+            and prior_manifest.get("train_manifest_sha256") == train_sha
+            and prior_manifest.get("selection_manifest_sha256") == selection_sha
+        )
+
+        if prior_contract_matches:
             all_ok = True
-            for item in manifest.get("files", []):
+
+            for item in prior_manifest.get("files", []):
                 path = ROOT / item["relative_path"]
+
                 if (
                     not path.exists()
                     or path.stat().st_size != int(item["size_bytes"])
                 ):
                     all_ok = False
                     break
+
             if all_ok:
                 print("✓ Frozen CLIP feature cache : REUSED")
-                return manifest
+                return prior_manifest
 
     if FEATURE_ROOT.exists():
         shutil.rmtree(FEATURE_ROOT)
@@ -574,8 +584,8 @@ def build_feature_cache(
         "backbone_revision": pin["revision"],
         "backbone_weight_hashes": weight_hashes,
         "config_hash": config_hash,
-        "train_manifest_sha256": base.sha256_file(TRAIN_MANIFEST_17),
-        "selection_manifest_sha256": base.sha256_file(SELECTION_MANIFEST),
+        "train_manifest_sha256": train_sha,
+        "selection_manifest_sha256": selection_sha,
         "low_hidden_state_index": LOW_HIDDEN_INDEX,
         "high_hidden_state_index": HIGH_HIDDEN_INDEX,
         "feature_dtype": "float16",
@@ -588,6 +598,40 @@ def build_feature_cache(
         "calibration_accessed": False,
         "target_accessed": False,
     }
+
+    # Fresh Kaggle runtimes regenerate the ignored feature cache. If a
+    # previously committed manifest exists, require byte-identical cached
+    # features before preserving its exact scientific contract. This lets
+    # rolling checkpoints resume without silently changing frozen features.
+    if prior_contract_matches and prior_manifest is not None:
+        prior_files = {
+            item["relative_path"]: (
+                int(item["size_bytes"]),
+                item["sha256"],
+            )
+            for item in prior_manifest.get("files", [])
+        }
+
+        new_files = {
+            item["relative_path"]: (
+                int(item["size_bytes"]),
+                item["sha256"],
+            )
+            for item in files
+        }
+
+        if prior_files == new_files:
+            print(
+                "✓ Regenerated frozen features are byte-identical "
+                "to the committed cache contract."
+            )
+            return prior_manifest
+
+        raise RuntimeError(
+            "Regenerated frozen CLIP features differ from the committed "
+            "feature-cache manifest. Refusing to resume prior checkpoints "
+            "under a changed feature basis."
+        )
 
     base.atomic_text(
         FEATURE_MANIFEST,
