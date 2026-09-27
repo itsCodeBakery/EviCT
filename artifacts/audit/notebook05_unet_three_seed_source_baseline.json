@@ -1,0 +1,98 @@
+{
+  "timestamp_utc": "2026-09-27T20:06:52.277594+00:00",
+  "stage": "NOTEBOOK_05",
+  "baseline": "competitive_residual_unet2d",
+  "status": "THREE_SEED_SOURCE_BASELINE_FROZEN",
+  "primary_seeds": [
+    17,
+    42,
+    2026
+  ],
+  "selected_learning_rate": 0.0003,
+  "learning_rate_frozen_before_seeds_42_2026": true,
+  "architecture_tuning": false,
+  "threshold": 0.5,
+  "threshold_tuned": false,
+  "metrics": {
+    "macro_case_dice": {
+      "mean": 0.7222070134634088,
+      "sample_sd": 0.018058576237764915
+    },
+    "macro_case_iou": {
+      "mean": 0.5761421175323649,
+      "sample_sd": 0.019645460748142884
+    },
+    "macro_case_sensitivity": {
+      "mean": 0.6951928177102243,
+      "sample_sd": 0.0351258543800589
+    },
+    "macro_case_specificity": {
+      "mean": 0.9972392607036142,
+      "sample_sd": 0.0003941835708801366
+    },
+    "macro_slice_dice": {
+      "mean": 0.635770703102089,
+      "sample_sd": 0.05228989363159167
+    },
+    "pooled_dice": {
+      "mean": 0.8033111752263974,
+      "sample_sd": 0.0034326362475035526
+    },
+    "pooled_iou": {
+      "mean": 0.6712874006179628,
+      "sample_sd": 0.004787271877611111
+    }
+  },
+  "seed_results": [
+    {
+      "seed": 17,
+      "learning_rate": 0.0003,
+      "best_step": 1500,
+      "final_step": 3500,
+      "stop_reason": "EARLY_STOPPING_PATIENCE_8",
+      "macro_case_dice": 0.742388043343452,
+      "macro_case_iou": 0.5980082162871817,
+      "macro_case_sensitivity": 0.7332448108933767,
+      "macro_case_specificity": 0.9968290791023886,
+      "macro_slice_dice": 0.6481684642410408,
+      "pooled_dice": 0.8046252958746936,
+      "pooled_iou": 0.6731155453581924,
+      "threshold": 0.5,
+      "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr3e4-final-step3500"
+    },
+    {
+      "seed": 42,
+      "learning_rate": 0.0003,
+      "best_step": 2000,
+      "final_step": 4000,
+      "stop_reason": "EARLY_STOPPING_PATIENCE_8",
+      "macro_case_dice": 0.7075715342253128,
+      "macro_case_iou": 0.5599794006760175,
+      "macro_case_sensitivity": 0.6640070510952844,
+      "macro_case_specificity": 0.9976152139578668,
+      "macro_slice_dice": 0.5783960996255619,
+      "pooled_dice": 0.7994156265513414,
+      "pooled_iou": 0.6658554319302302,
+      "threshold": 0.5,
+      "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05c-unet-seed42-lr3e4-final-step4000"
+    },
+    {
+      "seed": 2026,
+      "learning_rate": 0.0003,
+      "best_step": 2500,
+      "final_step": 4500,
+      "stop_reason": "EARLY_STOPPING_PATIENCE_8",
+      "macro_case_dice": 0.7166614628214616,
+      "macro_case_iou": 0.5704387356338956,
+      "macro_case_sensitivity": 0.6883265911420118,
+      "macro_case_specificity": 0.9972734890505875,
+      "macro_slice_dice": 0.6807475454396645,
+      "pooled_dice": 0.8058926032531573,
+      "pooled_iou": 0.6748912245654658,
+      "threshold": 0.5,
+      "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05c-unet-seed2026-lr3e4-final-step4500"
+    }
+  ],
+  "calibration_accessed": false,
+  "target_accessed": false
+}

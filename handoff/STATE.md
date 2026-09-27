@@ -2,61 +2,35 @@
 
 ## Current stage
 
-NOTEBOOK_05C_UNET_SEED_2026_COMPLETE_DURABLE
+NOTEBOOK_05_UNET_THREE_SEED_SOURCE_BASELINE_FROZEN
 
 ## Timestamp
 
-2026-09-27T20:06:50.628489+00:00
+2026-09-27T20:06:52.278575+00:00
 
 ## Baseline
 
 Competitive residual 2D U-Net
 
-## Frozen protocol
-
 Architecture:
 
 Residual 2D U-Net with GroupNorm
 
-Learning rate:
+Frozen learning rate:
 
 0.00030000
 
-Learning-rate status:
+Primary seeds:
 
-FROZEN FROM SEED-17 PILOT
+17, 42, 2026
 
-Training seed:
+Three-seed source-selection macro case Dice:
 
-2026
+0.72220701
 
-Split seed:
+Sample standard deviation:
 
-17
-
-Precision:
-
-FP32
-
-Optimizer step:
-
-4500
-
-Best source-selection macro case Dice:
-
-0.71666146
-
-Best checkpoint step:
-
-2500
-
-Patience:
-
-8 / 8
-
-Image exposures:
-
-72000
+0.01805858
 
 Selection threshold:
 
@@ -72,14 +46,6 @@ NO
 
 ## Isolation
 
-Fitting cases:
-
-12 frozen source fitting cases
-
-Selection cases:
-
-4 frozen complete source-selection cases
-
 Calibration accessed:
 
 NO
@@ -92,7 +58,22 @@ Target lock:
 
 ACTIVE
 
+## Durability
+
+Seed 17 final recovery:
+
+https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr3e4-final-step3500
+
+Seed 42 final recovery:
+
+https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05c-unet-seed42-lr3e4-final-step4000
+
+Seed 2026 final recovery:
+
+https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05c-unet-seed2026-lr3e4-final-step4500
+
 ## Next
 
-Complete the frozen U-Net primary-seed runs for seeds 42 and 2026,
-then aggregate seeds 17, 42, and 2026 without changing the protocol.
+The competitive U-Net reference baseline is frozen.
+Proceed to the remaining E03 comparison component (SegCT-CLIP reproduction/reimplementation)
+before starting the proposed semantic branch.
