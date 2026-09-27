@@ -343,7 +343,7 @@ def main(mode: str) -> None:
         assert path.exists(), f"Missing required project file: {path}"
 
     print("=" * 100)
-    print(f"EVICT NOTEBOOK 04D — SEED 42 — {mode.upper()}")
+    print(f"EVICT NOTEBOOK 04D — SEED 2026 — {mode.upper()}")
     print("=" * 100)
 
     ensure_cache()
@@ -1079,7 +1079,7 @@ ACTIVE
 
         print()
         print("=" * 100)
-        print("EVICT NOTEBOOK 04D — SEED 42 — RESUME AUDIT PASS")
+        print("EVICT NOTEBOOK 04D — SEED 2026 — RESUME AUDIT PASS")
         print("=" * 100)
         print(f"Current optimizer step   : {global_step}")
         print(f"Last validation          : {last_validation_step}")
@@ -1113,7 +1113,7 @@ ACTIVE
 
     print()
     print("=" * 100)
-    print("SEED-42 FULL CONTINUATION")
+    print("SEED-2026 FULL CONTINUATION")
     print("=" * 100)
     print(f"Starting step            : {global_step}")
     print(f"Best Dice                : {best_score:.6f}")
@@ -1296,7 +1296,7 @@ ACTIVE
 
     print()
     print("=" * 100)
-    print("EVICT NOTEBOOK 04D — SEED 42 COMPLETE")
+    print("EVICT NOTEBOOK 04D — SEED 2026 COMPLETE")
     print("=" * 100)
     print(f"Final optimizer step     : {global_step}")
     print(f"Completion reason        : {completion_reason}")
