@@ -2,93 +2,56 @@
 
 ## Current stage
 
-NOTEBOOK_01_DATASET_POLICY_FROZEN
+NOTEBOOK_02_SOURCE_SPLIT_FROZEN
 
 ## Timestamp
 
-2026-09-27T05:39:43.712896+00:00
+2026-09-27T05:47:09.628306+00:00
 
-## Completed stages
-
-- Bootstrap: COMPLETE
-- Notebook 00: COMPLETE
-- Notebook 01A SegDB-2 audit: COMPLETE
-- Notebook 01B SegDB-1 / MedSeg audit: COMPLETE
-- Notebook 01C dataset-use policy: FROZEN
-
-## Frozen controlled direction
-
-SegDB-2 -> SegDB-1 / MedSeg
-
-## Source dataset
+## Source
 
 SegDB-2
 
-Verified volumes:
+## Fixed source split
 
-20
+Seed:
 
-Future source partition:
+17
 
-- fitting: 12
-- selection: 4
-- calibration: 4
+Fitting:
 
-## External target
+12
 
-SegDB-1 / MedSeg
+Selection:
 
-100 slices.
+4
 
-Patient grouping unresolved.
+Calibration:
 
-Source-training eligibility:
+4
 
-BLOCKED
+## Provenance balance
 
-External evaluation:
+Each provenance stratum contributes:
 
-Allowed only after later source-side protocol freeze and must be
-reported explicitly as image-level / selected-slice evaluation.
+- fitting: 6
+- selection: 2
+- calibration: 2
 
-## Reverse direction
+## Split manifest
 
-MedSeg -> SegDB-2:
-
-BLOCKED until legitimate patient/group mapping is recovered.
-
-## Radiopaedia competition arrays
-
-QUARANTINED
-
-## Target leakage lock
-
-ACTIVE
-
-No target performance may be used for model selection, threshold
-selection, calibration, prompts, uncertainty rules, augmentation,
-post-processing, or hyperparameter tuning.
-
-## Dataset policy
-
-Path:
-
-config/dataset_use_policy.json
+manifests/splits.csv
 
 SHA-256:
 
-d23e3bd4941d3884be354ca319fddf086c2153d54198489ddc67e7387227362f
+a3abd2a275f21d2ec3ad5395abbd5326705ddd5ac62b9a52cd3acd8687dc039f
 
-## Scientific status
+## Target lock
 
-No preprocessing performed.
+ACTIVE
 
-No source split created yet.
+No MedSeg performance has been inspected.
 
-No model trained.
+## Next
 
-No target evaluation performed.
-
-## Next stage
-
-Notebook 02 — create fixed source-only SegDB-2 12/4/4 split and nested label budgets.
+Build nested 25/50/100% fitting annotation budgets.
