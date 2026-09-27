@@ -2,66 +2,29 @@
 
 ## Current stage
 
-NOTEBOOK_01A_SEGDB2_AUDIT_COMPLETE
+NOTEBOOK_01B_MEDSEG_HASH_INVENTORY_COMPLETE
 
 ## Timestamp
 
-2026-09-27T05:17:12.752263+00:00
+2026-09-27T05:34:58.978778+00:00
 
-## Completed stages
+## Completed
 
 - Bootstrap: COMPLETE
 - Notebook 00: COMPLETE
-- SegDB-2 metadata pairing repair: COMPLETE
-- Notebook 01A SegDB-2 audit: COMPLETE
-
-## SegDB-2
-
-Correct metadata-defined cases:
-
-20
-
-Geometry-valid cases:
-
-20/20
-
-Observed infection-mask values:
-
-[0.0, 1.0]
-
-Observed lung-mask values:
-
-[0.0, 1.0, 2.0]
-
-Observed combined-mask values:
-
-[0.0, 1.0, 2.0, 3.0]
-
-Excluded cases:
-
-0
-
-## Important correction
-
-The historical 40-case / 0-pair result was caused by an invalid
-filename-stem matching rule.
-
-The corrected implementation uses metadata.csv.
+- Notebook 01A / SegDB-2 audit: COMPLETE
+- SegDB-1 / MedSeg five-file SHA256 inventory: COMPLETE
 
 ## Scientific status
 
-No preprocessing performed.
+No MedSeg preprocessing performed.
 
-No HU conversion performed.
+No patient IDs inferred.
 
-No train/selection/calibration split created.
+No split created.
 
 No model trained.
 
-No target evaluation performed.
+## Next
 
-Track R remains NOT READY.
-
-## Next stage
-
-Attach and audit SegDB-1 / MedSeg.
+Continue Notebook 01B MedSeg array/mask/grouping audit.
