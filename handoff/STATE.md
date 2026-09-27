@@ -2,25 +2,13 @@
 
 ## Current stage
 
-NOTEBOOK_05B_UNET_LR3E4_COMPLETE_DURABLE
+NOTEBOOK_05B_UNET_LEARNING_RATE_FROZEN
 
 ## Timestamp
 
-2026-09-27T17:20:44.649108+00:00
+2026-09-27T17:20:46.222354+00:00
 
-## Notebook 04
-
-Status:
-
-COMPLETE_SOURCE_BASELINE_FROZEN
-
-Notebook 04 retraining:
-
-NO
-
-## Notebook 05B
-
-Baseline:
+## Baseline
 
 Competitive residual 2D U-Net
 
@@ -28,21 +16,57 @@ Pilot seed:
 
 17
 
-Candidate:
+Architecture tuning:
 
-lr3e4
+NO
+
+Candidate initialization:
+
+IDENTICAL
+
+Initialization SHA-256:
+
+0698a4bf77cbdf2f0ee99f080eab4677f778d8bfbb15b244f00695dc6f0b19b1
+
+## Candidate 1
+
+Learning rate:
+
+0.00010000
+
+Final optimizer step:
+
+3500
+
+Stop reason:
+
+EARLY_STOPPING_PATIENCE_8
+
+Best source-selection macro case Dice:
+
+0.74123800
+
+Best checkpoint step:
+
+1500
+
+Durable release:
+
+https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr1e4-final-step3500
+
+## Candidate 2
 
 Learning rate:
 
 0.00030000
 
-Precision:
-
-FP32
-
-Optimizer step:
+Final optimizer step:
 
 3500
+
+Stop reason:
+
+EARLY_STOPPING_PATIENCE_8
 
 Best source-selection macro case Dice:
 
@@ -52,31 +76,33 @@ Best checkpoint step:
 
 1500
 
-Patience:
+Durable release:
 
-8 / 8
+https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr3e4-final-step3500
 
-Image exposures:
+## Frozen learning rate
 
-56000
+Selected candidate:
 
-Selection threshold:
+lr3e4
+
+Selected learning rate:
+
+0.00030000
+
+Selection metric:
+
+Frozen source-selection macro case Dice
+
+Selection margin:
+
+0.00115005
+
+Threshold:
 
 0.5 fixed
 
-Architecture tuning:
-
-NO
-
 ## Isolation
-
-Fitting cases:
-
-12 frozen source fitting cases
-
-Selection cases:
-
-4 frozen complete source-selection cases
 
 Calibration accessed:
 
@@ -90,17 +116,8 @@ Target lock:
 
 ACTIVE
 
-## Pilot contract
-
-Learning-rate candidates:
-
-0.0001, 0.0003
-
-Candidate comparison:
-
-PENDING until both candidates complete the full declared budget or early stopping.
-
 ## Next
 
-Continue the declared U-Net learning-rate pilot without changing architecture,
-data, loss, selection metric, threshold, or target lock.
+Keep the selected U-Net architecture and learning rate fixed.
+Run the remaining primary training seeds 42 and 2026 under the
+same source-only protocol before final U-Net aggregation.
