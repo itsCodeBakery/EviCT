@@ -1,0 +1,2 @@
+candidate_name,learning_rate,seed,step,selection_loss,macro_case_dice,macro_case_iou,macro_case_sensitivity,macro_case_specificity,macro_slice_dice,pooled_dice,pooled_iou,threshold,n_cases,best_so_far,best_step,patience_count,precision
+lr3e4,0.0003,17,250,0.30607179882381247,0.5965524056964295,0.4457614914455461,0.7618834464440766,0.9909635917422186,0.44927650863567326,0.6980883314448169,0.5362025307135709,0.5,4,0.5965524056964295,250,0,FP32
