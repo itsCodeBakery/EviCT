@@ -1,0 +1,52 @@
+{
+  "timestamp_utc": "2026-09-27T17:41:27.851922+00:00",
+  "stage": "NOTEBOOK_05C",
+  "seed": 42,
+  "learning_rate": 0.0003,
+  "step": 250,
+  "threshold": 0.5,
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "cases": [
+    {
+      "case_id": "coronacases_003",
+      "shape": [
+        200,
+        336,
+        336
+      ],
+      "dtype": "float32",
+      "sha256": "9b386d8ab34857fb4da07ea87ec414f1aa486631c38373a8cdce1bcac62f54dc"
+    },
+    {
+      "case_id": "coronacases_010",
+      "shape": [
+        301,
+        336,
+        336
+      ],
+      "dtype": "float32",
+      "sha256": "b1cab4c305164592a3631d285dabcf94a0301ff8769b4e888c31217bbd3dba74"
+    },
+    {
+      "case_id": "radiopaedia_10_85902_1",
+      "shape": [
+        39,
+        336,
+        336
+      ],
+      "dtype": "float32",
+      "sha256": "3db371ad26eb6e338f207e11dac80ea03a52fc2af32649fbd652adc37109035a"
+    },
+    {
+      "case_id": "radiopaedia_4_85506_1",
+      "shape": [
+        39,
+        336,
+        336
+      ],
+      "dtype": "float32",
+      "sha256": "1ea56d8ced5e20f72d37bac46252047c6a9ec5acc0c77d4b916b2f9fbe218ff5"
+    }
+  ]
+}

@@ -2,107 +2,83 @@
 
 ## Current stage
 
-NOTEBOOK_05B_UNET_LEARNING_RATE_FROZEN
+NOTEBOOK_05C_UNET_SEED_42_RUNNING_STEP_250
 
 ## Timestamp
 
-2026-09-27T17:20:46.222354+00:00
+2026-09-27T17:41:28.193031+00:00
 
 ## Baseline
 
 Competitive residual 2D U-Net
 
-Pilot seed:
+## Frozen protocol
+
+Architecture:
+
+Residual 2D U-Net with GroupNorm
+
+Learning rate:
+
+0.00030000
+
+Learning-rate status:
+
+FROZEN FROM SEED-17 PILOT
+
+Training seed:
+
+42
+
+Split seed:
 
 17
+
+Precision:
+
+FP32
+
+Optimizer step:
+
+250
+
+Best source-selection macro case Dice:
+
+0.49622897
+
+Best checkpoint step:
+
+250
+
+Patience:
+
+0 / 8
+
+Image exposures:
+
+4000
+
+Selection threshold:
+
+0.5 fixed
 
 Architecture tuning:
 
 NO
 
-Candidate initialization:
+Threshold tuning:
 
-IDENTICAL
-
-Initialization SHA-256:
-
-0698a4bf77cbdf2f0ee99f080eab4677f778d8bfbb15b244f00695dc6f0b19b1
-
-## Candidate 1
-
-Learning rate:
-
-0.00010000
-
-Final optimizer step:
-
-3500
-
-Stop reason:
-
-EARLY_STOPPING_PATIENCE_8
-
-Best source-selection macro case Dice:
-
-0.74123800
-
-Best checkpoint step:
-
-1500
-
-Durable release:
-
-https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr1e4-final-step3500
-
-## Candidate 2
-
-Learning rate:
-
-0.00030000
-
-Final optimizer step:
-
-3500
-
-Stop reason:
-
-EARLY_STOPPING_PATIENCE_8
-
-Best source-selection macro case Dice:
-
-0.74238804
-
-Best checkpoint step:
-
-1500
-
-Durable release:
-
-https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr3e4-final-step3500
-
-## Frozen learning rate
-
-Selected candidate:
-
-lr3e4
-
-Selected learning rate:
-
-0.00030000
-
-Selection metric:
-
-Frozen source-selection macro case Dice
-
-Selection margin:
-
-0.00115005
-
-Threshold:
-
-0.5 fixed
+NO
 
 ## Isolation
+
+Fitting cases:
+
+12 frozen source fitting cases
+
+Selection cases:
+
+4 frozen complete source-selection cases
 
 Calibration accessed:
 
@@ -118,6 +94,5 @@ ACTIVE
 
 ## Next
 
-Keep the selected U-Net architecture and learning rate fixed.
-Run the remaining primary training seeds 42 and 2026 under the
-same source-only protocol before final U-Net aggregation.
+Complete the frozen U-Net primary-seed runs for seeds 42 and 2026,
+then aggregate seeds 17, 42, and 2026 without changing the protocol.
