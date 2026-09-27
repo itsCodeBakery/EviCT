@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-09-27T15:13:16.919606+00:00",
+  "stage": "NOTEBOOK_05B",
+  "candidate_name": "lr1e4",
+  "learning_rate": 0.0001,
+  "seed": 17,
+  "step": 1000,
+  "best_macro_case_dice": 0.6390613648655991,
+  "best_step": 750,
+  "initialization_hash": "0698a4bf77cbdf2f0ee99f080eab4677f778d8bfbb15b244f00695dc6f0b19b1",
+  "recovery_archive": "EviCT_Notebook05B_unet_seed17_lr1e4_step1000_Recovery.tar",
+  "recovery_archive_sha256": "629211ee8a430b004169c91f7ad21cc5ee33cced2b427b30360568edabdbf220",
+  "release_tag": "evict-nb05b-unet-seed17-lr1e4-step1000",
+  "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr1e4-step1000",
+  "tar_asset_id": 593169450,
+  "sha_asset_id": 593169642,
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "status": "DURABLE_STEP1000"
+}
