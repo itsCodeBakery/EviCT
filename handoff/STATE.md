@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_05B_UNET_LR1E4_COMPLETE_DURABLE
+NOTEBOOK_05B_UNET_LR3E4_RECOVERY_AUDIT_1020_PASS
 
 ## Timestamp
 
-2026-09-27T16:36:26.632933+00:00
+2026-09-27T16:36:50.543701+00:00
 
 ## Notebook 04
 
@@ -30,11 +30,11 @@ Pilot seed:
 
 Candidate:
 
-lr1e4
+lr3e4
 
 Learning rate:
 
-0.00010000
+0.00030000
 
 Precision:
 
@@ -42,23 +42,23 @@ FP32
 
 Optimizer step:
 
-3500
+1020
 
 Best source-selection macro case Dice:
 
-0.74123800
+0.69771367
 
 Best checkpoint step:
 
-1500
+1000
 
 Patience:
 
-8 / 8
+0 / 8
 
 Image exposures:
 
-56000
+16320
 
 Selection threshold:
 
