@@ -1,0 +1,7 @@
+case_id,provenance_stratum,source_split,image_path,infection_cache_path,best_z,best_lesion_area,n_positive_slices,n_total_slices,panel_order
+coronacases_003,coronacases_named,selection,/kaggle/working/EviCT/cache/segdb2/images/coronacases_003.npy,/kaggle/working/EviCT/cache/segdb2/gt_vault/infection/coronacases_003.npy,81,9472,137,200,A
+coronacases_010,coronacases_named,selection,/kaggle/working/EviCT/cache/segdb2/images/coronacases_010.npy,/kaggle/working/EviCT/cache/segdb2/gt_vault/infection/coronacases_010.npy,121,3617,191,301,B
+coronacases_006,coronacases_named,calibration,/kaggle/working/EviCT/cache/segdb2/images/coronacases_006.npy,/kaggle/working/EviCT/cache/segdb2/gt_vault/infection/coronacases_006.npy,71,1943,70,213,C
+radiopaedia_40_86625_0,radiopaedia_named,calibration,/kaggle/working/EviCT/cache/segdb2/images/radiopaedia_40_86625_0.npy,/kaggle/working/EviCT/cache/segdb2/gt_vault/infection/radiopaedia_40_86625_0.npy,32,11277,72,93,D
+radiopaedia_4_85506_1,radiopaedia_named,selection,/kaggle/working/EviCT/cache/segdb2/images/radiopaedia_4_85506_1.npy,/kaggle/working/EviCT/cache/segdb2/gt_vault/infection/radiopaedia_4_85506_1.npy,13,10900,26,39,E
+radiopaedia_10_85902_1,radiopaedia_named,selection,/kaggle/working/EviCT/cache/segdb2/images/radiopaedia_10_85902_1.npy,/kaggle/working/EviCT/cache/segdb2/gt_vault/infection/radiopaedia_10_85902_1.npy,12,1980,14,39,F
