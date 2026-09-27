@@ -1,17 +1,15 @@
 {
-  "timestamp_utc": "2026-09-27T09:45:08.675696+00:00",
+  "timestamp_utc": "2026-09-27T10:20:06.189315+00:00",
   "seed": 42,
+  "global_step": 1250,
+  "last_validation_step": 1250,
+  "best_score": 0.7268697610439453,
+  "best_step": 1250,
+  "patience_count": 0,
+  "images_seen": 20000,
   "precision": "FP32",
-  "global_step": 1000,
-  "best_selection_macro_case_dice": 0.6996857137077372,
-  "best_step": 750,
-  "patience_count": 1,
-  "last_validation_step": 1000,
-  "images_seen": 16000,
-  "segment_minutes": 9.395738891760509,
-  "calibration_accessed": false,
   "target_accessed": false,
-  "last_checkpoint_sha256": "5e8a5d8370976918ad902f1c28f8727163ff1a04120d9fc38b52ece8a83d18b1",
-  "best_checkpoint_sha256": "60f8f9d07015110b335ceddf6d57ba61257066772856d47a85d73b7076dce26a",
-  "best_logits_manifest_sha256": "f5c3ffba0e1678f8a03695be02f62438507734d00f1ddb05bca5da8bbcdcd08b"
+  "calibration_accessed": false,
+  "last_checkpoint_sha256": "e72a3967700472f6aa3e189463ac303e63a7a7e09c176663cb14b9f3a6e8f314",
+  "best_checkpoint_sha256": "28082b9a39fe53f2c06c3acc642a8b20ab97cd06517d32df678c2f908ce3ae04"
 }
