@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_05B_UNET_LR1E4_RUNNING_STEP_750
+NOTEBOOK_05B_UNET_LR1E4_RUNNING_STEP_1000
 
 ## Timestamp
 
-2026-09-27T15:08:47.406772+00:00
+2026-09-27T15:13:07.035194+00:00
 
 ## Notebook 04
 
@@ -42,7 +42,7 @@ FP32
 
 Optimizer step:
 
-750
+1000
 
 Best source-selection macro case Dice:
 
@@ -54,11 +54,11 @@ Best checkpoint step:
 
 Patience:
 
-0 / 8
+1 / 8
 
 Image exposures:
 
-12000
+16000
 
 Selection threshold:
 
