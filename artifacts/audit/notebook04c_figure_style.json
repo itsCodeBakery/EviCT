@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-09-27T07:54:40.723864+00:00",
+  "figure": "notebook04c_tiny_overfit",
+  "font_priority": [
+    "Times New Roman",
+    "Calibri",
+    "Arial Narrow",
+    "Arial",
+    "Liberation Sans",
+    "DejaVu Sans"
+  ],
+  "font_used": "Liberation Sans",
+  "font_fallback_allowed": true,
+  "labels_present": true,
+  "panel_labels": [
+    "(A)",
+    "(B)",
+    "(C)",
+    "(D)"
+  ],
+  "bold_text": true,
+  "png_dpi": 600,
+  "vector_pdf": true,
+  "embedded_caption": false,
+  "embedded_footnote": false,
+  "note": "Times New Roman remains preferred. Fallback fonts are permitted when it is unavailable."
+}

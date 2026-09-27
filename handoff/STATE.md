@@ -156,3 +156,42 @@ Before launch:
 7. store structured training logs;
 8. store raw source-selection logits;
 9. preserve the target-performance lock.
+
+
+## Figure font policy update
+
+Preferred font:
+
+Times New Roman
+
+Fallback fonts:
+
+Calibri -> Arial Narrow -> Arial -> Liberation Sans -> DejaVu Sans
+
+Fallback allowed:
+
+YES
+
+Labels may be removed because preferred font is unavailable:
+
+NO
+
+Notebook 04C labeled figure:
+
+GENERATED
+
+Actual font used:
+
+Liberation Sans
+
+PNG:
+
+figures/notebook04c_tiny_overfit.png
+
+PDF:
+
+figures/notebook04c_tiny_overfit.pdf
+
+Caption embedded in image:
+
+NO

@@ -5,7 +5,7 @@
   "status": "FROZEN",
   "font_family": "Times New Roman",
   "font_policy": "All manuscript figure headings, panel labels, axis labels, tick labels, legends and data annotations must use Times New Roman.",
-  "font_fallback_allowed": false,
+  "font_fallback_allowed": true,
   "bold_text": true,
   "minimum_publication_png_dpi": 600,
   "vector_output_required": true,
@@ -19,5 +19,16 @@
   "panel_labels": "(A), (B), (C), ...",
   "readability_rule": "Text must remain legible after the figure is scaled to its intended LaTeX column or text width.",
   "panel_density_rule": "Use only the number of panels required to convey the scientific result; avoid crowded grids.",
-  "earlier_qc_figures": "May remain as historical QC artifacts. Regenerate under this style if selected for the final manuscript."
+  "earlier_qc_figures": "May remain as historical QC artifacts. Regenerate under this style if selected for the final manuscript.",
+  "font_preference": "Times New Roman",
+  "font_fallback_priority": [
+    "Times New Roman",
+    "Calibri",
+    "Arial Narrow",
+    "Arial",
+    "Liberation Sans",
+    "DejaVu Sans"
+  ],
+  "labels_must_be_present": true,
+  "latest_update_utc": "2026-09-27T07:54:40.724901+00:00"
 }
