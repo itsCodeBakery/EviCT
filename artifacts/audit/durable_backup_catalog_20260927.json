@@ -1,0 +1,232 @@
+{
+  "timestamp_utc": "2026-09-27T09:59:07.146654+00:00",
+  "project": "EviCT",
+  "purpose": "Durable project-wide backup before continuing Notebook 04D seed42 beyond step1000.",
+  "repository": "https://github.com/itsCodeBakery/EviCT",
+  "consolidated_release": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+  "normal_git": {
+    "contents": "source code, configs, manifests, logs, metrics, audits, STATE.md, handoffs",
+    "large_files": false
+  },
+  "release_assets": [
+    {
+      "original_name": "EviCT_GitSafe_Project_Snapshot_20260927.tar.gz",
+      "original_path": "/kaggle/working/EviCT_GitSafe_Project_Snapshot_20260927.tar.gz",
+      "original_size": 21571475,
+      "original_sha256": "77d9fda52f853d74c0eebb083baf7878233e5185f739dd4046574deed3cc22ba",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_GitSafe_Project_Snapshot_20260927.tar.gz",
+        "size": 21571475,
+        "sha256": "77d9fda52f853d74c0eebb083baf7878233e5185f739dd4046574deed3cc22ba",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_GitSafe_Project_Snapshot_20260927.tar.gz"
+      }
+    },
+    {
+      "original_name": "EviCT_GitSafe_Project_Snapshot_20260927.tar.gz.sha256",
+      "original_path": "/kaggle/working/EviCT_GitSafe_Project_Snapshot_20260927.tar.gz.sha256",
+      "original_size": 65,
+      "original_sha256": "3def92d365a4315e77eee67e25fb7dc17ac50d502ca5e5e67430525008b83260",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_GitSafe_Project_Snapshot_20260927.tar.gz.sha256",
+        "size": 65,
+        "sha256": "3def92d365a4315e77eee67e25fb7dc17ac50d502ca5e5e67430525008b83260",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_GitSafe_Project_Snapshot_20260927.tar.gz.sha256"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook03_Cache.sha256",
+      "original_path": "/kaggle/working/EviCT_Notebook03_Cache.sha256",
+      "original_size": 93,
+      "original_sha256": "b5c8714151b6994c59a78f9e778c9f5416278b733d43cca413cd2a1a9c56400e",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_Notebook03_Cache.sha256",
+        "size": 93,
+        "sha256": "b5c8714151b6994c59a78f9e778c9f5416278b733d43cca413cd2a1a9c56400e",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_Notebook03_Cache.sha256"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook03_Cache.tar",
+      "original_path": "/kaggle/working/EviCT_Notebook03_Cache.tar",
+      "original_size": 1592002560,
+      "original_sha256": "d88e786cd467816d6cb446333385918016946a83cdd3c258b3011f458fbd3fc4",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_Notebook03_Cache.tar",
+        "size": 1592002560,
+        "sha256": "d88e786cd467816d6cb446333385918016946a83cdd3c258b3011f458fbd3fc4",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_Notebook03_Cache.tar"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook03_Cache.tar.sha256",
+      "original_path": "/kaggle/working/EviCT_Notebook03_Cache.tar.sha256",
+      "original_size": 65,
+      "original_sha256": "1420245bd05535c4eb2af4c983ded19f61ddf94f1a159337d35aa1f88b9db740",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_Notebook03_Cache.tar.sha256",
+        "size": 65,
+        "sha256": "1420245bd05535c4eb2af4c983ded19f61ddf94f1a159337d35aa1f88b9db740",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_Notebook03_Cache.tar.sha256"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook04D_seed17_final_step5000_Recovery.sha256",
+      "original_path": "/kaggle/working/EviCT_Notebook04D_seed17_final_step5000_Recovery.sha256",
+      "original_size": 65,
+      "original_sha256": "1d2733e33b34bfcfb6030467ac2b894c20f0d0c37689a8d595f91ee942d6cbc3",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_Notebook04D_seed17_final_step5000_Recovery.sha256",
+        "size": 65,
+        "sha256": "1d2733e33b34bfcfb6030467ac2b894c20f0d0c37689a8d595f91ee942d6cbc3",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_Notebook04D_seed17_final_step5000_Recovery.sha256"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook04D_seed17_final_step5000_Recovery.tar",
+      "original_path": "/kaggle/working/EviCT_Notebook04D_seed17_final_step5000_Recovery.tar",
+      "original_size": 921354240,
+      "original_sha256": "7cc9a3d665eed73f970e728e2255a1284e3fa5223f88647338e4e582f08cbe68",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_Notebook04D_seed17_final_step5000_Recovery.tar",
+        "size": 921354240,
+        "sha256": "7cc9a3d665eed73f970e728e2255a1284e3fa5223f88647338e4e582f08cbe68",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_Notebook04D_seed17_final_step5000_Recovery.tar"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook04D_seed17_final_step5000_Recovery.tar.sha256",
+      "original_path": "/kaggle/working/EviCT_Notebook04D_seed17_final_step5000_Recovery.tar.sha256",
+      "original_size": 65,
+      "original_sha256": "1d2733e33b34bfcfb6030467ac2b894c20f0d0c37689a8d595f91ee942d6cbc3",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_Notebook04D_seed17_final_step5000_Recovery.tar.sha256",
+        "size": 65,
+        "sha256": "1d2733e33b34bfcfb6030467ac2b894c20f0d0c37689a8d595f91ee942d6cbc3",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_Notebook04D_seed17_final_step5000_Recovery.tar.sha256"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook04D_seed17_step1000_Recovery.sha256",
+      "original_path": "/kaggle/working/EviCT_Notebook04D_seed17_step1000_Recovery.sha256",
+      "original_size": 65,
+      "original_sha256": "3da7b7a88b831885f3a1afe8140d662d4a567b23adb0cf5eed6fa0a20de50a0a",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_Notebook04D_seed17_step1000_Recovery.sha256",
+        "size": 65,
+        "sha256": "3da7b7a88b831885f3a1afe8140d662d4a567b23adb0cf5eed6fa0a20de50a0a",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_Notebook04D_seed17_step1000_Recovery.sha256"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook04D_seed17_step1000_Recovery.tar",
+      "original_path": "/kaggle/working/EviCT_Notebook04D_seed17_step1000_Recovery.tar",
+      "original_size": 920596480,
+      "original_sha256": "26dc931c9b5465c663ef3e3b3b21e1a99525252dedd1bbfc5a1651727ce6f8f6",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_Notebook04D_seed17_step1000_Recovery.tar",
+        "size": 920596480,
+        "sha256": "26dc931c9b5465c663ef3e3b3b21e1a99525252dedd1bbfc5a1651727ce6f8f6",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_Notebook04D_seed17_step1000_Recovery.tar"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook04D_seed17_step1000_Recovery.tar.sha256",
+      "original_path": "/kaggle/working/EviCT_Notebook04D_seed17_step1000_Recovery.tar.sha256",
+      "original_size": 65,
+      "original_sha256": "3da7b7a88b831885f3a1afe8140d662d4a567b23adb0cf5eed6fa0a20de50a0a",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_Notebook04D_seed17_step1000_Recovery.tar.sha256",
+        "size": 65,
+        "sha256": "3da7b7a88b831885f3a1afe8140d662d4a567b23adb0cf5eed6fa0a20de50a0a",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_Notebook04D_seed17_step1000_Recovery.tar.sha256"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook04D_seed42_step1000_Recovery.sha256",
+      "original_path": "/kaggle/working/EviCT_Notebook04D_seed42_step1000_Recovery.sha256",
+      "original_size": 65,
+      "original_sha256": "c4da14ee8f5c229513f8ee05e937d27f31c1988f8fb96efc486f647591960625",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "already_present",
+        "name": "EviCT_Notebook04D_seed42_step1000_Recovery.sha256",
+        "size": 65,
+        "sha256": "c4da14ee8f5c229513f8ee05e937d27f31c1988f8fb96efc486f647591960625",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb04d-seed42-step1000",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-nb04d-seed42-step1000/EviCT_Notebook04D_seed42_step1000_Recovery.sha256"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook04D_seed42_step1000_Recovery.tar",
+      "original_path": "/kaggle/working/EviCT_Notebook04D_seed42_step1000_Recovery.tar",
+      "original_size": 920606720,
+      "original_sha256": "93c040b55f9d0e858bbf5d3075c6b9bc3116f7460972ed54df3d9d30ed0f1ac0",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "already_present",
+        "name": "EviCT_Notebook04D_seed42_step1000_Recovery.tar",
+        "size": 920606720,
+        "sha256": "93c040b55f9d0e858bbf5d3075c6b9bc3116f7460972ed54df3d9d30ed0f1ac0",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb04d-seed42-step1000",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-nb04d-seed42-step1000/EviCT_Notebook04D_seed42_step1000_Recovery.tar"
+      }
+    },
+    {
+      "original_name": "EviCT_Notebook04D_seed42_step1000_Recovery.tar.sha256",
+      "original_path": "/kaggle/working/EviCT_Notebook04D_seed42_step1000_Recovery.tar.sha256",
+      "original_size": 65,
+      "original_sha256": "c4da14ee8f5c229513f8ee05e937d27f31c1988f8fb96efc486f647591960625",
+      "storage": "single_release_asset",
+      "asset": {
+        "status": "uploaded",
+        "name": "EviCT_Notebook04D_seed42_step1000_Recovery.tar.sha256",
+        "size": 65,
+        "sha256": "c4da14ee8f5c229513f8ee05e937d27f31c1988f8fb96efc486f647591960625",
+        "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927",
+        "download_url": "https://github.com/itsCodeBakery/EviCT/releases/download/evict-project-durable-backup-20260927/EviCT_Notebook04D_seed42_step1000_Recovery.tar.sha256"
+      }
+    }
+  ],
+  "git_safe_snapshot": {
+    "name": "EviCT_GitSafe_Project_Snapshot_20260927.tar.gz",
+    "sha256": "77d9fda52f853d74c0eebb083baf7878233e5185f739dd4046574deed3cc22ba",
+    "size": 21571475
+  },
+  "raw_kaggle_input_backed_up": false,
+  "raw_kaggle_input_reason": "Raw external datasets are reproducible from their original sources and are not generated EViCT artifacts.",
+  "calibration_accessed": false,
+  "target_accessed": false
+}

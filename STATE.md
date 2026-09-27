@@ -236,3 +236,59 @@ NO
 Target / MedSeg accessed:
 
 NO
+
+
+## Project-Wide Durable Backup
+
+Status:
+
+COMPLETE
+
+Timestamp:
+
+2026-09-27T09:59:07.147926+00:00
+
+Normal Git repository:
+
+SYNCHRONIZED
+
+Large generated artifacts:
+
+DURABLE VIA GITHUB RELEASES
+
+Consolidated backup release:
+
+https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927
+
+Backup catalog:
+
+artifacts/audit/durable_backup_catalog_20260927.json
+
+Backup index:
+
+BACKUPS.md
+
+Git-safe project snapshot:
+
+EviCT_GitSafe_Project_Snapshot_20260927.tar.gz
+
+Git-safe snapshot SHA-256:
+
+77d9fda52f853d74c0eebb083baf7878233e5185f739dd4046574deed3cc22ba
+
+Seed-42 step-1000 recovery:
+
+DURABLE
+
+Calibration accessed:
+
+NO
+
+Target / MedSeg accessed:
+
+NO
+
+Next:
+
+Create a new lightweight Kaggle notebook and resume
+Notebook 04D seed42 from optimizer step 1000.
