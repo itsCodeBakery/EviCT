@@ -1,0 +1,55 @@
+{
+  "dataset": "segdb2",
+  "geometry": {
+    "image_interpolation": "bilinear_align_corners_false",
+    "label_interpolation": "nearest",
+    "target": [
+      336,
+      336
+    ],
+    "transforms": "tracked JSON under manifests/transforms/"
+  },
+  "image_cache": {
+    "channels": 1,
+    "dtype": "float16",
+    "model_channel_expansion": "repeat grayscale to 3 channels at loader/model boundary",
+    "range": "[0,1]",
+    "shape_per_case": "[Z,336,336]"
+  },
+  "infection_gt_vault": {
+    "access": "source ground-truth vault; not exposed to unlabeled loaders",
+    "allowed_values": [
+      0,
+      1
+    ],
+    "dtype": "uint8",
+    "shape_per_case": "[Z,336,336]"
+  },
+  "lung_gt_vault": {
+    "access": "source ground-truth vault; not exposed to unlabeled loaders",
+    "allowed_values": [
+      0,
+      1,
+      2
+    ],
+    "dtype": "uint8",
+    "shape_per_case": "[Z,336,336]"
+  },
+  "project": "EviCT",
+  "storage": {
+    "cache_committed_to_git": false,
+    "cache_regenerable": true,
+    "metadata_and_hashes_committed_to_git": true
+  },
+  "target_accessed": false,
+  "timestamp_utc": "2026-09-27T06:22:17.884451+00:00",
+  "valid_mask": {
+    "allowed_values": [
+      0,
+      1
+    ],
+    "dtype": "uint8",
+    "same_for_every_slice_in_case": true,
+    "shape_per_case": "[336,336]"
+  }
+}
