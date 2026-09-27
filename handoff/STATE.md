@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED42_RUNNING_STEP_250
+NOTEBOOK_04D_SEED42_RUNNING_STEP_500
 
 ## Timestamp
 
-2026-09-27T09:38:03.504466+00:00
+2026-09-27T09:40:24.182467+00:00
 
 ## Completed primary baseline seeds
 
@@ -42,7 +42,7 @@ FP32
 
 Current optimizer step:
 
-250 / 5000
+500 / 5000
 
 Current durable segment:
 
@@ -54,7 +54,7 @@ Images per optimizer update:
 
 Total seed-42 image exposures:
 
-4000
+8000
 
 ## Validation
 
@@ -64,15 +64,15 @@ Frequency:
 
 Last completed validation:
 
-250
+500
 
 Current best source-selection macro case Dice:
 
-0.5869165929018677
+0.6900595844356658
 
 Current best step:
 
-250
+500
 
 Patience:
 

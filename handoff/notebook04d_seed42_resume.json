@@ -1,18 +1,18 @@
 {
-  "timestamp_utc": "2026-09-27T09:38:03.504073+00:00",
+  "timestamp_utc": "2026-09-27T09:40:24.182072+00:00",
   "stage": "NOTEBOOK_04D",
   "status": "RUNNING",
   "model": "SegFormer MiT-B1",
   "training_seed": 42,
   "precision": "FP32",
-  "global_step": 250,
+  "global_step": 500,
   "segment_stop_step": 1000,
   "maximum_updates": 5000,
-  "last_validation_step": 250,
-  "best_source_selection_macro_case_dice": 0.5869165929018677,
-  "best_step": 250,
+  "last_validation_step": 500,
+  "best_source_selection_macro_case_dice": 0.6900595844356658,
+  "best_step": 500,
   "patience": 0,
-  "images_seen": 4000,
+  "images_seen": 8000,
   "run_config_hash": "6847db356cd4fb946649ccbec5e05a3a19f319fec586bdfe8ddadddc51067cee",
   "split_hash": "3a7da71192b032b7afa811df4d88229d320a509e7229dbfa02fbea56ffb8c1a0",
   "model_code_hash": "d731ff16e4b14e86404b2f9dcad3588ac918703620c5d844be7e80514defe570",
@@ -25,9 +25,9 @@
     "best_pt": "/kaggle/working/EviCT/artifacts/large/notebook04d/seed_42/best.pt"
   },
   "checkpoint_hashes": {
-    "last_pt": "303cae69edecdbdc6a8f17938b4f070827f7a0ee1c469602454e160359d7c4b8",
-    "recovery_pt": "eed203721524728307148321b1970f0c69b4c82f83b21d4a1dc13e00f8426d3f",
-    "best_pt": "a0c51b65c5034232ad96c3fb05e2a9a72a27cb05f090b7585ce6b2dd7eb8f5d9"
+    "last_pt": "c9d7099ad7557258faaa5889a285eb30b8ace4eca242cef98e32818528613082",
+    "recovery_pt": "60a32be8e557213503b05da738e94824d9d436a75e1d2d74ed2aab2af0c49335",
+    "best_pt": "681cb8c59fcd7a3be8efa6bc000af54cf4a6436d8d6359170329488920c28c42"
   },
   "best_logits_manifest": "/kaggle/working/EviCT/artifacts/audit/notebook04d_seed42_best_logits_manifest.json",
   "training_manifest": "/kaggle/working/EviCT/manifests/slice_loaders/seed_42/b100/labeled_slices.csv",

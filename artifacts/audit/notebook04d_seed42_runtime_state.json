@@ -1,15 +1,15 @@
 {
-  "timestamp_utc": "2026-09-27T09:38:01.063282+00:00",
+  "timestamp_utc": "2026-09-27T09:40:21.712368+00:00",
   "seed": 42,
   "precision": "FP32",
-  "global_step": 250,
-  "last_validation_step": 250,
-  "best_score": 0.5869165929018677,
-  "best_step": 250,
+  "global_step": 500,
+  "last_validation_step": 500,
+  "best_score": 0.6900595844356658,
+  "best_step": 500,
   "patience_count": 0,
-  "images_seen": 4000,
+  "images_seen": 8000,
   "target_accessed": false,
   "calibration_accessed": false,
-  "last_checkpoint_sha256": "303cae69edecdbdc6a8f17938b4f070827f7a0ee1c469602454e160359d7c4b8",
-  "best_checkpoint_sha256": "a0c51b65c5034232ad96c3fb05e2a9a72a27cb05f090b7585ce6b2dd7eb8f5d9"
+  "last_checkpoint_sha256": "c9d7099ad7557258faaa5889a285eb30b8ace4eca242cef98e32818528613082",
+  "best_checkpoint_sha256": "681cb8c59fcd7a3be8efa6bc000af54cf4a6436d8d6359170329488920c28c42"
 }
