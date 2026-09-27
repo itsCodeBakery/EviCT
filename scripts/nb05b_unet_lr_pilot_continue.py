@@ -1439,9 +1439,24 @@ def run_full_candidate(
                 paths["recovery_pt"],
             )
 
+            # The interrupted audit may already have appended steps 1001..1020
+            # to the tracked training CSV before verification failed. Remove
+            # only those unaudited rows so the replay produces a single clean
+            # continuation trajectory.
+            if paths["train_log"].exists():
+                repair_train_df = pd.read_csv(paths["train_log"])
+                repair_train_df = repair_train_df[
+                    repair_train_df["step"].astype(int) <= 1000
+                ].copy()
+                repair_train_df.to_csv(
+                    paths["train_log"],
+                    index=False,
+                )
+
             print(
                 f"✓ {candidate_name}: detected interrupted step-1020 "
-                "audit; restored validated step-1000 anchor for replay."
+                "audit; restored validated step-1000 anchor and truncated "
+                "unaudited train-log rows for replay."
             )
 
             local_checkpoint_candidates = []
