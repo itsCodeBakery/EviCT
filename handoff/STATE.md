@@ -2,11 +2,21 @@
 
 ## Current stage
 
-NOTEBOOK_05B_UNET_LR_PILOT_BOTH_STEP1000_DURABLE
+NOTEBOOK_05B_UNET_LR1E4_RECOVERY_AUDIT_1020_PASS
 
 ## Timestamp
 
-2026-09-27T15:30:48.333433+00:00
+2026-09-27T15:52:30.003598+00:00
+
+## Notebook 04
+
+Status:
+
+COMPLETE_SOURCE_BASELINE_FROZEN
+
+Notebook 04 retraining:
+
+NO
 
 ## Notebook 05B
 
@@ -18,70 +28,55 @@ Pilot seed:
 
 17
 
+Candidate:
+
+lr1e4
+
+Learning rate:
+
+0.00010000
+
+Precision:
+
+FP32
+
+Optimizer step:
+
+1020
+
+Best source-selection macro case Dice:
+
+0.63906136
+
+Best checkpoint step:
+
+750
+
+Patience:
+
+1 / 8
+
+Image exposures:
+
+16320
+
+Selection threshold:
+
+0.5 fixed
+
 Architecture tuning:
 
 NO
 
-Candidate initialization:
-
-IDENTICAL
-
-Initialization SHA-256:
-
-0698a4bf77cbdf2f0ee99f080eab4677f778d8bfbb15b244f00695dc6f0b19b1
-
-## Candidate 1
-
-Learning rate:
-
-0.0001
-
-Step:
-
-1000
-
-Best source-selection macro case Dice so far:
-
-0.63906136
-
-Best step so far:
-
-750
-
-Durable release:
-
-https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr1e4-step1000
-
-## Candidate 2
-
-Learning rate:
-
-0.0003
-
-Step:
-
-1000
-
-Best source-selection macro case Dice so far:
-
-0.69771367
-
-Best step so far:
-
-1000
-
-Durable release:
-
-https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr3e4-step1000
-
-## Selection rule
-
-No winner is selected at step 1000.
-
-Both predeclared candidates must complete the same full declared training
-budget or early-stopping rule before the learning rate is frozen.
-
 ## Isolation
+
+Fitting cases:
+
+12 frozen source fitting cases
+
+Selection cases:
+
+4 frozen complete source-selection cases
 
 Calibration accessed:
 
@@ -95,7 +90,17 @@ Target lock:
 
 ACTIVE
 
+## Pilot contract
+
+Learning-rate candidates:
+
+0.0001, 0.0003
+
+Candidate comparison:
+
+PENDING until both candidates complete the full declared budget or early stopping.
+
 ## Next
 
-Run 20-update recovery audits for both candidates, then continue both under
-the identical frozen protocol to early stopping or step 5000.
+Continue the declared U-Net learning-rate pilot without changing architecture,
+data, loss, selection metric, threshold, or target lock.

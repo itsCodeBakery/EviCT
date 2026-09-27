@@ -1,0 +1,13 @@
+{
+  "timestamp_utc": "2026-09-27T15:52:07.672515+00:00",
+  "stage": "NOTEBOOK_05B",
+  "candidate_name": "lr1e4",
+  "learning_rate": 0.0001,
+  "detected_state": "INTERRUPTED_1000_TO_1020_AUDIT",
+  "last_checkpoint_step": 1000,
+  "unaudited_recovery_step": 1020,
+  "action": "Discard unaudited local step-1020 recovery and replay the 20-update recovery audit from the validated step-1000 last.pt anchor.",
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "status": "REPAIR_APPLIED"
+}
