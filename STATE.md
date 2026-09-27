@@ -2,65 +2,37 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED42_STEP1000_AWAITING_KAGGLE_SAVE_VERSION
+NOTEBOOK_04D_SEED42_RESUME_AUDIT_PASS_STEP1020_FULL_CONTINUATION_PENDING
 
 ## Timestamp
 
-2026-09-27T09:45:14.283062+00:00
+2026-09-27T10:15:01.959807+00:00
 
-## Primary baseline progress
+## Notebook 04D
 
-Seed 17:
+Model:
 
-COMPLETE
+Supervised SegFormer MiT-B1
 
-Final optimizer step:
+Training seed:
 
-5000
-
-Best source-selection macro case Dice:
-
-0.75258052
-
-Best checkpoint:
-
-step 3500
-
-Final seed-17 Kaggle recovery:
-
-USER-CONFIRMED DURABLE
-
----
-
-Seed 42:
-
-IN PROGRESS
-
-Current optimizer step:
-
-1000 / 5000
+42
 
 Precision:
 
 FP32
 
-Images per update:
+Current optimizer step:
 
-16
+1020 / 5000
 
-Total seed-42 image exposures:
+Images seen:
 
-16000
+16320
 
-## Seed-42 source-selection validation
+Last source-selection validation:
 
-Completed validations:
-
-4
-
-Validation steps:
-
-250, 500, 750, 1000
+1000
 
 Best source-selection macro case Dice:
 
@@ -70,72 +42,35 @@ Best step:
 
 750
 
-Current patience:
+Patience:
 
 1 / 8
 
-Threshold used only for checkpoint selection:
+## Recovery
 
-0.5
+Checkpoint loading:
 
-Threshold optimization performed:
+CPU FIRST
 
-NO
+Optimizer:
 
-## Seed-42 recovery artifacts
+RESTORED
 
-last.pt:
+Scheduler:
 
-VERIFIED
+RESTORED
 
-best.pt:
+Sampler:
 
-VERIFIED
+RESTORED
 
-Raw best selection logits:
+CPU RNG:
 
-VERIFIED
+RESTORED
 
-Recovery archive:
+CUDA RNG:
 
-EviCT_Notebook04D_seed42_step1000_Recovery.tar
-
-Recovery archive SHA-256:
-
-93c040b55f9d0e858bbf5d3075c6b9bc3116f7460972ed54df3d9d30ed0f1ac0
-
-## GitHub synchronization
-
-Git-safe configuration, hashes, logs, metrics,
-audit records, STATE.md and handoff records:
-
-SYNCHRONIZED
-
-Large checkpoints committed to GitHub:
-
-NO
-
-Reason:
-
-artifacts/large and predictions are intentionally excluded
-from ordinary Git to avoid unsafe large-binary commits.
-
-Their hashes and locations are recorded in GitHub.
-
-The checkpoint binaries and raw logits are preserved in the
-Kaggle recovery archive.
-
-## Resume procedure
-
-1. Restore the seed-42 recovery TAR if the Kaggle runtime is new.
-2. Verify archive SHA-256.
-3. Load seed-42 checkpoint on CPU first.
-4. Restore model.
-5. Restore optimizer state to CUDA.
-6. Restore scheduler.
-7. Restore sampler.
-8. Restore CPU/CUDA RNG.
-9. Continue from optimizer step 1000.
+RESTORED
 
 ## Isolation
 
@@ -143,7 +78,7 @@ Training:
 
 12 frozen fitting cases only
 
-Model selection:
+Selection:
 
 4 frozen complete source-selection cases only
 
@@ -158,137 +93,3 @@ NO
 ## Target lock
 
 ACTIVE
-
-## Next required action
-
-SAVE A KAGGLE VERSION WITH OUTPUTS.
-
-Confirm these two files are visible:
-
-1. EviCT_Notebook04D_seed42_step1000_Recovery.tar
-2. EviCT_Notebook04D_seed42_step1000_Recovery.sha256
-
-After durable save, continue seed 42 from optimizer step 1000.
-
-
-## GitHub Release Durable Backup
-
-Reason:
-
-Kaggle notebook source exceeded the notebook commit size limit.
-
-Seed:
-
-42
-
-Optimizer step:
-
-1000
-
-Recovery state:
-
-DURABLE
-
-Release tag:
-
-evict-nb04d-seed42-step1000
-
-Release:
-
-https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb04d-seed42-step1000
-
-Recovery TAR:
-
-EviCT_Notebook04D_seed42_step1000_Recovery.tar
-
-Recovery TAR SHA-256:
-
-93c040b55f9d0e858bbf5d3075c6b9bc3116f7460972ed54df3d9d30ed0f1ac0
-
-SHA file:
-
-EviCT_Notebook04D_seed42_step1000_Recovery.sha256
-
-Remote TAR size:
-
-920606720 bytes
-
-Remote SHA-file size:
-
-65 bytes
-
-Normal Git synchronization:
-
-COMPLETE
-
-Large binary synchronization:
-
-COMPLETE VIA GITHUB RELEASE
-
-Resume source preference:
-
-GitHub Release seed-42 step-1000 recovery TAR
-
-Calibration accessed:
-
-NO
-
-Target / MedSeg accessed:
-
-NO
-
-
-## Project-Wide Durable Backup
-
-Status:
-
-COMPLETE
-
-Timestamp:
-
-2026-09-27T09:59:07.147926+00:00
-
-Normal Git repository:
-
-SYNCHRONIZED
-
-Large generated artifacts:
-
-DURABLE VIA GITHUB RELEASES
-
-Consolidated backup release:
-
-https://github.com/itsCodeBakery/EviCT/releases/tag/evict-project-durable-backup-20260927
-
-Backup catalog:
-
-artifacts/audit/durable_backup_catalog_20260927.json
-
-Backup index:
-
-BACKUPS.md
-
-Git-safe project snapshot:
-
-EviCT_GitSafe_Project_Snapshot_20260927.tar.gz
-
-Git-safe snapshot SHA-256:
-
-77d9fda52f853d74c0eebb083baf7878233e5185f739dd4046574deed3cc22ba
-
-Seed-42 step-1000 recovery:
-
-DURABLE
-
-Calibration accessed:
-
-NO
-
-Target / MedSeg accessed:
-
-NO
-
-Next:
-
-Create a new lightweight Kaggle notebook and resume
-Notebook 04D seed42 from optimizer step 1000.
