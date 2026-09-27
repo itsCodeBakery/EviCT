@@ -16,7 +16,7 @@ Supervised SegFormer MiT-B1
 
 Training seed:
 
-42
+2026
 
 Precision:
 
