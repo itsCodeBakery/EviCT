@@ -1,0 +1,106 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_04D",
+  "run_id": "segformer_b1_supervised_seed2026_fp32",
+  "seed": 2026,
+  "split_seed": 17,
+  "precision": "FP32",
+  "amp_enabled": false,
+  "budget": "100_percent_full_label",
+  "fitting_cases": 12,
+  "selection_cases": 4,
+  "calibration_cases": 4,
+  "target_access_allowed": false,
+  "encoder": {
+    "family": "MiT-B1",
+    "repository": "nvidia/mit-b1",
+    "revision": "13ddceec4e8bdf401e7cd7acf5aebc526222518c",
+    "weight_sha256": "980b86b60db37b1b1528086f6c53d253d879e9e09ebe07397b40fd275738a3bf"
+  },
+  "decoder": {
+    "type": "SegFormer four-level MLP decoder",
+    "channels": 256
+  },
+  "optimizer": {
+    "type": "AdamW",
+    "encoder_lr": 0.0001,
+    "decoder_lr": 0.0003,
+    "weight_decay": 0.01
+  },
+  "scheduler": {
+    "type": "linear_warmup_then_cosine",
+    "warmup_updates": 200,
+    "maximum_updates": 5000
+  },
+  "batch": {
+    "micro_batch_size": 4,
+    "gradient_accumulation": 4,
+    "images_per_optimizer_update": 16
+  },
+  "sampling": {
+    "patient_first": true,
+    "patient_sampling": "uniform_with_replacement",
+    "positive_slice_probability": 0.5,
+    "positive_sampling_uses": "visible fitting labels only"
+  },
+  "augmentation": {
+    "rotation_degrees": [
+      -10,
+      10
+    ],
+    "scale": [
+      0.9,
+      1.1
+    ],
+    "translation_fraction": 0.05,
+    "horizontal_flip": false,
+    "brightness": [
+      0.9,
+      1.1
+    ],
+    "contrast": [
+      0.9,
+      1.1
+    ],
+    "gamma": [
+      0.8,
+      1.2
+    ],
+    "noise_probability": 0.3,
+    "max_noise_std": 0.03,
+    "blur_probability": 0.2
+  },
+  "loss": {
+    "soft_dice_weight": 0.5,
+    "bce_weight": 0.5,
+    "padding_excluded": true
+  },
+  "validation": {
+    "every_optimizer_updates": 250,
+    "complete_cases": true,
+    "checkpoint_metric": "macro_case_dice",
+    "checkpoint_threshold": 0.5,
+    "threshold_tuning_here": false
+  },
+  "checkpointing": {
+    "recovery_every": 50,
+    "last_every": 250,
+    "best_on_selection_improvement": true
+  },
+  "early_stopping": {
+    "patience_validations": 8,
+    "minimum_mandatory_updates": 1000
+  },
+  "first_durable_segment_stop": 1000,
+  "figure_font_policy": {
+    "preferred": "Times New Roman",
+    "fallback": [
+      "Calibri",
+      "Arial Narrow",
+      "Arial",
+      "Liberation Sans",
+      "DejaVu Sans"
+    ],
+    "labels_must_remain_present": true
+  }
+}
