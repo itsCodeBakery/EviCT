@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_05C_UNET_SEED_42_RUNNING_STEP_500
+NOTEBOOK_05C_UNET_SEED_42_RUNNING_STEP_750
 
 ## Timestamp
 
-2026-09-27T17:45:48.350402+00:00
+2026-09-27T17:50:07.182706+00:00
 
 ## Baseline
 
@@ -40,7 +40,7 @@ FP32
 
 Optimizer step:
 
-500
+750
 
 Best source-selection macro case Dice:
 
@@ -52,11 +52,11 @@ Best checkpoint step:
 
 Patience:
 
-0 / 8
+1 / 8
 
 Image exposures:
 
-8000
+12000
 
 Selection threshold:
 
