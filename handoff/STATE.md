@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_04D_SEED17_STEP1000_AWAITING_KAGGLE_SAVE_VERSION
+NOTEBOOK_04D_SEED17_RESUME_AUDIT_PASS_STEP1020_FULL_CONTINUATION_PENDING
 
 ## Timestamp
 
-2026-09-27T08:25:47.659861+00:00
+2026-09-27T08:36:48.850101+00:00
 
 ## Notebook 04D
 
@@ -22,94 +22,65 @@ Precision:
 
 FP32
 
-AMP:
+## Durable Kaggle recovery point
 
-DISABLED
+Step:
 
-## Numerical recovery note
+1000
 
-The original pre-checkpoint FP16 attempt was abandoned after
-a non-finite scaled gradient before optimizer update 119.
+Archive SHA-256:
 
-No durable checkpoint existed.
+26dc931c9b5465c663ef3e3b3b21e1a99525252dedd1bbfc5a1651727ce6f8f6
 
-The run was restarted deterministically from optimizer step 0.
+## Resume audit
 
-Scientific protocol changed:
+Source checkpoint:
 
-NO
+last.pt at step 1000
 
-Only execution precision changed from FP16 to FP32.
+Checkpoint loaded with:
 
-## Training schedule
+map_location=cpu
+
+Reason:
+
+CPU PyTorch RNG state must remain a CPU torch.ByteTensor.
+
+CPU RNG restore:
+
+PASS
+
+CUDA RNG restore:
+
+PASS
+
+Sampler restore:
+
+PASS
+
+Optimizer restore:
+
+PASS
+
+Scheduler restore:
+
+PASS
+
+## Recovery verification
+
+Successful resumed updates:
+
+20
 
 Current optimizer step:
 
-1000 / 5000
+1020
 
-Warm-up:
+Last source-selection validation:
 
-200 updates
+1000
 
-Post-warmup:
-
-Cosine learning-rate decay
-
-Encoder base LR:
-
-1e-4
-
-Decoder base LR:
-
-3e-4
-
-Weight decay:
-
-0.01
-
-Images per successful optimizer update:
-
-16
-
-Total image exposures:
-
-16000
-
-## Split
-
-Training:
-
-12 fitting cases only
-
-Model selection:
-
-4 complete source-selection cases only
-
-Calibration:
-
-4 cases untouched
-
-## Validation
-
-Every:
-
-250 optimizer updates
-
-Completed validations:
-
-4
-
-Fixed checkpoint-selection threshold:
-
-0.5
-
-Threshold tuning performed:
-
-NO
-
-## Best source-selection checkpoint
-
-Macro case Dice:
+Best source-selection macro case Dice:
 
 0.68108677
 
@@ -121,47 +92,31 @@ Patience:
 
 3 / 8
 
-## Recovery
+Step-1020 losses finite:
+
+YES
+
+Step-1020 gradients finite:
+
+YES
+
+## Working recovery checkpoint
 
 recovery.pt:
 
-written every 50 successful updates
+STEP 1020
 
-last.pt:
+SHA-256:
 
-written every 250 updates
+b8dc3aebabff5a00aa6687b696490ad2c86793e3cbae58257d6476710064a24a
 
-best.pt:
+## Isolation
 
-written when source-selection macro case Dice improves
+Training:
 
-last.pt reload verification:
+12 fitting cases only
 
-PASS
-
-## Raw validation logits
-
-Best source-selection raw logits:
-
-SAVED
-
-Dtype:
-
-float32
-
-Sigmoid applied:
-
-NO
-
-Threshold applied:
-
-NO
-
-## Target lock
-
-ACTIVE
-
-Calibration data accessed:
+Calibration accessed:
 
 NO
 
@@ -169,19 +124,15 @@ MedSeg / target accessed:
 
 NO
 
-## Figure font policy
+## Target lock
 
-Preferred:
-
-Times New Roman
-
-Fallback:
-
-Calibri -> Arial Narrow -> Arial -> Liberation Sans -> DejaVu Sans
-
-Labels must remain present.
+ACTIVE
 
 ## Next
 
-SAVE A KAGGLE VERSION WITH OUTPUTS BEFORE CONTINUING
-BEYOND OPTIMIZER STEP 1000.
+Resume from recovery.pt at optimizer step 1020 and
+continue the supervised seed-17 run.
+
+Next source-selection validation:
+
+step 1250
