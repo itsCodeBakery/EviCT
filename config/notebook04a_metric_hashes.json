@@ -1,0 +1,8 @@
+{
+  "timestamp_utc": "2026-09-27T07:18:15.476763+00:00",
+  "stage": "NOTEBOOK_04A_METRICS",
+  "metrics_py_sha256": "ef961e8da4d00975c48184e571ec9809e660ee27df02f4a9c11cb7b31f6ffaf6",
+  "test_metrics_py_sha256": "263034fb24e61b13a1e590ea74254d2d4de2019e95b57a80ff0eac6e90dcf36a",
+  "metrics_policy_sha256": "9aa252a2cfc201159ec0a4456f47be826bbd511e9424eb7b4fccb9725715bdfe",
+  "unit_test_report_sha256": "051a39721ceb6be790747e4e4c066bd0399f3fd09e0b97ca769e396da11b0ed7"
+}

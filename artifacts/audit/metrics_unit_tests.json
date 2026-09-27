@@ -1,0 +1,147 @@
+{
+  "n_tests": 28,
+  "n_passed": 28,
+  "all_passed": true,
+  "tests": [
+    {
+      "test": "perfect_positive_dice",
+      "passed": true,
+      "details": "{'tp': 2, 'tn': 2, 'fp': 0, 'fn': 0, 'valid_pixels': 4, 'dice': 1.0, 'iou': 1.0, 'sensitivity': 1.0, 'specificity': 1.0, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "perfect_positive_iou",
+      "passed": true,
+      "details": "{'tp': 2, 'tn': 2, 'fp': 0, 'fn': 0, 'valid_pixels': 4, 'dice': 1.0, 'iou': 1.0, 'sensitivity': 1.0, 'specificity': 1.0, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "perfect_positive_sensitivity",
+      "passed": true,
+      "details": "{'tp': 2, 'tn': 2, 'fp': 0, 'fn': 0, 'valid_pixels': 4, 'dice': 1.0, 'iou': 1.0, 'sensitivity': 1.0, 'specificity': 1.0, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "perfect_positive_specificity",
+      "passed": true,
+      "details": "{'tp': 2, 'tn': 2, 'fp': 0, 'fn': 0, 'valid_pixels': 4, 'dice': 1.0, 'iou': 1.0, 'sensitivity': 1.0, 'specificity': 1.0, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "disjoint_dice_zero",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 2, 'fp': 1, 'fn': 1, 'valid_pixels': 4, 'dice': 0.0, 'iou': 0.0, 'sensitivity': 0.0, 'specificity': 0.6666666666666666, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "disjoint_iou_zero",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 2, 'fp': 1, 'fn': 1, 'valid_pixels': 4, 'dice': 0.0, 'iou': 0.0, 'sensitivity': 0.0, 'specificity': 0.6666666666666666, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "disjoint_sensitivity_zero",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 2, 'fp': 1, 'fn': 1, 'valid_pixels': 4, 'dice': 0.0, 'iou': 0.0, 'sensitivity': 0.0, 'specificity': 0.6666666666666666, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "empty_empty_dice_one",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 16, 'fp': 0, 'fn': 0, 'valid_pixels': 16, 'dice': 1.0, 'iou': 1.0, 'sensitivity': nan, 'specificity': 1.0, 'empty_reference': True, 'empty_prediction': True}"
+    },
+    {
+      "test": "empty_empty_iou_one",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 16, 'fp': 0, 'fn': 0, 'valid_pixels': 16, 'dice': 1.0, 'iou': 1.0, 'sensitivity': nan, 'specificity': 1.0, 'empty_reference': True, 'empty_prediction': True}"
+    },
+    {
+      "test": "empty_empty_sensitivity_nan",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 16, 'fp': 0, 'fn': 0, 'valid_pixels': 16, 'dice': 1.0, 'iou': 1.0, 'sensitivity': nan, 'specificity': 1.0, 'empty_reference': True, 'empty_prediction': True}"
+    },
+    {
+      "test": "empty_empty_specificity_one",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 16, 'fp': 0, 'fn': 0, 'valid_pixels': 16, 'dice': 1.0, 'iou': 1.0, 'sensitivity': nan, 'specificity': 1.0, 'empty_reference': True, 'empty_prediction': True}"
+    },
+    {
+      "test": "empty_reference_flag",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 16, 'fp': 0, 'fn': 0, 'valid_pixels': 16, 'dice': 1.0, 'iou': 1.0, 'sensitivity': nan, 'specificity': 1.0, 'empty_reference': True, 'empty_prediction': True}"
+    },
+    {
+      "test": "empty_prediction_flag",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 16, 'fp': 0, 'fn': 0, 'valid_pixels': 16, 'dice': 1.0, 'iou': 1.0, 'sensitivity': nan, 'specificity': 1.0, 'empty_reference': True, 'empty_prediction': True}"
+    },
+    {
+      "test": "empty_ref_false_positive_dice_zero",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 3, 'fp': 1, 'fn': 0, 'valid_pixels': 4, 'dice': 0.0, 'iou': 0.0, 'sensitivity': nan, 'specificity': 0.75, 'empty_reference': True, 'empty_prediction': False}"
+    },
+    {
+      "test": "empty_ref_sensitivity_nan",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 3, 'fp': 1, 'fn': 0, 'valid_pixels': 4, 'dice': 0.0, 'iou': 0.0, 'sensitivity': nan, 'specificity': 0.75, 'empty_reference': True, 'empty_prediction': False}"
+    },
+    {
+      "test": "empty_ref_specificity_expected",
+      "passed": true,
+      "details": "{'tp': 0, 'tn': 3, 'fp': 1, 'fn': 0, 'valid_pixels': 4, 'dice': 0.0, 'iou': 0.0, 'sensitivity': nan, 'specificity': 0.75, 'empty_reference': True, 'empty_prediction': False}"
+    },
+    {
+      "test": "all_positive_sensitivity_one",
+      "passed": true,
+      "details": "{'tp': 4, 'tn': 0, 'fp': 0, 'fn': 0, 'valid_pixels': 4, 'dice': 1.0, 'iou': 1.0, 'sensitivity': 1.0, 'specificity': nan, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "all_positive_specificity_nan",
+      "passed": true,
+      "details": "{'tp': 4, 'tn': 0, 'fp': 0, 'fn': 0, 'valid_pixels': 4, 'dice': 1.0, 'iou': 1.0, 'sensitivity': 1.0, 'specificity': nan, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "padding_excluded_dice_one",
+      "passed": true,
+      "details": "{'tp': 4, 'tn': 4, 'fp': 0, 'fn': 0, 'valid_pixels': 8, 'dice': 1.0, 'iou': 1.0, 'sensitivity': 1.0, 'specificity': 1.0, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "padding_would_hurt_without_mask",
+      "passed": true,
+      "details": "{'tp': 4, 'tn': 4, 'fp': 8, 'fn': 0, 'valid_pixels': 16, 'dice': 0.5, 'iou': 0.3333333333333333, 'sensitivity': 1.0, 'specificity': 0.3333333333333333, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "probability_threshold",
+      "passed": true,
+      "details": "[0 0 0 1 1]"
+    },
+    {
+      "test": "case_two_slices",
+      "passed": true,
+      "details": "{'case_id': 'case_test', 'n_slices': 2, 'tp': 1, 'tn': 6, 'fp': 0, 'fn': 1, 'valid_pixels': 8, 'dice': 0.6666666666666666, 'iou': 0.5, 'sensitivity': 0.5, 'specificity': 1.0, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "case_counts",
+      "passed": true,
+      "details": "{'case_id': 'case_test', 'n_slices': 2, 'tp': 1, 'tn': 6, 'fp': 0, 'fn': 1, 'valid_pixels': 8, 'dice': 0.6666666666666666, 'iou': 0.5, 'sensitivity': 0.5, 'specificity': 1.0, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "case_dice_from_aggregated_counts",
+      "passed": true,
+      "details": "{'case_id': 'case_test', 'n_slices': 2, 'tp': 1, 'tn': 6, 'fp': 0, 'fn': 1, 'valid_pixels': 8, 'dice': 0.6666666666666666, 'iou': 0.5, 'sensitivity': 0.5, 'specificity': 1.0, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "case_iou_from_aggregated_counts",
+      "passed": true,
+      "details": "{'case_id': 'case_test', 'n_slices': 2, 'tp': 1, 'tn': 6, 'fp': 0, 'fn': 1, 'valid_pixels': 8, 'dice': 0.6666666666666666, 'iou': 0.5, 'sensitivity': 0.5, 'specificity': 1.0, 'empty_reference': False, 'empty_prediction': False}"
+    },
+    {
+      "test": "macro_dice",
+      "passed": true,
+      "details": "{'n_cases': 2, 'macro_dice': 0.75, 'n_valid_dice_cases': 2, 'macro_iou': 0.6666666666666666, 'n_valid_iou_cases': 2, 'macro_sensitivity': 1.0, 'n_valid_sensitivity_cases': 1, 'macro_specificity': 0.9, 'n_valid_specificity_cases': 2}"
+    },
+    {
+      "test": "macro_sensitivity_ignores_nan",
+      "passed": true,
+      "details": "{'n_cases': 2, 'macro_dice': 0.75, 'n_valid_dice_cases': 2, 'macro_iou': 0.6666666666666666, 'n_valid_iou_cases': 2, 'macro_sensitivity': 1.0, 'n_valid_sensitivity_cases': 1, 'macro_specificity': 0.9, 'n_valid_specificity_cases': 2}"
+    },
+    {
+      "test": "shape_mismatch_raises",
+      "passed": true,
+      "details": ""
+    }
+  ]
+}

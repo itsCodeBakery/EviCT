@@ -2,98 +2,94 @@
 
 ## Current stage
 
-NOTEBOOK_03_FROZEN_AWAITING_KAGGLE_SAVE_VERSION
+NOTEBOOK_04A_METRICS_PASS_MODEL_SMOKE_PENDING
 
 ## Timestamp
 
-2026-09-27T07:05:22.750242+00:00
+2026-09-27T07:18:15.477351+00:00
 
 ## Completed stages
 
 - Notebook 00: COMPLETE
 - Notebook 01: COMPLETE
 - Notebook 02: COMPLETE
-- Notebook 03A preprocessing smoke/manual QC: COMPLETE
-- Notebook 03B full source cache: COMPLETE
-- Notebook 03C source intensity QC: COMPLETE
 - Notebook 03 preprocessing/geometry: FROZEN
+- Notebook 04A segmentation metrics: PASS
 
-## Source cache
+## Notebook 04A metric policy
 
-SegDB-2 volumes:
+Dice empty-reference + empty-prediction:
 
-20
+1.0
 
-Source slices:
+IoU empty-reference + empty-prediction:
 
-3520
+1.0
 
-Cache size:
+Sensitivity with no positive reference:
 
-1.48 GiB
+NaN
 
-Verified cache/transform artifacts:
+Specificity with no negative reference:
 
-100
+NaN
 
-## Cache recovery archive
+Padding:
 
-Path:
+Excluded using valid-pixel mask.
 
-/kaggle/working/EviCT_Notebook03_Cache.tar
+Primary aggregation:
 
-SHA-256:
+Accumulate TP/TN/FP/FN across all valid pixels of each complete case,
+then compute case-level metrics.
 
-d88e786cd467816d6cb446333385918016946a83cdd3c258b3011f458fbd3fc4
+Cross-case reporting:
 
-Checksum file:
+Macro-average case-level metrics.
 
-/kaggle/working/EviCT_Notebook03_Cache.sha256
+Debug probability threshold:
 
-## Figure standard
+0.5
 
-Times New Roman
+Final threshold:
 
-Bold readable labels
+NOT YET SELECTED.
 
-Minimum 600-dpi PNG
+Later selection grid:
 
-Vector PDF required
+0.3, 0.4, 0.5, 0.6, 0.7
 
-No caption embedded inside figure
+Target-driven threshold tuning:
 
-No explanatory footnote embedded inside figure
+PROHIBITED
 
-Captions belong in LaTeX.
+## Unit tests
+
+Passed:
+
+28 / 28
 
 ## Target lock
 
 ACTIVE
 
-MedSeg has not been used for performance-guided development.
+No target metrics inspected.
 
-## GitHub
+## Figure standard
 
-All Git-trackable Notebook 03 metadata, manifests, configurations,
-hashes, transforms, audit records and figures are synchronized.
+Times New Roman
+Bold readable labels
+600-dpi PNG
+Vector PDF
+No captions embedded in figures
 
-Large .npy cache files remain intentionally outside ordinary Git.
+## Next
 
-## Required next action
+Notebook 04B:
 
-SAVE A KAGGLE NOTEBOOK VERSION WITH OUTPUTS.
-
-Verify that these files appear in the saved output:
-
-- EviCT_Notebook03_Cache.tar
-- EviCT_Notebook03_Cache.sha256
-
-## After durable Kaggle save
-
-Proceed to Notebook 04:
-
-1. implement and unit-test metrics;
-2. build SegFormer MiT-B1 supervised baseline;
-3. forward/backward smoke test;
-4. overfit 2-4 fitting images;
-5. begin the full-label source baseline only after the smoke tests pass.
+1. inspect GPU/runtime;
+2. pin/load ImageNet SegFormer MiT-B1;
+3. construct standard segmentation decoder;
+4. forward-pass shape test;
+5. backward-pass finite-gradient test;
+6. then overfit 2–4 fitting images before any long run.

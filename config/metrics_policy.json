@@ -1,0 +1,21 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_04A",
+  "timestamp_utc": "2026-09-27T07:18:15.277285+00:00",
+  "dice_empty_empty": 1.0,
+  "iou_empty_empty": 1.0,
+  "sensitivity_when_no_positive_reference": "NaN",
+  "specificity_when_no_negative_reference": "NaN",
+  "valid_mask_required_when_padding_exists": true,
+  "aggregation": "Accumulate TP/TN/FP/FN over all valid pixels of all slices in a case, then compute case-level metrics.",
+  "cross_case_summary": "Average case-level metrics across cases; never use slice-level averaging as the primary result.",
+  "debug_threshold": 0.5,
+  "final_threshold_selection_grid": [
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7
+  ],
+  "target_threshold_tuning_allowed": false
+}
