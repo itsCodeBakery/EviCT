@@ -2,45 +2,45 @@
 
 ## Current stage
 
-NOTEBOOK_05_UNET_THREE_SEED_SOURCE_BASELINE_FROZEN
+NOTEBOOK_05D_SEGCT_CLIP_REPRODUCTION_AUDIT_COMPLETE
 
 ## Timestamp
 
-2026-09-27T20:06:52.278575+00:00
+2026-09-27T21:18:39.800388+00:00
 
-## Baseline
+## Completed source baselines
 
-Competitive residual 2D U-Net
+SegFormer-B1:
 
-Architecture:
+FROZEN
 
-Residual 2D U-Net with GroupNorm
+Competitive residual 2D U-Net:
 
-Frozen learning rate:
+FROZEN
 
-0.00030000
+## SegCT-CLIP reproduction audit
 
-Primary seeds:
+Paper:
 
-17, 42, 2026
+CT-Insight VLM: Multimodel Vision-Language Framework for Accurate, Explainable, and Label-Efficient Lung CT Analysis
 
-Three-seed source-selection macro case Dice:
+DOI:
 
-0.72220701
+10.1109/TRPMS.2026.3734275
 
-Sample standard deviation:
+Status:
 
-0.01805858
+EXACT_REPRODUCTION_NOT_CURRENTLY_SPECIFIED
 
-Selection threshold:
+Verified author repository:
 
-0.5 fixed
+NOT VERIFIED
 
-Architecture tuning:
+Complete author resources verified:
 
 NO
 
-Threshold tuning:
+Historical paper metrics treated as rerun results:
 
 NO
 
@@ -58,22 +58,6 @@ Target lock:
 
 ACTIVE
 
-## Durability
-
-Seed 17 final recovery:
-
-https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05b-unet-seed17-lr3e4-final-step3500
-
-Seed 42 final recovery:
-
-https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05c-unet-seed42-lr3e4-final-step4000
-
-Seed 2026 final recovery:
-
-https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05c-unet-seed2026-lr3e4-final-step4500
-
 ## Next
 
-The competitive U-Net reference baseline is frozen.
-Proceed to the remaining E03 comparison component (SegCT-CLIP reproduction/reimplementation)
-before starting the proposed semantic branch.
+Do not invent missing SegCT-CLIP parameters. Proceed only with an explicitly labeled controlled reimplementation/adaptation, or obtain the missing author repository/checkpoint/caption bank and exact protocol.

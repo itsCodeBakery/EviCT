@@ -1,0 +1,206 @@
+{
+  "timestamp_utc": "2026-09-27T21:18:39.799099+00:00",
+  "stage": "NOTEBOOK_05D",
+  "paper_title": "CT-Insight VLM: Multimodel Vision-Language Framework for Accurate, Explainable, and Label-Efficient Lung CT Analysis",
+  "doi": "10.1109/TRPMS.2026.3734275",
+  "paper_publication_urls_checked": {
+    "records": [
+      {
+        "requested_url": "https://research.aston.ac.uk/en/publications/ct-insight-vlm-multimodel-vision-language-framework-for-accurate-/",
+        "resolved_url": "https://research.aston.ac.uk/en/publications/ct-insight-vlm-multimodel-vision-language-framework-for-accurate-/",
+        "ok": true,
+        "status_code": 200,
+        "github_urls": []
+      },
+      {
+        "requested_url": "https://ieeexplore.ieee.org/document/11693975/",
+        "resolved_url": "https://ieeexplore.ieee.org/document/11693975/",
+        "ok": true,
+        "status_code": 202,
+        "github_urls": []
+      },
+      {
+        "requested_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/278736/preprint_pdf/9ecd296031833c3305803e632a99bbe5.pdf",
+        "resolved_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/278736/preprint_pdf/9ecd296031833c3305803e632a99bbe5.pdf",
+        "ok": false,
+        "status_code": null,
+        "github_urls": []
+      }
+    ],
+    "github_urls": []
+  },
+  "github_discovery": {
+    "query_logs": [
+      {
+        "query": "\"CT-Insight VLM\"",
+        "ok": true,
+        "status_code": 200
+      },
+      {
+        "query": "\"SegCT-CLIP\"",
+        "ok": true,
+        "status_code": 200
+      },
+      {
+        "query": "\"TRPMS.2026.3734275\"",
+        "ok": true,
+        "status_code": 200
+      },
+      {
+        "query": "\"11693975\" \"CT-Insight\"",
+        "ok": true,
+        "status_code": 200
+      },
+      {
+        "query": "user:Owais-CodeHub",
+        "ok": true,
+        "status_code": 200
+      }
+    ],
+    "ranked_candidates": [
+      {
+        "full_name": "Owais-CodeHub/MDA-SN",
+        "html_url": "https://github.com/Owais-CodeHub/MDA-SN",
+        "description": "AI-powered framework for CT-based lung infection segmentation, infection severity quantification, and retrieval of clinically similar cases to support diagnosis, monitoring, and treatment planning.",
+        "updated_at": "2026-06-03T12:11:52Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 6
+      },
+      {
+        "full_name": "Owais-CodeHub/AgenticHumanImplant",
+        "html_url": "https://github.com/Owais-CodeHub/AgenticHumanImplant",
+        "description": "Agentic and Multimodal Foundation AI for Human Implant Medicine: From Recent Advances to Revolutionary Future Perspectives",
+        "updated_at": "2026-07-24T06:27:02Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 5
+      },
+      {
+        "full_name": "Owais-CodeHub/Pre-Harvest-Loss-Reduction",
+        "html_url": "https://github.com/Owais-CodeHub/Pre-Harvest-Loss-Reduction",
+        "description": "AI-Driven Multi-Modal Robotic Vision and Decision Intelligence for Pre-Harvest Loss Reduction: A Comprehensive Review with Current Development, Challenges, and Opportunities",
+        "updated_at": "2026-06-04T12:04:54Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 5
+      },
+      {
+        "full_name": "Owais-CodeHub/UAV-Synthetic-Data-Generator-MATLAB-GUI-by-OWAIS-",
+        "html_url": "https://github.com/Owais-CodeHub/UAV-Synthetic-Data-Generator-MATLAB-GUI-by-OWAIS-",
+        "description": "A lightweight MATLAB-based graphical interface for generating synthetic UAV-in-sky datasets with corresponding pixel-level segmentation masks. This tool enables fast creation of annotated UAV imagery by interactively placing UAV objects onto background scenes with adjustable position, scale, and rotation.",
+        "updated_at": "2026-04-21T13:36:12Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 5
+      },
+      {
+        "full_name": "Owais-CodeHub/MMIF-Review",
+        "html_url": "https://github.com/Owais-CodeHub/MMIF-Review",
+        "description": "A comprehensive collection of resources for Multi-Modal Medical Image Fusion (MMIF).",
+        "updated_at": "2026-03-31T18:11:44Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 5
+      },
+      {
+        "full_name": "Owais-CodeHub/SAM-MATLAB-Annotation-Tool",
+        "html_url": "https://github.com/Owais-CodeHub/SAM-MATLAB-Annotation-Tool",
+        "description": "An interactive MATLAB-based image annotation tool powered by the Segment Anything Model (SAM), supporting bounding-box and point prompts, mask generation, and automatic export of segmentation masks and bounding boxes.",
+        "updated_at": "2025-12-16T14:16:50Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 5
+      },
+      {
+        "full_name": "Owais-CodeHub/AgriTwin-Survey",
+        "html_url": "https://github.com/Owais-CodeHub/AgriTwin-Survey",
+        "description": "Supplementary resources for our survey on Digital Twins in Agriculture",
+        "updated_at": "2026-08-17T08:26:56Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 4
+      },
+      {
+        "full_name": "Owais-CodeHub/3D-Medical-Imaging-Review",
+        "html_url": "https://github.com/Owais-CodeHub/3D-Medical-Imaging-Review",
+        "description": "Voxels to Vision: A Comprehensive Review Tracing the Evolution of 3D Medical Imaging Analysis from Classic CNNs to Emerging Foundation Models",
+        "updated_at": "2026-06-17T23:57:48Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 4
+      },
+      {
+        "full_name": "Owais-CodeHub/DMDF-Net",
+        "html_url": "https://github.com/Owais-CodeHub/DMDF-Net",
+        "description": null,
+        "updated_at": "2026-06-03T11:52:33Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 4
+      },
+      {
+        "full_name": "Owais-CodeHub/MSR-AN",
+        "html_url": "https://github.com/Owais-CodeHub/MSR-AN",
+        "description": null,
+        "updated_at": "2026-04-30T08:58:11Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 4
+      },
+      {
+        "full_name": "Owais-CodeHub/PVT-SN-SAM-RN",
+        "html_url": "https://github.com/Owais-CodeHub/PVT-SN-SAM-RN",
+        "description": "Advancing AI-Powered Robotic Vision for Autonomous Analysis of Dense Crops in Wild Environments",
+        "updated_at": "2026-04-15T16:28:32Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 4
+      },
+      {
+        "full_name": "Owais-CodeHub/SAMConvFormer-LLM",
+        "html_url": "https://github.com/Owais-CodeHub/SAMConvFormer-LLM",
+        "description": null,
+        "updated_at": "2025-12-17T14:08:22Z",
+        "default_branch": "main",
+        "fork": false,
+        "score": 4
+      }
+    ]
+  },
+  "candidate_repositories_inspected": [],
+  "chosen_repo": null,
+  "author_repo_inventory_path": null,
+  "disclosed_components_from_supplied_paper": {
+    "task": "Lesion segmentation plus caption alignment/retrieval for lung CT slices.",
+    "backbone": "CLIP ViT-L/14-336 is reported as the strongest SegCT-CLIP backbone.",
+    "visual_branch": "Dual-level low/high transformer visual features are aggregated and passed to a lightweight visual decoder for lesion-mask prediction.",
+    "text_branch": "A predefined clinically curated caption repository is encoded by the CLIP text encoder; captions are retrieved by cosine similarity to high-level image embeddings.",
+    "training_triplet": "Input slice, retrieved/relevant caption, ground-truth lesion mask.",
+    "training_loss": "Weighted contrastive plus Dice objective with lambda_contrastive=0.3 and lambda_dice=0.7.",
+    "evaluation_protocol": "Bidirectional SegDB-1/SegDB-2 cross-dataset evaluation without target fine-tuning is described.",
+    "published_backbone_result_note": "Published table values are literature values only and are not treated as rerun results."
+  },
+  "unresolved_reproduction_choices": [
+    "Exact public source-code repository URL and released revision/commit.",
+    "Exact released checkpoint corresponding to the reported SegCT-CLIP results.",
+    "Exact 367-slice SegDB-2 selection used by the paper.",
+    "Exact SegDB-1 patient/group mapping and source partition.",
+    "Caption-bank contents, caption-to-slice mapping, and caption preprocessing.",
+    "Exact low-level and high-level CLIP transformer layer indices.",
+    "Exact dual-level aggregation function Fagg.",
+    "Exact lightweight decoder topology and normalization/activation choices.",
+    "Whether and how much of the CLIP image/text encoders were fine-tuned.",
+    "Optimizer, learning rate, weight decay, batch size, number of epochs/updates.",
+    "Augmentation and image normalization/resolution preprocessing details.",
+    "Early-stopping/model-selection rule and random seeds.",
+    "Exact metric aggregation convention used for the paper tables."
+  ],
+  "complete_author_resources_verified": false,
+  "reproduction_status": "EXACT_REPRODUCTION_NOT_CURRENTLY_SPECIFIED",
+  "historical_paper_metrics_entered_as_rerun_results": false,
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "target_lock_active": true,
+  "next_action": "Do not invent missing SegCT-CLIP parameters. Proceed only with an explicitly labeled controlled reimplementation/adaptation, or obtain the missing author repository/checkpoint/caption bank and exact protocol."
+}
