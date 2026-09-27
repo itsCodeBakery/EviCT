@@ -1658,9 +1658,361 @@ ACTIVE
         "Complete Notebook 04D seed2026 durable segment through step 1000"
     )
 
+    # --------------------------------------------------------
+    # DURABLE GITHUB RELEASE BACKUP
+    # --------------------------------------------------------
+    from kaggle_secrets import UserSecretsClient
+
+    token = UserSecretsClient().get_secret("pushEviCT")
+    assert token, "Kaggle secret 'pushEviCT' unavailable."
+
+    owner = "itsCodeBakery"
+    repo = "EviCT"
+    tag = "evict-nb04d-seed2026-step1000"
+    release_name = "EviCT Notebook 04D — Seed 2026 — Step 1000 Recovery"
+    api = f"https://api.github.com/repos/{owner}/{repo}"
+
+    api_headers = {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+
+    tag_response = requests.get(
+        f"{api}/releases/tags/{tag}",
+        headers=api_headers,
+        timeout=60,
+    )
+
+    if tag_response.status_code == 200:
+        release = tag_response.json()
+        print("✓ Existing seed-2026 step-1000 release found")
+    elif tag_response.status_code == 404:
+        create_response = requests.post(
+            f"{api}/releases",
+            headers=api_headers,
+            json={
+                "tag_name": tag,
+                "target_commitish": "main",
+                "name": release_name,
+                "body": (
+                    "Durable recovery for EviCT Notebook 04D supervised "
+                    "SegFormer-B1 baseline, seed 2026, optimizer step 1000. "
+                    "Fresh initialization used pinned ImageNet MiT-B1 weights. "
+                    "Seed 17 and seed 42 checkpoints were not used. "
+                    "Calibration and target/MedSeg remained untouched."
+                ),
+                "draft": False,
+                "prerelease": False,
+            },
+            timeout=60,
+        )
+        assert create_response.status_code in {200, 201}, (
+            f"Release creation failed: {create_response.status_code}\n"
+            f"{create_response.text[:2000]}"
+        )
+        release = create_response.json()
+        print("✓ Seed-2026 step-1000 GitHub Release created")
+    else:
+        raise RuntimeError(
+            f"Release lookup failed: {tag_response.status_code}\n"
+            f"{tag_response.text[:2000]}"
+        )
+
+    release_id = int(release["id"])
+    release_url = release["html_url"]
+
+    def upload_asset(file_path: Path, content_type: str):
+        file_path = Path(file_path)
+
+        current_response = requests.get(
+            f"{api}/releases/{release_id}",
+            headers=api_headers,
+            timeout=60,
+        )
+        assert current_response.status_code == 200
+
+        current_release = current_response.json()
+        existing = {
+            asset["name"]: asset
+            for asset in current_release.get("assets", [])
+        }
+
+        local_sha = sha256_file(file_path)
+
+        if file_path.name in existing:
+            asset = existing[file_path.name]
+            remote_digest = asset.get("digest")
+
+            if (
+                int(asset["size"]) == file_path.stat().st_size
+                and (
+                    remote_digest is None
+                    or remote_digest == f"sha256:{local_sha}"
+                )
+            ):
+                print(f"✓ Already durable         : {file_path.name}")
+                return asset
+
+            delete_response = requests.delete(
+                f"{api}/releases/assets/{asset['id']}",
+                headers=api_headers,
+                timeout=60,
+            )
+            assert delete_response.status_code in {204, 404}
+
+        upload_headers = {
+            **api_headers,
+            "Content-Type": content_type,
+            "Content-Length": str(file_path.stat().st_size),
+        }
+
+        upload_url = (
+            f"https://uploads.github.com/repos/{owner}/{repo}/"
+            f"releases/{release_id}/assets"
+        )
+
+        print(f"Uploading                : {file_path.name}")
+        print(
+            f"Size                     : "
+            f"{file_path.stat().st_size / 1024**2:.2f} MiB"
+        )
+
+        with file_path.open("rb") as handle:
+            response = requests.post(
+                upload_url,
+                headers=upload_headers,
+                params={"name": file_path.name},
+                data=handle,
+                timeout=7200,
+            )
+
+        assert response.status_code in {200, 201}, (
+            f"Upload failed for {file_path.name}\n"
+            f"HTTP {response.status_code}\n"
+            f"{response.text[:2000]}"
+        )
+
+        asset = response.json()
+        assert int(asset["size"]) == file_path.stat().st_size
+
+        remote_digest = asset.get("digest")
+        if remote_digest is not None:
+            assert remote_digest == f"sha256:{local_sha}"
+
+        print(f"✓ Uploaded and verified   : {file_path.name}")
+        return asset
+
+    tar_asset = upload_asset(
+        archive,
+        "application/x-tar",
+    )
+    sha_asset = upload_asset(
+        sha_path,
+        "text/plain",
+    )
+
+    verify_response = requests.get(
+        f"{api}/releases/{release_id}",
+        headers=api_headers,
+        timeout=60,
+    )
+    assert verify_response.status_code == 200
+
+    remote_assets = {
+        asset["name"]: asset
+        for asset in verify_response.json().get("assets", [])
+    }
+
+    assert archive.name in remote_assets
+    assert sha_path.name in remote_assets
+    assert int(remote_assets[archive.name]["size"]) == archive.stat().st_size
+
+    remote_tar_digest = remote_assets[archive.name].get("digest")
+    if remote_tar_digest is not None:
+        assert remote_tar_digest == f"sha256:{archive_sha}"
+
+    print("✓ Both seed-2026 recovery assets remotely verified")
+
+    durable_record = {
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        "stage": "NOTEBOOK_04D",
+        "seed": 2026,
+        "precision": "FP32",
+        "optimizer_step": global_step,
+        "last_validation_step": last_validation_step,
+        "best_macro_case_dice": best_score,
+        "best_step": best_step,
+        "patience_count": patience_count,
+        "images_seen": images_seen,
+        "recovery_archive": archive.name,
+        "recovery_archive_sha256": archive_sha,
+        "github_release_tag": tag,
+        "github_release_url": release_url,
+        "tar_asset_id": int(tar_asset["id"]),
+        "sha_asset_id": int(sha_asset["id"]),
+        "fresh_pinned_imagenet_initialization": True,
+        "seed17_checkpoint_used": False,
+        "seed42_checkpoint_used": False,
+        "calibration_accessed": False,
+        "target_accessed": False,
+        "status": "DURABLE_COMPLETE_STEP1000",
+    }
+
+    durable_record_path = (
+        AUDIT_DIR
+        / "notebook04d_seed2026_step1000_durable_backup.json"
+    )
+    durable_record_path.write_text(
+        json.dumps(durable_record, indent=2),
+        encoding="utf-8",
+    )
+
+    durable_state = f"""# EviCT Execution State
+
+## Current stage
+
+NOTEBOOK_04D_SEED2026_STEP1000_DURABLE
+
+## Timestamp
+
+{datetime.now(timezone.utc).isoformat()}
+
+## Notebook 04D — Seed 2026
+
+Model:
+
+Supervised SegFormer MiT-B1
+
+Precision:
+
+FP32
+
+Training seed:
+
+2026
+
+Frozen split seed:
+
+17
+
+Current optimizer step:
+
+{global_step} / 5000
+
+Last validation step:
+
+{last_validation_step}
+
+Best source-selection macro case Dice:
+
+{best_score:.8f}
+
+Best checkpoint step:
+
+{best_step}
+
+Patience:
+
+{patience_count} / 8
+
+Images seen:
+
+{images_seen}
+
+## Initialization
+
+Pinned ImageNet MiT-B1:
+
+YES
+
+Seed-17 checkpoint used:
+
+NO
+
+Seed-42 checkpoint used:
+
+NO
+
+## Durable recovery
+
+Recovery TAR:
+
+{archive.name}
+
+SHA-256:
+
+{archive_sha}
+
+GitHub Release:
+
+{release_url}
+
+Remote TAR:
+
+VERIFIED
+
+Remote SHA file:
+
+VERIFIED
+
+## Isolation
+
+Training:
+
+12 frozen fitting cases only
+
+Selection:
+
+4 frozen complete source-selection cases only
+
+Calibration accessed:
+
+NO
+
+Target / MedSeg accessed:
+
+NO
+
+## Target lock
+
+ACTIVE
+
+## Seed status
+
+Seed 17:
+
+COMPLETE
+
+Seed 42:
+
+COMPLETE
+
+Seed 2026:
+
+STEP 1000 DURABLE — CONTINUATION PENDING
+
+## Next
+
+Perform 20-update recovery audit from seed-2026 step 1000, then continue to early stop or step 5000.
+"""
+
+    STATE_PATH.write_text(
+        durable_state,
+        encoding="utf-8",
+    )
+    HANDOFF_STATE.write_text(
+        durable_state,
+        encoding="utf-8",
+    )
+
+    git_sync(
+        "Record durable Notebook 04D seed2026 step1000 recovery"
+    )
+
     print()
     print("=" * 100)
-    print("EVICT NOTEBOOK 04D — SEED 2026 — STEP 1000 PASS")
+    print("EVICT NOTEBOOK 04D — SEED 2026 — STEP 1000 DURABLE PASS")
     print("=" * 100)
 
     print(f"Optimizer step           : {global_step}")
@@ -1669,16 +2021,19 @@ ACTIVE
     print(f"Best checkpoint step     : {best_step}")
     print(f"Patience                 : {patience_count}/8")
     print(f"Images seen              : {images_seen}")
-    print(f"Recovery archive         : {archive}")
+    print(f"Recovery archive         : {archive.name}")
     print(f"Archive SHA-256          : {archive_sha}")
+    print(f"GitHub Release           : {release_url}")
+    print("Large binary backup      : VERIFIED")
+    print("Normal Git metadata      : SYNCHRONIZED")
     print("Initialization           : FRESH PINNED IMAGENET MiT-B1")
     print("Seed-17 checkpoint used  : NO")
     print("Seed-42 checkpoint used  : NO")
     print("Calibration accessed     : NO")
     print("Target / MedSeg accessed : NO")
-    print("Git metadata             : SYNCHRONIZED")
+    print("TARGET LOCK              : ACTIVE")
     print()
-    print("NEXT: upload TAR + SHA to GitHub Release before continuation.")
+    print("NEXT: restore audit 1000 -> 1020, then full continuation.")
 
 
 if __name__ == "__main__":
