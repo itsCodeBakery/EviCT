@@ -1,0 +1,13 @@
+{
+  "timestamp_utc": "2026-09-27T08:16:29.289654+00:00",
+  "stage": "NOTEBOOK_04D",
+  "run_seed": 17,
+  "abandoned_attempt": true,
+  "precision": "FP16_AMP",
+  "observed_failure": "Non-finite gradient norm before optimizer update 119.",
+  "durable_checkpoint_reached": false,
+  "scientific_data_failure": false,
+  "split_failure": false,
+  "target_accessed": false,
+  "resolution": "Restart seed 17 from update 0 in FP32 while preserving the planned optimizer, learning-rate, batch-exposure and validation protocol."
+}

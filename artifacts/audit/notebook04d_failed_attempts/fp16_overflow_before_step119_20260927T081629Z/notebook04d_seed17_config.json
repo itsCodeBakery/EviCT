@@ -1,0 +1,96 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_04D",
+  "run_id": "segformer_b1_supervised_seed17",
+  "run_seed": 17,
+  "split_seed": 17,
+  "budget": "100_percent_full_label",
+  "fitting_cases": 12,
+  "selection_cases": 4,
+  "calibration_cases": 4,
+  "target_access_allowed": false,
+  "encoder": {
+    "family": "MiT-B1",
+    "checkpoint_repository": "nvidia/mit-b1",
+    "checkpoint_revision": "13ddceec4e8bdf401e7cd7acf5aebc526222518c",
+    "checkpoint_sha256": "980b86b60db37b1b1528086f6c53d253d879e9e09ebe07397b40fd275738a3bf"
+  },
+  "decoder": {
+    "type": "SegFormer four-level MLP decoder",
+    "channels": 256
+  },
+  "optimizer": {
+    "type": "AdamW",
+    "encoder_lr": 0.0001,
+    "decoder_lr": 0.0003,
+    "weight_decay": 0.01
+  },
+  "scheduler": {
+    "type": "linear_warmup_then_cosine",
+    "warmup_updates": 200,
+    "maximum_updates": 5000
+  },
+  "batch": {
+    "micro_batch_size": 4,
+    "gradient_accumulation": 4,
+    "images_per_optimizer_update": 16
+  },
+  "sampling": {
+    "patient_sampling": "uniform_with_replacement",
+    "positive_slice_probability_when_available": 0.5,
+    "note": "Positive oversampling uses only visible b100 fitting masks."
+  },
+  "augmentation": {
+    "rotation_degrees": [
+      -10.0,
+      10.0
+    ],
+    "scale": [
+      0.9,
+      1.1
+    ],
+    "translation_fraction": 0.05,
+    "horizontal_flip": false,
+    "brightness": [
+      0.9,
+      1.1
+    ],
+    "contrast": [
+      0.9,
+      1.1
+    ],
+    "gamma": [
+      0.8,
+      1.2
+    ],
+    "noise_probability": 0.3,
+    "max_noise_std": 0.03,
+    "blur_probability": 0.2
+  },
+  "supervised_loss": {
+    "soft_dice_weight": 0.5,
+    "bce_weight": 0.5,
+    "padding_excluded": true
+  },
+  "validation": {
+    "frequency_updates": 250,
+    "complete_cases": true,
+    "checkpoint_selection_metric": "macro_case_dice",
+    "checkpoint_selection_threshold": 0.5,
+    "threshold_tuning_here": false,
+    "later_threshold_grid": [
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7
+    ]
+  },
+  "early_stopping": {
+    "patience_validations": 8
+  },
+  "mixed_precision": "FP16",
+  "stochastic_regularization": "model_defaults_restored",
+  "checkpoint_frequency_updates": 250,
+  "first_durable_segment_stop": 1000
+}

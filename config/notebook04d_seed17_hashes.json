@@ -1,0 +1,6 @@
+{
+  "run_config_sha256": "716447b5ddba8be3dd9000a1fac96068c957eeb7e8b81019a2a261ed2f2aa2a4",
+  "split_contract_sha256": "13d5ff3f4a0f5f5e42da32622f66816876a4a670c80809fc5cca9e1672649d79",
+  "model_code_sha256": "d731ff16e4b14e86404b2f9dcad3588ac918703620c5d844be7e80514defe570",
+  "pretrained_weight_sha256": "980b86b60db37b1b1528086f6c53d253d879e9e09ebe07397b40fd275738a3bf"
+}

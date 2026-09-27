@@ -2,196 +2,116 @@
 
 ## Current stage
 
-NOTEBOOK_04C_TINY_OVERFIT_PASS_FULL_BASELINE_PENDING
+NOTEBOOK_04D_SEED17_FP32_RUNNING_STEP_250
 
 ## Timestamp
 
-2026-09-27T07:48:08.200352+00:00
+2026-09-27T08:18:52.046232+00:00
 
-## Completed stages
+## Notebook 04D
 
-- Notebook 00: COMPLETE
-- Notebook 01: COMPLETE
-- Notebook 02: COMPLETE
-- Notebook 03 preprocessing/geometry: FROZEN
-- Notebook 04A metrics/unit tests: PASS
-- Notebook 04B MiT-B1 forward/backward smoke: PASS
-- Notebook 04C tiny-set overfit sanity: PASS
+Model:
 
-## Notebook 04C
+Supervised SegFormer MiT-B1
 
-Purpose:
+Seed:
 
-PIPELINE SANITY / DEBUGGING ONLY
+17
 
-Research result:
+Precision:
 
-NO
+FP32
 
-Training images:
+AMP:
 
-2
+DISABLED
 
-Unique cases:
+Reason:
 
-2
+Previous abandoned FP16 attempt produced a non-finite
+scaled gradient before optimizer update 119. No durable
+checkpoint had been reached.
 
-Source provenance groups:
-
-2
-
-Small lesion included:
-
-YES
-
-Representative lesion included:
-
-YES
-
-## Geometry criterion
-
-Required round-trip IoU:
-
->= 0.85
-
-Threshold lowered:
+Scientific training protocol changed:
 
 NO
 
-Reference round-trip IoUs:
+## Split
 
-[0.8888888888888888, 0.9020356234096693]
+Fitting:
 
-Prediction round-trip IoUs:
+12 cases
 
-[0.9037267080745341, 0.9057635675220866]
+Selection:
 
-## Empty-mask metrics
+4 cases
 
-PASS
+Calibration:
 
-## Tiny-set memorization
+4 cases — UNTOUCHED
 
-Optimizer steps:
+## Current optimizer step
 
-100
+250
 
-Final mean Dice:
+## Planned maximum
 
-0.987520
+5000
 
-Final minimum Dice:
+## Effective labeled images per update
 
-0.984595
+16
 
-Small-lesion Dice:
+## Validation frequency
 
-0.990446
+250 optimizer updates
 
-Representative-lesion Dice:
+## Current best source-selection macro case Dice
 
-0.984595
+0.68108677
 
-## Audit recovery
+## Best step
 
-A previous finalization assertion failed because a correct metadata value:
+250
 
-geometry_threshold_lowered = False
+## Patience
 
-was incorrectly included inside all(checks.values()).
+0 / 8
 
-No scientific criterion failed.
+## Checkpoints
 
-Training was NOT rerun.
+recovery.pt:
 
-Geometry threshold was NOT changed.
+every 50 successful optimizer updates
 
-## Figure policy
+last.pt:
 
-Required manuscript font:
+every 250 optimizer updates
 
-Times New Roman
+best.pt:
 
-Exact Times New Roman available in Kaggle:
-
-NO
-
-Substitute font used:
-
-NO
-
-Text-free debugging overlays:
-
-GENERATED
-
-Labeled manuscript figure:
-
-PENDING
+when source-selection macro case Dice improves
 
 ## Target lock
 
 ACTIVE
 
-No MedSeg images, labels, prompts or performance metrics accessed.
+MedSeg accessed:
 
-## Important
+NO
 
-Notebook 04C deliberately memorizes known training images.
+Calibration accessed:
 
-Its Dice values are debugging evidence only and must never be
-reported as model performance.
+NO
 
-## Next
+## Figure font policy
 
-Notebook 04D — full-label source supervised SegFormer-B1 baseline.
-
-Before launch:
-
-1. restore normal stochastic regularization;
-2. train only on the frozen 12 fitting cases;
-3. use only the 4 source-selection cases for model selection;
-4. keep the 4 source-calibration cases untouched;
-5. use resumable best.pt and last.pt checkpoints;
-6. checkpoint every 250 optimizer updates;
-7. store structured training logs;
-8. store raw source-selection logits;
-9. preserve the target-performance lock.
-
-
-## Figure font policy update
-
-Preferred font:
+Preferred:
 
 Times New Roman
 
-Fallback fonts:
+Fallback:
 
 Calibri -> Arial Narrow -> Arial -> Liberation Sans -> DejaVu Sans
 
-Fallback allowed:
-
-YES
-
-Labels may be removed because preferred font is unavailable:
-
-NO
-
-Notebook 04C labeled figure:
-
-GENERATED
-
-Actual font used:
-
-Liberation Sans
-
-PNG:
-
-figures/notebook04c_tiny_overfit.png
-
-PDF:
-
-figures/notebook04c_tiny_overfit.pdf
-
-Caption embedded in image:
-
-NO
+Labels remain present.
