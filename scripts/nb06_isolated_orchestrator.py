@@ -9,7 +9,7 @@ from pathlib import Path
 
 import torch
 
-ROOT = Path("/kaggle/working/EViCT")
+ROOT = Path("/kaggle/working/EviCT")
 RUNNER = ROOT / "scripts/nb06_semantic_branch.py"
 AUD = ROOT / "artifacts/audit"
 LARGE = ROOT / "artifacts/large/notebook06"
