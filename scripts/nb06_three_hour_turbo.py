@@ -256,17 +256,15 @@ def log_tail(path, chars=1600):
 
 
 def checkpoint_hint(variant, seed):
+    # Heartbeats must be cheap: do not deserialize the ~158 MiB recovery
+    # checkpoint every 30 seconds while two GPUs are training. The child log
+    # already reports exact steps and checkpoint advances.
     p = ROOT / "artifacts/large/notebook06" / variant / f"seed_{seed}" / "recovery.pt"
     if not p.exists():
         return "none"
-    try:
-        q = torch.load(p, map_location="cpu", weights_only=False)
-        step = int(q.get("global_step", -1))
-        best = float(q.get("best_score", -1))
-        del q
-        return f"step={step}, best={best:.4f}"
-    except Exception:
-        return "exists/unreadable"
+    size = p.stat().st_size / (1024 ** 2)
+    age = max(0, int(time.time() - p.stat().st_mtime))
+    return f"checkpoint={size:.1f} MiB, age={age}s"
 
 
 def launch(task, gpu, attempt):
