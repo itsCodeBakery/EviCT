@@ -542,6 +542,56 @@ def feature_paths(split_name: str, case_id: str):
     )
 
 
+def reusable_feature_cache_manifest(
+    *,
+    pin: dict,
+    config_hash: str,
+) -> dict | None:
+    """
+    Reuse the already-built frozen feature cache without reloading CLIP.
+
+    This is intentionally local-runtime only: the committed manifest is durable,
+    while the multi-GB feature arrays are ignored by Git. On a fresh runtime the
+    files will be absent and the normal pinned-CLIP regeneration path is used.
+    """
+    if not FEATURE_MANIFEST.exists():
+        return None
+
+    manifest = json.loads(
+        FEATURE_MANIFEST.read_text(encoding="utf-8")
+    )
+
+    train_sha = base.sha256_file(TRAIN_MANIFEST_17)
+    selection_sha = base.sha256_file(SELECTION_MANIFEST)
+
+    contract_ok = bool(
+        manifest.get("status") == "COMPLETE"
+        and manifest.get("config_hash") == config_hash
+        and manifest.get("backbone_revision") == pin["revision"]
+        and manifest.get("train_manifest_sha256") == train_sha
+        and manifest.get("selection_manifest_sha256") == selection_sha
+    )
+    if not contract_ok:
+        return None
+
+    files = manifest.get("files", [])
+    if not files:
+        return None
+
+    for item in files:
+        path = ROOT / item["relative_path"]
+        if (
+            not path.exists()
+            or path.stat().st_size != int(item["size_bytes"])
+        ):
+            return None
+
+    print(
+        "✓ Frozen CLIP feature cache : REUSED WITHOUT BACKBONE RELOAD"
+    )
+    return manifest
+
+
 def build_feature_cache(
     *,
     vision,
@@ -2903,37 +2953,43 @@ def main():
     model_code_hash = base.sha256_file(MODEL_CODE)
     metrics_code_hash = base.sha256_file(METRICS_CODE)
 
-    vision, snapshot, weight_hashes = load_clip_vision(
-        pin,
-        device,
-    )
-
-    encoder_batch, encoder_smoke = probe_encoder_batch(
-        vision,
-        train_df,
-        device,
-    )
-
-    print(f"✓ Frozen CLIP encoder batch: {encoder_batch}")
-    print(
-        f"✓ Encoder peak VRAM        : "
-        f"{encoder_smoke['peak_allocated_gib']:.2f} GiB"
-    )
-
-    feature_manifest = build_feature_cache(
-        vision=vision,
-        encoder_batch=encoder_batch,
-        train_df=train_df,
-        selection_df=selection_df,
-        device=device,
+    feature_manifest = reusable_feature_cache_manifest(
         pin=pin,
-        weight_hashes=weight_hashes,
         config_hash=config_hash,
     )
 
-    del vision
-    gc.collect()
-    torch.cuda.empty_cache()
+    if feature_manifest is None:
+        vision, snapshot, weight_hashes = load_clip_vision(
+            pin,
+            device,
+        )
+
+        encoder_batch, encoder_smoke = probe_encoder_batch(
+            vision,
+            train_df,
+            device,
+        )
+
+        print(f"✓ Frozen CLIP encoder batch: {encoder_batch}")
+        print(
+            f"✓ Encoder peak VRAM        : "
+            f"{encoder_smoke['peak_allocated_gib']:.2f} GiB"
+        )
+
+        feature_manifest = build_feature_cache(
+            vision=vision,
+            encoder_batch=encoder_batch,
+            train_df=train_df,
+            selection_df=selection_df,
+            device=device,
+            pin=pin,
+            weight_hashes=weight_hashes,
+            config_hash=config_hash,
+        )
+
+        del vision
+        gc.collect()
+        torch.cuda.empty_cache()
 
     train_store = FeatureCaseStore(
         train_df,
