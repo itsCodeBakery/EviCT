@@ -42,7 +42,10 @@
     "fusion": "visual_logit + alpha * semantic_logit",
     "alpha_parameterization": "sigmoid(b)",
     "alpha_initial": 0.1,
-    "alpha_bounds": [0.0, 1.0]
+    "alpha_bounds": [
+      0,
+      1
+    ]
   },
   "patch_auxiliary": {
     "weight": 0.1,
@@ -76,7 +79,11 @@
   },
   "training": {
     "source_budget": "100% labeled fitting patients",
-    "primary_seeds": [17, 42, 2026],
+    "primary_seeds": [
+      17,
+      42,
+      2026
+    ],
     "optimizer": "AdamW",
     "encoder_lr": 0.0001,
     "decoder_projection_lr": 0.0003,
@@ -103,14 +110,19 @@
   },
   "durability": {
     "local_recovery_every_updates": 50,
-    "remote_rolling_milestones": [1000, 2000, 3000, 4000],
+    "remote_rolling_milestones": [
+      1000,
+      2000,
+      3000,
+      4000
+    ],
     "final_checkpoint_to_github_release": true,
     "small_audits_logs_tables_to_git": true
   },
   "pass_condition": "real-text branch, swapped-text control and random-prototype control complete under matched budgets using cached text only; semantic benefit is claimed only if real text gives a repeatable gain beyond controls",
   "semantic_claim_rule": {
-    "predeclared_rule": "real_text mean macro-case Dice must exceed both swapped_text and random_prototypes, and real_text must beat each control in at least 2 of 3 paired training seeds",
+    "predeclared_rule": "real_text mean macro-case Dice must exceed the frozen vision-only SegFormer-B1 reference, swapped_text, and random_prototypes; real_text must also beat each comparator in at least 2 of 3 paired training seeds",
     "significance_claimed": false,
-    "note": "This is a directional repeatability rule for the ablation, not a formal hypothesis test."
+    "note": "This directional repeatability rule is frozen before Notebook-06 execution. It is not a formal hypothesis test."
   }
 }
