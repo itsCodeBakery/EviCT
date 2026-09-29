@@ -2,13 +2,13 @@
 
 ## Current stage
 
-NOTEBOOK_05E_SEGCT_CLIP_VISUAL_SEED_2026_COMPLETE_DURABLE
+NOTEBOOK_05E_SEGCT_CLIP_VISUAL_ADAPTATION_THREE_SEED_FROZEN
 
 ## Timestamp
 
-2026-09-29T06:47:41.286949+00:00
+2026-09-29T06:47:42.940272+00:00
 
-## Baseline
+## Method
 
 SegCT-CLIP visual-pathway adaptation
 
@@ -22,47 +22,36 @@ Frozen CLIP ViT-L/14-336
 
 Caption bank:
 
-NOT USED — exact author caption bank unavailable
+NOT USED
 
 Contrastive loss:
 
-NOT USED — exact caption supervision unavailable
+NOT USED
 
-Visual design:
+Reason:
 
-Dual-level frozen CLIP patch features + explicit EviCT lightweight decoder adaptation
+The exact author caption repository and caption-to-slice supervision were not available.
+They were not invented.
 
-Training seed:
+Primary seeds:
 
-2026
+17, 42, 2026
 
-Split seed:
+Three-seed source-selection macro case Dice:
 
-17
+0.72727939
 
-Optimizer step:
+Sample standard deviation:
 
-3750
-
-Best source-selection macro case Dice:
-
-0.71664585
-
-Best checkpoint step:
-
-1750
-
-Patience:
-
-8 / 8
-
-Image exposures:
-
-60000
+0.00935618
 
 Selection threshold:
 
 0.5 fixed
+
+Historical paper values treated as rerun results:
+
+NO
 
 ## Isolation
 
@@ -80,5 +69,9 @@ ACTIVE
 
 ## Next
 
-Complete seeds 17, 42 and 2026 under the same frozen adaptation protocol,
-aggregate the source-selection results, then proceed to Notebook 06.
+Notebook 05 supervised/reference-model stage is complete with:
+1. frozen SegFormer-B1,
+2. frozen competitive residual 2D U-Net,
+3. explicitly labeled SegCT-CLIP visual-pathway adaptation.
+
+Proceed to Notebook 06: fixed biomedical text prototypes and proposed EviCT semantic branch.

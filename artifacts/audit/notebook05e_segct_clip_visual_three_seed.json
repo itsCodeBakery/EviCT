@@ -1,0 +1,94 @@
+{
+  "timestamp_utc": "2026-09-29T06:47:42.939263+00:00",
+  "stage": "NOTEBOOK_05E",
+  "status": "THREE_SEED_VISUAL_ADAPTATION_FROZEN",
+  "method": "SegCT-CLIP visual-pathway adaptation",
+  "claim_status": "EXPLICIT_ADAPTATION_NOT_EXACT_SEGCT_CLIP_REPRODUCTION",
+  "primary_seeds": [
+    17,
+    42,
+    2026
+  ],
+  "backbone": "frozen CLIP ViT-L/14-336",
+  "caption_bank_used": false,
+  "contrastive_loss_used": false,
+  "segmentation_loss": "masked soft Dice",
+  "selection_threshold": 0.5,
+  "metrics": {
+    "macro_case_dice": {
+      "mean": 0.7272793948468056,
+      "sample_sd": 0.00935617579684087
+    },
+    "macro_case_iou": {
+      "mean": 0.5780115613990712,
+      "sample_sd": 0.011087156569387123
+    },
+    "macro_case_sensitivity": {
+      "mean": 0.640050346587855,
+      "sample_sd": 0.016028351108572945
+    },
+    "macro_case_specificity": {
+      "mean": 0.9985438698199852,
+      "sample_sd": 0.00011512862086660906
+    },
+    "macro_slice_dice": {
+      "mean": 0.523225731346239,
+      "sample_sd": 0.10268822317750154
+    },
+    "pooled_dice": {
+      "mean": 0.761972501697441,
+      "sample_sd": 0.00534425898112118
+    },
+    "pooled_iou": {
+      "mean": 0.6154930309997351,
+      "sample_sd": 0.006959539099987127
+    }
+  },
+  "seed_results": [
+    {
+      "seed": 17,
+      "best_step": 2000,
+      "final_step": 4000,
+      "stop_reason": "EARLY_STOPPING_PATIENCE_8",
+      "macro_case_dice": 0.7309427657515841,
+      "macro_case_iou": 0.5828919063793817,
+      "macro_case_sensitivity": 0.6465367495637644,
+      "macro_case_specificity": 0.9985687377425152,
+      "macro_slice_dice": 0.475762676327972,
+      "pooled_dice": 0.766081318462052,
+      "pooled_iou": 0.6208523543117228,
+      "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05e-segctclip-visual-seed17-final-step4000"
+    },
+    {
+      "seed": 42,
+      "best_step": 1000,
+      "final_step": 3000,
+      "stop_reason": "EARLY_STOPPING_PATIENCE_8",
+      "macro_case_dice": 0.7342495734442586,
+      "macro_case_iou": 0.5858213506380626,
+      "macro_case_sensitivity": 0.6518189062086202,
+      "macro_case_specificity": 0.998418339487583,
+      "macro_slice_dice": 0.4528545756545089,
+      "pooled_dice": 0.7639054887875503,
+      "pooled_iou": 0.6179992564146711,
+      "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05e-segctclip-visual-seed42-final-step3000"
+    },
+    {
+      "seed": 2026,
+      "best_step": 1750,
+      "final_step": 3750,
+      "stop_reason": "EARLY_STOPPING_PATIENCE_8",
+      "macro_case_dice": 0.7166458453445739,
+      "macro_case_iou": 0.5653214271797692,
+      "macro_case_sensitivity": 0.6217953839911803,
+      "macro_case_specificity": 0.9986445322298576,
+      "macro_slice_dice": 0.641059942056236,
+      "pooled_dice": 0.7559306978427208,
+      "pooled_iou": 0.6076274822728113,
+      "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05e-segctclip-visual-seed2026-final-step3750"
+    }
+  ],
+  "historical_paper_metrics_entered_as_rerun_results": false,
+  "calibration_accessed": false,
+  "target_accessed": false
+}
