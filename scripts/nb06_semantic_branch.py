@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import argparse, gc, hashlib, importlib.util, json, math, os, shutil, subprocess, sys, tarfile
+import argparse, gc, hashlib, importlib.util, json, math, os, re, shutil, subprocess, sys, tarfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -150,19 +150,79 @@ def release(token,v,s,p,step,final,best,best_step):
     rel,headers,api=base.create_or_get_release(token,tag,f'EviCT Notebook 06 — {v} seed {s} — {"final" if final else "rolling"}',f'Notebook 06 {v}, seed={s}, step={step}, best Dice={best:.8f}@{best_step}. Calibration and target/MedSeg were not accessed.')
     base.upload_asset(release=rel,headers=headers,api=api,file_path=tar,content_type='application/x-tar'); base.upload_asset(release=rel,headers=headers,api=api,file_path=sp,content_type='text/plain'); tar.unlink(); sp.unlink(); return rel['html_url'],d
 
+def _release_headers(token):
+    return {'Authorization':f'Bearer {token}','Accept':'application/vnd.github+json'}
+
+def _download_release_archive(token,release,p):
+    h=_release_headers(token); assets={a['name']:a for a in release.get('assets',[])}
+    tn=next((n for n in assets if n.endswith('_Recovery.tar')),None)
+    sn=next((n for n in assets if n.endswith('.tar.sha256')),None)
+    if not tn or not sn: return None
+    expected=requests.get(assets[sn]['browser_download_url'],headers=h,timeout=60).text.strip()
+    assert re.fullmatch(r'[0-9a-fA-F]{64}',expected), 'Invalid release SHA sidecar'
+    dest=WORK/tn
+    if dest.exists() and sha(dest)!=expected: dest.unlink()
+    if not dest.exists(): base.download_verified(assets[tn]['browser_download_url'],dest,expected)
+    base.safe_extract_tar(dest,WORK); dest.unlink(missing_ok=True)
+    return expected
+
+def restore_final(token,v,s,p,snap,proto,sel,device):
+    if p['final'].exists():
+        a=json.loads(p['final'].read_text())
+        if a.get('status')=='DURABLE_COMPLETE': return a
+    h=_release_headers(token)
+    r=requests.get('https://api.github.com/repos/itsCodeBakery/EviCT/releases?per_page=100',headers=h,timeout=60)
+    r.raise_for_status()
+    prefix=f'evict-nb06-{v}-seed{s}-final-step'
+    candidates=[]
+    for rel in r.json():
+        tag=str(rel.get('tag_name',''))
+        if tag.startswith(prefix):
+            m=re.fullmatch(re.escape(prefix)+r'(\\d+)',tag)
+            if m: candidates.append((int(m.group(1)),rel))
+    if not candidates: return None
+    release_step,rel=max(candidates,key=lambda z:z[0])
+    expected=_download_release_archive(token,rel,p)
+    if expected is None: raise RuntimeError(f'Final release assets missing for {v} seed{s}')
+    assert p['best'].exists() and p['rec'].exists()
+    bq=torch.load(p['best'],map_location='cpu',weights_only=False)
+    rq=torch.load(p['rec'],map_location='cpu',weights_only=False)
+    for q in [bq,rq]:
+        assert q['stage']=='NOTEBOOK_06' and q['variant']==v and int(q['seed'])==s
+        assert not q.get('calibration_accessed',False) and not q.get('target_accessed',False)
+    final_step=int(rq['global_step']); best_step=int(bq['best_step']); best_score=float(bq['best_score'])
+    assert final_step==release_step
+    from evict.models.semantic_segformer import masked_supervised_loss
+    from evict.metrics import CaseMetricAccumulator,binary_segmentation_metrics,macro_case_summary,metrics_from_confusion
+    model=build(snap,proto,v,device); model.load_state_dict(bq['student_state_dict'])
+    met,cases,_=base.validate(model=model,device=device,selection_df=sel,masked_supervised_loss=masked_supervised_loss,CaseMetricAccumulator=CaseMetricAccumulator,binary_segmentation_metrics=binary_segmentation_metrics,metrics_from_confusion=metrics_from_confusion,macro_case_summary=macro_case_summary)
+    alpha=float(torch.sigmoid(model.alpha_logit.detach()).cpu())
+    stop=(f'EARLY_STOPPING_PATIENCE_{PAT}' if final_step<MAX else 'MAX_UPDATES')
+    out={'timestamp_utc':now(),'stage':'NOTEBOOK_06','status':'DURABLE_COMPLETE','variant':v,'seed':s,'best_step':best_step,'final_step':final_step,'stop_reason':stop,'alpha_at_best':alpha,'macro_case_dice':float(met['macro_case_dice']),'macro_case_iou':float(met['macro_case_iou']),'macro_case_sensitivity':float(met['macro_case_sensitivity']),'macro_case_specificity':float(met['macro_case_specificity']),'macro_slice_dice':float(met['macro_slice_dice']),'pooled_dice':float(met['pooled_dice']),'pooled_iou':float(met['pooled_iou']),'release_url':rel['html_url'],'archive_sha256':expected,'calibration_accessed':False,'target_accessed':False}
+    assert abs(out['macro_case_dice']-best_score)<1e-6
+    base.atomic_text(p['final'],json.dumps(out,indent=2)+'\n')
+    pd.DataFrame([{'seed':s,**x} for x in cases]).to_csv(AUD/f'notebook06_{v}_seed{s}_final_case_metrics.csv',index=False)
+    del model,bq,rq; gc.collect(); torch.cuda.empty_cache()
+    print(f'✓ Restored FINAL release   : {v} seed{s}, Dice={out["macro_case_dice"]:.8f}, best={best_step}, final={final_step}')
+    return out
+
 def restore_roll(token,v,s,p):
     if p['rec'].exists() or p['final'].exists(): return
-    tag=f'evict-nb06-{v}-seed{s}-rolling'; h={'Authorization':f'Bearer {token}','Accept':'application/vnd.github+json'}; r=requests.get(f'https://api.github.com/repos/itsCodeBakery/EviCT/releases/tags/{tag}',headers=h,timeout=60)
+    tag=f'evict-nb06-{v}-seed{s}-rolling'; h=_release_headers(token); r=requests.get(f'https://api.github.com/repos/itsCodeBakery/EViCT/releases/tags/{tag}',headers=h,timeout=60)
     if r.status_code==404: return
-    r.raise_for_status(); assets={a['name']:a for a in r.json().get('assets',[])}; tn=next((n for n in assets if n.endswith('_Recovery.tar')),None); sn=next((n for n in assets if n.endswith('.tar.sha256')),None)
-    if not tn or not sn: return
-    expected=requests.get(assets[sn]['browser_download_url'],headers=h,timeout=60).text.strip(); dest=WORK/tn; base.download_verified(assets[tn]['browser_download_url'],dest,expected); base.safe_extract_tar(dest,WORK); dest.unlink(missing_ok=True); assert p['rec'].exists(); print(f'✓ Restored rolling         : {v} seed{s}')
+    r.raise_for_status(); expected=_download_release_archive(token,r.json(),p)
+    if expected is None: return
+    assert p['rec'].exists(); print(f'✓ Restored rolling         : {v} seed{s}')
 
 def run_one(v,s,snap,proto,sel,token,ch,mh,xh,ph,device):
     p=rp(v,s)
     if p['final'].exists():
         a=json.loads(p['final'].read_text());
         if a.get('status')=='DURABLE_COMPLETE': print(f'✓ {v} seed{s}              : SKIP COMPLETE'); return a
+    a=restore_final(token,v,s,p,snap,proto,sel,device)
+    if a is not None:
+        print(f'✓ {v} seed{s}              : SKIP REMOTE COMPLETE')
+        return a
     restore_roll(token,v,s,p)
     from evict.models.semantic_segformer import masked_supervised_loss,semantic_patch_auxiliary_loss
     from evict.metrics import CaseMetricAccumulator,binary_segmentation_metrics,macro_case_summary,metrics_from_confusion
