@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-09-29T04:43:18.872236+00:00",
+  "stage": "NOTEBOOK_05E",
+  "attempts": [
+    {
+      "micro_batch": 16,
+      "gradient_accumulation": 1,
+      "status": "PASS",
+      "peak_allocated_gib": 1.3039054870605469,
+      "smoke_loss": 1.0
+    }
+  ],
+  "selected_micro_batch": 16,
+  "selected_gradient_accumulation": 1,
+  "effective_batch": 16,
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "status": "PASS"
+}
