@@ -72,6 +72,20 @@ CLIP_STD = [0.26862954, 0.26130258, 0.27577711]
 REPO_OWNER = "itsCodeBakery"
 REPO_NAME = "EviCT"
 
+# Notebook-03 durable source-cache restore contract.
+# The release snapshot explicitly states that the TAR contains "cache/segdb2"
+# and MUST be extracted into /kaggle/working/EviCT, not /kaggle/working.
+CACHE_PROBE = ROOT / "cache/segdb2/images/coronacases_003.npy"
+CACHE_ROOT = ROOT / "cache/segdb2"
+MISPLACED_CACHE_ROOT = WORK / "cache/segdb2"
+CACHE_TAR = WORK / "EviCT_Notebook03_Cache.tar"
+CACHE_URL = (
+    "https://github.com/itsCodeBakery/EviCT/releases/download/"
+    "evict-project-durable-backup-20260927/EviCT_Notebook03_Cache.tar"
+)
+CACHE_SHA256 = "d88e786cd467816d6cb446333385918016946a83cdd3c258b3011f458fbd3fc4"
+CACHE_HASH_MANIFEST = ROOT / "config/cache_manifest_hashes.json"
+
 
 def load_base_module():
     spec = importlib.util.spec_from_file_location(
@@ -86,6 +100,125 @@ def load_base_module():
 
 
 base = load_base_module()
+
+
+def verify_source_cache() -> None:
+    """Verify all 20 cached source cases against the frozen per-case SHA-256 manifest."""
+    assert CACHE_HASH_MANIFEST.exists(), f"Missing cache hash manifest: {CACHE_HASH_MANIFEST}"
+    manifest = json.loads(CACHE_HASH_MANIFEST.read_text(encoding="utf-8"))
+    rows = manifest.get("per_case_cache_sha256", [])
+    assert len(rows) == 20, f"Expected 20 cache-hash rows, found {len(rows)}"
+
+    for row in tqdm(
+        rows,
+        desc="verify Notebook-03 cache",
+        unit="case",
+        file=sys.stdout,
+        leave=False,
+    ):
+        case_id = row["case_id"]
+        expected = {
+            ROOT / f"cache/segdb2/images/{case_id}.npy": row["image_sha256"],
+            ROOT / f"cache/segdb2/gt_vault/infection/{case_id}.npy": row["infection_sha256"],
+            ROOT / f"cache/segdb2/gt_vault/lung/{case_id}.npy": row["lung_sha256"],
+            ROOT / f"cache/segdb2/valid/{case_id}.npy": row["valid_sha256"],
+        }
+        for path, sha in expected.items():
+            assert path.exists(), f"Missing cache artifact: {path}"
+            actual = base.sha256_file(path)
+            assert actual == sha, (
+                f"Cache SHA mismatch for {path}\n"
+                f"Expected: {sha}\n"
+                f"Actual:   {actual}"
+            )
+
+    assert CACHE_PROBE.exists()
+    print("✓ Notebook-03 source cache : 20/20 CASES SHA-VERIFIED")
+
+
+def ensure_source_cache() -> None:
+    """
+    Restore the frozen Notebook-03 cache using the release's documented restore rule.
+
+    Recovery order:
+      1. verified cache already at ROOT/cache/segdb2;
+      2. repair the known misplaced extraction at WORK/cache/segdb2;
+      3. reuse a verified local TAR if present;
+      4. download the SHA-pinned release TAR.
+
+    The archive contains cache/segdb2, so it is extracted into ROOT.
+    """
+    if CACHE_PROBE.exists():
+        print("✓ Notebook-03 source cache : PRESENT")
+        verify_source_cache()
+        CACHE_TAR.unlink(missing_ok=True)
+        return
+
+    # Repair the earlier wrong extraction destination without redownloading 1.59 GB.
+    if MISPLACED_CACHE_ROOT.exists():
+        print("⚠ Found cache extracted at wrong location:")
+        print(f"  {MISPLACED_CACHE_ROOT}")
+        print("  Repairing to /kaggle/working/EviCT/cache/segdb2 ...")
+
+        CACHE_ROOT.parent.mkdir(parents=True, exist_ok=True)
+        if CACHE_ROOT.exists():
+            shutil.rmtree(CACHE_ROOT)
+
+        shutil.move(
+            str(MISPLACED_CACHE_ROOT),
+            str(CACHE_ROOT),
+        )
+
+        # Remove now-empty /kaggle/working/cache if possible.
+        misplaced_parent = MISPLACED_CACHE_ROOT.parent
+        try:
+            misplaced_parent.rmdir()
+        except OSError:
+            pass
+
+        assert CACHE_PROBE.exists(), (
+            "Misplaced cache was moved, but the expected cache probe is still absent."
+        )
+        verify_source_cache()
+        CACHE_TAR.unlink(missing_ok=True)
+        print("✓ Misplaced Notebook-03 cache repaired without redownload.")
+        return
+
+    # If the previous wrapper downloaded the TAR but failed after extraction,
+    # preserve bandwidth by verifying and reusing it.
+    if CACHE_TAR.exists():
+        print("Found local Notebook-03 cache TAR; verifying before reuse...")
+        actual = base.sha256_file(CACHE_TAR)
+        if actual != CACHE_SHA256:
+            print("⚠ Local TAR SHA mismatch; deleting and redownloading.")
+            CACHE_TAR.unlink(missing_ok=True)
+        else:
+            print("✓ Local cache TAR SHA      : VERIFIED")
+
+    if not CACHE_TAR.exists():
+        print("Notebook-03 source cache absent. Downloading verified release archive...")
+        base.download_verified(
+            CACHE_URL,
+            CACHE_TAR,
+            CACHE_SHA256,
+        )
+
+    print("Extracting Notebook-03 cache into the EviCT repository root...")
+    # IMPORTANT: archive contains cache/segdb2; destination MUST be ROOT.
+    base.safe_extract_tar(
+        CACHE_TAR,
+        ROOT,
+    )
+
+    assert CACHE_PROBE.exists(), (
+        "Verified cache TAR extracted into EviCT, but expected cache probe is missing."
+    )
+
+    verify_source_cache()
+
+    # Free ~1.59 GB once the extracted cache has been verified.
+    CACHE_TAR.unlink(missing_ok=True)
+    print("✓ Notebook-03 cache TAR    : REMOVED AFTER VERIFIED RESTORE")
 
 
 def train_manifest(seed: int) -> Path:
@@ -2762,7 +2895,7 @@ def main():
     print("✓ Calibration accessed     : NO")
     print("✓ Target / MedSeg accessed : NO")
 
-    base.ensure_cache()
+    ensure_source_cache()
 
     pin = ensure_backbone_pin(token)
     config_hash = base.stable_json_hash(config)
