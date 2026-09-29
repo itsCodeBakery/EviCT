@@ -1,0 +1,18 @@
+{
+  "timestamp_utc": "2026-09-29T06:35:35.685887+00:00",
+  "stage": "NOTEBOOK_05E",
+  "seed": 2026,
+  "step": 1000,
+  "best_macro_case_dice": 0.711545956005524,
+  "best_step": 500,
+  "archive_name": "EviCT_Notebook05E_SegCTClipVisual_seed2026_Rolling_Recovery.tar",
+  "archive_sha256": "02bb7e4ae7411944218a67191cc08b95d26b955ea221c74461edf974c4b09194",
+  "release_tag": "evict-nb05e-segctclip-visual-seed2026-rolling",
+  "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05e-segctclip-visual-seed2026-rolling",
+  "tar_asset_id": 597477452,
+  "sha_asset_id": 597477539,
+  "claim_status": "EXPLICIT_ADAPTATION_NOT_EXACT_SEGCT_CLIP_REPRODUCTION",
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "status": "ROLLING_DURABLE"
+}
