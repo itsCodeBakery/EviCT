@@ -189,8 +189,27 @@ if result.returncode != 0:
     print(result.stdout[-4000:])
     print(result.stderr[-4000:])
 
+    combined = (result.stdout + "\n" + result.stderr).lower()
+
+    # Notebook 06 may run for hours while the remote main branch advances
+    # because execution-safety fixes are committed from another client. In
+    # that specific case the scientific checkpoint/release workflow remains
+    # authoritative, and blocking training on a metadata-only non-fast-forward
+    # push is harmful. Keep the local commit and continue. A later reconciliation
+    # can rebase/push the small metadata commits after GPU work is finished.
+    if (
+        "non-fast-forward" in combined
+        or "fetch first" in combined
+        or "tip of your current branch is behind" in combined
+    ):
+        print(
+            "⚠ GitHub main advanced; metadata push deferred. "
+            "Local commit retained. Training/release durability continues."
+        )
+        sys.exit(0)
+
     raise RuntimeError(
-        "\nGitHub push failed.\n"
+        "\nGitHub push failed for a reason other than non-fast-forward.\n"
         "The local commit is still safe in "
         "/kaggle/working/EviCT.\n"
         "Do NOT delete the Kaggle session before resolving it."
