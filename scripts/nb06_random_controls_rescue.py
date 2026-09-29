@@ -449,23 +449,24 @@ def main():
             obj = final_obj(seed)
 
             if obj is not None:
-                if alive and not w["external"]:
-                    # Let the child exit naturally after writing the final JSON.
-                    pass
-                else:
-                    if not w["external"]:
-                        try:
-                            w["handle"].close()
-                        except Exception:
-                            pass
-                    print(
-                        f"✓ COMPLETE random seed{seed}: "
-                        f"Dice={float(obj['macro_case_dice']):.8f}, "
-                        f"best={int(obj['best_step'])}, final={int(obj['final_step'])}",
-                        flush=True,
-                    )
-                    del workers[seed]
+                if alive:
+                    # The final JSON is written shortly before process cleanup.
+                    # Keep the GPU reserved until the child truly exits so a
+                    # successor cannot overlap and cause an avoidable OOM.
                     continue
+                if not w["external"]:
+                    try:
+                        w["handle"].close()
+                    except Exception:
+                        pass
+                print(
+                    f"✓ COMPLETE random seed{seed}: "
+                    f"Dice={float(obj['macro_case_dice']):.8f}, "
+                    f"best={int(obj['best_step'])}, final={int(obj['final_step'])}",
+                    flush=True,
+                )
+                del workers[seed]
+                continue
 
             if not alive:
                 if not w["external"]:
