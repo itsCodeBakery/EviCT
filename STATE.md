@@ -2,7 +2,7 @@
 
 ## Current stage
 
-NOTEBOOK_06_REAL_TEXT_SEED_17_RUNNING_STEP_250
+NOTEBOOK_06_REAL_TEXT_SEED_17_RUNNING_STEP_500
 
 ## Best source-selection macro case Dice
 
