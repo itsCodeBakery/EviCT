@@ -214,8 +214,21 @@ def restore_rng_state(state: dict) -> None:
     random.setstate(state["python"])
     np.random.set_state(state["numpy"])
     torch.set_rng_state(state["torch_cpu"].cpu())
-    cuda_states = [x.cpu() for x in state["torch_cuda"]]
-    torch.cuda.set_rng_state_all(cuda_states)
+
+    # Checkpoints may be resumed inside a CUDA_VISIBLE_DEVICES-isolated child.
+    # In that case a checkpoint created when two physical GPUs were visible can
+    # contain two CUDA RNG states while the child intentionally sees only one
+    # logical GPU. Restoring all saved states would index a non-existent logical
+    # device. Preserve exact logical-device-0 continuity by restoring the saved
+    # states that correspond to the currently visible logical devices.
+    cuda_states = [x.cpu() for x in state.get("torch_cuda", [])]
+    if torch.cuda.is_available() and cuda_states:
+        visible = torch.cuda.device_count()
+        if len(cuda_states) == visible:
+            torch.cuda.set_rng_state_all(cuda_states)
+        else:
+            for device_index in range(min(visible, len(cuda_states))):
+                torch.cuda.set_rng_state(cuda_states[device_index], device=device_index)
 
 
 def git_sync(message: str) -> None:
