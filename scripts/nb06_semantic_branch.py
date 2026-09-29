@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import gc, hashlib, importlib.util, json, math, os, shutil, subprocess, sys, tarfile
+import argparse, gc, hashlib, importlib.util, json, math, os, shutil, subprocess, sys, tarfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -219,6 +219,16 @@ def aggregate():
     base.atomic_text(STATE,f'# EviCT Execution State\n\n## Current stage\n\nNOTEBOOK_06_SEMANTIC_BRANCH_FROZEN\n\n## Semantic branch\n\nReal-text three-seed macro-case Dice: {real["macro_case_dice_mean"]:.8f}\n\nSemantic benefit supported by predeclared control rule: {"YES" if supported else "NO"}\n\n## Isolation\n\nCalibration accessed:\n\nNO\n\nTarget / MedSeg accessed:\n\nNO\n\nTarget lock:\n\nACTIVE\n\n## Next\n\nProceed to Notebook 07: teacher–student low-label learning.\n'); base.git_sync('Freeze Notebook 06 semantic branch ablation'); return a
 
 def main():
+    parser=argparse.ArgumentParser(description='EViCT Notebook 06 semantic-branch runner')
+    parser.add_argument('--variant',choices=VARIANTS,default=None)
+    parser.add_argument('--seed',type=int,choices=SEEDS,default=None)
+    parser.add_argument('--aggregate-only',action='store_true')
+    args=parser.parse_args()
+    if (args.variant is None) != (args.seed is None):
+        parser.error('--variant and --seed must be supplied together')
+    if args.aggregate_only and args.variant is not None:
+        parser.error('--aggregate-only cannot be combined with --variant/--seed')
+
     print('='*112); print('EVICT NOTEBOOK 06 — FIXED BIOMEDICAL TEXT PROTOTYPES + SEMANTIC BRANCH'); print('='*112)
 
     # The repository uses a src/ layout. When this file is executed directly
@@ -229,11 +239,33 @@ def main():
     if src_path not in sys.path:
         sys.path.insert(0, src_path)
 
+    if args.aggregate_only:
+        state_ok()
+        a=aggregate()
+        print('\n'+'='*112); print('NOTEBOOK 06 — DURABLE COMPLETE'); print('='*112)
+        for r in a['variant_summaries']:
+            print(f"{r['variant']:<20} Dice={r['macro_case_dice_mean']:.8f} ± {r['macro_case_dice_sample_sd']:.8f}")
+        print('Semantic rule supported   :',a['semantic_benefit_supported_by_predeclared_rule']); print('NEXT: Notebook 07')
+        return
+
     from kaggle_secrets import UserSecretsClient
     token=UserSecretsClient().get_secret('pushEviCT'); assert token and torch.cuda.is_available(); device=torch.device('cuda:0'); print('✓ GPU                      :',torch.cuda.get_device_name(0)); print('✓ Calibration accessed     : NO'); print('✓ Target / MedSeg accessed : NO')
     state_ok(); ensure_cache(); sel=manifests(); cfg=json.loads(CFG.read_text()); ch=jhash(cfg); mh=sha(MODEL); xh=sha(METRICS); proto=text_prototypes(); ph=sha(PROTO); snap=mit_snapshot(); smoke(snap,proto,device)
+
+    if args.variant is not None:
+        out=run_one(args.variant,args.seed,snap,proto,sel,token,ch,mh,xh,ph,device)
+        print('\n'+'='*112)
+        print(f'NOTEBOOK 06 UNIT COMPLETE — {args.variant} seed {args.seed}')
+        print('='*112)
+        print(json.dumps(out,indent=2))
+        return
+
+    # Legacy all-in-one mode remains available for reproducibility, but the
+    # isolated orchestrator is preferred on Kaggle so each seed/variant gets a
+    # fresh Python process and cannot inherit CUDA/PyTorch state from a prior run.
     for v in VARIANTS:
-        for s in SEEDS: run_one(v,s,snap,proto,sel,token,ch,mh,xh,ph,device)
+        for s in SEEDS:
+            run_one(v,s,snap,proto,sel,token,ch,mh,xh,ph,device)
     a=aggregate(); print('\n'+'='*112); print('NOTEBOOK 06 — DURABLE COMPLETE'); print('='*112)
     for r in a['variant_summaries']: print(f"{r['variant']:<20} Dice={r['macro_case_dice_mean']:.8f} ± {r['macro_case_dice_sample_sd']:.8f}")
     print('Semantic rule supported   :',a['semantic_benefit_supported_by_predeclared_rule']); print('NEXT: Notebook 07')
