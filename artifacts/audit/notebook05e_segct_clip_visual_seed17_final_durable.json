@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-09-29T06:18:23.561517+00:00",
+  "stage": "NOTEBOOK_05E",
+  "seed": 17,
+  "final_step": 4000,
+  "stop_reason": "EARLY_STOPPING_PATIENCE_8",
+  "best_macro_case_dice": 0.7309427657515841,
+  "best_step": 2000,
+  "initialization_hash": "e9ce5f6bbc51c8d6d82a8b1de35b8f4d54a354038fc8d6141eeeaaabaa23b236",
+  "final_archive": "EviCT_Notebook05E_SegCTClipVisual_seed17_final_step4000_Recovery.tar",
+  "final_archive_sha256": "00ab483d502d570fc75e88542371c2afb1a41e788c89f8103a6fdcee506ab844",
+  "release_tag": "evict-nb05e-segctclip-visual-seed17-final-step4000",
+  "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb05e-segctclip-visual-seed17-final-step4000",
+  "tar_asset_id": 597446775,
+  "sha_asset_id": 597447081,
+  "claim_status": "EXPLICIT_ADAPTATION_NOT_EXACT_SEGCT_CLIP_REPRODUCTION",
+  "calibration_accessed": false,
+  "target_accessed": false,
+  "status": "DURABLE_COMPLETE"
+}
