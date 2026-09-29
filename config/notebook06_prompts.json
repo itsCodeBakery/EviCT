@@ -1,0 +1,15 @@
+{
+  "foreground": [
+    "a CT region containing ground-glass opacity",
+    "a CT region containing consolidation",
+    "a CT region containing parenchymal opacity"
+  ],
+  "background": [
+    "a region without the target parenchymal opacity",
+    "aerated lung without visible target opacity",
+    "non-target background in a chest CT image"
+  ],
+  "aggregation": "L2-normalize each prompt embedding, average within class, L2-renormalize",
+  "patient_specific_prompts": false,
+  "ground_truth_derived_prompts": false
+}

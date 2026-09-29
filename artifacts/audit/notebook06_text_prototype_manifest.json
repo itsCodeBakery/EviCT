@@ -1,0 +1,10 @@
+{
+  "timestamp_utc": "2026-09-29T08:17:13.896894+00:00",
+  "status": "FROZEN",
+  "text_model_revision": "9f341de24bfb00180f1b847274256e9b65a3a32e",
+  "embedding_dim": 512,
+  "prompt_bank_hash": "6c1cd506452ef302249d9ba6966d36753b7c2a23f1f2a92b5a7242aa97f2ccdc",
+  "prototype_file_sha256": "25231ccdb25647e3f139ab107bce800bfe14d674899d4fdf1df8d87d693d0a58",
+  "calibration_accessed": false,
+  "target_accessed": false
+}
