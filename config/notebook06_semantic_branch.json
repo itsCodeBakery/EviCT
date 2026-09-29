@@ -1,0 +1,116 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_06",
+  "experiment": "semantic_branch_ablation",
+  "claim_scope": "source-only semantic ablation before locked target evaluation",
+  "vision_backbone": {
+    "repository": "nvidia/mit-b1",
+    "revision": "13ddceec4e8bdf401e7cd7acf5aebc526222518c",
+    "initialization": "ImageNet-1k encoder-only",
+    "decoder": "SegFormer four-level MLP decoder",
+    "decoder_channels": 256,
+    "fine_tuned": true
+  },
+  "text_model": {
+    "repository": "microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224",
+    "revision_policy": "resolve exact Hugging Face commit once at runtime and freeze before encoding",
+    "library": "open_clip",
+    "image_tower_required": false,
+    "text_embeddings_frozen": true,
+    "embedding_dimension_policy": "read from cached checkpoint output; never hard-code"
+  },
+  "prompt_bank": {
+    "foreground": [
+      "a CT region containing ground-glass opacity",
+      "a CT region containing consolidation",
+      "a CT region containing parenchymal opacity"
+    ],
+    "background": [
+      "a region without the target parenchymal opacity",
+      "aerated lung without visible target opacity",
+      "non-target background in a chest CT image"
+    ],
+    "aggregation": "L2-normalize each prompt embedding, average within class, L2-renormalize",
+    "patient_specific_prompts": false,
+    "ground_truth_derived_prompts": false
+  },
+  "semantic_branch": {
+    "projection": "learned 1x1 convolution from 256 decoder channels to text embedding dimension",
+    "feature_normalization": "L2 over text embedding dimension",
+    "semantic_logit": "(z dot t1 - z dot t0) / tau",
+    "tau": 0.1,
+    "fusion": "visual_logit + alpha * semantic_logit",
+    "alpha_parameterization": "sigmoid(b)",
+    "alpha_initial": 0.1,
+    "alpha_bounds": [0.0, 1.0]
+  },
+  "patch_auxiliary": {
+    "weight": 0.1,
+    "target": "decoder-grid foreground fraction from visible training masks only",
+    "background_fraction_max": 0.1,
+    "foreground_fraction_min": 0.9,
+    "ambiguous_patches_excluded": true,
+    "partially_padded_patches_excluded": true,
+    "loss": "BCE-with-logits on semantic logit"
+  },
+  "variants": [
+    {
+      "name": "real_text",
+      "description": "foreground/background BiomedCLIP prototypes as defined in frozen prompt bank"
+    },
+    {
+      "name": "swapped_text",
+      "description": "same cached real prototypes with foreground/background class prototypes swapped"
+    },
+    {
+      "name": "random_prototypes",
+      "description": "two fixed normalized random vectors with the same text embedding dimension",
+      "random_seed": 606
+    }
+  ],
+  "reference": {
+    "name": "vision_only_segformer_b1",
+    "source": "frozen Notebook 04 three-seed baseline",
+    "rerun_in_notebook06": false,
+    "reason": "already trained with the same source split, optimizer schedule, threshold and metric implementation"
+  },
+  "training": {
+    "source_budget": "100% labeled fitting patients",
+    "primary_seeds": [17, 42, 2026],
+    "optimizer": "AdamW",
+    "encoder_lr": 0.0001,
+    "decoder_projection_lr": 0.0003,
+    "weight_decay": 0.01,
+    "warmup_updates": 200,
+    "max_updates": 5000,
+    "validate_every": 250,
+    "early_stopping_patience_validations": 8,
+    "effective_batch": 16,
+    "positive_slice_probability": 0.5,
+    "supervised_loss": "0.5 soft Dice + 0.5 BCE",
+    "semantic_auxiliary_weight": 0.1,
+    "precision": "FP32",
+    "selection_metric": "source-selection macro-case Dice",
+    "selection_threshold": 0.5,
+    "threshold_tuning": false
+  },
+  "development_data_policy": {
+    "fitting_split": "train only",
+    "selection_split": "model selection only",
+    "calibration_accessed": false,
+    "target_medseg_accessed": false,
+    "target_lock": "ACTIVE"
+  },
+  "durability": {
+    "local_recovery_every_updates": 50,
+    "remote_rolling_milestones": [1000, 2000, 3000, 4000],
+    "final_checkpoint_to_github_release": true,
+    "small_audits_logs_tables_to_git": true
+  },
+  "pass_condition": "real-text branch, swapped-text control and random-prototype control complete under matched budgets using cached text only; semantic benefit is claimed only if real text gives a repeatable gain beyond controls",
+  "semantic_claim_rule": {
+    "predeclared_rule": "real_text mean macro-case Dice must exceed both swapped_text and random_prototypes, and real_text must beat each control in at least 2 of 3 paired training seeds",
+    "significance_claimed": false,
+    "note": "This is a directional repeatability rule for the ablation, not a formal hypothesis test."
+  }
+}
