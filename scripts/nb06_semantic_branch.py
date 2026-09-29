@@ -69,7 +69,13 @@ def text_prototypes():
     if PROTO.exists() and PROTO_META.exists() and TEXT_PIN.exists() and PROMPTS.exists():
         m=json.loads(PROTO_META.read_text())
         if m.get('status')=='FROZEN' and m.get('prompt_bank_hash')==ph and m.get('prototype_file_sha256')==sha(PROTO):
-            print('✓ BiomedCLIP prototypes    : REUSED'); return torch.load(PROTO,map_location='cpu',weights_only=False)
+            print('✓ BiomedCLIP prototypes    : REUSED')
+            # A previous run may have generated the frozen prototype files but
+            # stopped before Git synchronization (for example, a fresh Kaggle
+            # runtime without Git author identity). Synchronize them before any
+            # further downloads or training.
+            base.git_sync('Freeze Notebook 06 BiomedCLIP text prototypes and prompt bank')
+            return torch.load(PROTO,map_location='cpu',weights_only=False)
     from huggingface_hub import HfApi,snapshot_download
     import open_clip
     repo=c['text_model']['repository']; rev=HfApi().model_info(repo).sha
