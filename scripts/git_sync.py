@@ -78,6 +78,18 @@ def git(*args, authenticated=False, check=True):
     return command(cmd, check=check)
 
 
+# Ensure repository-local Git identity exists in fresh Kaggle runtimes.
+# This is intentionally local to the EviCT checkout; it does not modify the
+# notebook user's global Git configuration.
+name = git("config", "--get", "user.name", check=False).stdout.strip()
+email = git("config", "--get", "user.email", check=False).stdout.strip()
+
+if not name:
+    git("config", "user.name", GITHUB_USERNAME)
+
+if not email:
+    git("config", "user.email", f"{GITHUB_USERNAME}@users.noreply.github.com")
+
 # Ensure remote contains no secret.
 git("remote", "set-url", "origin", GITHUB_URL)
 
