@@ -2,47 +2,67 @@
 
 ## Current stage
 
-NOTEBOOK_05D_SEGCT_CLIP_REPRODUCTION_AUDIT_COMPLETE
+NOTEBOOK_05E_SEGCT_CLIP_VISUAL_SEED_17_RUNNING_STEP_250
 
 ## Timestamp
 
-2026-09-27T21:18:39.800388+00:00
+2026-09-29T04:44:34.606969+00:00
 
-## Completed source baselines
+## Baseline
 
-SegFormer-B1:
+SegCT-CLIP visual-pathway adaptation
 
-FROZEN
+Claim status:
 
-Competitive residual 2D U-Net:
+EXPLICIT ADAPTATION — NOT EXACT SEGCT-CLIP REPRODUCTION
 
-FROZEN
+Backbone:
 
-## SegCT-CLIP reproduction audit
+Frozen CLIP ViT-L/14-336
 
-Paper:
+Caption bank:
 
-CT-Insight VLM: Multimodel Vision-Language Framework for Accurate, Explainable, and Label-Efficient Lung CT Analysis
+NOT USED — exact author caption bank unavailable
 
-DOI:
+Contrastive loss:
 
-10.1109/TRPMS.2026.3734275
+NOT USED — exact caption supervision unavailable
 
-Status:
+Visual design:
 
-EXACT_REPRODUCTION_NOT_CURRENTLY_SPECIFIED
+Dual-level frozen CLIP patch features + explicit EviCT lightweight decoder adaptation
 
-Verified author repository:
+Training seed:
 
-NOT VERIFIED
+17
 
-Complete author resources verified:
+Split seed:
 
-NO
+17
 
-Historical paper metrics treated as rerun results:
+Optimizer step:
 
-NO
+250
+
+Best source-selection macro case Dice:
+
+0.56017673
+
+Best checkpoint step:
+
+250
+
+Patience:
+
+0 / 8
+
+Image exposures:
+
+4000
+
+Selection threshold:
+
+0.5 fixed
 
 ## Isolation
 
@@ -60,4 +80,5 @@ ACTIVE
 
 ## Next
 
-Do not invent missing SegCT-CLIP parameters. Proceed only with an explicitly labeled controlled reimplementation/adaptation, or obtain the missing author repository/checkpoint/caption bank and exact protocol.
+Complete seeds 17, 42 and 2026 under the same frozen adaptation protocol,
+aggregate the source-selection results, then proceed to Notebook 06.

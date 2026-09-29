@@ -1,0 +1,2 @@
+seed,step,selection_loss,macro_case_dice,macro_case_iou,macro_case_sensitivity,macro_case_specificity,macro_slice_dice,pooled_dice,pooled_iou,n_cases,n_slices,best_so_far,best_step,patience_count,threshold
+17,250,0.8752683530817378,0.5601767255516883,0.3988713517707668,0.8907519865720687,0.9842406153630815,0.36372471965038405,0.5984331212544884,0.4269743601462121,4,579,0.5601767255516883,250,0,0.5
