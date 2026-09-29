@@ -17,7 +17,9 @@
     "library": "open_clip",
     "image_tower_required": false,
     "text_embeddings_frozen": true,
-    "embedding_dimension_policy": "read from cached checkpoint output; never hard-code"
+    "embedding_dimension_policy": "read from cached checkpoint output; never hard-code",
+    "library_package": "open_clip_torch",
+    "library_version": "3.3.0"
   },
   "prompt_bank": {
     "foreground": [
