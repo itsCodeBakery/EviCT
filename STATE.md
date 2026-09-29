@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_05E_SEGCT_CLIP_VISUAL_SEED_42_COMPLETE_DURABLE
+NOTEBOOK_05E_SEGCT_CLIP_VISUAL_SEED_2026_RUNNING_STEP_250
 
 ## Timestamp
 
-2026-09-29T06:31:20.334350+00:00
+2026-09-29T06:32:24.023673+00:00
 
 ## Baseline
 
@@ -34,7 +34,7 @@ Dual-level frozen CLIP patch features + explicit EviCT lightweight decoder adapt
 
 Training seed:
 
-42
+2026
 
 Split seed:
 
@@ -42,23 +42,23 @@ Split seed:
 
 Optimizer step:
 
-3000
+250
 
 Best source-selection macro case Dice:
 
-0.73424957
+0.25311122
 
 Best checkpoint step:
 
-1000
+250
 
 Patience:
 
-8 / 8
+0 / 8
 
 Image exposures:
 
-48000
+4000
 
 Selection threshold:
 
