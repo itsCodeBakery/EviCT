@@ -1,0 +1,189 @@
+{
+  "timestamp_utc": "2026-09-29T04:43:15.842497+00:00",
+  "stage": "NOTEBOOK_05E",
+  "status": "COMPLETE",
+  "claim_status": "EXPLICIT_ADAPTATION_NOT_EXACT_SEGCT_CLIP_REPRODUCTION",
+  "backbone_repository": "openai/clip-vit-large-patch14-336",
+  "backbone_revision": "ce19dc912ca5cd21c8a653c79e251e808ccabcd1",
+  "backbone_weight_hashes": {
+    "pytorch_model.bin": "c6032c2e0caae3dc2d4fba35535fa6307dbb49df59c7e182b1bc4b3329b81801"
+  },
+  "config_hash": "0a4bb55cc0dc2d4eb7a25e0bd4cd626823a720a2586e6ec57748ad6f3e7459c4",
+  "train_manifest_sha256": "c28ea3d8554a8a52262b936570b183683ad13c8c3cdba263d125c7cda2b04268",
+  "selection_manifest_sha256": "d0c824367891906893f6f3b4b936c2ef942c6ab79bde93e499152bb5a43818e9",
+  "low_hidden_state_index": 12,
+  "high_hidden_state_index": 24,
+  "feature_dtype": "float16",
+  "patch_grid": [
+    24,
+    24
+  ],
+  "hidden_size": 1024,
+  "encoder_batch": 16,
+  "n_fitting_slices": 1947,
+  "n_selection_slices": 579,
+  "files": [
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_001_low.npy",
+      "size_bytes": 355074176,
+      "sha256": "08fb0abb2c5eeb32fb9d7b88bf701788f58038395664804b84bc1918ab341ed6"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_001_high.npy",
+      "size_bytes": 355074176,
+      "sha256": "1088bfcda594167a6ea21855694bc83dd0d506afc3ad3f1e6c17764af9e27ed7"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_002_low.npy",
+      "size_bytes": 235929728,
+      "sha256": "c3f1ce401f1d38e2c43befcf1e586fa81ab37081dd0ba62efb02ca1f7e418814"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_002_high.npy",
+      "size_bytes": 235929728,
+      "sha256": "b101c5b21f60c6c640d2b6c623f5c2ece283f76a91b06bfccc8b8ec49ef739c6"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_005_low.npy",
+      "size_bytes": 342098048,
+      "sha256": "a0f9ac25b8025dca10a1355fac76279e7a5982144a16f5c4e1a04bdf035b0379"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_005_high.npy",
+      "size_bytes": 342098048,
+      "sha256": "b1d0b9bb860ed8530cfc7cb37c7a979374a9b47fa35e4ddb2d88dbdcbd2305e4"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_007_low.npy",
+      "size_bytes": 293732480,
+      "sha256": "507a2927fe166533698ed41534400947360870a071e267342cabd8cb523f6ffc"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_007_high.npy",
+      "size_bytes": 293732480,
+      "sha256": "70e0f8fdd74d0341c65903e41a1922bbca5802c6186615475d4ae945124a6b10"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_008_low.npy",
+      "size_bytes": 355074176,
+      "sha256": "6a98a8a5574b0c4f5783252438e02ad03443ffaa7ed6096bd8050af397ba585d"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_008_high.npy",
+      "size_bytes": 355074176,
+      "sha256": "7b2ae9bc15c9940d27f9911591fc73c6a3f8a620670f1193b52633fbc8fdf48a"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_009_low.npy",
+      "size_bytes": 301990016,
+      "sha256": "241ee1e1a0289eb6847ef2219fa0c93b49f8cdfa76f12e5da041cb0ed5f1eab3"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/coronacases_009_high.npy",
+      "size_bytes": 301990016,
+      "sha256": "8e31f4b7fe371fee99ce5eb0d3f6bd3471fa1ba23a81123f46238dcfaebf81b0"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_14_85914_0_low.npy",
+      "size_bytes": 129761408,
+      "sha256": "d2dd0882dfe84ca6a6aeb25a8db6353f44b139e64ddf2ae8f11b74f9c3c8a57a"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_14_85914_0_high.npy",
+      "size_bytes": 129761408,
+      "sha256": "4ba9f309295608067e1dbb9d009c78b0183b337858fa02e7803c9b880af6a1ff"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_27_86410_0_low.npy",
+      "size_bytes": 77856896,
+      "sha256": "98d62425abf4261170975052cdee81d35167141a3bd8881d01d9e100b34fe95e"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_27_86410_0_high.npy",
+      "size_bytes": 77856896,
+      "sha256": "c88efbc4c2a5fef538d966d8f4940b15278f9ba61ca8b7abd21fe2f4cc4a4470"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_29_86490_1_low.npy",
+      "size_bytes": 49545344,
+      "sha256": "a8c90351279fa02e619116ae9a95f3e7da724999e382e0ef72ef4e83e1f20068"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_29_86490_1_high.npy",
+      "size_bytes": 49545344,
+      "sha256": "eb2df50925e1ffa0c5d0cae2fa8f9baf3026e8771ba59b9e48d36991241e1969"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_29_86491_1_low.npy",
+      "size_bytes": 49545344,
+      "sha256": "797bed4308bf135564e45f2e7f922ea5759389cdce99aa45ce4a272d863ef75b"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_29_86491_1_high.npy",
+      "size_bytes": 49545344,
+      "sha256": "fbb6f4835a9bf5438c9a4e63df618a6b34c02876794df53a5d4a1b0ab6165fb5"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_36_86526_0_low.npy",
+      "size_bytes": 53084288,
+      "sha256": "a1505fac8444141c9b8cede92a2e844b567b6b5a032eada35ec76732e34d4ede"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_36_86526_0_high.npy",
+      "size_bytes": 53084288,
+      "sha256": "775699a5a9c7f91241295fc1a4d962c7540d90fc6ad450a6e64076ee9e9c498b"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_7_85703_0_low.npy",
+      "size_bytes": 53084288,
+      "sha256": "adc6082123abb6c36c608c42f7a6fab9d81d8a5e9e2cf888de4f395492924f63"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/fitting/radiopaedia_7_85703_0_high.npy",
+      "size_bytes": 53084288,
+      "sha256": "9017ca0a7f73592d8dce4688c1acaafe1c218a2c59f53624ca0af818a5ccc68e"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/selection/coronacases_003_low.npy",
+      "size_bytes": 235929728,
+      "sha256": "3ce78fd4b1da2ac0bb9d68a6b17c9e6609e24f83f241766b9030f6dc77b20dfe"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/selection/coronacases_003_high.npy",
+      "size_bytes": 235929728,
+      "sha256": "2a045205580b10e8714a00cfff052c8fb783f0a17ff5f13721d194c1068b82d4"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/selection/coronacases_010_low.npy",
+      "size_bytes": 355074176,
+      "sha256": "460d8dea1a6a61d82b26bfef5b6a114a1c1b7850b11ef0e45edfc497f9f46c20"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/selection/coronacases_010_high.npy",
+      "size_bytes": 355074176,
+      "sha256": "3c25d649027962eee2f647027a492b58fbc7ed4ddf6510a30eb54d1dc3523af1"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/selection/radiopaedia_10_85902_1_low.npy",
+      "size_bytes": 46006400,
+      "sha256": "a0bc67cf7fd88a92f9361ad4e70b8207178800accd04061656d9289a39802f5e"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/selection/radiopaedia_10_85902_1_high.npy",
+      "size_bytes": 46006400,
+      "sha256": "9ac5de30476c68f43f6c896d05111457d2ad69b43fb69ed4efc6052b40ec4df8"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/selection/radiopaedia_4_85506_1_low.npy",
+      "size_bytes": 46006400,
+      "sha256": "245b83eafacb8ae729c34fd7d2e7234c28b86b175d0f607b56def0a6f0f45a07"
+    },
+    {
+      "relative_path": "cache/segct_clip_visual_adaptation/selection/radiopaedia_4_85506_1_high.npy",
+      "size_bytes": 46006400,
+      "sha256": "954177af04145dfcea12b71c29a34919e7aa610c9e9c7747737a81880ecdac2f"
+    }
+  ],
+  "calibration_accessed": false,
+  "target_accessed": false
+}
