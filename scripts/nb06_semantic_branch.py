@@ -220,6 +220,15 @@ def aggregate():
 
 def main():
     print('='*112); print('EVICT NOTEBOOK 06 — FIXED BIOMEDICAL TEXT PROTOTYPES + SEMANTIC BRANCH'); print('='*112)
+
+    # The repository uses a src/ layout. When this file is executed directly
+    # as /kaggle/working/EViCT/scripts/nb06_semantic_branch.py, Python places
+    # scripts/ (not src/) on sys.path. Add src/ explicitly before importing
+    # evict.models or evict.metrics.
+    src_path = str(ROOT / 'src')
+    if src_path not in sys.path:
+        sys.path.insert(0, src_path)
+
     from kaggle_secrets import UserSecretsClient
     token=UserSecretsClient().get_secret('pushEviCT'); assert token and torch.cuda.is_available(); device=torch.device('cuda:0'); print('✓ GPU                      :',torch.cuda.get_device_name(0)); print('✓ Calibration accessed     : NO'); print('✓ Target / MedSeg accessed : NO')
     state_ok(); ensure_cache(); sel=manifests(); cfg=json.loads(CFG.read_text()); ch=jhash(cfg); mh=sha(MODEL); xh=sha(METRICS); proto=text_prototypes(); ph=sha(PROTO); snap=mit_snapshot(); smoke(snap,proto,device)
