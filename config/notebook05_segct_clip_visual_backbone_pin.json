@@ -1,0 +1,7 @@
+{
+  "timestamp_utc": "2026-09-29T04:39:25.078961+00:00",
+  "repository": "openai/clip-vit-large-patch14-336",
+  "revision": "ce19dc912ca5cd21c8a653c79e251e808ccabcd1",
+  "resolved_once": true,
+  "purpose": "Notebook05E explicit SegCT-CLIP visual-pathway adaptation"
+}
