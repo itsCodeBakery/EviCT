@@ -1,8 +1,8 @@
 {
-  "timestamp_utc": "2026-09-29T06:33:27.351320+00:00",
+  "timestamp_utc": "2026-09-29T06:38:36.564523+00:00",
   "stage": "NOTEBOOK_05E",
   "seed": 2026,
-  "step": 500,
+  "step": 1750,
   "threshold": 0.5,
   "claim_status": "EXPLICIT_ADAPTATION_NOT_EXACT_SEGCT_CLIP_REPRODUCTION",
   "cases": [
@@ -14,7 +14,7 @@
         336
       ],
       "dtype": "float32",
-      "sha256": "769d73cc1e47066f317fe648cb3af26f29119b690879c0a49e83e0d70686aa7e"
+      "sha256": "4304bf736f21d3b6d76df439deaf294d7bc6b3bf7b515b6a88ea9f46ca2f45e3"
     },
     {
       "case_id": "coronacases_010",
@@ -24,7 +24,7 @@
         336
       ],
       "dtype": "float32",
-      "sha256": "274402f9d1844592f64cc643c0f4dd6cdc93427de1d1d9cee28e2f245cc660ad"
+      "sha256": "d5e534cd1f1ed9aba1cb1db8808af264753259b15d622a53e8e0e2dab2e2f1a7"
     },
     {
       "case_id": "radiopaedia_10_85902_1",
@@ -34,7 +34,7 @@
         336
       ],
       "dtype": "float32",
-      "sha256": "0053b0307bb7dc38b5dbc3f8cfdfff6cccfe975ac8d3f4a7d0fc68f7d10089aa"
+      "sha256": "5f87ecb9d79cd95498b7e84c104ea3595903af6e8be86c38dc157405e81febfd"
     },
     {
       "case_id": "radiopaedia_4_85506_1",
@@ -44,7 +44,7 @@
         336
       ],
       "dtype": "float32",
-      "sha256": "9a544744aeb31225b04e1953daacd332b318f9c8b7e635dd154d422cc16364d2"
+      "sha256": "c127009957d7d4cb604dee1d1d88ccb4cd675cf3fbaf9e6e72a7c191985332f2"
     }
   ],
   "calibration_accessed": false,
