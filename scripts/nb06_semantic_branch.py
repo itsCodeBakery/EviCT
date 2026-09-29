@@ -31,6 +31,21 @@ def loadmod(path,name):
 base=loadmod(ROOT/'scripts/nb05b_unet_lr_pilot_segment1.py','nb06base')
 nb05e=loadmod(ROOT/'scripts/nb05e_segct_clip_visual_adaptation.py','nb06nb05e')
 
+# Two-GPU control-ablation mode: each scientific unit writes only to its own
+# variant/seed artifact paths and GitHub Release tag. Ordinary Git metadata
+# synchronization and the shared STATE.md heartbeat are deferred until all
+# parallel GPU workers finish, avoiding Git index/STATE temp-file races.
+PARALLEL_SAFE=os.environ.get('EVICT_NB06_PARALLEL_SAFE','0')=='1'
+if PARALLEL_SAFE:
+    def _parallel_git_sync(message):
+        print(f'↪ parallel-safe metadata sync deferred: {message}')
+    base.git_sync=_parallel_git_sync
+
+def write_state(text):
+    if PARALLEL_SAFE:
+        return
+    base.atomic_text(STATE,text)
+
 def now(): return datetime.now(timezone.utc).isoformat()
 def sha(p): return base.sha256_file(Path(p))
 def jhash(o): return base.stable_json_hash(o)
@@ -254,7 +269,7 @@ def run_one(v,s,snap,proto,sel,token,ch,mh,xh,ph,device):
             if improved: best=score; best_step=step; pat=0; sv(p['best'])
             else: pat+=1
             sl.append({'step':step,'macro_case_dice':score,'macro_case_iou':met['macro_case_iou'],'macro_case_sensitivity':met['macro_case_sensitivity'],'macro_case_specificity':met['macro_case_specificity'],'macro_slice_dice':met['macro_slice_dice'],'pooled_dice':met['pooled_dice'],'pooled_iou':met['pooled_iou'],'selection_loss':met['selection_loss'],'best_score':best,'best_step':best_step,'patience':pat,'alpha':alpha})
-            pd.DataFrame(tr).to_csv(p['train'],index=False); pd.DataFrame(sl).to_csv(p['sel'],index=False); sv(p['last']); sv(p['rec']); base.atomic_text(STATE,f'# EviCT Execution State\n\n## Current stage\n\nNOTEBOOK_06_{v.upper()}_SEED_{s}_RUNNING_STEP_{step}\n\n## Best source-selection macro case Dice\n\n{best:.8f} @ {best_step}\n\n## Isolation\n\nCalibration accessed:\n\nNO\n\nTarget / MedSeg accessed:\n\nNO\n\nTarget lock:\n\nACTIVE\n'); print(f'\n[{v} seed{s}] VAL {step}: Dice={score:.8f}, best={best:.8f}@{best_step}, alpha={alpha:.4f}, patience={pat}/{PAT}'); base.git_sync(f'Notebook 06 {v} seed{s} validation step {step}')
+            pd.DataFrame(tr).to_csv(p['train'],index=False); pd.DataFrame(sl).to_csv(p['sel'],index=False); sv(p['last']); sv(p['rec']); write_state(f'# EviCT Execution State\n\n## Current stage\n\nNOTEBOOK_06_{v.upper()}_SEED_{s}_RUNNING_STEP_{step}\n\n## Best source-selection macro case Dice\n\n{best:.8f} @ {best_step}\n\n## Isolation\n\nCalibration accessed:\n\nNO\n\nTarget / MedSeg accessed:\n\nNO\n\nTarget lock:\n\nACTIVE\n'); print(f'\n[{v} seed{s}] VAL {step}: Dice={score:.8f}, best={best:.8f}@{best_step}, alpha={alpha:.4f}, patience={pat}/{PAT}'); base.git_sync(f'Notebook 06 {v} seed{s} validation step {step}')
             if step in ROLL:
                 url,d=release(token,v,s,p,step,False,best,best_step); ra=AUD/f'notebook06_{v}_seed{s}_rolling_durable.json'; base.atomic_text(ra,json.dumps({'timestamp_utc':now(),'status':'DURABLE_ROLLING','variant':v,'seed':s,'step':step,'best_macro_case_dice':best,'best_step':best_step,'release_url':url,'archive_sha256':d,'calibration_accessed':False,'target_accessed':False},indent=2)+'\n'); base.git_sync(f'Record Notebook 06 {v} seed{s} rolling step {step}')
             if pat>=PAT: stop=f'EARLY_STOPPING_PATIENCE_{PAT}'; break
