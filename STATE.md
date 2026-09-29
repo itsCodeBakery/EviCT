@@ -2,11 +2,11 @@
 
 ## Current stage
 
-NOTEBOOK_05E_SEGCT_CLIP_VISUAL_SEED_2026_RUNNING_STEP_2750
+NOTEBOOK_05E_SEGCT_CLIP_VISUAL_SEED_2026_RUNNING_STEP_3000
 
 ## Timestamp
 
-2026-09-29T06:42:57.830095+00:00
+2026-09-29T06:44:02.961372+00:00
 
 ## Baseline
 
@@ -42,7 +42,7 @@ Split seed:
 
 Optimizer step:
 
-2750
+3000
 
 Best source-selection macro case Dice:
 
@@ -54,11 +54,11 @@ Best checkpoint step:
 
 Patience:
 
-4 / 8
+5 / 8
 
 Image exposures:
 
-44000
+48000
 
 Selection threshold:
 
