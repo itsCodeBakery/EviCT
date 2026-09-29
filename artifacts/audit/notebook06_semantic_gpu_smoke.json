@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-09-29T08:24:47.062124+00:00",
+  "status": "PASS",
+  "gpu": "Tesla T4",
+  "text_dim": 512,
+  "alpha": 0.10000000149011612,
+  "semantic_grid": [
+    1,
+    1,
+    84,
+    84
+  ],
+  "calibration_accessed": false,
+  "target_accessed": false
+}
