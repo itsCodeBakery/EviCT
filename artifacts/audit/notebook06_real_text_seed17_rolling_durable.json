@@ -1,0 +1,13 @@
+{
+  "timestamp_utc": "2026-09-29T08:36:03.378496+00:00",
+  "status": "DURABLE_ROLLING",
+  "variant": "real_text",
+  "seed": 17,
+  "step": 1000,
+  "best_macro_case_dice": 0.6932496611227219,
+  "best_step": 250,
+  "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb06-real_text-seed17-rolling",
+  "archive_sha256": "6c94320aa0365b7ab24a240b3a0148c729456e37e0e3d7ff81c691afd7c5fa20",
+  "calibration_accessed": false,
+  "target_accessed": false
+}
