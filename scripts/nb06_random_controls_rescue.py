@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import importlib.metadata
 import json
 import os
 import re
@@ -30,12 +31,73 @@ LATEST_FILES = [
     "scripts/git_sync.py",
 ]
 
+OPENCLIP_VERSION = "3.3.0"
+REPO_URL = "https://github.com/itsCodeBakery/EviCT.git"
+
 
 def headers(token):
     return {
         "Authorization": f"Bearer {token}",
         "Accept": "application/vnd.github+json",
     }
+
+
+def clone_if_missing(token):
+    if ROOT.exists():
+        if not (ROOT / ".git").exists():
+            raise RuntimeError(f"{ROOT} exists but is not the EViCT Git repository.")
+        print("✓ local repository          : PRESENT")
+        return
+
+    auth = base64.b64encode(f"itsCodeBakery:{token}".encode()).decode()
+    env = os.environ.copy()
+    env["GIT_TERMINAL_PROMPT"] = "0"
+    print("Local repository           : MISSING -> cloning latest main")
+    r = subprocess.run(
+        [
+            "git",
+            "-c",
+            f"http.extraHeader=AUTHORIZATION: basic {auth}",
+            "clone",
+            "--branch",
+            "main",
+            "--single-branch",
+            REPO_URL,
+            str(ROOT),
+        ],
+        timeout=180,
+        text=True,
+    )
+    if r.returncode != 0:
+        raise RuntimeError("Could not clone EViCT repository.")
+
+
+def ensure_openclip():
+    try:
+        version = importlib.metadata.version("open_clip_torch")
+    except importlib.metadata.PackageNotFoundError:
+        version = None
+
+    if version != OPENCLIP_VERSION:
+        print(f"Installing open_clip_torch=={OPENCLIP_VERSION} ...")
+        r = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "pip",
+                "install",
+                "-q",
+                "--disable-pip-version-check",
+                f"open_clip_torch=={OPENCLIP_VERSION}",
+            ],
+            timeout=600,
+            text=True,
+        )
+        if r.returncode != 0:
+            raise RuntimeError("Could not install pinned OpenCLIP.")
+
+    assert importlib.metadata.version("open_clip_torch") == OPENCLIP_VERSION
+    print("✓ OpenCLIP                  :", OPENCLIP_VERSION)
 
 
 def fetch_latest_file(token, rel):
@@ -358,8 +420,10 @@ def main():
     print("EVICT NB06 — LAST THREE RANDOM CONTROLS RESCUE")
     print("=" * 112)
     print("CUDA devices              :", torch.cuda.device_count())
-    assert torch.cuda.device_count() >= 2, "Two T4s are required for the fast rescue."
+    assert torch.cuda.is_available(), "Enable a Kaggle GPU before resuming."
 
+    clone_if_missing(token)
+    ensure_openclip()
     refresh_runtime_files(token)
 
     for rel in LATEST_FILES:
