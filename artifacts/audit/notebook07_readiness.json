@@ -1,0 +1,36 @@
+{
+  "stage": "NOTEBOOK_07A",
+  "status": "READY_FOR_PILOT",
+  "notebook06_frozen": true,
+  "semantic_branch": {
+    "real_text_mean_macro_case_dice": 0.7619517096084231,
+    "semantic_rule_supported": true
+  },
+  "loader_audit": {
+    "seeds": [
+      17,
+      42,
+      2026
+    ],
+    "budgets": [
+      "b025",
+      "b050"
+    ],
+    "hidden_mask_path_exposed": false,
+    "gt_vault_reference_exposed": false,
+    "labeled_unlabeled_case_overlap": false,
+    "nested_budgets_verified": true
+  },
+  "isolation": {
+    "calibration_accessed": false,
+    "target_accessed": false,
+    "target_lock": "ACTIVE"
+  },
+  "next_unit": {
+    "method": "supervised",
+    "budget": "b050",
+    "seed": 17,
+    "purpose": "low-label supervised reference and warm-up source for EMA pilot"
+  },
+  "config_hash": "9e351529f795979cde1f7d7d807ddf535d5221ff79498dc2679c1311528fcb58"
+}

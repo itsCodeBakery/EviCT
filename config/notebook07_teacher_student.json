@@ -1,0 +1,103 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_07",
+  "experiment": "teacher_student_low_label",
+  "scientific_scope": "source-only low-label learning; no calibration or target access",
+  "frozen_parent_stage": {
+    "stage": "NOTEBOOK_06_SEMANTIC_BRANCH_FROZEN",
+    "semantic_variant": "real_text",
+    "semantic_mean_macro_case_dice": 0.7619517096084231,
+    "semantic_rule_supported": true,
+    "notebook06_result_sha256": "39a6575568113dd949c7c9dff63b4d2c0b836e9a6072604fa393b7377c00eac2"
+  },
+  "budgets": {
+    "fitting_mask_budgets": [
+      "b025",
+      "b050"
+    ],
+    "fitting_visible_cases": {
+      "b025": 3,
+      "b050": 6
+    },
+    "fitting_hidden_cases": {
+      "b025": 9,
+      "b050": 6
+    },
+    "selection_cases": 4,
+    "calibration_cases": 4,
+    "calibration_labels_accessible_to_nb07": false
+  },
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "methods": [
+    "supervised",
+    "confidence_only_ema",
+    "agreement_filtered_ema"
+  ],
+  "model": {
+    "architecture": "Notebook-06 real-text semantic SegFormer-B1",
+    "text_prototypes": "frozen",
+    "patient_specific_text": false
+  },
+  "training": {
+    "supervised_warmup_updates": 1000,
+    "semi_supervised_max_additional_updates": 4000,
+    "validation_every_updates": 250,
+    "early_stopping_patience_validations": 8,
+    "ema_decay": 0.99,
+    "labeled_images_per_update_approx": 8,
+    "unlabeled_images_per_update_approx": 8,
+    "labeled_micro_batch": 4,
+    "unlabeled_micro_batch": 4,
+    "lambda_u_ramp_updates": 1000,
+    "lambda_u_max": 1.0,
+    "teacher_mode": "eval_no_grad"
+  },
+  "pseudo_labeling": {
+    "teacher_views": 2,
+    "shared_geometry": true,
+    "weak_photometric_views": 2,
+    "strong_student_photometric_view": true,
+    "probability_average": "mean_of_two_teacher_views",
+    "pseudo_label_threshold": 0.5,
+    "confidence_threshold": 0.95,
+    "agreement_filtered": {
+      "maximum_probability_disagreement": 0.1,
+      "binary_prediction_agreement_required": true
+    },
+    "unsupervised_loss": "class-balanced BCE over accepted positive and accepted negative pixels",
+    "zero_accepted_pixels_policy": "unsupervised loss = 0 and event logged"
+  },
+  "required_logging": [
+    "accepted_foreground_pixels",
+    "accepted_background_pixels",
+    "accepted_foreground_fraction",
+    "accepted_background_fraction",
+    "zero_acceptance_events",
+    "supervised_loss",
+    "semantic_auxiliary_loss",
+    "unsupervised_loss",
+    "lambda_u",
+    "selection_macro_case_dice"
+  ],
+  "development_policy": {
+    "fitting_masks_visible_only_via_labeled_manifest": true,
+    "hidden_fitting_masks_available_to_training_loop": false,
+    "selection_used_for_model_selection": true,
+    "calibration_accessed": false,
+    "target_medseg_accessed": false,
+    "target_lock": "ACTIVE"
+  },
+  "primary_outputs": [
+    "Dice-versus-label-budget table",
+    "Dice-versus-label-budget figure",
+    "pseudo-label acceptance curves",
+    "three-seed mean and sample SD",
+    "per-seed paired comparison table"
+  ],
+  "pass_condition": "teacher and student are independently checkpointed; hidden fitting masks never enter training/sampling/prompts; confidence-only and agreement-filtered EMA are compared under identical budgets and update accounting",
+  "config_hash": "9e351529f795979cde1f7d7d807ddf535d5221ff79498dc2679c1311528fcb58"
+}

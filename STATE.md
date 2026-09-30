@@ -2,13 +2,41 @@
 
 ## Current stage
 
-NOTEBOOK_06_SEMANTIC_BRANCH_FROZEN
+NOTEBOOK_07_READY_FOR_PILOT
 
-## Semantic branch
+## Notebook 06
 
-Real-text three-seed macro-case Dice: 0.76195171
+Semantic branch frozen.
 
-Semantic benefit supported by predeclared control rule: YES
+Real-text three-seed macro-case Dice:
+
+0.76195171
+
+Semantic benefit supported by predeclared control rule:
+
+YES
+
+## Notebook 07
+
+Low-label manifests audited:
+
+PASS
+
+Nested 25 / 50 / 100 percent fitting budgets:
+
+PASS
+
+Hidden fitting mask path exposed to unlabeled loader:
+
+NO
+
+Labeled / unlabeled patient overlap:
+
+NO
+
+Notebook-07 configuration hash:
+
+9e351529f795979cde1f7d7d807ddf535d5221ff79498dc2679c1311528fcb58
 
 ## Isolation
 
@@ -26,4 +54,6 @@ ACTIVE
 
 ## Next
 
-Proceed to Notebook 07: teacher–student low-label learning.
+Run Notebook 07 supervised low-label pilot:
+real-text model, 50 percent fitting-label budget, seed 17.
+
