@@ -420,7 +420,10 @@ def main():
     print("EVICT NB06 — LAST THREE RANDOM CONTROLS RESCUE")
     print("=" * 112)
     print("CUDA devices              :", torch.cuda.device_count())
-    assert torch.cuda.is_available(), "Enable a Kaggle GPU before resuming."
+    assert torch.cuda.device_count() >= 2, (
+        "Enable Kaggle's T4 x2 accelerator before resuming. "
+        "This rescue controller schedules workers on physical GPUs 0 and 1."
+    )
 
     clone_if_missing(token)
     ensure_openclip()
