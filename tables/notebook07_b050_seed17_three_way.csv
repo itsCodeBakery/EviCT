@@ -1,0 +1,4 @@
+method,seed,training_mask_fraction,selected_model_type,best_step,final_step,macro_case_dice,macro_case_iou,macro_case_sensitivity,macro_case_specificity,mean_pseudo_label_acceptance,mean_accepted_foreground_fraction,mean_accepted_background_fraction,zero_acceptance_events,labeled_images_seen,unlabeled_images_seen
+supervised,17,0.5,student,3750,5000,0.745983085732747,0.5985856109078789,0.6496315204969724,0.9986735550181052,,,,0,40000,0
+confidence_only_ema,17,0.5,teacher,1250,3250,0.7513878612225804,0.6058365399088972,0.722378681395412,0.9969945976666441,0.9913236860400664,0.010258670374215292,0.9810650156658511,0,26000,18000
+agreement_filtered_ema,17,0.5,teacher,1250,3250,0.7514366840536726,0.6058930383027299,0.7223202397336839,0.9969975795454321,0.9917173343523039,0.009999122234424078,0.9817182121178798,0,26000,18000
