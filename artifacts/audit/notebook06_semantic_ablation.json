@@ -1,0 +1,55 @@
+{
+  "timestamp_utc": "2026-09-30T17:27:50.837863+00:00",
+  "stage": "NOTEBOOK_06",
+  "status": "SEMANTIC_BRANCH_FROZEN",
+  "reference_vision_only": {
+    "variant": "vision_only_segformer_b1_reference",
+    "macro_case_dice_mean": 0.7540509441220388,
+    "macro_case_dice_sample_sd": 0.01236481657871835,
+    "seed17_dice": 0.7525805220791235,
+    "seed42_dice": 0.7670852235345222,
+    "seed2026_dice": 0.7424870867524707,
+    "alpha_mean": NaN
+  },
+  "variant_summaries": [
+    {
+      "variant": "real_text",
+      "macro_case_dice_mean": 0.7619517096084231,
+      "macro_case_dice_sample_sd": 0.007260379550832135,
+      "seed17_dice": 0.7692062172063057,
+      "seed42_dice": 0.7619634393016593,
+      "seed2026_dice": 0.7546854723173044,
+      "alpha_mean": 0.11526259283224742
+    },
+    {
+      "variant": "swapped_text",
+      "macro_case_dice_mean": 0.7546442273193069,
+      "macro_case_dice_sample_sd": 0.01514296061449349,
+      "seed17_dice": 0.7643847077428019,
+      "seed42_dice": 0.7623498185715916,
+      "seed2026_dice": 0.7371981556435276,
+      "alpha_mean": 0.11507967859506607
+    },
+    {
+      "variant": "random_prototypes",
+      "macro_case_dice_mean": 0.7526654190913291,
+      "macro_case_dice_sample_sd": 0.006942993861606462,
+      "seed17_dice": 0.7571321555945677,
+      "seed42_dice": 0.756197583123921,
+      "seed2026_dice": 0.7446665185554986,
+      "alpha_mean": 0.11573851108551025
+    }
+  ],
+  "paired_real_text_wins_vs_vision_only": 2,
+  "paired_real_text_wins_vs_swapped": 2,
+  "paired_real_text_wins_vs_random": 3,
+  "semantic_claim_rule": {
+    "predeclared_rule": "real_text mean macro-case Dice must exceed the frozen vision-only SegFormer-B1 reference, swapped_text, and random_prototypes; real_text must also beat each comparator in at least 2 of 3 paired training seeds",
+    "significance_claimed": false,
+    "note": "This directional repeatability rule is frozen before Notebook-06 execution. It is not a formal hypothesis test."
+  },
+  "semantic_benefit_supported_by_predeclared_rule": true,
+  "formal_significance_test_performed": false,
+  "calibration_accessed": false,
+  "target_accessed": false
+}

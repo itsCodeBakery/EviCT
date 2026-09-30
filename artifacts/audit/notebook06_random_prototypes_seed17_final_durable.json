@@ -1,0 +1,22 @@
+{
+  "timestamp_utc": "2026-09-30T17:27:25.561520+00:00",
+  "stage": "NOTEBOOK_06",
+  "status": "DURABLE_COMPLETE",
+  "variant": "random_prototypes",
+  "seed": 17,
+  "best_step": 1500,
+  "final_step": 3500,
+  "stop_reason": "EARLY_STOPPING_PATIENCE_8",
+  "alpha_at_best": 0.11616887152194977,
+  "macro_case_dice": 0.7571321555945677,
+  "macro_case_iou": 0.6168818587626519,
+  "macro_case_sensitivity": 0.6997291945369841,
+  "macro_case_specificity": 0.9980554882614443,
+  "macro_slice_dice": 0.7609931348940977,
+  "pooled_dice": 0.82625016020088,
+  "pooled_iou": 0.7039405946519981,
+  "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb06-random_prototypes-seed17-final-step3500",
+  "archive_sha256": "0aea6de7696be1e7c527d87fe71c9c1a2d8ae28c6cad5b4b43cb96c3bd5120f5",
+  "calibration_accessed": false,
+  "target_accessed": false
+}

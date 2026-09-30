@@ -2,11 +2,13 @@
 
 ## Current stage
 
-NOTEBOOK_06_REAL_TEXT_SEED_17_RUNNING_STEP_3500
+NOTEBOOK_06_SEMANTIC_BRANCH_FROZEN
 
-## Best source-selection macro case Dice
+## Semantic branch
 
-0.76920622 @ 1500
+Real-text three-seed macro-case Dice: 0.76195171
+
+Semantic benefit supported by predeclared control rule: YES
 
 ## Isolation
 
@@ -21,3 +23,7 @@ NO
 Target lock:
 
 ACTIVE
+
+## Next
+
+Proceed to Notebook 07: teacher–student low-label learning.
