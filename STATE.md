@@ -2,41 +2,55 @@
 
 ## Current stage
 
-NOTEBOOK_07_READY_FOR_PILOT
+NOTEBOOK_07_B050_SEED17_WARMUP_FROZEN
 
-## Notebook 06
+## Notebook 07 warm-up
 
-Semantic branch frozen.
+Budget:
 
-Real-text three-seed macro-case Dice:
+50 percent visible fitting masks (b050)
 
-0.76195171
+Seed:
 
-Semantic benefit supported by predeclared control rule:
+17
 
-YES
+Method:
 
-## Notebook 07
+Common supervised real-text warm-up
 
-Low-label manifests audited:
+Optimizer step:
 
-PASS
+1000
 
-Nested 25 / 50 / 100 percent fitting budgets:
+Warm-up terminal step:
 
-PASS
+1000
 
-Hidden fitting mask path exposed to unlabeled loader:
+Best source-selection macro-case Dice:
+
+0.71837039
+
+Best validation step:
+
+1000
+
+Labeled image exposures:
+
+8000
+
+Hidden fitting masks used:
 
 NO
 
-Labeled / unlabeled patient overlap:
+## Branching contract
 
-NO
+The terminal step-1000 student checkpoint is the common initialization for:
 
-Notebook-07 configuration hash:
+1. supervised continuation
+2. confidence-only EMA
+3. agreement-filtered EMA
 
-9e351529f795979cde1f7d7d807ddf535d5221ff79498dc2679c1311528fcb58
+No branch may replace this warm-up with the 100%-label Notebook-06 trained checkpoint.
 
 ## Isolation
 
@@ -54,6 +68,5 @@ ACTIVE
 
 ## Next
 
-Run Notebook 07 supervised low-label pilot:
-real-text model, 50 percent fitting-label budget, seed 17.
-
+Complete the common step-1000 warm-up, then branch the three Notebook-07 methods
+without changing the patient split, optimizer schedule, text prototypes, or warm-up state.
