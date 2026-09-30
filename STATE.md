@@ -20,7 +20,7 @@ supervised
 
 Global optimizer step:
 
-4000
+5000
 
 Best source-selection macro-case Dice:
 
@@ -32,7 +32,7 @@ student
 
 Patience:
 
-1 / 8
+5 / 8
 
 ## Common initialization
 
