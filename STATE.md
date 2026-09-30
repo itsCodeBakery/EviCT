@@ -2,7 +2,7 @@
 
 ## Current stage
 
-NOTEBOOK_07_B050_SEED17_SUPERVISED_RUNNING
+NOTEBOOK_07_B050_SEED17_CONFIDENCE_ONLY_EMA_RUNNING
 
 ## Notebook 07
 
@@ -16,23 +16,23 @@ Seed:
 
 Method:
 
-supervised
+confidence_only_ema
 
 Global optimizer step:
 
-5000
+2000
 
 Best source-selection macro-case Dice:
 
-0.74598309
+0.75138786
 
 Best candidate:
 
-student
+teacher
 
 Patience:
 
-5 / 8
+3 / 8
 
 ## Common initialization
 
