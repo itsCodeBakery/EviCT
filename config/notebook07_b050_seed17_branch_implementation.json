@@ -1,0 +1,114 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_07D",
+  "budget_id": "b050",
+  "seed": 17,
+  "warmup_terminal_step": 1000,
+  "maximum_global_step": 5000,
+  "maximum_post_warmup_updates": 4000,
+  "warmup_branch_sha256": "1d778eb26d7bcac525cc1007429de2ce2db8f89f8819063e66f69d0213fccd0c",
+  "methods": [
+    "supervised",
+    "confidence_only_ema",
+    "agreement_filtered_ema"
+  ],
+  "precision": "FP32",
+  "batch_accounting": {
+    "labeled_micro_batch": 4,
+    "labeled_micro_batches_per_update": 2,
+    "labeled_images_per_update": 8,
+    "unlabeled_micro_batch": 4,
+    "unlabeled_micro_batches_per_update": 2,
+    "unlabeled_images_per_ema_update": 8
+  },
+  "ema": {
+    "decay": 0.99,
+    "teacher_eval_mode": true,
+    "teacher_gradients": false,
+    "update_after_student_optimizer_step": true
+  },
+  "pseudo_labels": {
+    "teacher_views": 2,
+    "pseudo_threshold": 0.5,
+    "confidence_threshold": 0.95,
+    "agreement_max_probability_difference": 0.1,
+    "agreement_requires_same_binary_prediction": true,
+    "class_balanced_positive_negative_bce": true
+  },
+  "unsupervised_weight": {
+    "formula": "min(1.0, post_warmup_step / 1000)",
+    "ramp_updates": 1000,
+    "maximum": 1.0
+  },
+  "shared_geometry": {
+    "rotation_degrees": [
+      -5.0,
+      5.0
+    ],
+    "scale": [
+      0.95,
+      1.05
+    ],
+    "translation_fraction": [
+      -0.025,
+      0.025
+    ],
+    "horizontal_flip": false
+  },
+  "weak_photometric": {
+    "brightness": [
+      0.95,
+      1.05
+    ],
+    "contrast": [
+      0.95,
+      1.05
+    ],
+    "gamma": [
+      0.95,
+      1.05
+    ]
+  },
+  "strong_photometric": {
+    "brightness": [
+      0.85,
+      1.15
+    ],
+    "contrast": [
+      0.85,
+      1.15
+    ],
+    "gamma": [
+      0.8,
+      1.2
+    ],
+    "gaussian_noise_max_std": 0.03,
+    "gaussian_noise_probability": 0.5,
+    "blur_probability": 0.3
+  },
+  "validation": {
+    "every_updates": 250,
+    "patience_validations_after_warmup": 8,
+    "selection_metric": "macro_case_dice",
+    "ema_model_selection": "save student and teacher independently; choose higher source-selection macro-case Dice; ties prefer student"
+  },
+  "rng_isolation": {
+    "enabled": true,
+    "purpose": "keep labeled augmentation/sampling trajectory comparable across supervised and EMA branches while maintaining an independent matched unlabeled RNG trajectory across the two EMA branches"
+  },
+  "durability": {
+    "local_recovery_every_updates": 50,
+    "rolling_release_global_steps": [
+      2000,
+      3000,
+      4000
+    ]
+  },
+  "development_policy": {
+    "hidden_fitting_masks_accessed": false,
+    "calibration_accessed": false,
+    "target_medseg_accessed": false,
+    "target_lock": "ACTIVE"
+  },
+  "implementation_hash": "3343e640c636eed4e759a55918846b2a1f167f1d1014c46a9907e9a27a685ea0"
+}
