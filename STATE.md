@@ -20,11 +20,11 @@ supervised
 
 Global optimizer step:
 
-2000
+3000
 
 Best source-selection macro-case Dice:
 
-0.73403738
+0.74519797
 
 Best candidate:
 
