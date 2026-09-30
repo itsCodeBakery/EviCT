@@ -227,7 +227,10 @@ def restore_final(token,v,s,p,snap,proto,sel,device):
             m=re.fullmatch(re.escape(prefix)+r'(\d+)',tag)
             if m: candidates.append((int(m.group(1)),rel))
     if not candidates: return None
-    release_step,rel=max(candidates,key=lambda z:z[0])
+    # If duplicate final releases exist because of a historical resume bug,
+    # the first published final is the canonical frozen run. Later duplicates
+    # must not silently extend the predeclared stopping schedule.
+    release_step,rel=min(candidates,key=lambda z:(str(z[1].get('published_at','')),z[0]))
     expected=_download_release_archive(token,rel,p)
     if expected is None: raise RuntimeError(f'Final release assets missing for {v} seed{s}')
     assert p['best'].exists() and p['rec'].exists()
