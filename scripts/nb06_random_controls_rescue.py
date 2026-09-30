@@ -136,6 +136,83 @@ def final_obj(seed):
     return obj if obj.get("status") == "DURABLE_COMPLETE" else None
 
 
+def remote_final_release(token, seed):
+    r = requests.get(
+        f"{REPO_API}/releases?per_page=100",
+        headers=headers(token),
+        timeout=30,
+    )
+    r.raise_for_status()
+    prefix = f"evict-nb06-random_prototypes-seed{seed}-final-step"
+    matches = []
+    for rel in r.json():
+        tag = str(rel.get("tag_name", ""))
+        m = re.fullmatch(re.escape(prefix) + r"(\\d+)", tag)
+        if m:
+            matches.append((int(m.group(1)), rel))
+    return max(matches, key=lambda z: z[0])[1] if matches else None
+
+
+def stop_process(pid):
+    try:
+        os.kill(pid, signal.SIGTERM)
+    except ProcessLookupError:
+        return
+    for _ in range(20):
+        if not pid_alive(pid):
+            return
+        time.sleep(0.5)
+    try:
+        os.kill(pid, signal.SIGKILL)
+    except ProcessLookupError:
+        pass
+
+
+def restore_completed_random_finals(token):
+    # On a fresh Kaggle runtime the branch may not contain local final JSONs,
+    # even though seed17/seed42 are already durably complete as GitHub Releases.
+    # Hydrate those finals serially with the fixed final-release parser before
+    # starting any new training. This prevents redundant retraining.
+    env = os.environ.copy()
+    env["CUDA_VISIBLE_DEVICES"] = "0"
+    env["EVICT_NB06_PARALLEL_SAFE"] = "1"
+    env["PYTHONUNBUFFERED"] = "1"
+
+    for seed in [17, 42]:
+        if final_obj(seed) is not None:
+            print(f"✓ random seed{seed} local final : PRESENT")
+            continue
+        rel = remote_final_release(token, seed)
+        if rel is None:
+            print(f"⚠ random seed{seed} remote final: NOT FOUND")
+            continue
+        print(f"Restoring durable random seed{seed} final from {rel['tag_name']} ...")
+        r = subprocess.run(
+            [
+                sys.executable,
+                "-u",
+                str(RUNNER),
+                "--variant",
+                "random_prototypes",
+                "--seed",
+                str(seed),
+            ],
+            cwd=str(ROOT),
+            env=env,
+            text=True,
+        )
+        if r.returncode != 0:
+            raise RuntimeError(f"Could not restore durable random seed{seed} final.")
+        obj = final_obj(seed)
+        if obj is None:
+            raise RuntimeError(f"random seed{seed} final JSON still missing after restore.")
+        print(
+            f"✓ RESTORED random seed{seed}: "
+            f"Dice={float(obj['macro_case_dice']):.8f}, "
+            f"best={int(obj['best_step'])}, final={int(obj['final_step'])}"
+        )
+
+
 def recovery_path(seed):
     return (
         ROOT
@@ -443,8 +520,21 @@ def main():
     active = find_active_children()
     print("Existing random children  :", {s:(x['pid'],x['gpu']) for s,x in active.items()})
 
-    # The diagnostic showed seed42 is already alive on physical GPU1. Preserve
-    # it. Any future orphan is treated the same way.
+    # seed17 and seed42 are already durably complete remotely. Any surviving
+    # training process for either is redundant and should not consume GPU time.
+    for seed in [17, 42]:
+        if seed in active and remote_final_release(token, seed) is not None:
+            print(f"Stopping redundant active random seed{seed} PID={active[seed]['pid']} ...")
+            stop_process(active[seed]["pid"])
+            active.pop(seed, None)
+
+    # Hydrate the durable seed17/seed42 final metadata locally. With the fixed
+    # release-tag parser this downloads/verifies the final archive and exits;
+    # it does not resume training.
+    restore_completed_random_finals(token)
+
+    # Preserve an already-running seed2026 if one survived. Otherwise the
+    # scheduler launches only seed2026.
     workers = {}
     used_gpus = set()
 
