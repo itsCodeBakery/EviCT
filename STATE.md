@@ -20,7 +20,7 @@ agreement_filtered_ema
 
 Global optimizer step:
 
-3000
+3250
 
 Best source-selection macro-case Dice:
 
@@ -32,7 +32,7 @@ teacher
 
 Patience:
 
-7 / 8
+8 / 8
 
 ## Common initialization
 
