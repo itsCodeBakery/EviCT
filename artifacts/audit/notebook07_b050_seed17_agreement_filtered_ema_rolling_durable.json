@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-09-30T19:42:19.134616+00:00",
+  "stage": "NOTEBOOK_07_BRANCH",
+  "status": "DURABLE_ROLLING",
+  "method": "agreement_filtered_ema",
+  "budget_id": "b050",
+  "seed": 17,
+  "global_step": 2000,
+  "branch_best_score": 0.7514366840536726,
+  "branch_best_type": "teacher",
+  "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb07-b050-seed17-agreement_filtered_ema-rolling",
+  "archive_sha256": "85895045bfc3ef9ced56aff94fa59310c716f9a62dd075ec05ad3d1f2c7c2221",
+  "calibration_accessed": false,
+  "target_accessed": false
+}
