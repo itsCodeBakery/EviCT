@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import argparse, gc, hashlib, importlib.util, json, math, os, re, shutil, subprocess, sys, tarfile
+import argparse, fcntl, gc, hashlib, importlib.util, json, math, os, re, shutil, subprocess, sys, tarfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -59,13 +59,44 @@ def state_ok():
     assert 'Calibration accessed:\n\nNO' in t and 'Target / MedSeg accessed:\n\nNO' in t and 'Target lock:\n\nACTIVE' in t
 
 def ensure_cache():
-    if CACHE_PROBE.exists(): print('✓ Notebook-03 cache        : PRESENT'); nb05e.verify_source_cache(); return
-    misplaced=WORK/'cache/segdb2'
-    if misplaced.exists():
-        target=ROOT/'cache/segdb2'; target.parent.mkdir(parents=True,exist_ok=True); shutil.rmtree(target,ignore_errors=True); shutil.move(str(misplaced),str(target)); nb05e.verify_source_cache(); return
-    if CACHE_TAR.exists() and sha(CACHE_TAR)!=CACHE_SHA: CACHE_TAR.unlink()
-    if not CACHE_TAR.exists(): base.download_verified(CACHE_URL,CACHE_TAR,CACHE_SHA)
-    base.safe_extract_tar(CACHE_TAR,ROOT); assert CACHE_PROBE.exists(); nb05e.verify_source_cache(); CACHE_TAR.unlink(missing_ok=True)
+    if CACHE_PROBE.exists():
+        print('✓ Notebook-03 cache        : PRESENT')
+        nb05e.verify_source_cache()
+        return
+
+    # Multiple isolated GPU workers can start at the same time on a fresh
+    # Kaggle runtime. Guard the shared 1.5 GiB cache download/extraction so
+    # workers cannot race on the same .part file or archive.
+    lock_path=WORK/'.evict_notebook03_cache.lock'
+    lock_path.parent.mkdir(parents=True,exist_ok=True)
+    with lock_path.open('w') as lock_file:
+        fcntl.flock(lock_file,fcntl.LOCK_EX)
+
+        # Another worker may have finished while we waited for the lock.
+        if CACHE_PROBE.exists():
+            print('✓ Notebook-03 cache        : PRESENT')
+            nb05e.verify_source_cache()
+            return
+
+        misplaced=WORK/'cache/segdb2'
+        if misplaced.exists():
+            target=ROOT/'cache/segdb2'
+            target.parent.mkdir(parents=True,exist_ok=True)
+            shutil.rmtree(target,ignore_errors=True)
+            shutil.move(str(misplaced),str(target))
+            nb05e.verify_source_cache()
+            return
+
+        if CACHE_TAR.exists() and sha(CACHE_TAR)!=CACHE_SHA:
+            CACHE_TAR.unlink()
+
+        if not CACHE_TAR.exists():
+            base.download_verified(CACHE_URL,CACHE_TAR,CACHE_SHA)
+
+        base.safe_extract_tar(CACHE_TAR,ROOT)
+        assert CACHE_PROBE.exists()
+        nb05e.verify_source_cache()
+        CACHE_TAR.unlink(missing_ok=True)
 
 def manifests():
     a=pd.read_csv(train_manifest(17)); sel=pd.read_csv(SEL); cols=['case_id','image_array_index','image_path','infection_cache_path','valid_mask_path']
@@ -193,7 +224,7 @@ def restore_final(token,v,s,p,snap,proto,sel,device):
     for rel in r.json():
         tag=str(rel.get('tag_name',''))
         if tag.startswith(prefix):
-            m=re.fullmatch(re.escape(prefix)+r'(\\d+)',tag)
+            m=re.fullmatch(re.escape(prefix)+r'(\d+)',tag)
             if m: candidates.append((int(m.group(1)),rel))
     if not candidates: return None
     release_step,rel=max(candidates,key=lambda z:z[0])
