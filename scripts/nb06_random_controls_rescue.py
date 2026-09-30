@@ -147,7 +147,7 @@ def remote_final_release(token, seed):
     matches = []
     for rel in r.json():
         tag = str(rel.get("tag_name", ""))
-        m = re.fullmatch(re.escape(prefix) + r"(\\d+)", tag)
+        m = re.fullmatch(re.escape(prefix) + r"(\d+)", tag)
         if m:
             matches.append((int(m.group(1)), rel))
     return max(matches, key=lambda z: z[0])[1] if matches else None
