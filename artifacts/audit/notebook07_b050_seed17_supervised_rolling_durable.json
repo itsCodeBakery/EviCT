@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-09-30T18:40:32.787725+00:00",
+  "stage": "NOTEBOOK_07_BRANCH",
+  "status": "DURABLE_ROLLING",
+  "method": "supervised",
+  "budget_id": "b050",
+  "seed": 17,
+  "global_step": 2000,
+  "branch_best_score": 0.7340373751256603,
+  "branch_best_type": "student",
+  "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb07-b050-seed17-supervised-rolling",
+  "archive_sha256": "9fff552112bfb97626265957a47365ee6e1e3a954d178eb18f1332e4ce1bf8f7",
+  "calibration_accessed": false,
+  "target_accessed": false
+}

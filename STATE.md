@@ -2,13 +2,13 @@
 
 ## Current stage
 
-NOTEBOOK_07_B050_SEED17_WARMUP_FROZEN
+NOTEBOOK_07_B050_SEED17_SUPERVISED_RUNNING
 
-## Notebook 07 warm-up
+## Notebook 07
 
 Budget:
 
-50 percent visible fitting masks (b050)
+50 percent visible fitting masks
 
 Seed:
 
@@ -16,43 +16,39 @@ Seed:
 
 Method:
 
-Common supervised real-text warm-up
+supervised
 
-Optimizer step:
+Global optimizer step:
 
-1000
+2000
+
+Best source-selection macro-case Dice:
+
+0.73403738
+
+Best candidate:
+
+student
+
+Patience:
+
+1 / 8
+
+## Common initialization
 
 Warm-up terminal step:
 
 1000
 
-Best source-selection macro-case Dice:
+Warm-up branch SHA-256:
 
-0.71837039
+1d778eb26d7bcac525cc1007429de2ce2db8f89f8819063e66f69d0213fccd0c
 
-Best validation step:
-
-1000
-
-Labeled image exposures:
-
-8000
+## Isolation
 
 Hidden fitting masks used:
 
 NO
-
-## Branching contract
-
-The terminal step-1000 student checkpoint is the common initialization for:
-
-1. supervised continuation
-2. confidence-only EMA
-3. agreement-filtered EMA
-
-No branch may replace this warm-up with the 100%-label Notebook-06 trained checkpoint.
-
-## Isolation
 
 Calibration accessed:
 
@@ -68,5 +64,5 @@ ACTIVE
 
 ## Next
 
-Complete the common step-1000 warm-up, then branch the three Notebook-07 methods
-without changing the patient split, optimizer schedule, text prototypes, or warm-up state.
+Continue the frozen Notebook-07 b050 seed17 comparison without changing
+pseudo-label thresholds, patient split, text prototypes, or evaluation protocol.
