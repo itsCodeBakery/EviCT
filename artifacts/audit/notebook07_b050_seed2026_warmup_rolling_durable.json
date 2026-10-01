@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-10-01T12:13:26.532734+00:00",
+  "stage": "NOTEBOOK_07_WARMUP",
+  "status": "DURABLE_ROLLING",
+  "method": "supervised_warmup",
+  "budget_id": "b050",
+  "seed": 2026,
+  "step": 500,
+  "best_score": 0.6521785868115823,
+  "best_step": 250,
+  "release_url": "https://github.com/itsCodeBakery/EviCT/releases/tag/evict-nb07-b050-seed2026-warmup-rolling",
+  "archive_sha256": "5bfc19befb8023d5b21bbc79863d94844948487173ac10ebb97221c60bd0b543",
+  "calibration_accessed": false,
+  "target_accessed": false
+}

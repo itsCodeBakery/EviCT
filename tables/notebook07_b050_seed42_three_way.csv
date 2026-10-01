@@ -1,0 +1,4 @@
+method,seed,training_mask_fraction,selected_model_type,best_step,final_step,macro_case_dice,macro_case_iou,macro_case_sensitivity,macro_case_specificity,mean_pseudo_label_acceptance,mean_accepted_foreground_fraction,mean_accepted_background_fraction,zero_acceptance_events,labeled_images_seen,unlabeled_images_seen
+supervised,42,0.5,student,2250,4250,0.7551328263186491,0.6152324750433407,0.7033779424937427,0.9979193077862633,,,,0,34000,0
+confidence_only_ema,42,0.5,student,1500,3500,0.7502689722939887,0.6096727785940883,0.7864717985883114,0.9959617007541117,0.9912870310287893,0.011545318231070799,0.9797417127977187,0,28000,20000
+agreement_filtered_ema,42,0.5,student,3000,5000,0.7475242961605462,0.6042913707982541,0.8427280587819983,0.9937701424592181,0.99151299155372,0.018348018132888225,0.9731649734208317,0,40000,32000
