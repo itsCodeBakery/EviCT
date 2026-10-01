@@ -1,0 +1,100 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_12A",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T19:16:49.053868+00:00",
+  "analysis_type": "post_hoc_matched_coverage_reliability_diagnostic",
+  "upstream_freezes": {
+    "notebook10_sha256": "1d2b1ecdaed08b30d80d79ebd4c016ccc944fbe68ccca3017d25487f59df83be",
+    "notebook11_sha256": "58280f0581388695126e8d24ff04277313f0587d88fdcf5dc5b921dbeb18211c"
+  },
+  "data": {
+    "evaluation_table": "tables/notebook10_measurement_evaluation.csv",
+    "evaluation_table_sha256": "20918c999bb5b26451e6393af6346ad399ba73599ca7f24fdc20abd58f0c5f79",
+    "records": 900,
+    "cases_per_seed_method": 100,
+    "seeds": [
+      17,
+      42,
+      2026
+    ],
+    "methods": [
+      "agreement_filtered_ema",
+      "confidence_only_ema",
+      "supervised"
+    ]
+  },
+  "matched_coverage_protocol": {
+    "coverage_percentages": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100
+    ],
+    "ranking": "ascending frozen case_uncertainty_score",
+    "tie_break": "ascending case_id",
+    "target_metric_used_for_ranking": false,
+    "same_retained_case_count_across_methods": true,
+    "same_retained_case_identity_across_methods": false,
+    "source_gate_modified": false,
+    "source_p80_retuned": false
+  },
+  "selective_risk": {
+    "coverage_range": "5_to_100_percent",
+    "normalized_area": true,
+    "positive_risk_auc_reduction_means": "lower uncertainty ranks lower-error cases on average over the fixed coverage curve"
+  },
+  "uncertainty_error_correlation": {
+    "metric": "Spearman",
+    "higher_positive_rho_means": "higher uncertainty is associated with higher error",
+    "used_for_model_tuning": false
+  },
+  "interpretation_flags": [
+    {
+      "method": "agreement_filtered_ema",
+      "mean_risk_auc_reduction_vs_full": 0.006412145678908039,
+      "uncertainty_improves_average_selective_segmentation_risk": true,
+      "mean_extent_auc_reduction_vs_full": 2320.1094112081523,
+      "uncertainty_improves_average_selective_extent_error": true
+    },
+    {
+      "method": "confidence_only_ema",
+      "mean_risk_auc_reduction_vs_full": 0.020066597079286652,
+      "uncertainty_improves_average_selective_segmentation_risk": true,
+      "mean_extent_auc_reduction_vs_full": 2193.30636496772,
+      "uncertainty_improves_average_selective_extent_error": true
+    },
+    {
+      "method": "supervised",
+      "mean_risk_auc_reduction_vs_full": 0.018872521017077332,
+      "uncertainty_improves_average_selective_segmentation_risk": true,
+      "mean_extent_auc_reduction_vs_full": 2163.260940511052,
+      "uncertainty_improves_average_selective_extent_error": true
+    }
+  ],
+  "important_limitations": [
+    "The MedSeg evaluation unit is a selected image, not a verified independent patient.",
+    "Matched coverage means equal retained counts; methods may retain different target images.",
+    "The exact 5%-increment diagnostic grid was fixed for Notebook 12A but was not part of the original source calibration procedure.",
+    "This analysis does not change or replace the frozen source-derived p80 gate."
+  ],
+  "model_changes": false,
+  "inference_rerun": false,
+  "target_masks_reopened": false
+}
