@@ -16,18 +16,18 @@
   },
   {
     "file": "02_external_target_error_phenotypes.pdf",
-    "size_bytes": 532156,
-    "sha256": "e5580e716f08bfd335ca2c37c53dfd367c02f44a5a6e0c4348418537a5848d7d"
+    "size_bytes": 726618,
+    "sha256": "486abd65f62a319273c3566a7edf12800fa26d7370aaf09c32e0388f5cdc86a8"
   },
   {
     "file": "02_external_target_error_phenotypes.png",
-    "size_bytes": 2859066,
-    "sha256": "defb9ba2aab459d1a8c5327d6cb8c80cdf1f02e4fea25ed754e2534c55516083"
+    "size_bytes": 3501314,
+    "sha256": "2444c79556aaa52da930c64247270a63a1e15dc6d7869a3e4da461bbb6d55da6"
   },
   {
     "file": "02_external_target_error_phenotypes.svg",
-    "size_bytes": 905360,
-    "sha256": "8c168bb2fe125eb71c72ddf3c3e3c27679f0b4d7061b266a89ff4c358a86618f"
+    "size_bytes": 1214652,
+    "sha256": "7885f87a09bab30418979aeb8e6fa219bdb20dacc821ad229b2aac708616024a"
   },
   {
     "file": "03_morphologically_concordant_segmentations.pdf",
@@ -162,6 +162,6 @@
   {
     "file": "publication_figure_integrity_manifest.json",
     "size_bytes": 5622,
-    "sha256": "af92971ef169b5d3babacbbafdca676d5882443f9d88222f2059b19c58042739"
+    "sha256": "90c5538ee72095967e98361030a5ed7e7bad29bb8d9d6f0db2b88ec6953cfd51"
   }
 ]
