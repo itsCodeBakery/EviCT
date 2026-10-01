@@ -1,0 +1,48 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_11C",
+  "status": "CONTROLLED_FREE_TEXT_COMPLETE",
+  "timestamp_utc": "2026-10-01T19:02:02.060438+00:00",
+  "model": {
+    "id": "Qwen/Qwen2.5-3B-Instruct",
+    "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "declared_license": "qwen-research",
+    "dtype": "float16",
+    "source_type": "local_or_kaggle_attachment"
+  },
+  "generation": {
+    "decoding": "greedy",
+    "do_sample": false,
+    "max_input_tokens": 2048,
+    "max_new_tokens": 220,
+    "batch_size": 8,
+    "unique_prompt_memoization": true,
+    "unique_prompts": 33,
+    "records_represented": 900
+  },
+  "information_exposed_to_llm": {
+    "case_id": false,
+    "seed": false,
+    "method_name": false,
+    "target_ground_truth": false,
+    "target_dice": false,
+    "target_iou": false,
+    "case_uncertainty_numeric_value": false,
+    "lesion_pixels_when_eligible": true,
+    "lesion_pixels_when_ineligible": false
+  },
+  "validation_scope": {
+    "exact_numeric_copy": true,
+    "unsupported_extra_numbers": true,
+    "required_four_sections": true,
+    "mandatory_limitations": true,
+    "obvious_normality_claims": true,
+    "clinical_semantic_correctness_guaranteed": false
+  },
+  "runtime": {
+    "gpu": "Tesla T4",
+    "model_load_seconds": 5.676423565999357,
+    "generation_seconds": 66.65223574899937,
+    "peak_allocated_vram_gib": 3.2321643829345703
+  }
+}

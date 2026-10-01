@@ -1,0 +1,48 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_11C",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T19:02:02.061079+00:00",
+  "raw_output_preservation": {
+    "saved_before_validation": true,
+    "raw_file": "reports/notebook11_free_text/raw_unique_generations.jsonl",
+    "raw_file_sha256": "e8277e957085e0fd8a44dbf70a3c4d3ebe83081852ee1396804c6383a8360405",
+    "unique_raw_generations": 33
+  },
+  "records": {
+    "total": 900,
+    "accepted": 0,
+    "rejected": 900,
+    "fallback": 900,
+    "acceptance_rate": 0.0,
+    "fallback_rate": 1.0
+  },
+  "automated_fidelity_checks": {
+    "numeric_copy_accuracy": 0.9955555555555555,
+    "required_structure_rate": 1.0,
+    "scope_limitation_rate": 1.0,
+    "geometry_limitation_rate": 1.0,
+    "lung_burden_limitation_rate": 1.0,
+    "orientation_limitation_rate": 1.0,
+    "research_limitation_rate": 0.0
+  },
+  "anti_leakage": {
+    "target_masks_accessed": false,
+    "target_metrics_accessed": false,
+    "target_dice_seen_by_llm": false,
+    "target_iou_seen_by_llm": false,
+    "case_id_seen_by_llm": false,
+    "ineligible_lesion_extent_seen_by_llm": false
+  },
+  "important_limitation": "Automated string and numerical checks can evaluate copying, structure, and obvious unsupported claims, but they cannot establish full clinical factual correctness of unrestricted prose.",
+  "safe_delivery": {
+    "accepted_free_text_used_when_valid": true,
+    "deterministic_fallback_used_when_invalid": true,
+    "unsafe_rejected_text_retained_for_analysis": true
+  },
+  "runtime": {
+    "load_seconds": 5.676423565999357,
+    "generation_seconds": 66.65223574899937,
+    "peak_vram_gib": 3.2321643829345703
+  }
+}
