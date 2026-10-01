@@ -1,0 +1,11 @@
+result_family,artifact
+External target segmentation,reproducibility/notebook09_qualitative_bundle/tables/notebook09_corrected_target_method_summary.csv
+External target per-seed segmentation,reproducibility/notebook09_qualitative_bundle/tables/notebook09_corrected_target_seed_summary.csv
+External paired bootstrap,reproducibility/notebook09_qualitative_bundle/tables/notebook09_corrected_paired_bootstrap.csv
+Source-p80 external evidence coverage,tables/notebook10_default_p80_method_summary.csv
+Evidence coverage curves,tables/notebook10_coverage_curve_method_mean.csv
+Reporting pathways,tables/notebook11_reporting_arm_summary.csv
+Matched-coverage selective risk,tables/notebook12a_selective_risk_auc.csv
+Uncertainty-error association,tables/notebook12a_uncertainty_error_correlation.csv
+Synthetic robustness,tables/notebook12b_stress_method_summary.csv
+Runtime and VRAM,tables/notebook12c_efficiency.csv

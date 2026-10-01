@@ -1,0 +1,36 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_13_FINAL",
+  "status": "PROJECT_EXECUTION_COMPLETE",
+  "timestamp_utc": "2026-10-01T19:40:47.269117+00:00",
+  "upstream_status": {
+    "notebook08": "FINAL_PROTOCOL_FROZEN",
+    "notebook10": "NOTEBOOK_10_COMPLETE",
+    "notebook11": "NOTEBOOK_11_COMPLETE",
+    "notebook12": "NOTEBOOK_12_COMPLETE"
+  },
+  "claim_checklist": {
+    "rows": 16,
+    "supported": 9,
+    "prohibited": 7
+  },
+  "artifact_manifest_rows": 543,
+  "small_reproducibility_bundle": {
+    "path": "reproducibility/final/EViCT_Final_Small_Reproducibility_Bundle.tar.gz",
+    "size_bytes": 45746,
+    "sha256": "e3623180a6a8a53f948e77a8ecab223a7d649f7cdf18ad76d8bf2b4a63eb2817"
+  },
+  "large_artifacts_externalized_to_github_releases": true,
+  "large_prediction_release": {
+    "tag": "evict-notebook09-corrected-predictions-v1",
+    "archive_sha256": "af032e55f418c8fe2c73d0eb8716053395be0a4cbf2645c14ee589b51ebc9c2b"
+  },
+  "reader_study": "NOT_RUN",
+  "optional_retrieval": "NOT_RUN",
+  "b025": "DEFERRED_COMPUTE_BUDGET",
+  "target_patient_level_claim_allowed": false,
+  "physical_volume_claim_allowed": false,
+  "real_clinical_acquisition_robustness_claim_allowed": false,
+  "expert_report_superiority_claim_allowed": false,
+  "untraceable_numeric_claims_allowed": false
+}
