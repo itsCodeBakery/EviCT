@@ -17,7 +17,7 @@
   {
     "file": "02_external_target_error_phenotypes.pdf",
     "size_bytes": 749600,
-    "sha256": "2a6fe0a0fd787d3302e5c3df865358195f077a5f11e9c07f57554fa55fec9fba"
+    "sha256": "13f41f5ded23eb6bde02ddf416dd7ab9c2d42f8ab3efa40e51c1775d4d41f842"
   },
   {
     "file": "02_external_target_error_phenotypes.png",
@@ -27,7 +27,7 @@
   {
     "file": "02_external_target_error_phenotypes.svg",
     "size_bytes": 1208342,
-    "sha256": "ccd0ce3ff86bc60f77eec07ac5407e4bcc64a3c065f8a5c70a10452f134409ca"
+    "sha256": "2a770bb9093931e1f9afe7a5cc7fd74b41ef049948a8d51f13114be909dd8b92"
   },
   {
     "file": "03_morphologically_concordant_segmentations.pdf",
@@ -162,6 +162,6 @@
   {
     "file": "publication_figure_integrity_manifest.json",
     "size_bytes": 5623,
-    "sha256": "fc4cac45cd977a2e151b95cb682762f8cd13544247624ae943b5839e76908284"
+    "sha256": "efa208d23f795e9072249e49a99260de92106308c5004ef2709b3fc3a027bf49"
   }
 ]
