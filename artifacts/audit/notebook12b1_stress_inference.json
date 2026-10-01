@@ -1,0 +1,31 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_12B1",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T19:34:21.021303+00:00",
+  "records": 3600,
+  "clean_records": 900,
+  "stress_records": 2700,
+  "clean_reproduction_gate": "PASS",
+  "conditions": [
+    "clean",
+    "gaussian_noise_sigma_0p03",
+    "gaussian_blur_sigma_1p0",
+    "resolution_half"
+  ],
+  "methods": [
+    "supervised",
+    "confidence_only_ema",
+    "agreement_filtered_ema"
+  ],
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "thresholds_changed": false,
+  "temperatures_changed": false,
+  "postprocessing_changed": false,
+  "retraining": false,
+  "synthetic_stress_only": true
+}

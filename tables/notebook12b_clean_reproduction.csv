@@ -1,0 +1,10 @@
+seed,method,reconstruction_path,mean_abs_case_dice_diff,max_abs_case_dice_diff,mean_abs_pred_pixel_diff,status
+17,supervised,threshold_then_nearest_inverse,3.608224830031759e-18,9.020562075079397e-17,0.0,PASS
+17,confidence_only_ema,threshold_then_nearest_inverse,1.249000902703301e-18,6.245004513516506e-17,0.0,PASS
+17,agreement_filtered_ema,threshold_then_nearest_inverse,3.469446951953614e-18,1.1102230246251565e-16,0.0,PASS
+42,supervised,threshold_then_nearest_inverse,2.498001805406602e-18,5.551115123125783e-17,0.0,PASS
+42,confidence_only_ema,threshold_then_nearest_inverse,4.649058915617843e-18,6.938893903907228e-17,0.0,PASS
+42,agreement_filtered_ema,threshold_then_nearest_inverse,2.636779683484747e-18,9.71445146547012e-17,0.0,PASS
+2026,supervised,threshold_then_nearest_inverse,3.8037189792537033e-06,0.00038037189792472503,0.04,PASS
+2026,confidence_only_ema,threshold_then_nearest_inverse,6.106226635438361e-18,1.1102230246251565e-16,0.0,PASS
+2026,agreement_filtered_ema,threshold_then_nearest_inverse,1.6653345369377347e-18,5.551115123125783e-17,0.0,PASS
