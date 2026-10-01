@@ -1,0 +1,25 @@
+{
+  "stage": "NOTEBOOK_09_CORRECTED_PREPROCESSING_PILOT",
+  "status": "SOFTWARE_PREPROCESSING_CORRECTION_PILOT_COMPLETE",
+  "seed": 17,
+  "method": "confidence_only_ema",
+  "bug": "MedSeg signed CT values were incorrectly divided by 255 and clipped to [0,1], collapsing most negative CT values to zero.",
+  "invalid_previous_preprocessing": "x/255 then clip [0,1]",
+  "corrected_preprocessing": "clip raw CT values to [-1250,250], then linearly scale to [0,1]",
+  "correction_basis": "Existing frozen source CT preprocessing contract; not selected from target performance.",
+  "checkpoint_changed": false,
+  "threshold_changed": false,
+  "temperature_changed": false,
+  "model_changed": false,
+  "postprocessing_changed": false,
+  "training_performed": false,
+  "previous_notebook09_results_status": "INVALID_DUE_TO_TARGET_PREPROCESSING_BUG",
+  "pilot_metrics": {
+    "mean_dice": 0.703727118062088,
+    "mean_iou": 0.5617962047907649,
+    "mean_sensitivity": 0.789631223917661,
+    "mean_specificity": 0.9700127408468688,
+    "mean_gt_fraction": 0.06811794281005859,
+    "mean_pred_fraction": 0.08228874206542969
+  }
+}

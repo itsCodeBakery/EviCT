@@ -1,0 +1,20 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_08_FINAL",
+  "timestamp_utc": "2026-10-01T14:28:42.243228+00:00",
+  "status": "READY_FOR_LOCKED_TARGET_EVALUATION",
+  "ready_for_target": true,
+  "allow_target_evaluation": true,
+  "frozen_protocol_file": "config/frozen_protocol.json",
+  "frozen_protocol_sha256": "bbc6a43fcb3627ca1dc3f703c205fc29a394815dd32ffd914c6b9e176b15acc1",
+  "qualitative_protocol_file": "config/notebook09_qualitative_figure_plan.json",
+  "qualitative_protocol_sha256": "b31c46bbcdd9b6a7c7ed08bc53f32b28b8f847a54c310550b4eef845446f4687",
+  "training_complete": true,
+  "source_selection_complete": true,
+  "source_calibration_complete": true,
+  "three_seed_b050_complete": true,
+  "b025_deferred": true,
+  "target_accessed_before_freeze": false,
+  "target_lock": "UNLOCKED_ONLY_FOR_NOTEBOOK_09",
+  "next": "Attach locked MedSeg target and run Notebook 09 exactly once under frozen_protocol.json."
+}

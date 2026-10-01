@@ -1,0 +1,113 @@
+{
+  "project": "EviCT",
+  "stage": "PRE_TARGET_QUALITATIVE_PROTOCOL_FREEZE",
+  "timestamp_utc": "2026-10-01T14:28:42.240248+00:00",
+  "status": "FROZEN_BEFORE_TARGET_ACCESS",
+  "anchor_method": "confidence_only_ema",
+  "anchor_method_selection_rule": "Highest mean source-selection b050 Dice across seeds 17, 42, 2026.",
+  "target_case_selection_may_not_change_after_unlock": true,
+  "selection_rules": {
+    "performance_rank_cases": {
+      "ranking": "mean target case Dice across the three seeds for the frozen anchor method",
+      "fixed_ranks": [
+        "best",
+        "25th_percentile_rank",
+        "median_rank",
+        "75th_percentile_rank",
+        "worst"
+      ]
+    },
+    "lesion_burden_cases": {
+      "ranking": "reference lesion pixel burden among non-empty eligible target cases",
+      "fixed_ranks": [
+        "smallest_nonempty",
+        "25th_percentile",
+        "median",
+        "75th_percentile",
+        "largest"
+      ]
+    },
+    "uncertainty_cases": {
+      "ranking": "frozen four-view case uncertainty score from the anchor method",
+      "fixed_ranks": [
+        "lowest",
+        "median",
+        "highest"
+      ]
+    },
+    "failure_cases": {
+      "fixed_rules": [
+        "maximum false-negative burden",
+        "maximum false-positive burden",
+        "lowest Dice among non-empty references",
+        "highest uncertainty among correct/high-Dice cases",
+        "lowest uncertainty among poor-Dice cases"
+      ]
+    },
+    "empty_reference_cases": {
+      "rule": "up to first three eligible empty-reference cases in lexicographic case-id order"
+    }
+  },
+  "per_case_visual_layers": [
+    "original CT",
+    "reference lesion mask",
+    "predicted binary mask",
+    "calibrated probability heatmap",
+    "TP/FP/FN error overlay",
+    "four-view uncertainty heatmap",
+    "four-view variance heatmap"
+  ],
+  "comparison_panels": [
+    {
+      "name": "cross_method_case_atlas",
+      "content": "same fixed target slice/case shown for supervised, confidence-only EMA, and agreement-filtered EMA"
+    },
+    {
+      "name": "cross_seed_consistency_atlas",
+      "content": "same case shown for seeds 17, 42, 2026 for each semi-supervised method"
+    },
+    {
+      "name": "uncertainty_error_alignment",
+      "content": "CT + GT + prediction + uncertainty + TP/FP/FN error map"
+    },
+    {
+      "name": "four_view_stability",
+      "content": "identity, contrast, +5 degree, -5 degree aligned predictions plus mean and variance"
+    },
+    {
+      "name": "small_lesion_atlas",
+      "content": "fixed smallest-lesion cases emphasizing missed boundaries and lesion sensitivity"
+    },
+    {
+      "name": "failure_taxonomy_atlas",
+      "content": "fixed FP-heavy, FN-heavy, uncertain, and low-Dice cases; failures are retained"
+    },
+    {
+      "name": "probability_boundary_atlas",
+      "content": "zoomed lesion-boundary probability maps for deterministic fixed-rank cases"
+    },
+    {
+      "name": "seed_variability_atlas",
+      "content": "binary masks and probability maps from all three seeds on identical target cases"
+    }
+  ],
+  "minimum_qualitative_output": {
+    "main_manuscript_composite_figures": 6,
+    "supplementary_composite_figures": 8,
+    "minimum_unique_cases": 12,
+    "retain_all_fixed_rank_failures": true
+  },
+  "rendering_standard": {
+    "primary_vector": "PDF",
+    "secondary_vector": "SVG",
+    "raster": "PNG 600 DPI",
+    "font_embedding": true,
+    "minimum_axis_font_pt": 11,
+    "minimum_data_label_font_pt": 10,
+    "bold_numeric_labels": true,
+    "same_CT_window_within_comparison": true,
+    "no_cherry_picking": true,
+    "save_case_selection_manifest": true
+  },
+  "target_accessed": false
+}

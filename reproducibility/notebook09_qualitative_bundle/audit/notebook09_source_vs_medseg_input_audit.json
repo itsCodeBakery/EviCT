@@ -1,0 +1,19 @@
+{
+  "stage": "NOTEBOOK_09_SOURCE_TARGET_INPUT_AUDIT",
+  "purpose": "diagnostic_only",
+  "source_groups": [
+    "SegDB-2 Coronacases",
+    "SegDB-2 Radiopaedia"
+  ],
+  "target": "MedSeg",
+  "source_slices_per_case_sampled": 12,
+  "target_images": 100,
+  "model_inference_performed": false,
+  "training_performed": false,
+  "threshold_changed": false,
+  "temperature_changed": false,
+  "target_tuning": false,
+  "scientific_settings_changed": false,
+  "summary_csv": "tables/notebook09_source_vs_medseg_intensity_summary.csv",
+  "distribution_distance_csv": "tables/notebook09_source_vs_medseg_distribution_distances.csv"
+}

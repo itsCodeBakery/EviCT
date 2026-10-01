@@ -1,0 +1,9 @@
+rank,case_id,selection_rule
+1,medseg_slice_000,top cases by three-seed mean Dice for agreement_filtered_ema (single-view)
+2,medseg_slice_032,top cases by three-seed mean Dice for agreement_filtered_ema (single-view)
+3,medseg_slice_009,top cases by three-seed mean Dice for agreement_filtered_ema (single-view)
+4,medseg_slice_008,top cases by three-seed mean Dice for agreement_filtered_ema (single-view)
+5,medseg_slice_096,top cases by three-seed mean Dice for agreement_filtered_ema (single-view)
+6,medseg_slice_079,top cases by three-seed mean Dice for agreement_filtered_ema (single-view)
+7,medseg_slice_035,top cases by three-seed mean Dice for agreement_filtered_ema (single-view)
+8,medseg_slice_067,top cases by three-seed mean Dice for agreement_filtered_ema (single-view)

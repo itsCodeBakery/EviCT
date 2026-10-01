@@ -1,0 +1,42 @@
+{
+  "timestamp_utc": "2026-10-01T16:12:13.105456+00:00",
+  "stage": "NOTEBOOK_09_CORRECTED_LOCKED_TARGET_EVALUATION",
+  "status": "CORRECTED_TARGET_EVALUATION_COMPLETE",
+  "frozen_protocol_sha256": "bbc6a43fcb3627ca1dc3f703c205fc29a394815dd32ffd914c6b9e176b15acc1",
+  "qualitative_protocol_sha256": "b31c46bbcdd9b6a7c7ed08bc53f32b28b8f847a54c310550b4eef845446f4687",
+  "software_bug": {
+    "affected_stage": "initial Notebook-09 MedSeg preprocessing",
+    "incorrect_implementation": "signed MedSeg CT values divided by 255 and clipped to [0,1]",
+    "effect": "large proportion of negative CT intensity values collapsed to zero",
+    "correction": "apply pre-existing source CT preprocessing: clip [-1250,250], then linearly scale [0,1]",
+    "correction_selected_using_target_scores": false,
+    "correction_basis": "pre-existing source preprocessing contract plus representation audit",
+    "same_correction_applied_to_all_methods": true,
+    "same_correction_applied_to_all_seeds": true
+  },
+  "previous_target_results": {
+    "status": "INVALID_DUE_TO_PREPROCESSING_IMPLEMENTATION_BUG",
+    "preserved_for_audit": true
+  },
+  "scientific_changes": {
+    "checkpoints": false,
+    "thresholds": false,
+    "temperatures": false,
+    "prompts": false,
+    "model_architecture": false,
+    "training": false,
+    "postprocessing": false,
+    "qualitative_selection_rules": false
+  },
+  "pilot_reproduction": {
+    "reference_dice": 0.703727,
+    "full_run_dice": 0.703727118062088,
+    "difference": 1.18062087994808e-07,
+    "passed": true
+  },
+  "prediction_manifest": "tables/notebook09_corrected_prediction_manifest.csv",
+  "case_metrics": "tables/notebook09_corrected_target_case_metrics.csv",
+  "seed_summary": "tables/notebook09_corrected_target_seed_summary.csv",
+  "method_summary": "tables/notebook09_corrected_target_method_summary.csv",
+  "paired_bootstrap": "tables/notebook09_corrected_paired_bootstrap.csv"
+}
