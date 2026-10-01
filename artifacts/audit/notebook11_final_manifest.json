@@ -1,0 +1,89 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_11_FINAL",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T19:11:42.671309+00:00",
+  "artifact_count": 16,
+  "artifacts": [
+    {
+      "path": "artifacts/audit/notebook11a_deterministic_reporting.json",
+      "size_bytes": 1933,
+      "sha256": "ebc8459d254a8c990759a9fd1c7a082f7ae3a3808ea3dab2fbd791dcd0ab358b"
+    },
+    {
+      "path": "artifacts/audit/notebook11b_qwen_strict_reporting.json",
+      "size_bytes": 1425,
+      "sha256": "b0de45c8916e996482b37cbb7422e3bc81c0ae04ed873c43ceb5e99bfca35f22"
+    },
+    {
+      "path": "artifacts/audit/notebook11c_free_text_reporting.json",
+      "size_bytes": 1663,
+      "sha256": "6109f7fd0e5cb91256ebe352c398a5df86a6922b658b9d4a866331f7e345699e"
+    },
+    {
+      "path": "artifacts/audit/notebook11c_validator_correction.json",
+      "size_bytes": 1126,
+      "sha256": "7f92f8d07dcdcf263958d224f30df96ba027765f749e2c520b769d3c814f0bf4"
+    },
+    {
+      "path": "artifacts/audit/notebook11c_validator_correction_v2.json",
+      "size_bytes": 742,
+      "sha256": "b228962b8310843c17799d5a24670d6ba5035b42e031de782f8cff18ee39e19e"
+    },
+    {
+      "path": "config/notebook11_sentence_catalog.json",
+      "size_bytes": 3594,
+      "sha256": "b7f8a5ed5ddc1961e56e46e8ad2f2f27f7a525ba2a25714d567310fcfa2cb188"
+    },
+    {
+      "path": "config/notebook11_strict_id_protocol.json",
+      "size_bytes": 1793,
+      "sha256": "58abff54aa77d15d7b1b4cc1d253d997c719f47ba50d849c42c69ef6ed4ce09b"
+    },
+    {
+      "path": "tables/notebook11_deterministic_report_manifest.csv",
+      "size_bytes": 218195,
+      "sha256": "c871d6ad1f9abaf0c51efe10b015e8200975c162325499aebb2baf0de35374a2"
+    },
+    {
+      "path": "tables/notebook11b_strict_report_manifest.csv",
+      "size_bytes": 178663,
+      "sha256": "76b3f8f4be6d446fd2c517e1a0a461436f9da89758521d2d13565b8f2c387316"
+    },
+    {
+      "path": "tables/notebook11c_final_free_text_manifest.csv",
+      "size_bytes": 242689,
+      "sha256": "4712d28d0a3b9fc9875a1255ded173d2979b7533c6d6c15f80e9eb58f49a45cc"
+    },
+    {
+      "path": "reports/notebook11_free_text/raw_unique_generations.jsonl",
+      "size_bytes": 35109,
+      "sha256": "e8277e957085e0fd8a44dbf70a3c4d3ebe83081852ee1396804c6383a8360405"
+    },
+    {
+      "path": "tables/notebook11_reporting_arm_summary.csv",
+      "size_bytes": 596,
+      "sha256": "bf0ec792cfef35fabea2f2409bf07f0c4be78011cfb99435b9899f94d422aa02"
+    },
+    {
+      "path": "tables/notebook11_reporting_arm_summary.tex",
+      "size_bytes": 704,
+      "sha256": "0c8c9fa715ba27b2f3bee57e201566268b712d02052160cc65d961018931e24b"
+    },
+    {
+      "path": "config/notebook11_final_freeze.json",
+      "size_bytes": 4158,
+      "sha256": "58280f0581388695126e8d24ff04277313f0587d88fdcf5dc5b921dbeb18211c"
+    },
+    {
+      "path": "reports/notebook11_final_state.md",
+      "size_bytes": 2374,
+      "sha256": "e3732769483ddc5a95942266f0e33375a98dcebd2c07d1e0ae00051ccfb2bcea"
+    },
+    {
+      "path": "handoff/NOTEBOOK11_STATE.md",
+      "size_bytes": 888,
+      "sha256": "28257ba15895bc65870a7387a2c41b041fa44512351bb220aef8fd2b88dcbd45"
+    }
+  ]
+}

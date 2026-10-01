@@ -1,0 +1,91 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_11_FINAL",
+  "status": "NOTEBOOK_11_COMPLETE",
+  "timestamp_utc": "2026-10-01T19:11:42.665585+00:00",
+  "completed_stages": {
+    "11A_deterministic_reporting": "PASS",
+    "11B_strict_sentence_id_qwen": "PASS",
+    "11C_controlled_free_text": "PASS",
+    "11C_validator_correction_R1": "PASS",
+    "11C_validator_correction_R2": "PASS",
+    "11D_final_freeze": "PASS"
+  },
+  "sentence_catalog": {
+    "path": "config/notebook11_sentence_catalog.json",
+    "sha256": "b7f8a5ed5ddc1961e56e46e8ad2f2f27f7a525ba2a25714d567310fcfa2cb188"
+  },
+  "strict_protocol": {
+    "path": "config/notebook11_strict_id_protocol.json",
+    "sha256": "58abff54aa77d15d7b1b4cc1d253d997c719f47ba50d849c42c69ef6ed4ce09b"
+  },
+  "reporting_arms": {
+    "deterministic": {
+      "records": 900,
+      "direct_valid": 900,
+      "fallback": 0,
+      "final_safe": 900
+    },
+    "strict_sentence_id_qwen": {
+      "records": 900,
+      "direct_valid": 896,
+      "direct_valid_rate": 0.9955555555555555,
+      "fallback": 4,
+      "fallback_rate": 0.0044444444444444444,
+      "final_safe": 900,
+      "protected_numbers_seen_by_llm": false,
+      "final_reports_python_rendered": true
+    },
+    "controlled_free_text_qwen": {
+      "records": 900,
+      "accepted": 896,
+      "acceptance_rate": 0.9955555555555555,
+      "fallback": 4,
+      "fallback_rate": 0.0044444444444444444,
+      "numeric_copy_accuracy": 1.0,
+      "research_disclaimer_compliance": 1.0,
+      "exact_target_wording_compliance": 0.9955555555555555,
+      "final_safe": 900,
+      "raw_generation_sha256": "e8277e957085e0fd8a44dbf70a3c4d3ebe83081852ee1396804c6383a8360405",
+      "validator_corrections_used_new_generations": false
+    }
+  },
+  "final_remaining_free_text_failure": {
+    "type": "empty_prediction_wording",
+    "records": 4,
+    "interpretation": "Qwen produced semantically similar but non-exact empty-prediction wording despite an explicit exact-phrase instruction.",
+    "numerical_error": false,
+    "clinical_hallucination_claimed": false,
+    "safe_fallback_applied": true
+  },
+  "supported_interpretations": [
+    "The deterministic reporting pipeline produced 900/900 valid evidence-grounded reports.",
+    "The strict sentence-ID realization required deterministic fallback for four records because one normalized state used an invalid JSON field name.",
+    "The controlled free-text realization achieved 896/900 accepted reports after correction of validator-only software bugs.",
+    "The four remaining free-text failures were exact-wording instruction-following failures on empty predictions.",
+    "Protected numerical lesion extents retained 100% numerical copy integrity in the final controlled free-text evaluation.",
+    "All rejected strict or free-text outputs were retained for audit and replaced by the validated deterministic report.",
+    "All three reporting pathways therefore produced 900/900 safe deliverable outputs after deterministic fallback."
+  ],
+  "prohibited_interpretations": [
+    "Do not describe the four exact-wording failures as clinical hallucinations.",
+    "Do not claim unrestricted free text has proven complete clinical factual correctness.",
+    "Do not claim expert-level report quality without reader evaluation.",
+    "Do not claim the strict LLM itself generated protected numerical values.",
+    "Do not erase or overwrite the original Notebook-11C 0% validator result; preserve it as the pre-correction software-audit record."
+  ],
+  "validator_correction_provenance": {
+    "original_raw_generation_sha256": "e8277e957085e0fd8a44dbf70a3c4d3ebe83081852ee1396804c6383a8360405",
+    "new_qwen_generations_after_original_11C": 0,
+    "model_changed": false,
+    "prompt_changed": false,
+    "evidence_changed": false,
+    "target_data_used": false
+  },
+  "optional_retrieval_ablation": {
+    "status": "NOT_RUN_OPTIONAL",
+    "reason": "Retrieval was optional in the core plan. The main reporting comparison is complete without introducing an additional retrieval variable.",
+    "core_claims_depend_on_retrieval": false
+  },
+  "next_stage": "NOTEBOOK_12_REPORTING_ROBUSTNESS_EFFICIENCY"
+}
