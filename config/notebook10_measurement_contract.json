@@ -1,0 +1,184 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_10A",
+  "status": "MEASUREMENT_AND_EVIDENCE_CONTRACT_FROZEN",
+  "created_utc": "2026-10-01T18:35:34.303078+00:00",
+  "upstream_protocol": {
+    "file": "config/frozen_protocol.json",
+    "sha256": "bbc6a43fcb3627ca1dc3f703c205fc29a394815dd32ffd914c6b9e176b15acc1",
+    "status": "FINAL_PROTOCOL_FROZEN",
+    "scope": "b050_three_seed_reduced_compute_primary_study"
+  },
+  "target_scope": {
+    "dataset": "MedSeg",
+    "eligible_images": 100,
+    "evaluation_unit": "image_level_selected_slice",
+    "input_dimensionality": "2D",
+    "complete_volume": false,
+    "verified_patient_grouping": false,
+    "verified_pixel_spacing": false,
+    "verified_slice_spacing": false,
+    "verified_orientation_for_laterality": false,
+    "deployable_lung_mask_denominator": false,
+    "reason": "Kaggle MedSeg arrays provide selected 2D images; verified patient grouping, complete-volume geometry, physical pixel spacing, and deployable lung denominator are not established for the locked core evaluation."
+  },
+  "measurement_reference_grid": {
+    "rule": "original target image grid",
+    "shape": [
+      512,
+      512
+    ],
+    "training_grid_measurements_prohibited": true,
+    "padding_measurements_prohibited": true,
+    "thresholding_rule": "use the already-frozen calibrated operating point for each seed/method",
+    "target_dependent_postprocessing": false
+  },
+  "supported_fields": {
+    "predicted_target_opacity_present": {
+      "supported": true,
+      "units": "boolean",
+      "source": "frozen predicted lesion mask"
+    },
+    "lesion_extent_pixels": {
+      "supported": true,
+      "units": "pixels",
+      "grid": "original_512x512",
+      "description": "number of predicted target-opacity pixels on the original image grid"
+    },
+    "single_view_prediction": {
+      "supported": true,
+      "role": "primary"
+    },
+    "four_view_prediction": {
+      "supported": true,
+      "role": "secondary"
+    },
+    "case_uncertainty_score": {
+      "supported": true,
+      "definition_source": "config/frozen_protocol.json"
+    },
+    "view_stability_range": {
+      "supported": true,
+      "label": "stability range",
+      "must_not_be_called": "95% confidence interval",
+      "measurement": "lesion extent across the four fixed views",
+      "availability_condition": "individual aligned four-view prediction information must be present in the preserved Notebook-09 artifact"
+    }
+  },
+  "unsupported_fields": {
+    "lesion_area_mm2": {
+      "supported": false,
+      "reason": "verified physical pixel spacing unavailable"
+    },
+    "lesion_volume_mm3": {
+      "supported": false,
+      "reason": "complete volume and voxel geometry unavailable"
+    },
+    "lesion_volume_cm3": {
+      "supported": false,
+      "reason": "complete volume and voxel geometry unavailable"
+    },
+    "whole_lung_involvement_percent": {
+      "supported": false,
+      "reason": "deployable lung-mask denominator unavailable"
+    },
+    "volume_lung_involvement_percent": {
+      "supported": false,
+      "reason": "complete volume and lung denominator unavailable"
+    },
+    "patient_level_burden": {
+      "supported": false,
+      "reason": "verified patient grouping unavailable"
+    },
+    "laterality": {
+      "supported": false,
+      "reason": "verified orientation and lung separation are required before laterality may be emitted"
+    },
+    "lobar_location": {
+      "supported": false,
+      "reason": "lobes may not be inferred from an image midpoint"
+    },
+    "ggo_vs_consolidation_diagnosis": {
+      "supported": false,
+      "reason": "binary lesion segmentation does not validate subtype diagnosis"
+    },
+    "etiologic_diagnosis": {
+      "supported": false,
+      "reason": "target-opacity segmentation does not establish disease etiology"
+    }
+  },
+  "uncertainty_eligibility": {
+    "source_only": true,
+    "target_used_to_define_thresholds": false,
+    "source_score_file": "tables/notebook08_final_uncertainty_case_scores.csv",
+    "source_score_sha256": "232943783baaeeced57615e4074e2ae84b9e239c6673a909a6c8c4e826e32087",
+    "source_calibration_cases": [
+      "coronacases_004",
+      "coronacases_006",
+      "radiopaedia_10_85902_3",
+      "radiopaedia_40_86625_0"
+    ],
+    "source_calibration_case_count": 4,
+    "default_percentile": 80,
+    "default_rule": "field eligible when case uncertainty score <= the method-and-seed source-calibration p80 threshold",
+    "coverage_curve_percentiles": [
+      50,
+      70,
+      80,
+      90,
+      100
+    ],
+    "percentile_method": "numpy.percentile linear",
+    "derivation_status": "predeclared plan percentiles recovered from frozen Notebook-08 source-calibration case scores",
+    "verification_against_notebook08_frozen_values": {
+      "verified_percentiles": [
+        50,
+        75,
+        90,
+        95
+      ],
+      "maximum_absolute_error": 5.551115123125783e-17,
+      "passed": true
+    },
+    "important_limitation": "only four source calibration cases were available; the resulting percentiles are coarse and external coverage must be reported rather than assumed"
+  },
+  "evidence_constructor_rules": {
+    "ground_truth_allowed": false,
+    "target_reference_mask_allowed": false,
+    "target_metric_table_allowed": false,
+    "oracle_measurement_allowed": false,
+    "prediction_only": true,
+    "prediction_manifest_allowed": true,
+    "frozen_protocol_allowed": true,
+    "raw_target_image_allowed": true,
+    "geometry_metadata_allowed": true,
+    "evaluation_separation": "ground truth may be accessed only by a separate evaluation function after evidence construction"
+  },
+  "empty_prediction_language": {
+    "allowed": "no target opacity detected by the model",
+    "prohibited": [
+      "normal scan",
+      "no disease",
+      "COVID negative",
+      "healthy lungs"
+    ]
+  },
+  "prohibited_claims": [
+    "whole-volume measurement from selected 2D MedSeg image",
+    "patient-level burden without verified patient grouping",
+    "physical area without verified pixel spacing",
+    "lung-normalized burden without a supported lung denominator",
+    "laterality without verified orientation and lung separation",
+    "lobar location inferred from image midpoint",
+    "autonomous treatment recommendation"
+  ],
+  "software_change_status": {
+    "training_performed": false,
+    "model_changed": false,
+    "checkpoint_changed": false,
+    "segmentation_threshold_changed": false,
+    "temperature_changed": false,
+    "postprocessing_changed": false,
+    "target_performance_used_for_contract": false
+  }
+}

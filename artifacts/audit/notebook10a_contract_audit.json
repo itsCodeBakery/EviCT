@@ -1,0 +1,39 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_10A",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T18:35:34.305870+00:00",
+  "checks": {
+    "frozen_protocol_verified": true,
+    "source_uncertainty_table_only_contains_calibration_cases": true,
+    "expected_source_uncertainty_rows": 36,
+    "observed_source_uncertainty_rows": 36,
+    "frozen_percentiles_reproduced": true,
+    "max_percentile_reproduction_error": 5.551115123125783e-17,
+    "predeclared_p70_p80_p100_recovered_from_source_only": true,
+    "target_scores_used": false,
+    "target_ground_truth_used": false,
+    "target_metrics_used": false,
+    "ground_truth_prohibited_from_evidence_constructor": true,
+    "whole_volume_measurement_disabled": true,
+    "physical_area_disabled": true,
+    "lung_burden_disabled": true,
+    "laterality_disabled": true,
+    "lobar_location_disabled": true
+  },
+  "artifacts": {
+    "measurement_contract": {
+      "path": "config/notebook10_measurement_contract.json",
+      "sha256": "f76d556c5a95966448ecc47df01ebfaf6c78727476ef24c1486aa4e05304eb01"
+    },
+    "evidence_schema": {
+      "path": "config/notebook10_evidence_schema.json",
+      "sha256": "cb2b2299b4fd3d84e64b95d2282f76739a804ccff4a003579094fc5b2f0c1f38"
+    },
+    "source_uncertainty_gate_table": {
+      "path": "tables/notebook10_source_uncertainty_gates.csv",
+      "sha256": "c0d27dba56356674d24d20bc7df706c9f75b83b6d51c8a1571c948d6ed94bf2c"
+    }
+  },
+  "protocol_note": "Research plan requested p50/p70/p80/p90/p100 source-calibration coverage gates with p80 default. Notebook-08 frozen_protocol.json stored p50/p75/p90/p95, while the raw frozen source calibration case scores were also preserved. Notebook-10A recovered the predeclared p70/p80/p100 values only from those frozen source scores using the same NumPy linear percentile convention verified against the already-frozen values. No target result was used."
+}

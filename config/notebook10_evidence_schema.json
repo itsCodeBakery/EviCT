@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EviCT Notebook-10 Image-Level Evidence Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "seed",
+    "method",
+    "evaluation_unit",
+    "provenance",
+    "geometry",
+    "target_lesion_evidence",
+    "uncertainty",
+    "eligibility",
+    "unsupported_fields",
+    "limitations"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "seed": {
+      "type": "integer",
+      "enum": [
+        17,
+        42,
+        2026
+      ]
+    },
+    "method": {
+      "type": "string",
+      "enum": [
+        "supervised",
+        "confidence_only_ema",
+        "agreement_filtered_ema"
+      ]
+    },
+    "evaluation_unit": {
+      "const": "image_level_selected_slice"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_image_sha256",
+        "prediction_file",
+        "prediction_sha256",
+        "checkpoint_sha256",
+        "frozen_protocol_sha256",
+        "preprocessing"
+      ],
+      "properties": {
+        "source_image_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "prediction_file": {
+          "type": "string"
+        },
+        "prediction_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "checkpoint_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "frozen_protocol_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "preprocessing": {
+          "type": "string"
+        }
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "original_shape",
+        "complete_volume",
+        "spacing_status",
+        "orientation_status",
+        "measurement_units"
+      ],
+      "properties": {
+        "original_shape": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": 512
+            },
+            {
+              "const": 512
+            }
+          ],
+          "items": false
+        },
+        "complete_volume": {
+          "const": false
+        },
+        "spacing_status": {
+          "const": "unverified"
+        },
+        "orientation_status": {
+          "const": "insufficient_for_laterality"
+        },
+        "measurement_units": {
+          "const": "pixels"
+        }
+      }
+    },
+    "target_lesion_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "single_view_lesion_pixels",
+        "single_view_target_opacity_detected",
+        "four_view_lesion_pixels",
+        "stability_range_pixels"
+      ],
+      "properties": {
+        "single_view_lesion_pixels": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 262144
+        },
+        "single_view_target_opacity_detected": {
+          "type": "boolean"
+        },
+        "four_view_lesion_pixels": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 262144
+        },
+        "stability_range_pixels": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "minimum": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maximum": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "range": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "minimum",
+            "maximum",
+            "range"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_uncertainty_score",
+        "source_p80_gate",
+        "passes_default_gate"
+      ],
+      "properties": {
+        "case_uncertainty_score": {
+          "type": "number",
+          "minimum": 0
+        },
+        "source_p80_gate": {
+          "type": "number",
+          "minimum": 0
+        },
+        "passes_default_gate": {
+          "type": "boolean"
+        }
+      }
+    },
+    "eligibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lesion_extent_pixels",
+        "physical_area",
+        "whole_volume",
+        "lung_burden",
+        "laterality",
+        "lobar_location"
+      ],
+      "properties": {
+        "lesion_extent_pixels": {
+          "type": "boolean"
+        },
+        "physical_area": {
+          "const": false
+        },
+        "whole_volume": {
+          "const": false
+        },
+        "lung_burden": {
+          "const": false
+        },
+        "laterality": {
+          "const": false
+        },
+        "lobar_location": {
+          "const": false
+        }
+      }
+    },
+    "unsupported_fields": {
+      "type": "object"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    }
+  }
+}
