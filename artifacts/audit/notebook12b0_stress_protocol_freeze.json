@@ -1,0 +1,184 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_12B0",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T19:25:56.313835+00:00",
+  "protocol_file": "config/notebook12b_stress_protocol.json",
+  "protocol_sha256": "65a29ad93ff403bcdf299059e1243b79528a1340a3683aaa9471d7598d29ac9d",
+  "perturbations": [
+    "clean",
+    "gaussian_noise_sigma_0p03",
+    "gaussian_blur_sigma_1p0",
+    "resolution_half"
+  ],
+  "methods": [
+    "supervised",
+    "confidence_only_ema",
+    "agreement_filtered_ema"
+  ],
+  "training_seeds": [
+    17,
+    42,
+    2026
+  ],
+  "expected_model_runs": 3600,
+  "stress_inference_passes": 2700,
+  "clean_validation_passes": 900,
+  "checkpoint_inventory": [
+    {
+      "seed": 17,
+      "method": "supervised",
+      "path": "artifacts/large/notebook07/b050/seed_17/supervised/selected_best.pt",
+      "exists": false,
+      "sha256": null,
+      "expected_sha256": "951f54537c9d712525b7192219966dd9e0c414c10e860a93366681be51ac2541",
+      "hash_match": false,
+      "recovery_release_tag": "evict-nb07-b050-seed17-supervised-final-step5000"
+    },
+    {
+      "seed": 17,
+      "method": "confidence_only_ema",
+      "path": "artifacts/large/notebook07/b050/seed_17/confidence_only_ema/selected_best.pt",
+      "exists": false,
+      "sha256": null,
+      "expected_sha256": "6442561030cd15ca0f22a01a7dd0c3074829cae480cc632cf225e97cfb33d2e0",
+      "hash_match": false,
+      "recovery_release_tag": "evict-nb07-b050-seed17-confidence_only_ema-final-step3250"
+    },
+    {
+      "seed": 17,
+      "method": "agreement_filtered_ema",
+      "path": "artifacts/large/notebook07/b050/seed_17/agreement_filtered_ema/selected_best.pt",
+      "exists": false,
+      "sha256": null,
+      "expected_sha256": "1ab434a8634082d8c6701fcc24c35115b302a7508bc27ed851946726b2edb8b8",
+      "hash_match": false,
+      "recovery_release_tag": "evict-nb07-b050-seed17-agreement_filtered_ema-final-step3250"
+    },
+    {
+      "seed": 42,
+      "method": "supervised",
+      "path": "artifacts/large/notebook07/b050/seed_42/supervised/selected_best.pt",
+      "exists": false,
+      "sha256": null,
+      "expected_sha256": "91ad9b1fdf8b0554a12eb22c5f68088302346a779287cff1bbdfd76fb725fd72",
+      "hash_match": false,
+      "recovery_release_tag": "evict-nb07-b050-seed42-supervised-final-step4250"
+    },
+    {
+      "seed": 42,
+      "method": "confidence_only_ema",
+      "path": "artifacts/large/notebook07/b050/seed_42/confidence_only_ema/selected_best.pt",
+      "exists": false,
+      "sha256": null,
+      "expected_sha256": "13784fafa978be4e8b3976a632761a1f80bb6d2e2a5e1f104b5cf217336c1f09",
+      "hash_match": false,
+      "recovery_release_tag": "evict-nb07-b050-seed42-confidence_only_ema-final-step3500"
+    },
+    {
+      "seed": 42,
+      "method": "agreement_filtered_ema",
+      "path": "artifacts/large/notebook07/b050/seed_42/agreement_filtered_ema/selected_best.pt",
+      "exists": false,
+      "sha256": null,
+      "expected_sha256": "c21508029cc21cadcc88004c36dd8acc8a3bfbe885646b7a64e358f65e1d7e3a",
+      "hash_match": false,
+      "recovery_release_tag": "evict-nb07-b050-seed42-agreement_filtered_ema-final-step5000"
+    },
+    {
+      "seed": 2026,
+      "method": "supervised",
+      "path": "artifacts/large/notebook07/b050/seed_2026/supervised/selected_best.pt",
+      "exists": false,
+      "sha256": null,
+      "expected_sha256": "24afba620d7569d980f963ec53cc7dcbb82474aeaa8057972722786a71a8caa6",
+      "hash_match": false,
+      "recovery_release_tag": "evict-nb07-b050-seed2026-supervised-final-step4500"
+    },
+    {
+      "seed": 2026,
+      "method": "confidence_only_ema",
+      "path": "artifacts/large/notebook07/b050/seed_2026/confidence_only_ema/selected_best.pt",
+      "exists": false,
+      "sha256": null,
+      "expected_sha256": "d7cd9310594f89057e6b64d191f2cb837cca0b149ccf0d1f2666985cd0eee933",
+      "hash_match": false,
+      "recovery_release_tag": "evict-nb07-b050-seed2026-confidence_only_ema-final-step3500"
+    },
+    {
+      "seed": 2026,
+      "method": "agreement_filtered_ema",
+      "path": "artifacts/large/notebook07/b050/seed_2026/agreement_filtered_ema/selected_best.pt",
+      "exists": false,
+      "sha256": null,
+      "expected_sha256": "a49c71ec63a7a63b6140e6668a68e128ed982975c10b6f98d409af4f9cc5ac55",
+      "hash_match": false,
+      "recovery_release_tag": "evict-nb07-b050-seed2026-agreement_filtered_ema-final-step3500"
+    }
+  ],
+  "local_checkpoints_ready": false,
+  "missing_or_invalid_checkpoint_count": 9,
+  "missing_or_invalid_checkpoints": [
+    {
+      "seed": 17,
+      "method": "supervised",
+      "path": "/kaggle/working/EViCT/artifacts/large/notebook07/b050/seed_17/supervised/selected_best.pt",
+      "release_tag": "evict-nb07-b050-seed17-supervised-final-step5000"
+    },
+    {
+      "seed": 17,
+      "method": "confidence_only_ema",
+      "path": "/kaggle/working/EViCT/artifacts/large/notebook07/b050/seed_17/confidence_only_ema/selected_best.pt",
+      "release_tag": "evict-nb07-b050-seed17-confidence_only_ema-final-step3250"
+    },
+    {
+      "seed": 17,
+      "method": "agreement_filtered_ema",
+      "path": "/kaggle/working/EViCT/artifacts/large/notebook07/b050/seed_17/agreement_filtered_ema/selected_best.pt",
+      "release_tag": "evict-nb07-b050-seed17-agreement_filtered_ema-final-step3250"
+    },
+    {
+      "seed": 42,
+      "method": "supervised",
+      "path": "/kaggle/working/EViCT/artifacts/large/notebook07/b050/seed_42/supervised/selected_best.pt",
+      "release_tag": "evict-nb07-b050-seed42-supervised-final-step4250"
+    },
+    {
+      "seed": 42,
+      "method": "confidence_only_ema",
+      "path": "/kaggle/working/EViCT/artifacts/large/notebook07/b050/seed_42/confidence_only_ema/selected_best.pt",
+      "release_tag": "evict-nb07-b050-seed42-confidence_only_ema-final-step3500"
+    },
+    {
+      "seed": 42,
+      "method": "agreement_filtered_ema",
+      "path": "/kaggle/working/EViCT/artifacts/large/notebook07/b050/seed_42/agreement_filtered_ema/selected_best.pt",
+      "release_tag": "evict-nb07-b050-seed42-agreement_filtered_ema-final-step5000"
+    },
+    {
+      "seed": 2026,
+      "method": "supervised",
+      "path": "/kaggle/working/EViCT/artifacts/large/notebook07/b050/seed_2026/supervised/selected_best.pt",
+      "release_tag": "evict-nb07-b050-seed2026-supervised-final-step4500"
+    },
+    {
+      "seed": 2026,
+      "method": "confidence_only_ema",
+      "path": "/kaggle/working/EViCT/artifacts/large/notebook07/b050/seed_2026/confidence_only_ema/selected_best.pt",
+      "release_tag": "evict-nb07-b050-seed2026-confidence_only_ema-final-step3500"
+    },
+    {
+      "seed": 2026,
+      "method": "agreement_filtered_ema",
+      "path": "/kaggle/working/EViCT/artifacts/large/notebook07/b050/seed_2026/agreement_filtered_ema/selected_best.pt",
+      "release_tag": "evict-nb07-b050-seed2026-agreement_filtered_ema-final-step3500"
+    }
+  ],
+  "target_images_accessed": false,
+  "target_masks_accessed": false,
+  "target_performance_accessed_for_protocol_design": false,
+  "model_changed": false,
+  "thresholds_changed": false,
+  "temperatures_changed": false,
+  "retraining": false
+}

@@ -1,0 +1,326 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_12B0",
+  "status": "SYNTHETIC_STRESS_PROTOCOL_FROZEN",
+  "timestamp_utc": "2026-10-01T19:25:56.310593+00:00",
+  "scientific_scope": {
+    "experiment": "E11 synthetic robustness",
+    "claim": "Synthetic perturbation stress testing of locked external-target segmentation.",
+    "clinical_acquisition_robustness_claim": false,
+    "target_tuning": false
+  },
+  "methods": [
+    "supervised",
+    "confidence_only_ema",
+    "agreement_filtered_ema"
+  ],
+  "training_seeds": [
+    17,
+    42,
+    2026
+  ],
+  "inference_view": "single_identity_view_only",
+  "reason_four_view_not_stress_tested": "Single-view is the frozen primary target prediction and avoids confounding perturbation robustness with four-view test-time aggregation.",
+  "target_preprocessing": {
+    "raw_input": "MedSeg CT-like intensity",
+    "normalization": "clip [-1250,250] then map to [0,1]",
+    "perturbation_position": "after CT normalization and before existing 336x336 aspect-ratio resize/pad",
+    "preprocessing_code": "src/evict/preprocessing.py",
+    "preprocessing_code_sha256": "9316263daa60fe00e0d58b624da646554ad7564820ffec0b7934d4ece6f0c017"
+  },
+  "perturbations": {
+    "clean": {
+      "type": "identity",
+      "description": "Unmodified normalized target image.",
+      "parameters": {}
+    },
+    "gaussian_noise_sigma_0p03": {
+      "type": "gaussian_noise",
+      "description": "Zero-mean Gaussian noise applied in normalized [0,1] image space.",
+      "parameters": {
+        "sigma": 0.03,
+        "clip_after": [
+          0.0,
+          1.0
+        ],
+        "global_noise_seed": 12031,
+        "case_seed_rule": "SHA256(global_noise_seed || case_id), first 8 hexadecimal digits interpreted as uint32"
+      }
+    },
+    "gaussian_blur_sigma_1p0": {
+      "type": "gaussian_blur",
+      "description": "Mild Gaussian blur in normalized [0,1] image space.",
+      "parameters": {
+        "sigma": 1.0,
+        "kernel_size": 5,
+        "padding": "reflect"
+      }
+    },
+    "resolution_half": {
+      "type": "resolution_degradation",
+      "description": "Synthetic resolution degradation by bilinear downsampling from 512\u00d7512 to 256\u00d7256 and bilinear upsampling back to 512\u00d7512 before normal model preprocessing.",
+      "parameters": {
+        "original_size": [
+          512,
+          512
+        ],
+        "degraded_size": [
+          256,
+          256
+        ],
+        "scale": 0.5,
+        "downsample_interpolation": "bilinear",
+        "upsample_interpolation": "bilinear",
+        "align_corners": false
+      }
+    }
+  },
+  "per_seed_method": {
+    "17": {
+      "supervised": {
+        "checkpoint": "artifacts/large/notebook07/b050/seed_17/supervised/selected_best.pt",
+        "checkpoint_sha256": "951f54537c9d712525b7192219966dd9e0c414c10e860a93366681be51ac2541",
+        "selected_model_type": "student",
+        "temperature": 1.4728545571297371,
+        "calibrated_probability_threshold": 0.36002031162407777,
+        "source_selection_threshold": 0.3,
+        "source_uncertainty_case_score_percentiles": {
+          "50": 0.20223674923181534,
+          "75": 0.31209367141127586,
+          "90": 0.4770017489790917,
+          "95": 0.5319711081683635
+        }
+      },
+      "confidence_only_ema": {
+        "checkpoint": "artifacts/large/notebook07/b050/seed_17/confidence_only_ema/selected_best.pt",
+        "checkpoint_sha256": "6442561030cd15ca0f22a01a7dd0c3074829cae480cc632cf225e97cfb33d2e0",
+        "selected_model_type": "teacher",
+        "temperature": 1.165220148065054,
+        "calibrated_probability_threshold": 0.3258189378881313,
+        "source_selection_threshold": 0.3,
+        "source_uncertainty_case_score_percentiles": {
+          "50": 0.22277697175741196,
+          "75": 0.3155863769352436,
+          "90": 0.4555064991116524,
+          "95": 0.5021465398371219
+        }
+      },
+      "agreement_filtered_ema": {
+        "checkpoint": "artifacts/large/notebook07/b050/seed_17/agreement_filtered_ema/selected_best.pt",
+        "checkpoint_sha256": "1ab434a8634082d8c6701fcc24c35115b302a7508bc27ed851946726b2edb8b8",
+        "selected_model_type": "teacher",
+        "temperature": 1.1648211196277038,
+        "calibrated_probability_threshold": 0.32576422284288514,
+        "source_selection_threshold": 0.3,
+        "source_uncertainty_case_score_percentiles": {
+          "50": 0.22280671447515488,
+          "75": 0.3156850226223469,
+          "90": 0.4556200578808785,
+          "95": 0.5022650696337222
+        }
+      }
+    },
+    "42": {
+      "supervised": {
+        "checkpoint": "artifacts/large/notebook07/b050/seed_42/supervised/selected_best.pt",
+        "checkpoint_sha256": "91ad9b1fdf8b0554a12eb22c5f68088302346a779287cff1bbdfd76fb725fd72",
+        "selected_model_type": "student",
+        "temperature": 1.4848027885353126,
+        "calibrated_probability_threshold": 0.3610876079890711,
+        "source_selection_threshold": 0.3,
+        "source_uncertainty_case_score_percentiles": {
+          "50": 0.21346470713615417,
+          "75": 0.3213662728667259,
+          "90": 0.474034807085991,
+          "95": 0.5249243184924124
+        }
+      },
+      "confidence_only_ema": {
+        "checkpoint": "artifacts/large/notebook07/b050/seed_42/confidence_only_ema/selected_best.pt",
+        "checkpoint_sha256": "13784fafa978be4e8b3976a632761a1f80bb6d2e2a5e1f104b5cf217336c1f09",
+        "selected_model_type": "student",
+        "temperature": 1.500174141902964,
+        "calibrated_probability_threshold": 0.5671613226992874,
+        "source_selection_threshold": 0.6,
+        "source_uncertainty_case_score_percentiles": {
+          "50": 0.25937358289957047,
+          "75": 0.35876815021038055,
+          "90": 0.4741004288196564,
+          "95": 0.5125445216894149
+        }
+      },
+      "agreement_filtered_ema": {
+        "checkpoint": "artifacts/large/notebook07/b050/seed_42/agreement_filtered_ema/selected_best.pt",
+        "checkpoint_sha256": "c21508029cc21cadcc88004c36dd8acc8a3bfbe885646b7a64e358f65e1d7e3a",
+        "selected_model_type": "student",
+        "temperature": 1.787863708501951,
+        "calibrated_probability_threshold": 0.6163102863422357,
+        "source_selection_threshold": 0.7,
+        "source_uncertainty_case_score_percentiles": {
+          "50": 0.31180432438850403,
+          "75": 0.37945184111595154,
+          "90": 0.48467237949371345,
+          "95": 0.5197458922863005
+        }
+      }
+    },
+    "2026": {
+      "supervised": {
+        "checkpoint": "artifacts/large/notebook07/b050/seed_2026/supervised/selected_best.pt",
+        "checkpoint_sha256": "24afba620d7569d980f963ec53cc7dcbb82474aeaa8057972722786a71a8caa6",
+        "selected_model_type": "student",
+        "temperature": 1.5149113461565111,
+        "calibrated_probability_threshold": 0.363708228041759,
+        "source_selection_threshold": 0.3,
+        "source_uncertainty_case_score_percentiles": {
+          "50": 0.2478599175810814,
+          "75": 0.3868587538599968,
+          "90": 0.5013743132352829,
+          "95": 0.5395461663603782
+        }
+      },
+      "confidence_only_ema": {
+        "checkpoint": "artifacts/large/notebook07/b050/seed_2026/confidence_only_ema/selected_best.pt",
+        "checkpoint_sha256": "d7cd9310594f89057e6b64d191f2cb837cca0b149ccf0d1f2666985cd0eee933",
+        "selected_model_type": "teacher",
+        "temperature": 1.2820444245213223,
+        "calibrated_probability_threshold": 0.6594616036331663,
+        "source_selection_threshold": 0.7,
+        "source_uncertainty_case_score_percentiles": {
+          "50": 0.29235532134771347,
+          "75": 0.41940028965473175,
+          "90": 0.5063491642475129,
+          "95": 0.5353321224451064
+        }
+      },
+      "agreement_filtered_ema": {
+        "checkpoint": "artifacts/large/notebook07/b050/seed_2026/agreement_filtered_ema/selected_best.pt",
+        "checkpoint_sha256": "a49c71ec63a7a63b6140e6668a68e128ed982975c10b6f98d409af4f9cc5ac55",
+        "selected_model_type": "teacher",
+        "temperature": 1.279947421376675,
+        "calibrated_probability_threshold": 0.659704723565553,
+        "source_selection_threshold": 0.7,
+        "source_uncertainty_case_score_percentiles": {
+          "50": 0.27575652301311493,
+          "75": 0.3960900902748108,
+          "90": 0.49861892461776736,
+          "95": 0.5327952027320861
+        }
+      }
+    }
+  },
+  "clean_reproduction_gate": {
+    "comparison": "new clean single-view rerun versus preserved Notebook-09 corrected single-view predictions",
+    "required_before_stress_results": true,
+    "metrics": {
+      "mean_absolute_case_dice_difference_max": 0.0001,
+      "maximum_absolute_case_dice_difference_max": 0.001,
+      "mean_absolute_predicted_lesion_pixel_difference_max": 1.0
+    },
+    "failure_action": "STOP Notebook 12B1. Do not interpret perturbation results until the inference-path discrepancy is resolved."
+  },
+  "metrics": {
+    "primary": [
+      "mean_case_dice",
+      "dice_drop_vs_clean"
+    ],
+    "secondary": [
+      "mean_case_iou",
+      "iou_drop_vs_clean",
+      "sensitivity",
+      "specificity",
+      "lesion_extent_mae_pixels",
+      "lesion_extent_mae_change_vs_clean",
+      "case_uncertainty_score",
+      "uncertainty_change_vs_clean",
+      "source_p80_eligibility_coverage",
+      "source_p80_coverage_change_vs_clean"
+    ],
+    "threshold_policy": "Use exact frozen Notebook-08 temperatures and calibrated probability thresholds under every perturbation.",
+    "postprocessing_policy": "No postprocessing.",
+    "target_tuning": false
+  },
+  "stratification": {
+    "acquisition_provenance": {
+      "available": false,
+      "reason": "The locked external target is the single MedSeg target source; verified within-target acquisition provenance subgroups are unavailable.",
+      "fabricate_subgroups": false
+    },
+    "lesion_burden": {
+      "enabled": true,
+      "reference": "locked target ground-truth opacity mask",
+      "mask_mapping": "channel0 GGO OR channel1 consolidation",
+      "channel2_excluded": true,
+      "unit": "reference lesion pixels on original 512x512 grid",
+      "groups": [
+        "empty",
+        "small",
+        "medium",
+        "large"
+      ],
+      "nonempty_cut_rule": "33.333rd and 66.667th percentiles of nonempty reference lesion-pixel counts",
+      "computed_before_viewing_stress_performance": true,
+      "used_for_model_selection": false
+    }
+  },
+  "statistics": {
+    "primary_unit": "selected 2D MedSeg image",
+    "independent_patient_claim": false,
+    "seed_reporting": "per-seed results plus mean and sample SD across training seeds",
+    "perturbation_comparison": "paired clean-versus-perturbed differences on the same 100 images within each seed/method",
+    "bootstrap": {
+      "enabled": true,
+      "replicates": 2000,
+      "seed": 12032,
+      "unit": "image",
+      "confidence_interval": 0.95,
+      "interpretation": "image-level descriptive bootstrap only; not patient-level inference"
+    }
+  },
+  "model_construction": {
+    "class": "EviCTSemanticSegFormerB1",
+    "implementation": "src/evict/models/semantic_segformer.py",
+    "implementation_sha256": "e01d85717f306acacfaccfec578c8dd19a3a3936bdaea5410176ee03578d355e",
+    "encoder_repository": "nvidia/mit-b1",
+    "encoder_revision": "13ddceec4e8bdf401e7cd7acf5aebc526222518c",
+    "decoder_channels": 256,
+    "semantic_tau": 0.1,
+    "text_prototype_file": "artifacts/audit/notebook06_text_prototypes.pt",
+    "text_prototype_sha256": "25231ccdb25647e3f139ab107bce800bfe14d674899d4fdf1df8d87d693d0a58"
+  },
+  "checkpoint_recovery": {
+    "allowed": true,
+    "source": "existing GitHub Notebook-07 final release archives",
+    "release_tags": {
+      "17": {
+        "supervised": "evict-nb07-b050-seed17-supervised-final-step5000",
+        "confidence_only_ema": "evict-nb07-b050-seed17-confidence_only_ema-final-step3250",
+        "agreement_filtered_ema": "evict-nb07-b050-seed17-agreement_filtered_ema-final-step3250"
+      },
+      "42": {
+        "supervised": "evict-nb07-b050-seed42-supervised-final-step4250",
+        "confidence_only_ema": "evict-nb07-b050-seed42-confidence_only_ema-final-step3500",
+        "agreement_filtered_ema": "evict-nb07-b050-seed42-agreement_filtered_ema-final-step5000"
+      },
+      "2026": {
+        "supervised": "evict-nb07-b050-seed2026-supervised-final-step4500",
+        "confidence_only_ema": "evict-nb07-b050-seed2026-confidence_only_ema-final-step3500",
+        "agreement_filtered_ema": "evict-nb07-b050-seed2026-agreement_filtered_ema-final-step3500"
+      }
+    },
+    "required_post_restore_check": "selected_best.pt SHA256 must exactly match Notebook-08 frozen checkpoint SHA256",
+    "scientific_checkpoint_change_allowed": false
+  },
+  "execution_contract": {
+    "target_masks_allowed": true,
+    "target_masks_use": "evaluation and burden stratification only",
+    "target_masks_model_input": false,
+    "threshold_refit": false,
+    "temperature_refit": false,
+    "postprocessing_change": false,
+    "checkpoint_change": false,
+    "retraining": false,
+    "failure_retention": true
+  },
+  "protocol_sha256": "65a29ad93ff403bcdf299059e1243b79528a1340a3683aaa9471d7598d29ac9d"
+}
