@@ -1,0 +1,28 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_11C_VALIDATOR_CORRECTION",
+  "status": "VALIDATOR_ONLY_SOFTWARE_CORRECTION",
+  "timestamp_utc": "2026-10-01T19:05:18.208661+00:00",
+  "model_regenerated": false,
+  "gpu_used": false,
+  "raw_model_output_changed": false,
+  "original_raw_file": "reports/notebook11_free_text/raw_unique_generations.jsonl",
+  "original_raw_sha256": "e8277e957085e0fd8a44dbf70a3c4d3ebe83081852ee1396804c6383a8360405",
+  "corrections": [
+    {
+      "bug": "Research disclaimer validator required the literal substring 'not a treatment recommendation'.",
+      "effect": "Grammatically valid shared-negation statements such as 'not a diagnosis or treatment recommendation' were incorrectly rejected.",
+      "correction": "Accept explicit semantically equivalent negated diagnosis-and-treatment disclaimer constructions."
+    },
+    {
+      "bug": "Numerical validator required the expected lesion-pixel value to appear exactly once.",
+      "effect": "A repeated but unchanged evidence value was incorrectly classified as a numerical-copy error.",
+      "correction": "Require at least one exact expected value and require every numerical token to equal that same protected value."
+    }
+  ],
+  "unchanged_rule": {
+    "empty_prediction_phrase": "no target opacity detected by the model",
+    "reason": "The prompt explicitly required this exact phrase, so wording deviations remain genuine instruction-following failures."
+  },
+  "target_information_used": false
+}

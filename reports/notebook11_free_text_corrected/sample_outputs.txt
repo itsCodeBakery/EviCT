@@ -1,0 +1,36 @@
+====================================================================================================
+CORRECTED-VALIDATOR REJECTED EXAMPLE
+====================================================================================================
+Signature: detected_0__eligible_1__pixels_0
+
+Remaining errors:
+empty_prediction_wording
+
+ORIGINAL RAW OUTPUT:
+Input scope:
+The input is a single selected CT image, not a complete CT volume.
+
+Target lesion evidence:
+No target opacity was detected by the model.
+
+Supported measurements:
+The predicted lesion extent is 0 pixels.
+
+Limitations / review required:
+- Physical area and lesion volume are unavailable.
+- Whole-lung involvement is unavailable.
+- Laterality and lobar localization are unavailable.
+- This research summary does not provide a clinical diagnosis or treatment recommendation.
+
+SAFE FALLBACK:
+Input scope:
+Input scope: one selected 2D CT image is being summarized; this is not a complete CT volume.
+
+Target lesion evidence:
+Target lesion evidence: no target opacity detected by the model.
+
+Supported measurements:
+Supported measurement: predicted lesion extent is 0 pixels on the original 512 × 512 image grid. Reliability status: this case passes the source-derived p80 uncertainty eligibility gate.
+
+Limitations / review required:
+Physical lesion area and lesion volume are unavailable because verified physical geometry is not established. Whole-lung involvement is unavailable because a deployable lung-mask denominator is not available. Laterality and lobar localization are not emitted because the required orientation and anatomical prerequisites are unavailable. A true four-view lesion-extent stability range is unavailable because the individual aligned view predictions were not preserved. This is a research summary of model-derived evidence and is not a diagnosis or treatment recommendation.

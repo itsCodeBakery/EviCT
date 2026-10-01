@@ -1,0 +1,2 @@
+records,unique_raw_generations,new_model_generations,original_raw_sha256,accepted_records,rejected_records,acceptance_rate,fallback_rate,target_evidence_consistency,numeric_copy_accuracy,required_structure_rate,scope_limitation_rate,geometry_limitation_rate,lung_burden_limitation_rate,orientation_limitation_rate,research_limitation_rate,no_affirmative_normality_claim_rate
+900,33,0,e8277e957085e0fd8a44dbf70a3c4d3ebe83081852ee1396804c6383a8360405,888,12,0.9866666666666667,0.013333333333333334,0.9955555555555555,1.0,1.0,1.0,1.0,1.0,1.0,0.9911111111111112,1.0
