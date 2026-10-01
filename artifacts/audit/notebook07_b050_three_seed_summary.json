@@ -1,0 +1,146 @@
+{
+  "timestamp_utc": "2026-10-01T14:15:40.375096+00:00",
+  "stage": "NOTEBOOK_07_B050_THREE_SEED",
+  "status": "COMPLETE",
+  "budget": "b050",
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "methods": [
+    "supervised",
+    "confidence_only_ema",
+    "agreement_filtered_ema"
+  ],
+  "b025_status": "DEFERRED_DUE_TO_COMPUTE_BUDGET",
+  "calibration_used_for_training": false,
+  "target_accessed": false,
+  "runs": [
+    {
+      "seed": 17,
+      "method": "supervised",
+      "selected_model_type": "student",
+      "best_step": 3750,
+      "final_step": 5000,
+      "dice": 0.745983085732747,
+      "iou": 0.5985856109078789,
+      "sensitivity": 0.6496315204969724,
+      "specificity": 0.9986735550181052
+    },
+    {
+      "seed": 17,
+      "method": "confidence_only_ema",
+      "selected_model_type": "teacher",
+      "best_step": 1250,
+      "final_step": 3250,
+      "dice": 0.7513878612225804,
+      "iou": 0.6058365399088972,
+      "sensitivity": 0.722378681395412,
+      "specificity": 0.9969945976666441
+    },
+    {
+      "seed": 17,
+      "method": "agreement_filtered_ema",
+      "selected_model_type": "teacher",
+      "best_step": 1250,
+      "final_step": 3250,
+      "dice": 0.7514366840536726,
+      "iou": 0.6058930383027299,
+      "sensitivity": 0.7223202397336839,
+      "specificity": 0.9969975795454321
+    },
+    {
+      "seed": 42,
+      "method": "supervised",
+      "selected_model_type": "student",
+      "best_step": 2250,
+      "final_step": 4250,
+      "dice": 0.7551328263186491,
+      "iou": 0.6152324750433407,
+      "sensitivity": 0.7033779424937427,
+      "specificity": 0.9979193077862633
+    },
+    {
+      "seed": 42,
+      "method": "confidence_only_ema",
+      "selected_model_type": "student",
+      "best_step": 1500,
+      "final_step": 3500,
+      "dice": 0.7502689722939887,
+      "iou": 0.6096727785940883,
+      "sensitivity": 0.7864717985883114,
+      "specificity": 0.9959617007541117
+    },
+    {
+      "seed": 42,
+      "method": "agreement_filtered_ema",
+      "selected_model_type": "student",
+      "best_step": 3000,
+      "final_step": 5000,
+      "dice": 0.7475242961605462,
+      "iou": 0.6042913707982541,
+      "sensitivity": 0.8427280587819983,
+      "specificity": 0.9937701424592181
+    },
+    {
+      "seed": 2026,
+      "method": "supervised",
+      "selected_model_type": "student",
+      "best_step": 2500,
+      "final_step": 4500,
+      "dice": 0.6939793406259668,
+      "iou": 0.5440731312712501,
+      "sensitivity": 0.5835264383709581,
+      "specificity": 0.9989779569411367
+    },
+    {
+      "seed": 2026,
+      "method": "confidence_only_ema",
+      "selected_model_type": "teacher",
+      "best_step": 1500,
+      "final_step": 3500,
+      "dice": 0.7637474980213728,
+      "iou": 0.6217647212868178,
+      "sensitivity": 0.8034940628546255,
+      "specificity": 0.9949542527564608
+    },
+    {
+      "seed": 2026,
+      "method": "agreement_filtered_ema",
+      "selected_model_type": "teacher",
+      "best_step": 1500,
+      "final_step": 3500,
+      "dice": 0.765553787244343,
+      "iou": 0.6241129045635551,
+      "sensitivity": 0.7978724917508854,
+      "specificity": 0.9951810890722406
+    }
+  ],
+  "summary": [
+    {
+      "method": "agreement_filtered_ema",
+      "mean_dice": 0.7548382558195206,
+      "sd_dice": 0.009483862875634476,
+      "mean_iou": 0.6114324378881797,
+      "mean_sensitivity": 0.7876402634221892,
+      "mean_specificity": 0.9953162703589635
+    },
+    {
+      "method": "confidence_only_ema",
+      "mean_dice": 0.7551347771793139,
+      "sd_dice": 0.0074797859819687685,
+      "mean_iou": 0.6124246799299344,
+      "mean_sensitivity": 0.7707815142794496,
+      "mean_specificity": 0.9959701837257389
+    },
+    {
+      "method": "supervised",
+      "mean_dice": 0.7316984175591209,
+      "sd_dice": 0.032984481377069295,
+      "mean_iou": 0.5859637390741566,
+      "mean_sensitivity": 0.6455119671205577,
+      "mean_specificity": 0.998523606581835
+    }
+  ]
+}
