@@ -1,0 +1,46 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_11B",
+  "status": "STRICT_LLM_RUN_COMPLETE",
+  "timestamp_utc": "2026-10-01T18:56:25.218820+00:00",
+  "model": {
+    "id": "Qwen/Qwen2.5-3B-Instruct",
+    "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "declared_license": "qwen-research",
+    "source_type": "huggingface_pinned_revision",
+    "runtime_source": "Qwen/Qwen2.5-3B-Instruct",
+    "dtype": "float16"
+  },
+  "generation": {
+    "decoding": "greedy",
+    "do_sample": false,
+    "max_input_tokens": 2048,
+    "max_new_tokens": 160,
+    "batch_size": 3,
+    "state_memoization": true,
+    "unique_states": 3
+  },
+  "privacy_and_grounding": {
+    "case_id_given_to_llm": false,
+    "lesion_pixels_given_to_llm": false,
+    "uncertainty_score_given_to_llm": false,
+    "target_dice_given_to_llm": false,
+    "target_iou_given_to_llm": false,
+    "ground_truth_given_to_llm": false,
+    "llm_allowed_to_generate_numbers": false
+  },
+  "catalog": {
+    "sha256": "b7f8a5ed5ddc1961e56e46e8ad2f2f27f7a525ba2a25714d567310fcfa2cb188"
+  },
+  "strict_protocol": {
+    "sha256": "58abff54aa77d15d7b1b4cc1d253d997c719f47ba50d849c42c69ef6ed4ce09b"
+  },
+  "runtime": {
+    "gpu": "Tesla T4",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.0.0",
+    "model_load_seconds": 42.507272834000105,
+    "generation_seconds": 9.279793672998494,
+    "peak_allocated_vram_gib": 3.0222392082214355
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_11B",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T18:56:25.219440+00:00",
+  "model": {
+    "id": "Qwen/Qwen2.5-3B-Instruct",
+    "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "declared_license": "qwen-research",
+    "source_type": "huggingface_pinned_revision",
+    "runtime_source": "Qwen/Qwen2.5-3B-Instruct",
+    "dtype": "float16"
+  },
+  "state_generation": {
+    "unique_states": 3,
+    "valid_states": 2,
+    "invalid_states": 1,
+    "raw_outputs_saved_before_validation": true,
+    "greedy_decoding": true,
+    "memoized_identical_states": true
+  },
+  "expanded_reporting": {
+    "records": 900,
+    "valid_without_fallback": 896,
+    "fallback_records": 4,
+    "fallback_rate": 0.0044444444444444444,
+    "final_reports_match_deterministic": 900
+  },
+  "protected_content": {
+    "numbers_exposed_to_llm": false,
+    "numbers_generated_by_llm": false,
+    "numbers_rendered_from_evidence_by_python": true,
+    "unknown_ids_accepted": false,
+    "missing_limitations_accepted": false
+  },
+  "anti_leakage": {
+    "target_masks_accessed": false,
+    "target_metrics_accessed": false,
+    "target_dice_accessed": false,
+    "target_iou_accessed": false,
+    "case_identifiers_given_to_llm": false
+  },
+  "runtime": {
+    "model_load_seconds": 42.507272834000105,
+    "generation_seconds": 9.279793672998494,
+    "peak_vram_gib": 3.0222392082214355
+  }
+}

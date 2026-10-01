@@ -1,0 +1,4 @@
+state_id,target_opacity_detected,lesion_extent_eligible,records_represented,prompt_tokens,json_parse_passed,strict_validation_passed,fallback_required,validation_errors
+detected_0__eligible_1,False,True,4,386,False,False,True,ValueError: Output does not contain exactly the four approved fields.
+detected_1__eligible_0,True,False,862,386,True,True,False,
+detected_1__eligible_1,True,True,34,386,True,True,False,

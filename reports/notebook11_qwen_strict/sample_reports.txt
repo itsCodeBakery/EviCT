@@ -1,0 +1,83 @@
+====================================================================================================
+STATE: detected_0__eligible_1
+LLM VALID: False
+FALLBACK: True
+
+RAW QWEN OUTPUT:
+{
+  "input_scope": ["SCOPE_001"],
+  "target_opacity_detected": ["TARGET_EMPTY_001"],
+  "supported_measurements": ["MEAS_EXTENT_001", "GATE_PASS_001"],
+  "limitations_review_required": [
+    "LIMIT_GEOMETRY_001",
+    "LIMIT_LUNG_001",
+    "LIMIT_ORIENTATION_001",
+    "LIMIT_STABILITY_001",
+    "LIMIT_RESEARCH_001"
+  ]
+}
+
+FINAL PYTHON-RENDERED REPORT:
+Input scope:
+Input scope: one selected 2D CT image is being summarized; this is not a complete CT volume.
+
+Target lesion evidence:
+Target lesion evidence: no target opacity detected by the model.
+
+Supported measurements:
+Supported measurement: predicted lesion extent is 0 pixels on the original 512 × 512 image grid. Reliability status: this case passes the source-derived p80 uncertainty eligibility gate.
+
+Limitations / review required:
+Physical lesion area and lesion volume are unavailable because verified physical geometry is not established. Whole-lung involvement is unavailable because a deployable lung-mask denominator is not available. Laterality and lobar localization are not emitted because the required orientation and anatomical prerequisites are unavailable. A true four-view lesion-extent stability range is unavailable because the individual aligned view predictions were not preserved. This is a research summary of model-derived evidence and is not a diagnosis or treatment recommendation.
+
+====================================================================================================
+STATE: detected_1__eligible_0
+LLM VALID: True
+FALLBACK: False
+
+RAW QWEN OUTPUT:
+{
+  "input_scope": ["SCOPE_001"],
+  "target_lesion_evidence": ["TARGET_PRESENT_001"],
+  "supported_measurements": ["MEAS_WITHHELD_001", "GATE_FAIL_001"],
+  "limitations_review_required": ["LIMIT_GEOMETRY_001", "LIMIT_LUNG_001", "LIMIT_ORIENTATION_001", "LIMIT_STABILITY_001", "LIMIT_RESEARCH_001"]
+}
+
+FINAL PYTHON-RENDERED REPORT:
+Input scope:
+Input scope: one selected 2D CT image is being summarized; this is not a complete CT volume.
+
+Target lesion evidence:
+Target lesion evidence: the model produced a non-empty target-opacity prediction.
+
+Supported measurements:
+Supported measurement: numerical lesion extent is withheld because this case does not pass the source-derived p80 uncertainty eligibility gate. Reliability status: this case does not pass the source-derived p80 uncertainty eligibility gate.
+
+Limitations / review required:
+Physical lesion area and lesion volume are unavailable because verified physical geometry is not established. Whole-lung involvement is unavailable because a deployable lung-mask denominator is not available. Laterality and lobar localization are not emitted because the required orientation and anatomical prerequisites are unavailable. A true four-view lesion-extent stability range is unavailable because the individual aligned view predictions were not preserved. This is a research summary of model-derived evidence and is not a diagnosis or treatment recommendation.
+
+====================================================================================================
+STATE: detected_1__eligible_1
+LLM VALID: True
+FALLBACK: False
+
+RAW QWEN OUTPUT:
+{
+  "input_scope": ["SCOPE_001"],
+  "target_lesion_evidence": ["TARGET_PRESENT_001"],
+  "supported_measurements": ["MEAS_EXTENT_001", "GATE_PASS_001"],
+  "limitations_review_required": ["LIMIT_GEOMETRY_001", "LIMIT_LUNG_001", "LIMIT_ORIENTATION_001", "LIMIT_STABILITY_001", "LIMIT_RESEARCH_001"]
+}
+
+FINAL PYTHON-RENDERED REPORT:
+Input scope:
+Input scope: one selected 2D CT image is being summarized; this is not a complete CT volume.
+
+Target lesion evidence:
+Target lesion evidence: the model produced a non-empty target-opacity prediction.
+
+Supported measurements:
+Supported measurement: predicted lesion extent is 691 pixels on the original 512 × 512 image grid. Reliability status: this case passes the source-derived p80 uncertainty eligibility gate.
+
+Limitations / review required:
+Physical lesion area and lesion volume are unavailable because verified physical geometry is not established. Whole-lung involvement is unavailable because a deployable lung-mask denominator is not available. Laterality and lobar localization are not emitted because the required orientation and anatomical prerequisites are unavailable. A true four-view lesion-extent stability range is unavailable because the individual aligned view predictions were not preserved. This is a research summary of model-derived evidence and is not a diagnosis or treatment recommendation.
