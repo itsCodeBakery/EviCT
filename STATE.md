@@ -2,31 +2,33 @@
 
 ## Current stage
 
-NOTEBOOK_07_B050_SEED17_THREE_WAY_COMPLETE
+NOTEBOOK_07_B050_SEED17_PSEUDOLABEL_AUDIT_COMPLETE
 
 ## Notebook 07
 
-Budget:
-
-50 percent visible fitting masks
-
-Seed:
-
-17
-
-Three-way comparison:
+b050 seed17 common warm-up:
 
 COMPLETE
 
-Methods:
+b050 seed17 three-way comparison:
 
-1. supervised
-2. confidence-only EMA
-3. agreement-filtered EMA
+COMPLETE
 
-Common warm-up branch SHA-256:
+Source-only pseudo-label quality diagnostic:
 
-1d778eb26d7bcac525cc1007429de2ce2db8f89f8819063e66f69d0213fccd0c
+COMPLETE
+
+## Deferred confirmatory runs
+
+1. b050 seed42
+2. b050 seed2026
+3. b025 seed17
+4. b025 seed42
+5. b025 seed2026
+
+These experiments are deferred, not cancelled.
+
+They remain required before final Notebook-09 target evaluation.
 
 ## Isolation
 
@@ -48,5 +50,6 @@ ACTIVE
 
 ## Next
 
-Audit pseudo-label quality on visible source labels and inspect the b050 seed17
-pilot before expanding to seeds 42 / 2026 and the 25 percent budget.
+Notebook 08 source-only calibration and protocol preparation.
+
+Do not unlock target evaluation yet.
