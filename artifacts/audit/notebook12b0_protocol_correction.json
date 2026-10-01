@@ -1,0 +1,16 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_12B0_R1",
+  "status": "PASS",
+  "original_protocol_sha256": "65a29ad93ff403bcdf299059e1243b79528a1340a3683aaa9471d7598d29ac9d",
+  "corrected_protocol_sha256": "d88f46e025874c09884898f2af848ceaebb762f5833b15f4531e886dcc413f35",
+  "removed_invalid_single_view_endpoints": [
+    "case_uncertainty_score",
+    "source_p80_coverage_change_vs_clean",
+    "source_p80_eligibility_coverage",
+    "uncertainty_change_vs_clean"
+  ],
+  "target_data_accessed": false,
+  "stress_results_accessed": false,
+  "scientific_model_changed": false
+}
