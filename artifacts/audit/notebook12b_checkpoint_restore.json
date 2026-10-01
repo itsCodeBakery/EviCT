@@ -1,0 +1,10 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_12B1_CHECKPOINT_RESTORE",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T19:32:35.903446+00:00",
+  "checkpoints_expected": 9,
+  "checkpoints_verified": 9,
+  "scientific_checkpoint_changed": false,
+  "target_data_accessed": false
+}
