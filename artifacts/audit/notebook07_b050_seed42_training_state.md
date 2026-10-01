@@ -1,29 +1,60 @@
-# EviCT Confirmatory Training State
+# EviCT Execution State
 
 ## Current stage
 
-NOTEBOOK_07_READY_FOR_PILOT
+NOTEBOOK_07_B050_SEED42_WARMUP_FROZEN
 
-## Run
+## Notebook 07 warm-up
 
 Budget:
 
-50 percent visible fitting masks
+50 percent visible fitting masks (b050)
 
 Seed:
 
-42
+17
 
-## Isolation contract
+Method:
 
-This is a post-Notebook-08A confirmatory training run.
+Common supervised real-text warm-up
 
-The project has previously accessed SOURCE calibration in Notebook 08A.
+Optimizer step:
 
-This training process does NOT read calibration manifests, calibration labels,
-calibration predictions, temperatures, thresholds, or target data.
+1000
 
-Calibration accessed by this training process:
+Warm-up terminal step:
+
+1000
+
+Best source-selection macro-case Dice:
+
+0.70195061
+
+Best validation step:
+
+500
+
+Labeled image exposures:
+
+8000
+
+Hidden fitting masks used:
+
+NO
+
+## Branching contract
+
+The terminal step-1000 student checkpoint is the common initialization for:
+
+1. supervised continuation
+2. confidence-only EMA
+3. agreement-filtered EMA
+
+No branch may replace this warm-up with the 100%-label Notebook-06 trained checkpoint.
+
+## Isolation
+
+Calibration accessed:
 
 NO
 
@@ -35,16 +66,7 @@ Target lock:
 
 ACTIVE
 
-## Frozen pre-calibration configuration
+## Next
 
-Training lock GitHub commit:
-
-8fc879f610c4deb44b291174562c3a67d163850f
-
-Notebook-07 config hash:
-
-9e351529f795979cde1f7d7d807ddf535d5221ff79498dc2679c1311528fcb58
-
-Notebook-07 implementation hash:
-
-3343e640c636eed4e759a55918846b2a1f167f1d1014c46a9907e9a27a685ea0
+Complete the common step-1000 warm-up, then branch the three Notebook-07 methods
+without changing the patient split, optimizer schedule, text prototypes, or warm-up state.
