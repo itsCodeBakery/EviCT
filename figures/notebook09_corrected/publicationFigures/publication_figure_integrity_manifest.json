@@ -1,0 +1,162 @@
+[
+  {
+    "file": "01_comparative_segmentation_morphology.pdf",
+    "size_bytes": 304428,
+    "sha256": "b3f9b4068a55121765a9ed60f4520ee4836c0c396ab910498d336cb6069c861d"
+  },
+  {
+    "file": "01_comparative_segmentation_morphology.png",
+    "size_bytes": 2146705,
+    "sha256": "737ddac7245258179b1cc87d8bd9aa642b34ae22b2bd53721f140ba2bd4539e3"
+  },
+  {
+    "file": "01_comparative_segmentation_morphology.svg",
+    "size_bytes": 593341,
+    "sha256": "85989f43ef969ada9a2843807c693bf72334e6081fa3d369293cc3be64688538"
+  },
+  {
+    "file": "02_external_target_error_phenotypes.pdf",
+    "size_bytes": 576253,
+    "sha256": "27fafa15357866f1025186a90b8da610e3ce71d17ff5741de4aa020a64fc7ec8"
+  },
+  {
+    "file": "02_external_target_error_phenotypes.png",
+    "size_bytes": 2905255,
+    "sha256": "d798c081df1fc6e31e13b31bc61a765e53ecd1b68c017d0d122413239036618f"
+  },
+  {
+    "file": "02_external_target_error_phenotypes.svg",
+    "size_bytes": 994617,
+    "sha256": "36c356df0e538477e2a5a7450a6eea578628699746aade1746a988c7c0dd557f"
+  },
+  {
+    "file": "03_morphologically_concordant_segmentations.pdf",
+    "size_bytes": 670088,
+    "sha256": "4bf88043cb941500123ef53504192487b8b33c116ff763d99c6a27383aef6e96"
+  },
+  {
+    "file": "03_morphologically_concordant_segmentations.png",
+    "size_bytes": 3372193,
+    "sha256": "737e5a5bd4e59624daf9c8b1a0d01d9abef8621fd3f01236d4989ca957e3d55a"
+  },
+  {
+    "file": "03_morphologically_concordant_segmentations.svg",
+    "size_bytes": 1155229,
+    "sha256": "eab64233e3b8ea9d8cf84a501002b4cd1931f7bb594de4db11e3bcd649125b3e"
+  },
+  {
+    "file": "04_consistent_lesion_delineation.pdf",
+    "size_bytes": 350022,
+    "sha256": "69bf90b0f677d6f623a2695d6aae9e55d7f9a785a715fffa7b4a3f0175406de8"
+  },
+  {
+    "file": "04_consistent_lesion_delineation.png",
+    "size_bytes": 2324681,
+    "sha256": "00baaf23a44995213490ed89f226c2b9e834e100c3e3d9a10ce8440b45bf2851"
+  },
+  {
+    "file": "04_consistent_lesion_delineation.svg",
+    "size_bytes": 707909,
+    "sha256": "75c678c14a5e0cd33fd369a8cb78d437590cbb9ca7f2608ae92404e53309f862"
+  },
+  {
+    "file": "05_improved_delineation_patterns.pdf",
+    "size_bytes": 447814,
+    "sha256": "4bd6f69318c5dbe4bb30350c2a93241c98c77611211068ef9dee92585d3b46f4"
+  },
+  {
+    "file": "05_improved_delineation_patterns.png",
+    "size_bytes": 2381336,
+    "sha256": "246eea1a7974d7c556054f73544d7e0389c47cf1a76129656175ee48e1399489"
+  },
+  {
+    "file": "05_improved_delineation_patterns.svg",
+    "size_bytes": 871369,
+    "sha256": "597a31324ac553bc2163e2013c457d9e225bab284780aa3e94d173c627ffff4c"
+  },
+  {
+    "file": "06_cross_seed_segmentation_stability.pdf",
+    "size_bytes": 347233,
+    "sha256": "e1d55e03ecc57bc9b7a5acb8cf87e894f45743bc0ba9bb9727276493a46080e2"
+  },
+  {
+    "file": "06_cross_seed_segmentation_stability.png",
+    "size_bytes": 2282034,
+    "sha256": "fb92bde3d54a7a73c668b73d56279938e3bb0876e1ea19a1b194fbf1a5afb190"
+  },
+  {
+    "file": "06_cross_seed_segmentation_stability.svg",
+    "size_bytes": 725725,
+    "sha256": "cde6f0822ddb3111bf9dca5232f6bf63c3e46e60b55ab39ae4ed9859642fbb77"
+  },
+  {
+    "file": "README.md",
+    "size_bytes": 2459,
+    "sha256": "baf589554b3f609cb3a35f6524265899c7cff3822b0d763e70987d1021b4d059"
+  },
+  {
+    "file": "README_publicationFigures.md",
+    "size_bytes": 544,
+    "sha256": "2b363d1e7fcc665df7401547e75d8d76e399b7091ff0dea29d4e939f1165f31a"
+  },
+  {
+    "file": "pub_main02_cross_method_atlas.pdf",
+    "size_bytes": 353067,
+    "sha256": "b2a423b2b5f18b22ed6d0403b513bbb44fff9ad88ab1a7334f09abccc063dea4"
+  },
+  {
+    "file": "pub_main02_cross_method_atlas.png",
+    "size_bytes": 2489045,
+    "sha256": "ffbf8d95314def32ed29ec3b54ed405b6ed5b133833a9354bb229a6acb510ba2"
+  },
+  {
+    "file": "pub_main02_cross_method_atlas.svg",
+    "size_bytes": 690380,
+    "sha256": "31a50c2481881b07866124b80138c231b466f8536c2da01fef3bb56eb22ae594"
+  },
+  {
+    "file": "pub_main05_failure_taxonomy.pdf",
+    "size_bytes": 663015,
+    "sha256": "6e6aa7e2c2458df5b271dc78e9cb7302050b32aa5fd7f5a15911d6de17dcb1ab"
+  },
+  {
+    "file": "pub_main05_failure_taxonomy.png",
+    "size_bytes": 3336646,
+    "sha256": "97c529dacc4a78de210c5c6f74ecd140b4b7d6d237f167d666052bd9dc82bc97"
+  },
+  {
+    "file": "pub_main05_failure_taxonomy.svg",
+    "size_bytes": 1135422,
+    "sha256": "46c9203302e568000a71aa0b2f4040eca574082aaba7d49f1657ee1d7394d615"
+  },
+  {
+    "file": "pub_main07_high_dice_agreement_filtered_atlas.pdf",
+    "size_bytes": 589233,
+    "sha256": "073fc00ed83a8ecc5daccfead78e8c200dfe08bbcd4416d57cada4c10724d3e3"
+  },
+  {
+    "file": "pub_main07_high_dice_agreement_filtered_atlas.png",
+    "size_bytes": 3485274,
+    "sha256": "35060eb5d62110f0b5a276c593f5f73e8138bde71239a615a380e148f3d0edf7"
+  },
+  {
+    "file": "pub_main07_high_dice_agreement_filtered_atlas.svg",
+    "size_bytes": 1036911,
+    "sha256": "9a1e63c838973238aeb7e6c75efef25f935029bc94927628bf3258936bcfc106"
+  },
+  {
+    "file": "pub_supp07_consensus_high_dice_atlas.pdf",
+    "size_bytes": 506943,
+    "sha256": "ef6ba4bf3939baff022927d5d6183c416ae90bc48b0adfd6e09839e5bf7fd706"
+  },
+  {
+    "file": "pub_supp07_consensus_high_dice_atlas.png",
+    "size_bytes": 3345644,
+    "sha256": "423326755978e5431f8fee16185e1b4ed40372aaed8b3e82e99178f9fc59e87d"
+  },
+  {
+    "file": "pub_supp07_consensus_high_dice_atlas.svg",
+    "size_bytes": 926879,
+    "sha256": "96aff173ca848348fd6f00442e39ec6a916af3bdae6da3ac01efc49a74cab686"
+  }
+]
