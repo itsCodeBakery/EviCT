@@ -1,98 +1,98 @@
 [
   {
     "file": "01_comparative_segmentation_morphology.pdf",
-    "size_bytes": 304428,
-    "sha256": "b3f9b4068a55121765a9ed60f4520ee4836c0c396ab910498d336cb6069c861d"
+    "size_bytes": 282170,
+    "sha256": "6a09883f1d6cb4d19a547a2c4b3ba373308ea708c897e8a301b6db2a751ef19c"
   },
   {
     "file": "01_comparative_segmentation_morphology.png",
-    "size_bytes": 2146705,
-    "sha256": "737ddac7245258179b1cc87d8bd9aa642b34ae22b2bd53721f140ba2bd4539e3"
+    "size_bytes": 2137384,
+    "sha256": "5ceb8adc0ce3ccef3063978c8491999d05577ee1269c77fb7526e805511b3a52"
   },
   {
     "file": "01_comparative_segmentation_morphology.svg",
-    "size_bytes": 593341,
-    "sha256": "85989f43ef969ada9a2843807c693bf72334e6081fa3d369293cc3be64688538"
+    "size_bytes": 535144,
+    "sha256": "5aaf77a42e9065dd5102e45d6758277076c36d1d43bb6a2b2978652e964a03f5"
   },
   {
     "file": "02_external_target_error_phenotypes.pdf",
-    "size_bytes": 576253,
-    "sha256": "27fafa15357866f1025186a90b8da610e3ce71d17ff5741de4aa020a64fc7ec8"
+    "size_bytes": 532156,
+    "sha256": "e5580e716f08bfd335ca2c37c53dfd367c02f44a5a6e0c4348418537a5848d7d"
   },
   {
     "file": "02_external_target_error_phenotypes.png",
-    "size_bytes": 2905255,
-    "sha256": "d798c081df1fc6e31e13b31bc61a765e53ecd1b68c017d0d122413239036618f"
+    "size_bytes": 2859066,
+    "sha256": "defb9ba2aab459d1a8c5327d6cb8c80cdf1f02e4fea25ed754e2534c55516083"
   },
   {
     "file": "02_external_target_error_phenotypes.svg",
-    "size_bytes": 994617,
-    "sha256": "36c356df0e538477e2a5a7450a6eea578628699746aade1746a988c7c0dd557f"
+    "size_bytes": 905360,
+    "sha256": "8c168bb2fe125eb71c72ddf3c3e3c27679f0b4d7061b266a89ff4c358a86618f"
   },
   {
     "file": "03_morphologically_concordant_segmentations.pdf",
-    "size_bytes": 670088,
-    "sha256": "4bf88043cb941500123ef53504192487b8b33c116ff763d99c6a27383aef6e96"
+    "size_bytes": 619746,
+    "sha256": "a7152392e138307826a1238a4b6db12c573b1413c5e623ce34ef08ee3c81d00a"
   },
   {
     "file": "03_morphologically_concordant_segmentations.png",
-    "size_bytes": 3372193,
-    "sha256": "737e5a5bd4e59624daf9c8b1a0d01d9abef8621fd3f01236d4989ca957e3d55a"
+    "size_bytes": 3361253,
+    "sha256": "853f2cad4ec470cf0843e0fc583dc8485e4dbfc329a8b93f68ef2694ca293fff"
   },
   {
     "file": "03_morphologically_concordant_segmentations.svg",
-    "size_bytes": 1155229,
-    "sha256": "eab64233e3b8ea9d8cf84a501002b4cd1931f7bb594de4db11e3bcd649125b3e"
+    "size_bytes": 1054555,
+    "sha256": "d6809dd338b6b604ae99b5fcf91e5d0957b5316fac39442c56e82e7e8cb3f2b6"
   },
   {
     "file": "04_consistent_lesion_delineation.pdf",
-    "size_bytes": 350022,
-    "sha256": "69bf90b0f677d6f623a2695d6aae9e55d7f9a785a715fffa7b4a3f0175406de8"
+    "size_bytes": 326992,
+    "sha256": "4e1bd4439146381b355530cb398546dc8841080dd9364df2197d0dbd17e7b99f"
   },
   {
     "file": "04_consistent_lesion_delineation.png",
-    "size_bytes": 2324681,
-    "sha256": "00baaf23a44995213490ed89f226c2b9e834e100c3e3d9a10ce8440b45bf2851"
+    "size_bytes": 2293253,
+    "sha256": "18dea3c7224c9e96f2c4e5b8db6cd0fe12b1e4b9c550f0cb80bd412e64e1eb60"
   },
   {
     "file": "04_consistent_lesion_delineation.svg",
-    "size_bytes": 707909,
-    "sha256": "75c678c14a5e0cd33fd369a8cb78d437590cbb9ca7f2608ae92404e53309f862"
+    "size_bytes": 644711,
+    "sha256": "eaaefee61bef737d7c94aa5d688481f9321119861c43ed1315172326f921c51b"
   },
   {
     "file": "05_improved_delineation_patterns.pdf",
-    "size_bytes": 447814,
-    "sha256": "4bd6f69318c5dbe4bb30350c2a93241c98c77611211068ef9dee92585d3b46f4"
+    "size_bytes": 418893,
+    "sha256": "048504374258708a3636feec7d24e165ee23feb57a2b72573254e8e7a5235f03"
   },
   {
     "file": "05_improved_delineation_patterns.png",
-    "size_bytes": 2381336,
-    "sha256": "246eea1a7974d7c556054f73544d7e0389c47cf1a76129656175ee48e1399489"
+    "size_bytes": 2356390,
+    "sha256": "89970efa44c0d6b95c4898ad9771ab6ca22e85e7e46cb5cea0b70313a91e28cd"
   },
   {
     "file": "05_improved_delineation_patterns.svg",
-    "size_bytes": 871369,
-    "sha256": "597a31324ac553bc2163e2013c457d9e225bab284780aa3e94d173c627ffff4c"
+    "size_bytes": 801460,
+    "sha256": "72877003b28694f323b932bbf27fee8603c62e453f2ddd6a38c0b8f3cd38b866"
   },
   {
     "file": "06_cross_seed_segmentation_stability.pdf",
-    "size_bytes": 347233,
-    "sha256": "e1d55e03ecc57bc9b7a5acb8cf87e894f45743bc0ba9bb9727276493a46080e2"
+    "size_bytes": 324526,
+    "sha256": "5b0879635ea433edc64186f7937187521ae68048382241a68f4df43fb36d3520"
   },
   {
     "file": "06_cross_seed_segmentation_stability.png",
-    "size_bytes": 2282034,
-    "sha256": "fb92bde3d54a7a73c668b73d56279938e3bb0876e1ea19a1b194fbf1a5afb190"
+    "size_bytes": 2239886,
+    "sha256": "edc4a45183aeff2ce3e9d64c59ce63ac6ceed54ed02a1b9f8ae1698b93b91240"
   },
   {
     "file": "06_cross_seed_segmentation_stability.svg",
-    "size_bytes": 725725,
-    "sha256": "cde6f0822ddb3111bf9dca5232f6bf63c3e46e60b55ab39ae4ed9859642fbb77"
+    "size_bytes": 668966,
+    "sha256": "5742c717e5b179def3e16eec097c59234fd6fad1512e723408d265369b811fab"
   },
   {
     "file": "README.md",
-    "size_bytes": 2459,
-    "sha256": "baf589554b3f609cb3a35f6524265899c7cff3822b0d763e70987d1021b4d059"
+    "size_bytes": 421,
+    "sha256": "f2fd1106c3a4a7d674b94125c3468bce0a558a52039b0be442186d109a5af712"
   },
   {
     "file": "README_publicationFigures.md",
@@ -158,5 +158,10 @@
     "file": "pub_supp07_consensus_high_dice_atlas.svg",
     "size_bytes": 926879,
     "sha256": "96aff173ca848348fd6f00442e39ec6a916af3bdae6da3ac01efc49a74cab686"
+  },
+  {
+    "file": "publication_figure_integrity_manifest.json",
+    "size_bytes": 5451,
+    "sha256": "14b0fc53597f6b41a5440894d2f53c473f8a129063106ac754be801acda8d5ab"
   }
 ]
