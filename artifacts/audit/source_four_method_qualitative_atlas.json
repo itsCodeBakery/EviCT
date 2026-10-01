@@ -1,0 +1,60 @@
+{
+  "project": "EViCT",
+  "stage": "SOURCE_QUALITATIVE_FOUR_METHOD_ATLAS",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T20:56:54.977135+00:00",
+  "seed": 42,
+  "threshold": 0.5,
+  "selection_rule": "Five nonempty source-selection slices selected from 10/30/50/70/90 percentiles of Ground-Truth lesion-pixel burden. No model-performance score used for case selection.",
+  "methods": {
+    "unet": "Notebook 05 U-Net baseline",
+    "segct_visual": "Notebook 05E SegCT-CLIP controlled visual-pathway adaptation",
+    "vision_only": "Notebook 04 SegFormer-B1 vision-only",
+    "real_text": "Notebook 06 EViCT real-text semantic branch"
+  },
+  "ground_truth_label_used": true,
+  "reference_term_used": false,
+  "all_case_level_reproductions_passed": true,
+  "selected_slices": [
+    {
+      "case_id": "radiopaedia_10_85902_1",
+      "z": 6,
+      "slice_id": "radiopaedia_10_85902_1_z0006",
+      "lesion_pixels": 391,
+      "burden_quantile": "Low"
+    },
+    {
+      "case_id": "radiopaedia_10_85902_1",
+      "z": 11,
+      "slice_id": "radiopaedia_10_85902_1_z0011",
+      "lesion_pixels": 1497,
+      "burden_quantile": "Low\u2013Moderate"
+    },
+    {
+      "case_id": "coronacases_010",
+      "z": 94,
+      "slice_id": "coronacases_010_z0094",
+      "lesion_pixels": 2473,
+      "burden_quantile": "Moderate"
+    },
+    {
+      "case_id": "coronacases_010",
+      "z": 127,
+      "slice_id": "coronacases_010_z0127",
+      "lesion_pixels": 2981,
+      "burden_quantile": "High"
+    },
+    {
+      "case_id": "coronacases_003",
+      "z": 103,
+      "slice_id": "coronacases_003_z0103",
+      "lesion_pixels": 6512,
+      "burden_quantile": "Very High"
+    }
+  ],
+  "figure_files": [
+    "figures/publicationFigures/source_four_method_tp_fp_fn_atlas.png",
+    "figures/publicationFigures/source_four_method_tp_fp_fn_atlas.pdf",
+    "figures/publicationFigures/source_four_method_tp_fp_fn_atlas.svg"
+  ]
+}

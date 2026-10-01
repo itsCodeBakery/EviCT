@@ -1,0 +1,34 @@
+\begin{table*}[t]
+\centering
+\caption{Extended quantitative comparison including the supervised, confidence-only EMA, and agreement-filtered EMA EViCT variants.}
+\label{tab:evict_segdb_comparison}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccc|cccc|cccc}
+\toprule
+\multirow{2}{*}{Model (Backbone)} & \multicolumn{3}{c|}{Computational Parameters} & \multicolumn{4}{c|}{SegDB-1} & \multicolumn{4}{c}{SegDB-2} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-8}\cmidrule(lr){9-12}
+ & Total Params (M) & GFLOPs & Time (ms) & SEN (\%) & SPE (\%) & IoU (\%) & DICE (\%) & SEN (\%) & SPE (\%) & IoU (\%) & DICE (\%) \\
+\midrule
+FPN (ResNeXt-50) [30] & 25.59 & 64.37 & 25.9 & 6.03 & \textbf{99.75} & 5.83 & 11.02 & 26.23 & 99.70 & 21.85 & 35.86 \\
+DeepLabV3+ (ResNet-50) [31] & 26.68 & 73.81 & 26.6 & 60.64 & 97.56 & 45.70 & 62.74 & 30.39 & 99.75 & 26.09 & 41.38 \\
+PAN (ResNet-34) [32] & 21.48 & 59.71 & 19.3 & 14.72 & \underline{99.07} & 13.08 & 23.14 & 22.28 & \underline{99.76} & 19.25 & 32.29 \\
+UNet (ResNet-34) [33] & 24.44 & 62.80 & 22.4 & 49.58 & 98.48 & 41.18 & 58.34 & 59.56 & 98.32 & 28.23 & 44.03 \\
+DeepLabV3 (ResNet-50) [34] & 39.63 & 328.24 & 65.0 & 62.66 & 97.80 & 48.41 & 65.24 & 39.03 & 99.73 & 33.16 & 49.81 \\
+UNet (ResNet-50) [33] & 32.52 & 85.66 & 31.2 & 66.69 & 97.73 & 51.13 & \underline{67.66} & 67.26 & 94.30 & 14.13 & 24.76 \\
+UNet++ (EfficientNet-B4) [35] & 20.81 & 63.36 & 89.7 & 66.63 & 95.76 & 42.48 & 59.63 & 69.60 & 80.71 & 5.07 & 9.65 \\
+MANet (ResNet-34) [36] & 31.78 & 66.84 & 27.7 & 27.79 & 98.74 & 23.77 & 38.41 & 32.35 & 93.99 & 6.52 & 12.24 \\
+SegFormer (MIT-B0) [37] & \textbf{3.71} & \textbf{13.53} & 29.5 & 40.74 & 98.48 & 33.85 & 50.57 & 61.57 & 99.32 & 42.55 & 59.70 \\
+SegFormer (MIT-B1) [37] & \underline{13.68} & 26.48 & 33.5 & 32.34 & 98.84 & 28.00 & 43.75 & 57.19 & 99.46 & 42.21 & 59.36 \\
+CLIP-UNET (ViT-L/14) [38] & 432.03 & 191.72 & 182.0 & \textbf{99.58} & 89.93 & 42.38 & 59.53 & \textbf{97.17} & 96.02 & 26.80 & 42.27 \\
+SegCT-CLIP & 428.79 & 182.65 & 188.8 & 79.22 & 96.68 & \textbf{54.84} & \textbf{70.84} & \underline{91.45} & 98.52 & 46.29 & 63.29 \\
+\midrule
+EViCT-Sup & 13.81 & \underline{14.08} & \textbf{11.8} & 67.97 & 97.91 & 50.01 & 64.57 & 64.55 & \textbf{99.85} & 58.60 & 73.17 \\
+EViCT-ConfEMA & 13.81 & \underline{14.08} & \underline{12.0} & 79.59 & 96.84 & 52.53 & 67.12 & 77.08 & 99.60 & \textbf{61.24} & \textbf{75.51} \\
+EViCT-AgreeEMA (Ours) & 13.81 & \underline{14.08} & 12.0 & \underline{79.76} & 96.88 & \underline{52.95} & 67.62 & 78.76 & 99.53 & \underline{61.14} & \underline{75.48} \\
+\bottomrule
+\end{tabular}%
+}
+\begin{minipage}{0.99\textwidth}
+\footnotesize \textit{Notes:} EViCT computational complexity is measured for a single $336\times336$ forward pass with batch size 1. EViCT GFLOPs are calculated with \texttt{calflops}; latency is measured on an NVIDIA Tesla T4 using 20 warm-up and 100 timed runs. Reference-model complexity values are transcribed from the comparison study and their FLOP-counting implementation may differ. For EViCT, SegDB-1 denotes the corrected image-level external single-view evaluation on the 100 selected MedSeg slices. SegDB-2 denotes the frozen b050 source-side evaluation under the EViCT fixed volume partition. Therefore numerical rankings across studies should be interpreted descriptively rather than as a strictly identical evaluation protocol.
+\end{minipage}
+\end{table*}

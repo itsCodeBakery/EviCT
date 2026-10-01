@@ -1,0 +1,4 @@
+method,display_name,params_M,fvcore_counted_G,calflops_GMACs,calflops_GFLOPs,latency_mean_ms,latency_sd_ms,input,publication_compute_value
+supervised,EViCT-Sup,13.80909,7.069024128,7.0163584,14.079746424,11.7951324500973,0.285513136466804,1x3x336x336,calflops_GFLOPs
+confidence_only_ema,EViCT-ConfEMA,13.80909,7.069024128,7.0163584,14.079746424,11.95728789003624,0.3505583246214163,1x3x336x336,calflops_GFLOPs
+agreement_filtered_ema,EViCT-AgreeEMA (Ours),13.80909,7.069024128,7.0163584,14.079746424,11.978894310195756,0.2765527125051237,1x3x336x336,calflops_GFLOPs

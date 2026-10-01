@@ -1,0 +1,21 @@
+column,burden_group,case_id,z,method,method_label,ground_truth_pixels,dice,tp,fp,fn
+1,Low,radiopaedia_10_85902_1,6,unet,U-Net Baseline,391,0.6699507389162561,204,14,187
+1,Low,radiopaedia_10_85902_1,6,segct_visual,SegCT-CLIP Visual,391,0.0,0,55,391
+1,Low,radiopaedia_10_85902_1,6,vision_only,SegFormer-B1 Vision-Only,391,0.2660753880266075,60,0,331
+1,Low,radiopaedia_10_85902_1,6,real_text,EViCT Real-Text Semantic Branch (Ours),391,0.31827956989247314,74,0,317
+2,Low–Moderate,radiopaedia_10_85902_1,11,unet,U-Net Baseline,1497,0.23798358733880423,203,6,1294
+2,Low–Moderate,radiopaedia_10_85902_1,11,segct_visual,SegCT-CLIP Visual,1497,0.8316679477325134,1082,23,415
+2,Low–Moderate,radiopaedia_10_85902_1,11,vision_only,SegFormer-B1 Vision-Only,1497,0.47968673519334315,490,56,1007
+2,Low–Moderate,radiopaedia_10_85902_1,11,real_text,EViCT Real-Text Semantic Branch (Ours),1497,0.5517241379310345,600,78,897
+3,Moderate,coronacases_010,94,unet,U-Net Baseline,2473,0.8190104166666666,1887,248,586
+3,Moderate,coronacases_010,94,segct_visual,SegCT-CLIP Visual,2473,0.7746361746361746,1863,474,610
+3,Moderate,coronacases_010,94,vision_only,SegFormer-B1 Vision-Only,2473,0.7841650873868182,1862,414,611
+3,Moderate,coronacases_010,94,real_text,EViCT Real-Text Semantic Branch (Ours),2473,0.7592552963834795,1774,426,699
+4,High,coronacases_010,127,unet,U-Net Baseline,2981,0.6983150575020058,2611,1886,370
+4,High,coronacases_010,127,segct_visual,SegCT-CLIP Visual,2981,0.7591131153701616,2020,321,961
+4,High,coronacases_010,127,vision_only,SegFormer-B1 Vision-Only,2981,0.7582349285270354,2440,1015,541
+4,High,coronacases_010,127,real_text,EViCT Real-Text Semantic Branch (Ours),2981,0.7569707968982016,2294,786,687
+5,Very High,coronacases_003,103,unet,U-Net Baseline,6512,0.8019072388383182,4625,398,1887
+5,Very High,coronacases_003,103,segct_visual,SegCT-CLIP Visual,6512,0.7843511450381679,4521,495,1991
+5,Very High,coronacases_003,103,vision_only,SegFormer-B1 Vision-Only,6512,0.8661954667316598,5331,466,1181
+5,Very High,coronacases_003,103,real_text,EViCT Real-Text Semantic Branch (Ours),6512,0.845377873325616,5112,470,1400

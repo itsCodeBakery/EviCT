@@ -1,0 +1,22 @@
+{
+  "project": "EViCT",
+  "stage": "FINAL_MANUSCRIPT_TABLE_III",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T20:25:25.771867+00:00",
+  "compute": {
+    "input_shape": [
+      1,
+      3,
+      336,
+      336
+    ],
+    "calflops_GMACs": 7.0163584,
+    "calflops_GFLOPs": 14.079746424,
+    "fvcore_counted_G": 7.069024128,
+    "parameters_M": 13.80909,
+    "publication_GFLOPs": 14.079746424
+  },
+  "SegDB1_protocol": "Frozen corrected single-view external selected-slice evaluation.",
+  "SegDB2_protocol": "Frozen b050 source-side evaluation.",
+  "important_comparability_note": "Reference-model results and complexity values are transcribed from the source comparison study. Evaluation splits and FLOP counting implementations are not guaranteed to be identical to the EViCT protocol."
+}
