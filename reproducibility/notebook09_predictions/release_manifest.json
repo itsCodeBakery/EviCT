@@ -1,0 +1,21 @@
+{
+  "tag": "evict-notebook09-corrected-predictions-v1",
+  "name": "EviCT Notebook 09 \u2014 Corrected Locked Target Predictions",
+  "created_utc": "2026-10-01T17:27:12.299085+00:00",
+  "prediction_files": 900,
+  "archive": "EViCT_Notebook09_Corrected_Predictions.tar.gz",
+  "archive_size_bytes": 1345678150,
+  "archive_sha256": "af032e55f418c8fe2c73d0eb8716053395be0a4cbf2645c14ee589b51ebc9c2b",
+  "preprocessing": "clip signed MedSeg CT values to [-1250,250], then scale to [0,1]",
+  "scientific_status": "corrected locked target evaluation after documented preprocessing implementation bug",
+  "training_performed": false,
+  "thresholds_changed": false,
+  "temperatures_changed": false,
+  "checkpoints_changed": false,
+  "assets": [
+    "EViCT_Notebook09_Corrected_Predictions.tar.gz",
+    "EViCT_Notebook09_Corrected_Predictions.tar.gz.sha256"
+  ],
+  "figure_regeneration_script": "scripts/nb09_corrected_qualitative_figures.py",
+  "figure_script_sha256": "3ac8841e5b23a2c739c363520f5501d40c7f14707094c389c3123053b8b97f17"
+}
