@@ -1,0 +1,67 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_10B",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T18:39:41.898815+00:00",
+  "upstream_contract": {
+    "path": "config/notebook10_measurement_contract.json",
+    "sha256": "f76d556c5a95966448ecc47df01ebfaf6c78727476ef24c1486aa4e05304eb01"
+  },
+  "schema": {
+    "path": "config/notebook10_evidence_schema.json",
+    "sha256": "cb2b2299b4fd3d84e64b95d2282f76739a804ccff4a003579094fc5b2f0c1f38"
+  },
+  "locked_target_image": {
+    "path": "/kaggle/input/competitions/covid-segmentation/images_medseg.npy",
+    "sha256": "3c3159cbc6015b69ed43f34551c16ce03ee363f9fa88a84b2881d851024f3337",
+    "verified": true
+  },
+  "construction": {
+    "prediction_records_expected": 900,
+    "prediction_records_verified": 900,
+    "evidence_records_created": 900,
+    "unique_cases": 100,
+    "methods": [
+      "agreement_filtered_ema",
+      "confidence_only_ema",
+      "supervised"
+    ],
+    "seeds": [
+      17,
+      42,
+      2026
+    ],
+    "prediction_sha_mismatches": 0,
+    "schema_validation_errors": 0,
+    "four_view_aggregate_available_records": 900,
+    "true_four_view_stability_range_available_records": 0
+  },
+  "leakage_controls": {
+    "target_masks_loaded": false,
+    "target_case_metrics_loaded": false,
+    "target_dice_used": false,
+    "target_iou_used": false,
+    "target_ground_truth_used": false,
+    "oracle_measurement_used": false,
+    "eligibility_gate_source": "Notebook-10A source-only p80",
+    "forbidden_paths": [
+      "/kaggle/input/competitions/covid-segmentation/masks_medseg.npy",
+      "/kaggle/working/EViCT/tables/notebook09_corrected_target_case_metrics.csv"
+    ]
+  },
+  "measurement_scope": {
+    "lesion_extent_pixels": true,
+    "physical_area": false,
+    "volume": false,
+    "lung_burden": false,
+    "patient_level_burden": false,
+    "laterality": false,
+    "lobar_location": false
+  },
+  "outputs": {
+    "evidence_root": "evidence/notebook10_corrected",
+    "evidence_manifest": "tables/notebook10_evidence_manifest.csv",
+    "summary": "tables/notebook10_evidence_summary.csv",
+    "eligibility_summary": "tables/notebook10_eligibility_summary.csv"
+  }
+}

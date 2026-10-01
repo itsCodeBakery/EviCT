@@ -1,0 +1,4 @@
+method,records,mean_uncertainty,mean_external_coverage,mean_single_view_lesion_pixels,median_single_view_lesion_pixels,four_view_records,stability_range_records
+agreement_filtered_ema,300,0.5749720299864809,0.04,21662.713333333333,15922.5,300,0
+confidence_only_ema,300,0.5825284411882361,0.03666666666666667,21699.316666666666,16035.5,300,0
+supervised,300,0.5551926410694917,0.05,16372.436666666666,11896.5,300,0

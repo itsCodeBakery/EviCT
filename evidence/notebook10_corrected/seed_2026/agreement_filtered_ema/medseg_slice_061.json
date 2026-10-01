@@ -1,0 +1,59 @@
+{
+  "case_id": "medseg_slice_061",
+  "seed": 2026,
+  "method": "agreement_filtered_ema",
+  "evaluation_unit": "image_level_selected_slice",
+  "provenance": {
+    "source_image_sha256": "6deb5ee0627e5581fc35f43720cacd11f4bdbf4ed6bb1340ef5438070445bc82",
+    "prediction_file": "artifacts/large/notebook09_corrected/seed_2026/agreement_filtered_ema/medseg_slice_061.npz",
+    "prediction_sha256": "93dad9fa09256fedfe4b712f84f8bd12f48b0bdc167eaf40e6cf20988e91cb10",
+    "checkpoint_sha256": "a49c71ec63a7a63b6140e6668a68e128ed982975c10b6f98d409af4f9cc5ac55",
+    "frozen_protocol_sha256": "bbc6a43fcb3627ca1dc3f703c205fc29a394815dd32ffd914c6b9e176b15acc1",
+    "preprocessing": "clip_-1250_250_scale_0_1"
+  },
+  "geometry": {
+    "original_shape": [
+      512,
+      512
+    ],
+    "complete_volume": false,
+    "spacing_status": "unverified",
+    "orientation_status": "insufficient_for_laterality",
+    "measurement_units": "pixels"
+  },
+  "target_lesion_evidence": {
+    "single_view_lesion_pixels": 8636,
+    "single_view_target_opacity_detected": true,
+    "four_view_lesion_pixels": 8198,
+    "stability_range_pixels": null
+  },
+  "uncertainty": {
+    "case_uncertainty_score": 0.6234495639801025,
+    "source_p80_gate": 0.4302663683891297,
+    "passes_default_gate": false
+  },
+  "eligibility": {
+    "lesion_extent_pixels": false,
+    "physical_area": false,
+    "whole_volume": false,
+    "lung_burden": false,
+    "laterality": false,
+    "lobar_location": false
+  },
+  "unsupported_fields": {
+    "lesion_area_mm2": "Unavailable because physical pixel spacing is not verified for the locked MedSeg image.",
+    "lesion_volume_mm3": "Unavailable because the input is a selected 2D image, not a verified complete CT volume.",
+    "lesion_volume_cm3": "Unavailable because complete-volume voxel geometry is not available.",
+    "whole_lung_involvement_percent": "Unavailable because a deployable lung-mask denominator is not available in the core evaluation.",
+    "patient_level_burden": "Unavailable because verified MedSeg patient grouping is not available.",
+    "laterality": "Unavailable because verified orientation and lung separation required for laterality are not established.",
+    "lobar_location": "Unavailable because lobar anatomy is not inferred from a 2D image midpoint."
+  },
+  "limitations": [
+    "Evidence is derived from a selected 2D MedSeg image and must not be interpreted as a complete-volume measurement.",
+    "Physical lesion area and volume are unavailable because verified physical geometry is not established.",
+    "Whole-lung involvement is unavailable because a deployable lung denominator is not available.",
+    "Laterality and lobar localization are not emitted.",
+    "An empty predicted lesion mask means only that no target opacity was detected by the model; it does not establish a normal scan or absence of disease."
+  ]
+}
