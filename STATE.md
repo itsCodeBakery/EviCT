@@ -2,96 +2,100 @@
 
 ## Current stage
 
-NOTEBOOK_08_B050_SEED17_SOURCE_PROTOCOL_PILOT_COMPLETE
+NOTEBOOK_08_FINAL_PROTOCOL_FROZEN
 
 ## Notebook 07
 
-b050 seed17 common warm-up:
+b050 seed17:
 
 COMPLETE
 
-b050 seed17 three-way comparison:
+b050 seed42:
 
 COMPLETE
 
-Pseudo-label diagnostic:
+b050 seed2026:
 
 COMPLETE
 
-## Notebook 08A
-
-Source-selection threshold sweep:
+b050 three-seed study:
 
 COMPLETE
 
-Source-calibration temperature scaling:
+b025:
+
+DEFERRED DUE TO COMPUTE BUDGET
+
+## Notebook 08
+
+Final source-selection threshold sweep:
 
 COMPLETE
 
-Single-view inference implementation:
+Final source-calibration temperature fitting:
 
 COMPLETE
 
-Four-view inference implementation:
+Single-view protocol:
 
-COMPLETE
+FROZEN
 
-Uncertainty scoring:
+Four-view protocol:
 
-COMPLETE
+FROZEN
 
-Source protocol pilot:
+Uncertainty definition:
 
-COMPLETE
+FROZEN
 
-## Pre-calibration training lock
+Qualitative figure selection protocol:
 
-GitHub commit:
-
-8fc879f610c4deb44b291174562c3a67d163850f
-
-Training lock SHA256:
-
-2909630c2b92cbc3df31244a79b1344c5d1ec95061babd59cee68f70b88818c8
-
-## Deferred confirmatory Notebook-07 runs
-
-1. b050 seed42
-2. b050 seed2026
-3. b025 seed17
-4. b025 seed42
-5. b025 seed2026
-
-These remain required.
-
-Their training configuration may NOT be changed based on Notebook-08 calibration results.
+FROZEN BEFORE TARGET ACCESS
 
 ## Isolation
 
-Hidden fitting masks used:
+Hidden fitting masks used by training:
 
 NO
 
-Source calibration accessed:
-
-YES — Notebook 08 only
-
-Target / MedSeg accessed:
+Source calibration used for training:
 
 NO
 
-Target lock:
+Target / MedSeg accessed before protocol freeze:
 
-ACTIVE
+NO
+
+## Target gate
+
+Frozen protocol:
+
+config/frozen_protocol.json
+
+Frozen protocol SHA256:
+
+bbc6a43fcb3627ca1dc3f703c205fc29a394815dd32ffd914c6b9e176b15acc1
+
+Test-ready file:
+
+config/test_ready.json
 
 allow_target_evaluation:
 
-FALSE
+TRUE
+
+Target evaluation is now permitted ONLY under Notebook 09 using the
+frozen configuration.
 
 ## Next
 
-Complete the five deferred Notebook-07 confirmatory runs using the pre-calibration training lock.
+Attach the MedSeg / covid-segmentation target.
 
-Then perform the FINAL Notebook-08 multi-seed protocol freeze.
+Run Notebook 09 exactly under frozen_protocol.json.
 
-Notebook 09 target evaluation remains LOCKED.
+Save all predictions before aggregation.
+
+Generate quantitative statistics and the predeclared extensive
+qualitative atlas.
+
+Do not modify scientific settings based on target results.
