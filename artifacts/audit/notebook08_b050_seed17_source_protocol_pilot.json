@@ -1,0 +1,90 @@
+{
+  "timestamp_utc": "2026-10-01T03:08:33.427140+00:00",
+  "stage": "NOTEBOOK_08A",
+  "status": "PASS",
+  "scope": "b050_seed17_source_only_protocol_pilot",
+  "training_lock_created_before_calibration": true,
+  "training_lock_sha256": "2909630c2b92cbc3df31244a79b1344c5d1ec95061babd59cee68f70b88818c8",
+  "training_lock_github_commit": "8fc879f610c4deb44b291174562c3a67d163850f",
+  "selection_cases": [
+    "coronacases_003",
+    "coronacases_010",
+    "radiopaedia_10_85902_1",
+    "radiopaedia_4_85506_1"
+  ],
+  "calibration_cases": [
+    "coronacases_004",
+    "coronacases_006",
+    "radiopaedia_10_85902_3",
+    "radiopaedia_40_86625_0"
+  ],
+  "methods": {
+    "supervised": {
+      "selected_checkpoint_sha256": "951f54537c9d712525b7192219966dd9e0c414c10e860a93366681be51ac2541",
+      "selected_model_type": "student",
+      "selected_best_step": 3750,
+      "selection_threshold": 0.3,
+      "selection_macro_case_dice_at_threshold": 0.7576196246365794,
+      "raw_logit_boundary": -0.8472978603872036,
+      "temperature": 1.4801414428278832,
+      "calibrated_probability_threshold": 0.36067311154923887,
+      "uncertainty_case_score_percentiles": {
+        "50": 0.20258206129174056,
+        "75": 0.3122365298243161,
+        "90": 0.47672397985789383,
+        "95": 0.5315531298690862
+      },
+      "uncertainty_vs_four_view_error_spearman_rho": 0.19999999999999998,
+      "uncertainty_vs_four_view_error_spearman_p": 0.8
+    },
+    "confidence_only_ema": {
+      "selected_checkpoint_sha256": "6442561030cd15ca0f22a01a7dd0c3074829cae480cc632cf225e97cfb33d2e0",
+      "selected_model_type": "teacher",
+      "selected_best_step": 1250,
+      "selection_threshold": 0.3,
+      "selection_macro_case_dice_at_threshold": 0.7550570883822758,
+      "raw_logit_boundary": -0.8472978603872036,
+      "temperature": 1.1720038906340424,
+      "calibrated_probability_threshold": 0.32674414542770996,
+      "uncertainty_case_score_percentiles": {
+        "50": 0.22315970395598694,
+        "75": 0.3158066800370163,
+        "90": 0.45537166594169165,
+        "95": 0.5018933279099166
+      },
+      "uncertainty_vs_four_view_error_spearman_rho": -0.7999999999999999,
+      "uncertainty_vs_four_view_error_spearman_p": 0.20000000000000007
+    },
+    "agreement_filtered_ema": {
+      "selected_checkpoint_sha256": "1ab434a8634082d8c6701fcc24c35115b302a7508bc27ed851946726b2edb8b8",
+      "selected_model_type": "teacher",
+      "selected_best_step": 1250,
+      "selection_threshold": 0.3,
+      "selection_macro_case_dice_at_threshold": 0.7551000177274,
+      "raw_logit_boundary": -0.8472978603872036,
+      "temperature": 1.1716191526107644,
+      "calibrated_probability_threshold": 0.32669192315219914,
+      "uncertainty_case_score_percentiles": {
+        "50": 0.22314262776266014,
+        "75": 0.3158169285583242,
+        "90": 0.45544907869133433,
+        "95": 0.5019931287356708
+      },
+      "uncertainty_vs_four_view_error_spearman_rho": -0.7999999999999999,
+      "uncertainty_vs_four_view_error_spearman_p": 0.20000000000000007
+    }
+  },
+  "calibration_accessed": true,
+  "calibration_scope": "source_calibration_only",
+  "target_medseg_accessed": false,
+  "target_lock": "ACTIVE",
+  "allow_target_evaluation": false,
+  "final_protocol": false,
+  "deferred_runs": [
+    "b050_seed42",
+    "b050_seed2026",
+    "b025_seed17",
+    "b025_seed42",
+    "b025_seed2026"
+  ]
+}

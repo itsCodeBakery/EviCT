@@ -1,0 +1,7 @@
+method,split,inference_mode,macro_case_dice,macro_case_iou,macro_case_sensitivity,macro_case_specificity,n_cases
+supervised,source_calibration,single_view_primary,0.7349331288555698,0.5900515339899217,0.6651233098244381,0.9982566724692388,4
+supervised,source_calibration,four_view_secondary,0.7542092829798268,0.6140401504965166,0.6990086094858052,0.9979896971365737,4
+confidence_only_ema,source_calibration,single_view_primary,0.6820813141198221,0.5281331979383681,0.7234561508116525,0.9963939199598207,4
+confidence_only_ema,source_calibration,four_view_secondary,0.6979446240573055,0.5450995701536473,0.7608185621964678,0.9961152699661168,4
+agreement_filtered_ema,source_calibration,single_view_primary,0.6822597702919525,0.528313317996362,0.7233425923278226,0.996398492726473,4
+agreement_filtered_ema,source_calibration,four_view_secondary,0.6981515388564625,0.5453296721566117,0.7607928266618891,0.99611968753793,4

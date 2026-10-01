@@ -1,0 +1,21 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_08A",
+  "timestamp_utc": "2026-10-01T03:08:33.426662+00:00",
+  "status": "NOT_READY_FOR_TARGET",
+  "ready_for_target": false,
+  "allow_target_evaluation": false,
+  "source_protocol_pilot_complete": true,
+  "target_accessed": false,
+  "target_lock": "ACTIVE",
+  "blocking_items": [
+    "b050 seed42 confirmatory run",
+    "b050 seed2026 confirmatory run",
+    "b025 seed17 confirmatory run",
+    "b025 seed42 confirmatory run",
+    "b025 seed2026 confirmatory run",
+    "final Notebook-08 multi-seed protocol freeze"
+  ],
+  "protocol_pilot_file": "config/notebook08_b050_seed17_protocol_pilot.json",
+  "protocol_pilot_sha256": "1ce33e04267914dec27323022d80861e48891ab2f52dbb74a3e99478e2f0e8de"
+}

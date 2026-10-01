@@ -1,0 +1,160 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_08A",
+  "timestamp_utc": "2026-10-01T03:08:33.425787+00:00",
+  "status": "SOURCE_PROTOCOL_PILOT_COMPLETE",
+  "scope": "b050_seed17_only",
+  "final_protocol": false,
+  "target_unlock": false,
+  "training_lock": {
+    "file": "config/notebook07_deferred_training_lock.json",
+    "sha256": "2909630c2b92cbc3df31244a79b1344c5d1ec95061babd59cee68f70b88818c8",
+    "github_commit": "8fc879f610c4deb44b291174562c3a67d163850f"
+  },
+  "development_data": {
+    "threshold_selection": "source_selection_only",
+    "temperature_fitting": "source_calibration_only",
+    "selection_cases": [
+      "coronacases_003",
+      "coronacases_010",
+      "radiopaedia_10_85902_1",
+      "radiopaedia_4_85506_1"
+    ],
+    "calibration_cases": [
+      "coronacases_004",
+      "coronacases_006",
+      "radiopaedia_10_85902_3",
+      "radiopaedia_40_86625_0"
+    ],
+    "selection_calibration_disjoint": true,
+    "target_accessed": false
+  },
+  "threshold_selection": {
+    "candidate_probabilities": [
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7
+    ],
+    "metric": "macro patient/case Dice",
+    "timing": "before temperature calibration",
+    "tie_break": "highest macro Dice; then closest to 0.5; then lower threshold"
+  },
+  "temperature_calibration": {
+    "type": "one positive scalar temperature per selected checkpoint",
+    "objective": "image-balanced binary cross-entropy",
+    "sample_rule": "deterministic uniform sample of up to 2048 valid pixels per calibration image",
+    "sampling_seed": 8017,
+    "temperature_numerical_search_range": [
+      0.05,
+      20.0
+    ],
+    "operating_point_rule": "retain the same raw-logit decision boundary after temperature scaling"
+  },
+  "inference": {
+    "primary": "single identity view",
+    "secondary": "four-view calibrated inference",
+    "four_views": [
+      "identity",
+      "contrast_1.05_about_0.5",
+      "rotation_+5_degrees",
+      "rotation_-5_degrees"
+    ],
+    "rotation_logit_alignment": "inverse rotate logits with bilinear interpolation",
+    "rotation_support_alignment": "inverse rotate support with nearest interpolation",
+    "four_view_probability_aggregation": "mean calibrated probability over valid aligned views"
+  },
+  "uncertainty": {
+    "mean_probability": "mu = mean_k p_k",
+    "view_variance": "v = mean_k (p_k - mu)^2",
+    "entropy": "binary entropy(mu) / log(2)",
+    "pixel_score": "U = 0.5*h + 0.5*min(1,4*v)",
+    "case_score": "max(mean U in four-view predicted lesion plus 3-pixel outward boundary band, mean top 1% U over valid case pixels); use top-1% term alone when predicted mask is empty",
+    "source_percentiles_saved": [
+      50,
+      75,
+      90,
+      95
+    ]
+  },
+  "metric_conventions": {
+    "primary_unit": "patient/case",
+    "dice_iou_empty_reference_empty_prediction": 1.0,
+    "sensitivity_undefined_if_no_positive_reference": true,
+    "specificity_undefined_if_no_negative_reference": true,
+    "padding_excluded": true,
+    "four_view_is_secondary_not_primary": true
+  },
+  "semantic_prompts": {
+    "file": "config/notebook06_prompts.json",
+    "sha256": "31d9999a59164cd3a76ab4f6e31b9b97e2e300aadfe123f09d772260b514f74a",
+    "prototype_sha256": "25231ccdb25647e3f139ab107bce800bfe14d674899d4fdf1df8d87d693d0a58",
+    "patient_specific_prompts": false
+  },
+  "methods": {
+    "supervised": {
+      "selected_checkpoint_sha256": "951f54537c9d712525b7192219966dd9e0c414c10e860a93366681be51ac2541",
+      "selected_model_type": "student",
+      "selected_best_step": 3750,
+      "selection_threshold": 0.3,
+      "selection_macro_case_dice_at_threshold": 0.7576196246365794,
+      "raw_logit_boundary": -0.8472978603872036,
+      "temperature": 1.4801414428278832,
+      "calibrated_probability_threshold": 0.36067311154923887,
+      "uncertainty_case_score_percentiles": {
+        "50": 0.20258206129174056,
+        "75": 0.3122365298243161,
+        "90": 0.47672397985789383,
+        "95": 0.5315531298690862
+      },
+      "uncertainty_vs_four_view_error_spearman_rho": 0.19999999999999998,
+      "uncertainty_vs_four_view_error_spearman_p": 0.8
+    },
+    "confidence_only_ema": {
+      "selected_checkpoint_sha256": "6442561030cd15ca0f22a01a7dd0c3074829cae480cc632cf225e97cfb33d2e0",
+      "selected_model_type": "teacher",
+      "selected_best_step": 1250,
+      "selection_threshold": 0.3,
+      "selection_macro_case_dice_at_threshold": 0.7550570883822758,
+      "raw_logit_boundary": -0.8472978603872036,
+      "temperature": 1.1720038906340424,
+      "calibrated_probability_threshold": 0.32674414542770996,
+      "uncertainty_case_score_percentiles": {
+        "50": 0.22315970395598694,
+        "75": 0.3158066800370163,
+        "90": 0.45537166594169165,
+        "95": 0.5018933279099166
+      },
+      "uncertainty_vs_four_view_error_spearman_rho": -0.7999999999999999,
+      "uncertainty_vs_four_view_error_spearman_p": 0.20000000000000007
+    },
+    "agreement_filtered_ema": {
+      "selected_checkpoint_sha256": "1ab434a8634082d8c6701fcc24c35115b302a7508bc27ed851946726b2edb8b8",
+      "selected_model_type": "teacher",
+      "selected_best_step": 1250,
+      "selection_threshold": 0.3,
+      "selection_macro_case_dice_at_threshold": 0.7551000177274,
+      "raw_logit_boundary": -0.8472978603872036,
+      "temperature": 1.1716191526107644,
+      "calibrated_probability_threshold": 0.32669192315219914,
+      "uncertainty_case_score_percentiles": {
+        "50": 0.22314262776266014,
+        "75": 0.3158169285583242,
+        "90": 0.45544907869133433,
+        "95": 0.5019931287356708
+      },
+      "uncertainty_vs_four_view_error_spearman_rho": -0.7999999999999999,
+      "uncertainty_vs_four_view_error_spearman_p": 0.20000000000000007
+    }
+  },
+  "deferred_confirmatory_runs": [
+    "b050_seed42",
+    "b050_seed2026",
+    "b025_seed17",
+    "b025_seed42",
+    "b025_seed2026"
+  ],
+  "finalization_rule": "Complete deferred Notebook-07 runs using the pre-calibration training lock, then perform final Notebook-08 protocol freeze before Notebook-09 target evaluation.",
+  "allow_target_evaluation": false
+}
