@@ -1,18 +1,18 @@
 [
   {
     "file": "01_comparative_segmentation_morphology.pdf",
-    "size_bytes": 282170,
-    "sha256": "6a09883f1d6cb4d19a547a2c4b3ba373308ea708c897e8a301b6db2a751ef19c"
+    "size_bytes": 333310,
+    "sha256": "f1e1c146aca5ece90c214b5dd75c3f24f8d7802ecb88efa2f080420b0c5d8b56"
   },
   {
     "file": "01_comparative_segmentation_morphology.png",
-    "size_bytes": 2137384,
-    "sha256": "5ceb8adc0ce3ccef3063978c8491999d05577ee1269c77fb7526e805511b3a52"
+    "size_bytes": 2337998,
+    "sha256": "5a9868ae0b890397c626c9464a548399304e34c6869a60cc79932e57b283c38b"
   },
   {
     "file": "01_comparative_segmentation_morphology.svg",
-    "size_bytes": 535144,
-    "sha256": "5aaf77a42e9065dd5102e45d6758277076c36d1d43bb6a2b2978652e964a03f5"
+    "size_bytes": 676788,
+    "sha256": "b601983b7120e69ce8808a105a26a740c6db34bc802f875f8c1a87213801c7ce"
   },
   {
     "file": "02_external_target_error_phenotypes.pdf",
@@ -161,7 +161,7 @@
   },
   {
     "file": "publication_figure_integrity_manifest.json",
-    "size_bytes": 5451,
-    "sha256": "14b0fc53597f6b41a5440894d2f53c473f8a129063106ac754be801acda8d5ab"
+    "size_bytes": 5622,
+    "sha256": "af92971ef169b5d3babacbbafdca676d5882443f9d88222f2059b19c58042739"
   }
 ]
