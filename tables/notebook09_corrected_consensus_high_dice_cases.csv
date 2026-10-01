@@ -1,0 +1,9 @@
+rank,case_id,selection_rule
+1,medseg_slice_000,top cases by mean Dice across all methods and all seeds (single-view)
+2,medseg_slice_035,top cases by mean Dice across all methods and all seeds (single-view)
+3,medseg_slice_067,top cases by mean Dice across all methods and all seeds (single-view)
+4,medseg_slice_077,top cases by mean Dice across all methods and all seeds (single-view)
+5,medseg_slice_063,top cases by mean Dice across all methods and all seeds (single-view)
+6,medseg_slice_065,top cases by mean Dice across all methods and all seeds (single-view)
+7,medseg_slice_008,top cases by mean Dice across all methods and all seeds (single-view)
+8,medseg_slice_009,top cases by mean Dice across all methods and all seeds (single-view)
