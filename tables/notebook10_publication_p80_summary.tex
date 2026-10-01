@@ -1,0 +1,23 @@
+
+\begin{table}[t]
+\centering
+\caption{External-target behavior under the predeclared source-derived
+80th-percentile uncertainty gate. Values are mean $\pm$ standard deviation
+across three training seeds. Retained cases differ across seeds and methods;
+therefore retained-set metrics are descriptive and are not interpreted as
+matched method comparisons.}
+\label{tab:nb10_source_p80}
+\begin{tabular}{lcccc}
+\toprule
+Method &
+Coverage (\%) &
+Retained Dice &
+Extent MAE (pixels) &
+Image-fraction MAE (pp) \\
+\midrule
+Supervised & 5.00 $\pm$ 2.65 & 0.675 $\pm$ 0.130 & 450.9 $\pm$ 482.2 & 0.172 $\pm$ 0.184 \\
+Confidence EMA & 3.67 $\pm$ 1.53 & 0.740 $\pm$ 0.055 & 523.6 $\pm$ 404.2 & 0.200 $\pm$ 0.154 \\
+Agreement EMA & 4.00 $\pm$ 1.73 & 0.658 $\pm$ 0.101 & 649.2 $\pm$ 100.8 & 0.248 $\pm$ 0.038 \\
+\bottomrule
+\end{tabular}
+\end{table}

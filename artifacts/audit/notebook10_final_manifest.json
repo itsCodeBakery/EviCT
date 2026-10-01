@@ -1,0 +1,129 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_10_FINAL",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T18:46:30.984565+00:00",
+  "artifact_count": 24,
+  "artifacts": [
+    {
+      "path": "config/notebook10_measurement_contract.json",
+      "size_bytes": 6578,
+      "sha256": "f76d556c5a95966448ecc47df01ebfaf6c78727476ef24c1486aa4e05304eb01"
+    },
+    {
+      "path": "config/notebook10_evidence_schema.json",
+      "size_bytes": 5193,
+      "sha256": "cb2b2299b4fd3d84e64b95d2282f76739a804ccff4a003579094fc5b2f0c1f38"
+    },
+    {
+      "path": "artifacts/audit/notebook10a_contract_audit.json",
+      "size_bytes": 1901,
+      "sha256": "10b7eae9f39e2aa7faf57bef09e9b3b6b5df894993d5a0d0dda6108ed208487a"
+    },
+    {
+      "path": "artifacts/audit/notebook10b_evidence_builder_audit.json",
+      "size_bytes": 2155,
+      "sha256": "02d95ac8477b34b8fa61e737b3406f47d595c3b4df47221b3f51127c2ff02766"
+    },
+    {
+      "path": "artifacts/audit/notebook10c_independent_evaluation.json",
+      "size_bytes": 2216,
+      "sha256": "f1bb6a1ae96e1a9f95c3850b69018c777821a09e7edcdece758ab51c08eaa1cc"
+    },
+    {
+      "path": "tables/notebook10_evidence_manifest.csv",
+      "size_bytes": 400205,
+      "sha256": "b4b5d53ad80f2a84198fe5588e0840406b1ee922c93e80cfef8ddc5f1149b9f9"
+    },
+    {
+      "path": "tables/notebook10_default_p80_seed_summary.csv",
+      "size_bytes": 2090,
+      "sha256": "2a82ada4a272335fd9d7cf0b4bd76b675ff16f413187ecf5099b63832937f369"
+    },
+    {
+      "path": "tables/notebook10_default_p80_method_summary.csv",
+      "size_bytes": 933,
+      "sha256": "e86fb0fef595349fba7ede55992581552a6e36d403a429c8269f1acc2bf9d716"
+    },
+    {
+      "path": "tables/notebook10_source_gate_evaluation.csv",
+      "size_bytes": 8859,
+      "sha256": "98e794800db9cc66f8f6047dfc2d802f45d5b71a9e6d88e93b02a5add21b2cc7"
+    },
+    {
+      "path": "tables/notebook10_coverage_curve_method_mean.csv",
+      "size_bytes": 2824,
+      "sha256": "edbaacf4a819be828e80578be6d32d4caa98205b6bcd547accce2d745d9f286c"
+    },
+    {
+      "path": "tables/notebook10_measurement_evaluation.csv",
+      "size_bytes": 252320,
+      "sha256": "20918c999bb5b26451e6393af6346ad399ba73599ca7f24fdc20abd58f0c5f79"
+    },
+    {
+      "path": "tables/notebook10_publication_p80_summary.csv",
+      "size_bytes": 617,
+      "sha256": "d14c6f56cb2a08e403f81578eca1cdfb10a3a80c26f1ce82e2668fbcfa2e0365"
+    },
+    {
+      "path": "tables/notebook10_publication_p80_summary.tex",
+      "size_bytes": 835,
+      "sha256": "93e2ed7e9ca179d5d1fb1dc3bdf943894372530478c0feac6122c45bcf815edc"
+    },
+    {
+      "path": "tables/notebook10_publication_coverage_curve.csv",
+      "size_bytes": 1142,
+      "sha256": "f9b68378620f2decaa40ce6116d11b06861b2d914a424edbe8c376b6f721c71a"
+    },
+    {
+      "path": "tables/notebook10_publication_coverage_curve.tex",
+      "size_bytes": 1085,
+      "sha256": "ecebbf794881ff1c2bb9d70d2b71933c8938e2080f38be61b2b69a205a20fba3"
+    },
+    {
+      "path": "figures/notebook10_corrected/publication/source_p80_external_coverage.png",
+      "size_bytes": 329095,
+      "sha256": "5aa06f9581ddf10d982677182ba59901efec4fe6fd94f9e80ca3bd3b23a01139"
+    },
+    {
+      "path": "figures/notebook10_corrected/publication/source_p80_external_coverage.pdf",
+      "size_bytes": 21348,
+      "sha256": "f151f17ea74fe6a66febc9c9457abaa1d08c905bbb20f50384ad4f0c233413d6"
+    },
+    {
+      "path": "figures/notebook10_corrected/publication/source_p80_external_coverage.svg",
+      "size_bytes": 49063,
+      "sha256": "46cf9c72719262716c933713508bc3bf6810194f0a9ea4bedc2cbe37edac6526"
+    },
+    {
+      "path": "figures/notebook10_corrected/publication/source_p80_retained_dice.png",
+      "size_bytes": 360603,
+      "sha256": "bb74ea9d8095ecb910f8870f17694c83d1a0f783b78247964eb7f23d72e2bf45"
+    },
+    {
+      "path": "figures/notebook10_corrected/publication/source_p80_retained_dice.pdf",
+      "size_bytes": 19873,
+      "sha256": "127f7c69117b017d17700b2cdb38458f095b6c488b92b0b51b47a3e02627b044"
+    },
+    {
+      "path": "figures/notebook10_corrected/publication/source_p80_retained_dice.svg",
+      "size_bytes": 53830,
+      "sha256": "7e24e9e0ad87f61129258c3c82d466333cd73643b2db424157b36ac9f4eaed36"
+    },
+    {
+      "path": "config/notebook10_final_freeze.json",
+      "size_bytes": 2706,
+      "sha256": "1d2b1ecdaed08b30d80d79ebd4c016ccc944fbe68ccca3017d25487f59df83be"
+    },
+    {
+      "path": "reports/notebook10_final_state.md",
+      "size_bytes": 2096,
+      "sha256": "35d95916039d192bf63e26a4a8cd8bc7310f67b113b9e698619e0ac158132f65"
+    },
+    {
+      "path": "handoff/NOTEBOOK10_STATE.md",
+      "size_bytes": 631,
+      "sha256": "6b60d40541e3c2a83e642401f8223641e66ad70243d1921bd8824419b08ecff2"
+    }
+  ]
+}

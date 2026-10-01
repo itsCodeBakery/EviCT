@@ -1,0 +1,33 @@
+
+\begin{table}[t]
+\centering
+\caption{External coverage and retained-set measurement behavior obtained
+without target tuning by applying uncertainty thresholds derived only from
+source calibration cases.}
+\label{tab:nb10_coverage_curve}
+\begin{tabular}{llccc}
+\toprule
+Method &
+Source gate &
+Coverage (\%) &
+Retained Dice &
+Image-fraction MAE (pp) \\
+\midrule
+Agreement EMA & p50 & 2.33 & 0.696 & 0.090 \\
+Agreement EMA & p70 & 2.67 & 0.660 & 0.152 \\
+Agreement EMA & p80 & 4.00 & 0.658 & 0.248 \\
+Agreement EMA & p90 & 6.33 & 0.645 & 0.322 \\
+Agreement EMA & p100 & 24.67 & 0.684 & 1.010 \\
+Confidence EMA & p50 & 2.33 & 0.807 & 0.050 \\
+Confidence EMA & p70 & 2.67 & 0.771 & 0.112 \\
+Confidence EMA & p80 & 3.67 & 0.740 & 0.200 \\
+Confidence EMA & p90 & 5.67 & 0.648 & 0.255 \\
+Confidence EMA & p100 & 18.33 & 0.687 & 0.773 \\
+Supervised & p50 & 2.67 & 0.827 & 0.087 \\
+Supervised & p70 & 3.00 & 0.818 & 0.078 \\
+Supervised & p80 & 5.00 & 0.675 & 0.172 \\
+Supervised & p90 & 14.33 & 0.639 & 0.362 \\
+Supervised & p100 & 55.67 & 0.662 & 2.142 \\
+\bottomrule
+\end{tabular}
+\end{table}
