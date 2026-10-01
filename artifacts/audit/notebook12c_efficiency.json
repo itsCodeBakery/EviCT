@@ -2,7 +2,7 @@
   "project": "EViCT",
   "stage": "NOTEBOOK_12C",
   "status": "PASS",
-  "timestamp_utc": "2026-10-01T19:34:38.254251+00:00",
+  "timestamp_utc": "2026-10-01T19:34:49.066811+00:00",
   "gpu": "Tesla T4",
   "batch_size": 1,
   "warmup_passes": 20,
@@ -12,8 +12,8 @@
     "method": "agreement_filtered_ema",
     "checkpoint_sha256": "1ab434a8634082d8c6701fcc24c35115b302a7508bc27ed851946726b2edb8b8"
   },
-  "full_case_mean_ms_without_llm": 50.554882810010895,
-  "single_view_peak_vram_gib": 0.13645458221435547,
+  "full_case_mean_ms_without_llm": 51.68941615989752,
+  "single_view_peak_vram_gib": 0.13687515258789062,
   "four_view_peak_vram_gib": 0.14090251922607422,
   "retrieval_timing": "NOT_APPLICABLE_OPTIONAL_RETRIEVAL_NOT_RUN",
   "qwen_generation_timing": "Notebook-11 generation timing retained separately; not mixed into segmentation latency."
