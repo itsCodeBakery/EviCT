@@ -1,0 +1,67 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_10C",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T18:43:42.397637+00:00",
+  "scientific_separation": {
+    "evidence_constructor_stage": "NOTEBOOK_10B",
+    "ground_truth_access_in_constructor": false,
+    "ground_truth_access_in_evaluator": true,
+    "eligibility_thresholds_changed": false,
+    "target_used_to_select_thresholds": false,
+    "models_changed": false,
+    "predictions_changed": false
+  },
+  "target_reference": {
+    "mask_file": "/kaggle/input/competitions/covid-segmentation/masks_medseg.npy",
+    "mask_file_sha256": "517aa4c81400152d7b9ea7375a8603ff3544be2dd9281d069dd8fab7c674fb9d",
+    "shape": [
+      100,
+      512,
+      512,
+      4
+    ],
+    "binary_target_rule": "channel0 OR channel1",
+    "channel2_excluded": true
+  },
+  "evidence_fidelity": {
+    "records": 900,
+    "pixel_extent_mismatches": 0,
+    "uncertainty_copy_mismatches": 0,
+    "p80_gate_mismatches": 0,
+    "passed": true
+  },
+  "measurement_correctness": {
+    "unit": "pixels_and_image_fraction",
+    "physical_area_evaluated": false,
+    "volume_evaluated": false,
+    "lung_burden_evaluated": false,
+    "reason": "verified physical geometry and deployable lung denominator are unavailable"
+  },
+  "eligibility_evaluation": {
+    "source_percentiles": [
+      50,
+      70,
+      80,
+      90,
+      100
+    ],
+    "default_percentile": 80,
+    "target_tuned": false,
+    "coverage_measured": true,
+    "positive_and_empty_reference_coverage_separated": true
+  },
+  "view_stability": {
+    "records_with_true_stability_range": 0,
+    "analysis_performed": false,
+    "reason": "Notebook-09 preserved aggregate four-view outputs but not the four individual aligned view predictions required for a genuine lesion-extent stability range.",
+    "fabricated_range": false
+  },
+  "outputs": {
+    "measurement_table": "tables/notebook10_measurement_evaluation.csv",
+    "gate_table": "tables/notebook10_source_gate_evaluation.csv",
+    "p80_seed_summary": "tables/notebook10_default_p80_seed_summary.csv",
+    "p80_method_summary": "tables/notebook10_default_p80_method_summary.csv",
+    "coverage_curve_data": "tables/notebook10_coverage_curve_method_mean.csv"
+  }
+}
