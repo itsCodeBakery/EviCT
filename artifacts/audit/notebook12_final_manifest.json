@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "artifacts": [
+    {
+      "path": "artifacts/audit/notebook12a_matched_coverage_audit.json",
+      "size_bytes": 3316,
+      "sha256": "927cb8a5928afc4f7c01e4d3751824e0d5408215e4e10885b0ac705b48eed9f8"
+    },
+    {
+      "path": "artifacts/audit/notebook12b0_protocol_correction.json",
+      "size_bytes": 575,
+      "sha256": "d9445ded9d201ac2b5dd43594317c325e7596642c837f6c73c1b15923b00fd4c"
+    },
+    {
+      "path": "artifacts/audit/notebook12b1_stress_inference.json",
+      "size_bytes": 648,
+      "sha256": "d73e11abab13c5bd5a2b44c9dbb05c317ffa9500615ffe3dc38e39aeedb1b516"
+    },
+    {
+      "path": "artifacts/audit/notebook12b2_robustness_analysis.json",
+      "size_bytes": 416,
+      "sha256": "c58493f90638915ec4727cafac2c8cf79a516e477786cfc66221eead6b0a597c"
+    },
+    {
+      "path": "artifacts/audit/notebook12c_efficiency.json",
+      "size_bytes": 736,
+      "sha256": "01010c013a67cef0829dd97c34bf71502d85be11289a54dfd1bf65ee40c89e3c"
+    },
+    {
+      "path": "tables/notebook12a_selective_risk_auc.csv",
+      "size_bytes": 3169,
+      "sha256": "0c22634a8ba6516a8fee3ac36c4b4c5f76708177adb4456e6f54fec5d7f3b7ab"
+    },
+    {
+      "path": "tables/notebook12b_stress_method_summary.csv",
+      "size_bytes": 1521,
+      "sha256": "addb175059d8299a21bdb25be2ec3b07832b69776974ec95da8fb720fa2b09c3"
+    },
+    {
+      "path": "tables/notebook12c_efficiency.csv",
+      "size_bytes": 694,
+      "sha256": "190522bac966fadc7d95f42f524d38ab3ad357b2d7e8b57c22a7eba654610e58"
+    },
+    {
+      "path": "config/notebook12_final_freeze.json",
+      "size_bytes": 2210,
+      "sha256": "f8184a7182c2c4f37f43116b07c20d279b27c8f1d2d3e52ffde520952274be5a"
+    }
+  ]
+}

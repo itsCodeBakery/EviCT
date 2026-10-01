@@ -1,0 +1,56 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_12_FINAL",
+  "status": "NOTEBOOK_12_COMPLETE",
+  "timestamp_utc": "2026-10-01T19:34:51.137126+00:00",
+  "completed": {
+    "12A_matched_coverage": "PASS",
+    "12B_synthetic_robustness": "PASS",
+    "12C_efficiency": "PASS",
+    "12D_final_freeze": "PASS"
+  },
+  "rq3_interpretation": {
+    "status": "DIRECTIONALLY_SUPPORTED_WITH_LIMITATIONS",
+    "matched_coverage_selective_risk_positive_for_all_methods": true,
+    "matched_coverage_extent_error_reduction_positive_for_all_methods": true,
+    "uncertainty_error_correlations_directionally_positive": true,
+    "claim_boundary": "Useful but modest selective reliability; do not claim universal or clinical-grade uncertainty calibration."
+  },
+  "robustness": {
+    "type": "SYNTHETIC_STRESS_TESTS_ONLY",
+    "conditions": [
+      "gaussian_noise_sigma_0p03",
+      "gaussian_blur_sigma_1p0",
+      "resolution_half"
+    ],
+    "real_clinical_acquisition_robustness_claim": false
+  },
+  "efficiency": {
+    "gpu": "Tesla T4",
+    "batch_size": 1,
+    "warmup_passes": 20,
+    "timed_passes": 100,
+    "full_case_mean_ms_without_llm": 51.68941615989752,
+    "single_view_peak_vram_gib": 0.13687515258789062,
+    "four_view_peak_vram_gib": 0.14090251922607422
+  },
+  "reader_study": {
+    "status": "NOT_RUN",
+    "reason": "Qualified independent readers were not included.",
+    "clinical_report_quality_superiority_claim_allowed": false
+  },
+  "retrieval": {
+    "status": "NOT_RUN_OPTIONAL",
+    "core_claims_depend_on_retrieval": false
+  },
+  "known_limitations": [
+    "Primary low-label study is b050; b025 was deferred due to compute budget.",
+    "MedSeg external evaluation unit is a selected 2D image, not a verified independent patient.",
+    "No physical lesion area or lesion volume claim is supported.",
+    "No whole-lung burden, laterality, or lobar localization claim is supported.",
+    "Source-p80 uncertainty gate transferred with very low external coverage.",
+    "Matched-coverage analysis is a post-hoc reliability diagnostic.",
+    "Synthetic perturbations are not evidence of clinical acquisition robustness.",
+    "No expert-reader clinical report-quality comparison was performed."
+  ]
+}
