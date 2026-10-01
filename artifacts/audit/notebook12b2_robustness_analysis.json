@@ -1,0 +1,16 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_12B2",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T19:34:28.173370+00:00",
+  "records": 3600,
+  "paired_bootstrap_replicates": 2000,
+  "bootstrap_unit": "selected_2D_image",
+  "conditions": [
+    "gaussian_noise_sigma_0p03",
+    "gaussian_blur_sigma_1p0",
+    "resolution_half"
+  ],
+  "acquisition_robustness_claim": false,
+  "synthetic_stress_test_claim": true
+}
