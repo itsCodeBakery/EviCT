@@ -1,0 +1,15 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_11C_VALIDATOR_CORRECTION_V2",
+  "status": "FINAL_VALIDATOR_ONLY_CORRECTION",
+  "timestamp_utc": "2026-10-01T19:08:03.817576+00:00",
+  "new_qwen_generations": 0,
+  "model_changed": false,
+  "prompt_changed": false,
+  "raw_output_changed": false,
+  "target_data_accessed": false,
+  "original_raw_file": "reports/notebook11_free_text/raw_unique_generations.jsonl",
+  "original_raw_sha256": "e8277e957085e0fd8a44dbf70a3c4d3ebe83081852ee1396804c6383a8360405",
+  "correction": "Recognize explicit research disclaimers using the valid construction 'does not diagnose disease or recommend treatment'.",
+  "unchanged_exact_empty_prediction_phrase": "no target opacity detected by the model"
+}
