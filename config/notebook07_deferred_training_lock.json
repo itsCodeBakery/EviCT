@@ -1,0 +1,34 @@
+{
+  "project": "EviCT",
+  "stage": "NOTEBOOK_07_DEFERRED_TRAINING_LOCK",
+  "timestamp_utc": "2026-10-01T03:05:28.960414+00:00",
+  "status": "FROZEN_BEFORE_CALIBRATION_ACCESS",
+  "scientific_reason": "Remaining Notebook-07 confirmatory seeds were deferred for GPU efficiency. Their training configuration is frozen before Notebook-08 calibration labels are opened so calibration results cannot influence later training.",
+  "deferred_runs": [
+    "b050_seed42",
+    "b050_seed2026",
+    "b025_seed17",
+    "b025_seed42",
+    "b025_seed2026"
+  ],
+  "locked_scientific_hashes": {
+    "notebook07_config_hash": "9e351529f795979cde1f7d7d807ddf535d5221ff79498dc2679c1311528fcb58",
+    "notebook07_implementation_hash": "3343e640c636eed4e759a55918846b2a1f167f1d1014c46a9907e9a27a685ea0",
+    "teacher_student_config_file_sha256": "71331e5b7057c38acc5c7c2ed78246714cf5f070df641ef5e0516e748068149c",
+    "branch_implementation_file_sha256": "d4465f329ad4dd3e2eaabd811b716d974d6e827e3edafb4a2b2f5c14fc764d4d",
+    "semantic_model_code_sha256": "e01d85717f306acacfaccfec578c8dd19a3a3936bdaea5410176ee03578d355e",
+    "metrics_code_sha256": "ef961e8da4d00975c48184e571ec9809e660ee27df02f4a9c11cb7b31f6ffaf6",
+    "prototype_sha256": "25231ccdb25647e3f139ab107bce800bfe14d674899d4fdf1df8d87d693d0a58",
+    "prompt_file_sha256": "31d9999a59164cd3a76ab4f6e31b9b97e2e300aadfe123f09d772260b514f74a"
+  },
+  "future_training_rule": {
+    "training_hyperparameters_may_change_after_calibration": false,
+    "model_architecture_may_change_after_calibration": false,
+    "pseudo_label_thresholds_may_change_after_calibration": false,
+    "training_method_selection_may_change_after_calibration": false,
+    "target_results_may_influence_deferred_runs": false
+  },
+  "calibration_accessed_at_lock": false,
+  "target_accessed_at_lock": false,
+  "target_lock": "ACTIVE"
+}
