@@ -1,0 +1,59 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_11A",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-01T18:50:46.002081+00:00",
+  "inputs": {
+    "evidence_manifest": "tables/notebook10_evidence_manifest.csv",
+    "evidence_records": 900,
+    "notebook10_final_freeze_sha256": "1d2b1ecdaed08b30d80d79ebd4c016ccc944fbe68ccca3017d25487f59df83be"
+  },
+  "reporting_mode": {
+    "deterministic": true,
+    "llm_loaded": false,
+    "gpu_required": false,
+    "free_text_generation": false,
+    "sentence_id_catalog": true,
+    "numbers_rendered_by_python": true
+  },
+  "anti_leakage": {
+    "target_masks_accessed": false,
+    "target_case_metrics_accessed": false,
+    "target_dice_used": false,
+    "target_iou_used": false,
+    "ground_truth_used": false
+  },
+  "validation": {
+    "reports_expected": 900,
+    "reports_generated": 900,
+    "validation_failures": 0,
+    "unknown_id_unit_test": true,
+    "missing_limitation_unit_test": true,
+    "altered_number_unit_test": true
+  },
+  "eligibility_behavior": {
+    "numerical_extent_emitted": 38,
+    "numerical_extent_withheld": 862,
+    "gate_source": "source-derived p80 from Notebook 10",
+    "target_tuned": false
+  },
+  "empty_prediction_behavior": {
+    "empty_prediction_reports": 4,
+    "approved_phrase": "no target opacity detected by the model",
+    "normality_claim_allowed": false
+  },
+  "sentence_catalog": {
+    "path": "config/notebook11_sentence_catalog.json",
+    "sha256": "b7f8a5ed5ddc1961e56e46e8ad2f2f27f7a525ba2a25714d567310fcfa2cb188",
+    "approved_ids": 12
+  },
+  "strict_protocol": {
+    "path": "config/notebook11_strict_id_protocol.json",
+    "sha256": "58abff54aa77d15d7b1b4cc1d253d997c719f47ba50d849c42c69ef6ed4ce09b"
+  },
+  "outputs": {
+    "report_jsonl": "reports/notebook11_deterministic/reports.jsonl",
+    "report_manifest": "tables/notebook11_deterministic_report_manifest.csv",
+    "sentence_usage": "tables/notebook11_sentence_usage.csv"
+  }
+}

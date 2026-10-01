@@ -1,0 +1,89 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_11A",
+  "version": "1.0",
+  "status": "FROZEN_DETERMINISTIC_SENTENCE_CATALOG",
+  "created_utc": "2026-10-01T18:50:45.535839+00:00",
+  "field_order": [
+    "input_scope",
+    "target_lesion_evidence",
+    "supported_measurements",
+    "limitations_review_required"
+  ],
+  "sentence_catalog": {
+    "SCOPE_001": {
+      "field": "input_scope",
+      "template": "Input scope: one selected 2D CT image is being summarized; this is not a complete CT volume.",
+      "placeholders": [],
+      "mandatory": true
+    },
+    "TARGET_PRESENT_001": {
+      "field": "target_lesion_evidence",
+      "template": "Target lesion evidence: the model produced a non-empty target-opacity prediction.",
+      "placeholders": [],
+      "condition": "single_view_target_opacity_detected == true"
+    },
+    "TARGET_EMPTY_001": {
+      "field": "target_lesion_evidence",
+      "template": "Target lesion evidence: no target opacity detected by the model.",
+      "placeholders": [],
+      "condition": "single_view_target_opacity_detected == false"
+    },
+    "MEAS_EXTENT_001": {
+      "field": "supported_measurements",
+      "template": "Supported measurement: predicted lesion extent is {lesion_pixels} pixels on the original 512 × 512 image grid.",
+      "placeholders": [
+        "lesion_pixels"
+      ],
+      "condition": "lesion_extent_pixels eligibility == true"
+    },
+    "MEAS_WITHHELD_001": {
+      "field": "supported_measurements",
+      "template": "Supported measurement: numerical lesion extent is withheld because this case does not pass the source-derived p80 uncertainty eligibility gate.",
+      "placeholders": [],
+      "condition": "lesion_extent_pixels eligibility == false"
+    },
+    "GATE_PASS_001": {
+      "field": "supported_measurements",
+      "template": "Reliability status: this case passes the source-derived p80 uncertainty eligibility gate.",
+      "placeholders": [],
+      "condition": "passes_default_gate == true"
+    },
+    "GATE_FAIL_001": {
+      "field": "supported_measurements",
+      "template": "Reliability status: this case does not pass the source-derived p80 uncertainty eligibility gate.",
+      "placeholders": [],
+      "condition": "passes_default_gate == false"
+    },
+    "LIMIT_GEOMETRY_001": {
+      "field": "limitations_review_required",
+      "template": "Physical lesion area and lesion volume are unavailable because verified physical geometry is not established.",
+      "placeholders": [],
+      "mandatory": true
+    },
+    "LIMIT_LUNG_001": {
+      "field": "limitations_review_required",
+      "template": "Whole-lung involvement is unavailable because a deployable lung-mask denominator is not available.",
+      "placeholders": [],
+      "mandatory": true
+    },
+    "LIMIT_ORIENTATION_001": {
+      "field": "limitations_review_required",
+      "template": "Laterality and lobar localization are not emitted because the required orientation and anatomical prerequisites are unavailable.",
+      "placeholders": [],
+      "mandatory": true
+    },
+    "LIMIT_STABILITY_001": {
+      "field": "limitations_review_required",
+      "template": "A true four-view lesion-extent stability range is unavailable because the individual aligned view predictions were not preserved.",
+      "placeholders": [],
+      "mandatory": true
+    },
+    "LIMIT_RESEARCH_001": {
+      "field": "limitations_review_required",
+      "template": "This is a research summary of model-derived evidence and is not a diagnosis or treatment recommendation.",
+      "placeholders": [],
+      "mandatory": true
+    }
+  }
+}

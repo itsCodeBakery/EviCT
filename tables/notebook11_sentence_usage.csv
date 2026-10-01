@@ -1,0 +1,13 @@
+sentence_id,field,usage_count,template
+GATE_FAIL_001,supported_measurements,862,Reliability status: this case does not pass the source-derived p80 uncertainty eligibility gate.
+GATE_PASS_001,supported_measurements,38,Reliability status: this case passes the source-derived p80 uncertainty eligibility gate.
+LIMIT_GEOMETRY_001,limitations_review_required,900,Physical lesion area and lesion volume are unavailable because verified physical geometry is not established.
+LIMIT_LUNG_001,limitations_review_required,900,Whole-lung involvement is unavailable because a deployable lung-mask denominator is not available.
+LIMIT_ORIENTATION_001,limitations_review_required,900,Laterality and lobar localization are not emitted because the required orientation and anatomical prerequisites are unavailable.
+LIMIT_RESEARCH_001,limitations_review_required,900,This is a research summary of model-derived evidence and is not a diagnosis or treatment recommendation.
+LIMIT_STABILITY_001,limitations_review_required,900,A true four-view lesion-extent stability range is unavailable because the individual aligned view predictions were not preserved.
+MEAS_EXTENT_001,supported_measurements,38,Supported measurement: predicted lesion extent is {lesion_pixels} pixels on the original 512 × 512 image grid.
+MEAS_WITHHELD_001,supported_measurements,862,Supported measurement: numerical lesion extent is withheld because this case does not pass the source-derived p80 uncertainty eligibility gate.
+SCOPE_001,input_scope,900,Input scope: one selected 2D CT image is being summarized; this is not a complete CT volume.
+TARGET_EMPTY_001,target_lesion_evidence,4,Target lesion evidence: no target opacity detected by the model.
+TARGET_PRESENT_001,target_lesion_evidence,896,Target lesion evidence: the model produced a non-empty target-opacity prediction.

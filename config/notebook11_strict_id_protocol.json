@@ -1,0 +1,67 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_11A",
+  "protocol_version": "1.0",
+  "sentence_catalog_file": "config/notebook11_sentence_catalog.json",
+  "sentence_catalog_sha256": "b7f8a5ed5ddc1961e56e46e8ad2f2f27f7a525ba2a25714d567310fcfa2cb188",
+  "allowed_sentence_ids": [
+    "GATE_FAIL_001",
+    "GATE_PASS_001",
+    "LIMIT_GEOMETRY_001",
+    "LIMIT_LUNG_001",
+    "LIMIT_ORIENTATION_001",
+    "LIMIT_RESEARCH_001",
+    "LIMIT_STABILITY_001",
+    "MEAS_EXTENT_001",
+    "MEAS_WITHHELD_001",
+    "SCOPE_001",
+    "TARGET_EMPTY_001",
+    "TARGET_PRESENT_001"
+  ],
+  "mandatory_sentence_ids": [
+    "LIMIT_GEOMETRY_001",
+    "LIMIT_LUNG_001",
+    "LIMIT_ORIENTATION_001",
+    "LIMIT_RESEARCH_001",
+    "LIMIT_STABILITY_001",
+    "SCOPE_001"
+  ],
+  "field_order": [
+    "input_scope",
+    "target_lesion_evidence",
+    "supported_measurements",
+    "limitations_review_required"
+  ],
+  "future_llm_output_contract": {
+    "allowed_output": "JSON containing approved sentence IDs only",
+    "llm_may_emit_numbers": false,
+    "llm_may_rewrite_sentences": false,
+    "llm_may_create_new_sentence_ids": false,
+    "renderer": "deterministic_python",
+    "number_source": "validated Notebook-10 evidence JSON only",
+    "fallback": "deterministic Notebook-11A report"
+  },
+  "protected_fields": [
+    "lesion_pixels"
+  ],
+  "mandatory_limitations": [
+    "LIMIT_GEOMETRY_001",
+    "LIMIT_LUNG_001",
+    "LIMIT_ORIENTATION_001",
+    "LIMIT_STABILITY_001",
+    "LIMIT_RESEARCH_001"
+  ],
+  "prohibited_claims": [
+    "normal scan",
+    "absence of disease",
+    "COVID-negative",
+    "healthy lungs",
+    "physical lesion area",
+    "lesion volume",
+    "whole-lung involvement percentage",
+    "patient-level burden",
+    "laterality",
+    "lobar localization",
+    "treatment recommendation"
+  ]
+}
