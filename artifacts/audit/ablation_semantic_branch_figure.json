@@ -1,0 +1,27 @@
+{
+  "project": "EViCT",
+  "figure": "Semantic Prototype Ablation",
+  "source": "tables/notebook06_semantic_ablation.csv",
+  "timestamp_utc": "2026-10-03T08:18:52.094845+00:00",
+  "metric": "macro_case_dice",
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "vision_only_mean": 0.7540509441220388,
+  "real_text_mean": 0.7619517096084231,
+  "swapped_text_mean": 0.7546442273193069,
+  "random_prototypes_mean": 0.7526654190913291,
+  "real_text_minus_vision_only": 0.007900765486384298,
+  "real_text_better_than_vision_only_seed_count": 2,
+  "total_seed_count": 3,
+  "formal_significance_test_performed": false,
+  "permitted_interpretation": "The real-text configuration achieved the highest three-seed mean Dice and exceeded the vision-only reference in two of three seeds. Swapped-text and random-prototype controls remained close to the vision-only reference.",
+  "prohibited_interpretation": "Do not describe the effect as statistically significant or as an improvement in every seed.",
+  "figure_files": [
+    "figures/publicationFigures/ablation_semantic_branch.png",
+    "figures/publicationFigures/ablation_semantic_branch.pdf",
+    "figures/publicationFigures/ablation_semantic_branch.svg"
+  ]
+}
