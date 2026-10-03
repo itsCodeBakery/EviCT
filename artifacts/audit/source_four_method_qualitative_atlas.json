@@ -56,5 +56,8 @@
     "figures/publicationFigures/source_four_method_tp_fp_fn_atlas.png",
     "figures/publicationFigures/source_four_method_tp_fp_fn_atlas.pdf",
     "figures/publicationFigures/source_four_method_tp_fp_fn_atlas.svg"
-  ]
+  ],
+  "dice_score_displayed_in_qualitative_figure": false,
+  "tp_fp_fn_displayed_in_qualitative_figure": true,
+  "figure_edit_note": "Dice annotations visually removed from publication figure. TP/FP/FN overlays and numerical counts retained unchanged. Ground Truth, frozen predictions, selected slices, threshold, and model outputs are unchanged."
 }
