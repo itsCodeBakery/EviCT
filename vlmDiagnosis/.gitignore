@@ -12,3 +12,5 @@ runs/**/patient_shards/
 runs/**/feature_cache_strong/*.npz
 runs/**/encoder_adapted.pt
 runs/**/best_mil.pt
+runs/**/descriptor_cache/*.npz
+runs/**/final_models/*.joblib
