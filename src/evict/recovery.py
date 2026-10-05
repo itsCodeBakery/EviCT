@@ -275,13 +275,18 @@ class GitHubReleaseStore:
 
     def _request(self, method: str, url: str, **kwargs: Any) -> requests.Response:
         last: Optional[Exception] = None
+        headers = kwargs.pop("headers", self.headers)
+        timeout = kwargs.pop("timeout", self.timeout)
+        data = kwargs.get("data")
         for attempt in range(1, 4):
             try:
+                if hasattr(data, "seek"):
+                    data.seek(0)
                 r = requests.request(
                     method,
                     url,
-                    headers=kwargs.pop("headers", self.headers),
-                    timeout=kwargs.pop("timeout", self.timeout),
+                    headers=headers,
+                    timeout=timeout,
                     **kwargs,
                 )
                 if r.status_code >= 400:
@@ -314,6 +319,11 @@ class GitHubReleaseStore:
             "prerelease": True,
         }
         return self._request("POST", f"{self.api}/releases", json=body).json()
+
+    def list_assets(self, run_id: str) -> Dict[str, Dict[str, Any]]:
+        release = self.ensure_release(run_id)
+        assets = self._request("GET", f"{self.api}/releases/{release['id']}/assets").json()
+        return {str(asset.get("name")): asset for asset in assets}
 
     def upload_or_replace(self, run_id: str, path: Path, asset_name: Optional[str] = None) -> Dict[str, Any]:
         path = Path(path)
@@ -503,6 +513,8 @@ class RunRecoveryManager:
             "manifest_hash": manifest_hash,
         }
 
+        atomic_write_json(self.manifest_path, manifest)
+
         if remote:
             token = token or kaggle_secret(self.policy.kaggle_secret_name)
             max_bytes = int(self.policy.max_release_asset_gb * (1024 ** 3))
@@ -527,8 +539,17 @@ class RunRecoveryManager:
                 remote_release_tag=manifest["remote_release_tag"],
                 remote_checkpoint_sha256=digest,
             )
+            atomic_write_json(self.manifest_path, manifest)
 
-        atomic_write_json(self.manifest_path, manifest)
+            # Keep recovery metadata beside the binary checkpoint so a fresh
+            # Kaggle session can recover even if a metadata Git push was deferred.
+            store.upload_or_replace(self.run_id, self.state_path, asset_name="STATE.json")
+            store.upload_or_replace(
+                self.run_id,
+                self.manifest_path,
+                asset_name="checkpoint_manifest.json",
+            )
+
         return state
 
     def restore(
