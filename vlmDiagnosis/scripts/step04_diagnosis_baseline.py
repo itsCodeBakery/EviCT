@@ -47,7 +47,13 @@ for d in [RUN, CACHE, TABLES, AUDIT]:
     d.mkdir(parents=True, exist_ok=True)
 
 sys.path.insert(0, str(DX))
-from runtime.recovery import RecoveryPolicy, RunRecoveryManager, sha256_file  # noqa: E402
+from runtime.recovery import (  # noqa: E402
+    GitHubReleaseStore,
+    RecoveryPolicy,
+    RunRecoveryManager,
+    kaggle_secret,
+    sha256_file,
+)
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 if DEVICE.type != "cuda":
@@ -555,6 +561,21 @@ def train_classifier(manifest):
             r[f"prob_{cls}"] = float(tprobs[i, j])
         test_rows.append(r)
     atomic_csv(TABLES / "step04_diagnosis_test_predictions.csv", pd.DataFrame(test_rows))
+
+    # Durable copy of the selected best classifier. It is intentionally
+    # stored as a GitHub Release asset rather than ordinary Git.
+    try:
+        token = kaggle_secret(policy.kaggle_secret_name)
+        store = GitHubReleaseStore(
+            repository=policy.github_repository,
+            token=token,
+            release_prefix=policy.rolling_release_prefix,
+        )
+        store.upload_or_replace(RUN_ID, best_path, asset_name="best_classifier.pt")
+        print("✓ best_classifier.pt uploaded to rolling recovery release")
+    except Exception as exc:
+        print("⚠ Could not upload best classifier release asset:", exc)
+        print("  Local best checkpoint remains available in the current Kaggle session.")
 
     result = {
         "project": "EViCT-Dx",
