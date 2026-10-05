@@ -14,3 +14,6 @@ runs/**/encoder_adapted.pt
 runs/**/best_mil.pt
 runs/**/descriptor_cache/*.npz
 runs/**/final_models/*.joblib
+runs/**/oof_predictions/*.npz
+runs/**/fold*_oof_predictions.tar
+runs/**/fold_*/fold*_oof_predictions.tar
