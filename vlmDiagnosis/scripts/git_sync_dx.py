@@ -16,7 +16,7 @@ import base64
 import subprocess
 import sys
 
-ROOT = Path("/kaggle/working/EviCT")
+ROOT = Path(__file__).resolve().parents[2]
 DX_REL = "vlmDiagnosis"
 GITHUB_USERNAME = "itsCodeBakery"
 GITHUB_URL = "https://github.com/itsCodeBakery/EviCT.git"
