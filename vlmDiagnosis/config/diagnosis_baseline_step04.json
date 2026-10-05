@@ -1,0 +1,96 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_04_DIAGNOSIS_BASELINE",
+  "status": "FROZEN_BEFORE_TRAINING",
+  "dataset": "COVID-CT-MD",
+  "split_manifest": "vlmDiagnosis/tables/step03d_covid_ct_md_split_manifest.csv",
+  "dicom_inventory": "vlmDiagnosis/tables/step03d_covid_ct_md_dicom_inventory.csv",
+  "seed": 1705,
+  "classes": [
+    "COVID-19",
+    "CAP",
+    "Normal"
+  ],
+  "preprocessing": {
+    "ordered_by": "Step03D frozen DICOM ordering",
+    "slices_per_volume": 32,
+    "sampling": "uniform_across_full_ordered_volume",
+    "resize": [
+      224,
+      224
+    ],
+    "channels": [
+      {
+        "name": "lung",
+        "hu_min": -1000,
+        "hu_max": 400
+      },
+      {
+        "name": "mediastinal",
+        "hu_min": -160,
+        "hu_max": 240
+      },
+      {
+        "name": "wide",
+        "hu_min": -1200,
+        "hu_max": 600
+      }
+    ],
+    "normalization": "each window clipped then linearly mapped to [0,1], then ImageNet mean/std",
+    "geometry": "2D per-slice resize only; diagnosis target is volume-level",
+    "cache": "frozen slice features per patient"
+  },
+  "encoder": {
+    "architecture": "torchvision EfficientNet-B0",
+    "weights": "IMAGENET1K_V1",
+    "frozen": true,
+    "feature_dim": 1280
+  },
+  "aggregator": {
+    "type": "gated_attention_pooling",
+    "attention_dim": 256,
+    "dropout": 0.25
+  },
+  "training": {
+    "loss": "class-weighted cross entropy",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "max_epochs": 60,
+    "patient_batch_size": 16,
+    "early_stopping_patience": 10,
+    "selection_metric": "validation_macro_F1",
+    "scheduler": "ReduceLROnPlateau",
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 3,
+    "mixed_precision": true
+  },
+  "calibration": {
+    "method": "temperature_scaling",
+    "fit_on": "validation_only"
+  },
+  "evaluation": {
+    "held_out_test_once": true,
+    "primary_metric": "macro_F1",
+    "secondary_metrics": [
+      "balanced_accuracy",
+      "per_class_sensitivity",
+      "per_class_specificity",
+      "per_class_precision",
+      "per_class_AUROC",
+      "macro_AUROC",
+      "Brier_score",
+      "negative_log_likelihood",
+      "expected_calibration_error"
+    ],
+    "bootstrap_patient_level_95ci": true,
+    "bootstrap_replicates": 2000
+  },
+  "safeguards": [
+    "no test access for checkpoint selection",
+    "no test access for temperature scaling",
+    "no slice-level random split",
+    "patient is the split unit",
+    "do not unlock diagnostic report fields from this baseline alone"
+  ]
+}
