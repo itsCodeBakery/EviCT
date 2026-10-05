@@ -17,6 +17,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from sklearn.metrics import balanced_accuracy_score, f1_score
+from scipy.stats import spearmanr
 from torch.utils.data import DataLoader, Dataset
 from torchvision.models import ResNet34_Weights, resnet34
 from tqdm.auto import tqdm
@@ -371,7 +372,9 @@ def train_fold(fold, cases, splits):
     log_path = fold_dir / "train_log.csv"
     history = pd.read_csv(log_path).to_dict("records") if log_path.exists() else []
 
-    for epoch in range(start, 21):
+    if patience >= 5:
+        print(f"✓ Fold {fold} had already reached early stopping before interruption.")
+    for epoch in ([] if patience >= 5 else range(start, 21)):
         model.train()
         losses = []
         bar = tqdm(train_loader, desc=f"Fold {fold}/4 epoch {epoch}/20", leave=True)
@@ -535,7 +538,11 @@ def evaluate_oof_fold(model, fold, test_ids, cases):
             "predicted_right_percent": pR,
             "reference_total_percent": float(r.reference_total_involvement_percent),
             "predicted_total_percent": pT,
-            "reference_bilateral": bool(r.reference_bilateral_involvement),
+            "reference_bilateral": (
+                bool(r.reference_bilateral_involvement)
+                if isinstance(r.reference_bilateral_involvement, (bool, np.bool_))
+                else str(r.reference_bilateral_involvement).strip().lower() == "true"
+            ),
             "predicted_bilateral": bilateral,
         })
 
@@ -579,6 +586,7 @@ def summarize_all():
             "median_absolute_error": float(np.median(np.abs(err))),
             "RMSE_percentage_points": float(np.sqrt(np.mean(err**2))),
             "Pearson_r": float(np.corrcoef(ref, pred)[0,1]),
+            "Spearman_rho": float(spearmanr(ref, pred).statistic),
             "CCC": ccc(ref, pred),
             "Bland_Altman_bias": float(np.mean(err)),
             "Bland_Altman_LOA95": [float(np.mean(err)-1.96*np.std(err)), float(np.mean(err)+1.96*np.std(err))],
