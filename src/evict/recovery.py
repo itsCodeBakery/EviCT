@@ -325,6 +325,13 @@ class GitHubReleaseStore:
         assets = self._request("GET", f"{self.api}/releases/{release['id']}/assets").json()
         return {str(asset.get("name")): asset for asset in assets}
 
+    def prune_assets(self, run_id: str, *, prefix: str, keep: int = 2) -> None:
+        assets = list(self.list_assets(run_id).values())
+        candidates = [a for a in assets if str(a.get("name", "")).startswith(prefix)]
+        candidates.sort(key=lambda a: str(a.get("created_at", "")), reverse=True)
+        for asset in candidates[max(0, keep):]:
+            self._request("DELETE", f"{self.api}/releases/assets/{asset['id']}")
+
     def upload_or_replace(self, run_id: str, path: Path, asset_name: Optional[str] = None) -> Dict[str, Any]:
         path = Path(path)
         release = self.ensure_release(run_id)
@@ -528,7 +535,11 @@ class RunRecoveryManager:
                 token=token,
                 release_prefix=self.policy.rolling_release_prefix,
             )
-            asset_name = "last.pt"
+            # Upload a new immutable step-named asset first. Only after the
+            # upload succeeds do we update remote state and prune older assets.
+            # This avoids deleting the last durable checkpoint before the next
+            # one is safely present.
+            asset_name = f"last_step_{int(global_step):08d}.pt"
             uploaded = store.upload_or_replace(self.run_id, path, asset_name=asset_name)
             manifest["remote_asset"] = asset_name
             manifest["remote_asset_id"] = uploaded.get("id")
@@ -549,6 +560,7 @@ class RunRecoveryManager:
                 self.manifest_path,
                 asset_name="checkpoint_manifest.json",
             )
+            store.prune_assets(self.run_id, prefix="last_step_", keep=2)
 
         return state
 
