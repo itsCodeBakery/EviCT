@@ -1,0 +1,70 @@
+{
+  "aggregator": "gated attention pooling",
+  "best_epoch": 24,
+  "bootstrap_95CI": {
+    "balanced_accuracy_95CI": [
+      0.48910424387373413,
+      0.7673378759398496
+    ],
+    "macro_F1_95CI": [
+      0.48509302662639403,
+      0.7582429261559696
+    ],
+    "valid_bootstrap_replicates": 2000
+  },
+  "completed_utc": "2026-10-05T09:28:54Z",
+  "encoder": "EfficientNet-B0 ImageNet1K V1 frozen",
+  "held_out_test_n": 61,
+  "note": "Baseline experiment only. Diagnostic report fields remain locked until the frozen unlock criteria are assessed explicitly.",
+  "project": "EViCT-Dx",
+  "report_fields_unlocked": false,
+  "run_id": "DX_step04_covid_ct_md_effb0_attention_seed1705_v1",
+  "slices_per_volume": 32,
+  "stage": "STEP_04_DIAGNOSIS_BASELINE",
+  "temperature": 1.7755030393600464,
+  "test_metrics": {
+    "Brier": 0.49347703186034575,
+    "ECE": 0.15656554650087826,
+    "NLL": 0.8522087171871607,
+    "balanced_accuracy": 0.6271241830065359,
+    "confusion_matrix": [
+      [
+        26,
+        3,
+        5
+      ],
+      [
+        5,
+        7,
+        0
+      ],
+      [
+        5,
+        2,
+        8
+      ]
+    ],
+    "macro_AUROC": 0.7626288518628063,
+    "macro_F1": 0.6325396825396826,
+    "per_class": {
+      "CAP": {
+        "AUROC": 0.7993197278911564,
+        "precision": 0.5833333333333334,
+        "sensitivity": 0.5833333333333334,
+        "specificity": 0.8979591836734694
+      },
+      "COVID-19": {
+        "AUROC": 0.7407407407407407,
+        "precision": 0.7222222222222222,
+        "sensitivity": 0.7647058823529411,
+        "specificity": 0.6296296296296297
+      },
+      "Normal": {
+        "AUROC": 0.7478260869565218,
+        "precision": 0.6153846153846154,
+        "sensitivity": 0.5333333333333333,
+        "specificity": 0.8913043478260869
+      }
+    }
+  }
+}

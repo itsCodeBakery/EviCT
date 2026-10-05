@@ -1,0 +1,96 @@
+{
+  "best_epoch": 24,
+  "best_val_macro_F1_uncalibrated": 0.7161742424242424,
+  "fit_split": "validation_only",
+  "temperature": 1.7755030393600464,
+  "validation_metrics_calibrated": {
+    "Brier": 0.4901290496618673,
+    "ECE": 0.23400566079577464,
+    "NLL": 0.8474642419831183,
+    "balanced_accuracy": 0.7339869281045752,
+    "confusion_matrix": [
+      [
+        25,
+        5,
+        4
+      ],
+      [
+        2,
+        8,
+        2
+      ],
+      [
+        3,
+        0,
+        12
+      ]
+    ],
+    "macro_AUROC": 0.848108905397908,
+    "macro_F1": 0.7161742424242424,
+    "per_class": {
+      "CAP": {
+        "AUROC": 0.8571428571428572,
+        "precision": 0.6153846153846154,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.8979591836734694
+      },
+      "COVID-19": {
+        "AUROC": 0.7712418300653595,
+        "precision": 0.8333333333333334,
+        "sensitivity": 0.7352941176470589,
+        "specificity": 0.8148148148148148
+      },
+      "Normal": {
+        "AUROC": 0.9159420289855073,
+        "precision": 0.6666666666666666,
+        "sensitivity": 0.8,
+        "specificity": 0.8695652173913043
+      }
+    }
+  },
+  "validation_metrics_uncalibrated": {
+    "Brier": 0.4685325480198553,
+    "ECE": 0.1491327061027777,
+    "NLL": 0.9216868013786382,
+    "balanced_accuracy": 0.7339869281045752,
+    "confusion_matrix": [
+      [
+        25,
+        5,
+        4
+      ],
+      [
+        2,
+        8,
+        2
+      ],
+      [
+        3,
+        0,
+        12
+      ]
+    ],
+    "macro_AUROC": 0.8499657511958084,
+    "macro_F1": 0.7161742424242424,
+    "per_class": {
+      "CAP": {
+        "AUROC": 0.8605442176870749,
+        "precision": 0.6153846153846154,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.8979591836734694
+      },
+      "COVID-19": {
+        "AUROC": 0.7690631808278866,
+        "precision": 0.8333333333333334,
+        "sensitivity": 0.7352941176470589,
+        "specificity": 0.8148148148148148
+      },
+      "Normal": {
+        "AUROC": 0.9202898550724637,
+        "precision": 0.6666666666666666,
+        "sensitivity": 0.8,
+        "specificity": 0.8695652173913043
+      }
+    }
+  }
+}
