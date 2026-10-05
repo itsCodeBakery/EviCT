@@ -7,6 +7,7 @@ import os
 import random
 import subprocess
 import sys
+import tarfile
 import time
 import zipfile
 from pathlib import Path
@@ -175,8 +176,58 @@ def extract_patient_features(zf, members, encoder):
     return np.concatenate(feats, axis=0).astype(np.float16)
 
 
+def _recovery_store():
+    policy_cfg = json.loads((DX / "config" / "recovery_policy.json").read_text())
+    allowed = set(RecoveryPolicy.__dataclass_fields__)
+    policy = RecoveryPolicy(**{k: v for k, v in policy_cfg.items() if k in allowed})
+    token = kaggle_secret(policy.kaggle_secret_name)
+    return GitHubReleaseStore(
+        repository=policy.github_repository,
+        token=token,
+        release_prefix=policy.rolling_release_prefix,
+    )
+
+
+def save_feature_cache_snapshot():
+    """Durably preserve the resumable feature cache outside Kaggle working storage."""
+    state_path = RUN / "feature_state.json"
+    if not state_path.exists():
+        return
+    snapshot = RUN / "feature_cache_snapshot.tar"
+    tmp = snapshot.with_suffix(".tar.tmp")
+    with tarfile.open(tmp, "w") as tf:
+        tf.add(state_path, arcname="feature_state.json")
+        if CACHE.exists():
+            for p in sorted(CACHE.glob("*.npz")):
+                tf.add(p, arcname=f"feature_cache/{p.name}")
+    os.replace(tmp, snapshot)
+    store = _recovery_store()
+    store.upload_or_replace(RUN_ID, snapshot, asset_name="feature_cache_snapshot.tar")
+    print(f"✓ durable feature-cache snapshot uploaded ({snapshot.stat().st_size / (1024**2):.1f} MB)")
+
+
+def restore_feature_cache_snapshot_if_needed():
+    state_path = RUN / "feature_state.json"
+    local_npz = list(CACHE.glob("*.npz"))
+    if state_path.exists() and local_npz:
+        return
+    try:
+        store = _recovery_store()
+        assets = store.list_assets(RUN_ID)
+        if "feature_cache_snapshot.tar" not in assets:
+            return
+        snapshot = RUN / "feature_cache_snapshot.tar"
+        store.download(RUN_ID, "feature_cache_snapshot.tar", snapshot)
+        with tarfile.open(snapshot, "r") as tf:
+            tf.extractall(RUN)
+        print("✓ restored durable feature-cache snapshot")
+    except Exception as exc:
+        print("ℹ no remote feature-cache snapshot restored:", exc)
+
+
 def build_feature_cache(inventory: pd.DataFrame, split_df: pd.DataFrame):
     archive = locate_archive()
+    restore_feature_cache_snapshot_if_needed()
     encoder = FrozenEncoder().to(DEVICE).eval()
 
     state_path = RUN / "feature_state.json"
@@ -217,10 +268,13 @@ def build_feature_cache(inventory: pd.DataFrame, split_df: pd.DataFrame):
             })
 
             if len(completed) % 25 == 0:
+                save_feature_cache_snapshot()
                 sync_git(f"EViCT-Dx Step04 feature cache progress {len(completed)}/305")
 
     if len(completed) != 305:
         raise RuntimeError(f"Feature cache incomplete: {len(completed)}/305")
+
+    save_feature_cache_snapshot()
 
     manifest_rows = []
     for _, row in split_df.iterrows():
@@ -633,6 +687,13 @@ def main():
             "Step03D outputs are missing. Expected:\n"
             f"  {INV_PATH}\n  {SPLIT_PATH}"
         )
+
+    completed_result = AUDIT / "step04_diagnosis_baseline_results.json"
+    if completed_result.exists():
+        print("✓ Step 04 already has a completed result artifact.")
+        print("  Refusing to touch the held-out test set again.")
+        print("  Result:", completed_result)
+        return
 
     inventory = pd.read_csv(INV_PATH)
     split_df = pd.read_csv(SPLIT_PATH)
