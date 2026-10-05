@@ -1,15 +1,15 @@
 {
   "checkpoint": "vlmDiagnosis/runs/DX_step04_covid_ct_md_effb0_attention_seed1705_v1/checkpoints/last.pt",
   "config_hash": "c09b059bf06ab019cb7bc6048cf39569ea23ebe16c62c6d2cf74d6be92c8b512",
-  "created_utc": "2026-10-05T09:27:04Z",
-  "git_commit": "aed43597f1f59a553b5278395926b31eccb3e4d5",
-  "global_step": 4,
+  "created_utc": "2026-10-05T09:27:11Z",
+  "git_commit": "cdf611f5919243264397fbdea7b15c2274203b73",
+  "global_step": 5,
   "manifest_hash": "7cb89a3ca37b6f7a71ccf7758356c2873bbe7f9ac403d03e67bf81e56c7f4eb4",
-  "remote_asset": "last_step_00000004.pt",
-  "remote_asset_id": 612102311,
-  "remote_checkpoint_sha256": "708aeeab38006e85128efbe5bb6078582b6355853b71b404fbddd53192288442",
+  "remote_asset": "last_step_00000005.pt",
+  "remote_asset_id": 612102510,
+  "remote_checkpoint_sha256": "9027a2ceb44029111ce4bd8385a81555d912f6fb05471748cc78dc6e5b874c29",
   "remote_release_tag": "evict-dx-recovery-DX_step04_covid_ct_md_effb0_attention_seed1705_v1-rolling",
   "run_id": "DX_step04_covid_ct_md_effb0_attention_seed1705_v1",
-  "sha256": "708aeeab38006e85128efbe5bb6078582b6355853b71b404fbddd53192288442",
+  "sha256": "9027a2ceb44029111ce4bd8385a81555d912f6fb05471748cc78dc6e5b874c29",
   "split_hash": "e05298750b32d1bc09467d13d22c5dc45929aa142683357374272934d43e2256"
 }
