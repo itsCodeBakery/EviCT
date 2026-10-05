@@ -1,0 +1,504 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_03C",
+  "status": "PASS",
+  "created_utc": "2026-10-05T07:46:59.209246+00:00",
+  "dataset": "ipythonx/covid19-ct",
+  "paired_cases": 20,
+  "ct_files": 20,
+  "lung_masks": 20,
+  "infection_masks": 20,
+  "combined_masks": 20,
+  "nifti_geometry_pass_cases": 20,
+  "geometry_failure_cases": [],
+  "laterality_mapping_pairs": [
+    [
+      1.0,
+      2.0
+    ]
+  ],
+  "raw_laterality_mapping_consistent": true,
+  "laterality_resolver": "affine_world_x_centroid",
+  "combined_mask_semantics_by_case": {
+    "coronacases_001": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.3615912578626958,
+        "right_fraction": 0.6384087421373041,
+        "infection_fraction": 1.0
+      }
+    },
+    "coronacases_002": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.32790549053262,
+        "right_fraction": 0.67209450946738,
+        "infection_fraction": 1.0
+      }
+    },
+    "coronacases_003": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.4963345478281882,
+        "right_fraction": 0.5036654521718118,
+        "infection_fraction": 1.0
+      }
+    },
+    "coronacases_004": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.9964656537807238,
+        "right_fraction": 0.003534346219276119,
+        "infection_fraction": 1.0
+      }
+    },
+    "coronacases_005": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 1.0
+      }
+    },
+    "coronacases_006": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 1.0
+      }
+    },
+    "coronacases_007": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.25674597899774027,
+        "right_fraction": 0.7432540210022598,
+        "infection_fraction": 1.0
+      }
+    },
+    "coronacases_008": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.40208483066634565,
+        "right_fraction": 0.5979151693336544,
+        "infection_fraction": 1.0
+      }
+    },
+    "coronacases_009": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.017796848307515267,
+        "right_fraction": 0.9822031516924847,
+        "infection_fraction": 1.0
+      }
+    },
+    "coronacases_010": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.4655244646796179,
+        "right_fraction": 0.5344755353203821,
+        "infection_fraction": 1.0
+      }
+    },
+    "radiopaedia_10_85902_1": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 1.0
+      }
+    },
+    "radiopaedia_10_85902_3": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 1.0
+      }
+    },
+    "radiopaedia_14_85914_0": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.5189425338661225,
+        "right_fraction": 0.4810494955506433,
+        "infection_fraction": 1.0
+      }
+    },
+    "radiopaedia_27_86410_0": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.5843783344255096,
+        "right_fraction": 0.41562166557449043,
+        "infection_fraction": 1.0
+      }
+    },
+    "radiopaedia_29_86490_1": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 1.0
+      }
+    },
+    "radiopaedia_29_86491_1": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.010630052042963127,
+        "right_fraction": 0.9893699479570369,
+        "infection_fraction": 1.0
+      }
+    },
+    "radiopaedia_36_86526_0": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.5012274714088977,
+        "right_fraction": 0.4987725285911023,
+        "infection_fraction": 1.0
+      }
+    },
+    "radiopaedia_40_86625_0": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.5208741081523646,
+        "right_fraction": 0.4791258918476354,
+        "infection_fraction": 1.0
+      }
+    },
+    "radiopaedia_4_85506_1": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.5872071599056843,
+        "right_fraction": 0.4125423590020255,
+        "infection_fraction": 1.0
+      }
+    },
+    "radiopaedia_7_85703_0": {
+      "1.0": {
+        "best_match": "left_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 1.0,
+        "right_fraction": 0.0,
+        "infection_fraction": 0.0
+      },
+      "2.0": {
+        "best_match": "right_lung",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.0,
+        "right_fraction": 1.0,
+        "infection_fraction": 0.0
+      },
+      "3.0": {
+        "best_match": "infection",
+        "overlap_fraction": 1.0,
+        "left_fraction": 0.2417482989283641,
+        "right_fraction": 0.758249086049905,
+        "infection_fraction": 1.0
+      }
+    }
+  },
+  "reference_burden": {
+    "left_min_percent": 0.0,
+    "left_max_percent": 67.74934582851579,
+    "right_min_percent": 0.0,
+    "right_max_percent": 52.33713717465232,
+    "total_min_percent": 0.014498000076492516,
+    "total_max_percent": 59.372341595245395,
+    "max_infection_outside_lung_fraction": 0.00025048109229024016
+  },
+  "split_protocol": {
+    "outer_folds": 5,
+    "train_per_fold": 12,
+    "validation_per_fold": 4,
+    "test_per_fold": 4,
+    "strict_test_once_per_case": true,
+    "source_balanced": true
+  },
+  "training_performed": false,
+  "diagnostic_fields_enabled": [],
+  "next_step": "CONTINUE_DATASET_ACQUISITION_BEFORE_TRAINING"
+}

@@ -1,0 +1,83 @@
+{
+  "project": "EViCT-Dx",
+  "dataset": "COVID-19 CT Lung and Infection Segmentation Dataset",
+  "kaggle_slug": "ipythonx/covid19-ct",
+  "kaggle_mount": "/kaggle/input/datasets/ipythonx/covid19-ct",
+  "stage": "STEP_03C",
+  "status": "SPLIT_FROZEN_BEFORE_TRAINING",
+  "seed": 1705,
+  "split_unit": "complete_CT_volume",
+  "number_of_cases": 20,
+  "number_of_outer_folds": 5,
+  "source_balance": {
+    "CoronaCases": 10,
+    "Radiopaedia": 10
+  },
+  "fold_block_rule": "Shuffle independently within source using NumPy default_rng seed 1705, then allocate two cases from each source to each of five blocks.",
+  "outer_fold_rule": {
+    "test": "block k",
+    "validation": "block (k+1) mod 5",
+    "train": "remaining three blocks"
+  },
+  "per_fold_counts": {
+    "train": 12,
+    "validation": 4,
+    "test": 4
+  },
+  "primary_evaluation_prediction": "strict_out_of_fold_test_prediction",
+  "test_use": [
+    "final segmentation evaluation",
+    "final involvement quantification",
+    "bilateral involvement evaluation"
+  ],
+  "test_prohibited_uses": [
+    "checkpoint selection",
+    "early stopping",
+    "threshold tuning",
+    "temperature scaling",
+    "hyperparameter selection"
+  ],
+  "validation_use": [
+    "checkpoint selection",
+    "early stopping",
+    "threshold selection if required"
+  ],
+  "laterality_resolution": "Affine-aware lung-mask centroid world-X ordering. Lower RAS world-X centroid = anatomical left; higher world-X centroid = anatomical right. Raw mask label number is not blindly assumed.",
+  "reference_involvement_rule": {
+    "left_percent": "100 * infection voxels intersecting left lung / left lung voxels",
+    "right_percent": "100 * infection voxels intersecting right lung / right lung voxels",
+    "total_percent": "100 * infection voxels intersecting union of lungs / union lung voxels"
+  },
+  "fold_blocks": {
+    "0": [
+      "coronacases_004",
+      "coronacases_007",
+      "radiopaedia_10_85902_1",
+      "radiopaedia_40_86625_0"
+    ],
+    "1": [
+      "coronacases_002",
+      "coronacases_008",
+      "radiopaedia_27_86410_0",
+      "radiopaedia_36_86526_0"
+    ],
+    "2": [
+      "coronacases_001",
+      "coronacases_009",
+      "radiopaedia_29_86490_1",
+      "radiopaedia_7_85703_0"
+    ],
+    "3": [
+      "coronacases_006",
+      "coronacases_010",
+      "radiopaedia_10_85902_3",
+      "radiopaedia_14_85914_0"
+    ],
+    "4": [
+      "coronacases_003",
+      "coronacases_005",
+      "radiopaedia_29_86491_1",
+      "radiopaedia_4_85506_1"
+    ]
+  }
+}
