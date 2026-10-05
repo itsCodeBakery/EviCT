@@ -1,0 +1,66 @@
+{
+  "bilateral": {
+    "F1": 0.8484848484848485,
+    "balanced_accuracy": 0.5666666666666667,
+    "sensitivity": 0.9333333333333333,
+    "specificity": 0.2
+  },
+  "completed_utc": "2026-10-05T11:28:04Z",
+  "involvement_unlock": {
+    "total_CCC_ge_0.85": true,
+    "total_MAE_le_5pp": true
+  },
+  "mean_Dice_infection": 0.705021236261302,
+  "mean_Dice_left": 0.9726091025824533,
+  "mean_Dice_right": 0.9768709839476026,
+  "mean_IoU_infection": 0.5685280003762342,
+  "mean_infection_sensitivity": 0.685875001415636,
+  "mean_infection_specificity": 0.9983600381830151,
+  "next_action": "STEP_09_REVIEW_OOF_RESULTS_AND_DECIDE_SEGMENTATION_IMPROVEMENT",
+  "project": "EViCT-Dx",
+  "quantification": {
+    "left": {
+      "Bland_Altman_LOA95": [
+        -14.474851621211386,
+        9.933781783167454
+      ],
+      "Bland_Altman_bias": -2.270534919021966,
+      "CCC": 0.8976678258523966,
+      "MAE_percentage_points": 3.6929796239761474,
+      "Pearson_r": 0.9492855930757148,
+      "RMSE_percentage_points": 6.627746563478779,
+      "Spearman_rho": 0.94640032818269,
+      "median_absolute_error": 1.072109877344678
+    },
+    "right": {
+      "Bland_Altman_LOA95": [
+        -11.349031663014657,
+        6.845119544888632
+      ],
+      "Bland_Altman_bias": -2.2519560590630125,
+      "CCC": 0.8956048518169379,
+      "MAE_percentage_points": 3.2720009583128657,
+      "Pearson_r": 0.942289918737058,
+      "RMSE_percentage_points": 5.158834763888867,
+      "Spearman_rho": 0.9548872180451128,
+      "median_absolute_error": 1.625959154498073
+    },
+    "total": {
+      "Bland_Altman_LOA95": [
+        -12.083474187409228,
+        7.600127494785903
+      ],
+      "Bland_Altman_bias": -2.241673346311663,
+      "CCC": 0.9040797837202961,
+      "MAE_percentage_points": 3.3048350476835067,
+      "Pearson_r": 0.9521416413295335,
+      "RMSE_percentage_points": 5.498983890521284,
+      "Spearman_rho": 0.9473684210526315,
+      "median_absolute_error": 0.6223332740135227
+    }
+  },
+  "report_fields_unlocked": false,
+  "run_id": "DX_step08_oof_segmentation_resnet34_unet_seed1705_v1",
+  "stage": "STEP_08_OOF_LUNG_INFECTION_SEGMENTATION_BASELINE",
+  "strict_oof_cases": 20
+}

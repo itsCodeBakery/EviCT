@@ -1,0 +1,7 @@
+{
+  "next_action": "STEP_09_REVIEW_OOF_RESULTS_AND_DECIDE_SEGMENTATION_IMPROVEMENT",
+  "run_id": "DX_step08_oof_segmentation_resnet34_unet_seed1705_v1",
+  "status": "COMPLETE",
+  "strict_oof_cases": 20,
+  "updated_utc": "2026-10-05T11:28:04Z"
+}
