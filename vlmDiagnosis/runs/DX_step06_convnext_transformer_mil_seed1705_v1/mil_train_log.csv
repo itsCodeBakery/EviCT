@@ -1,0 +1,2 @@
+epoch,train_loss,val_macro_F1,val_balanced_accuracy,val_macro_AUROC,best_val_macro_F1,patience,lr
+1,0.30041372257730237,0.5704576283286927,0.5937908496732026,0.7949099446541901,0.5704576283286927,0,0.0003

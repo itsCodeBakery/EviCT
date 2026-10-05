@@ -1,0 +1,29 @@
+{
+  "best_score": 0.5704576283286927,
+  "config_hash": "61aed5292c146bb9e68a91dc6860b94138554e11fbc58ae9f888588d09e7a76d",
+  "epoch": 1,
+  "git_commit": "34db95247612339625d4a5335b02a4485616df5b",
+  "global_step": 1,
+  "latest_checkpoint": "vlmDiagnosis/runs/DX_step06_convnext_transformer_mil_seed1705_v1/mil_recovery/checkpoints/last.pt",
+  "latest_checkpoint_sha256": "28b34c5e4249979c691c60790594aee7f09dac843dcb703ac7f35d967a10a5c4",
+  "manifest_hash": "982b87659792da2c8dd3adacca4adf03d91e1399d8e7220363dff5dff0de2532",
+  "next_action": "resume_from_step_2",
+  "recovery_policy": {
+    "checkpoint_every_steps": 250,
+    "github_branch": "main",
+    "github_repository": "itsCodeBakery/EviCT",
+    "kaggle_secret_name": "pushEviCT",
+    "keep_local_generations": 2,
+    "max_release_asset_gb": 1.9,
+    "metadata_sync_every_steps": 250,
+    "remote_checkpoint_every_steps": 500,
+    "rolling_release_prefix": "evict-dx-recovery"
+  },
+  "remote_asset": "last_step_00000001.pt",
+  "remote_checkpoint_sha256": "28b34c5e4249979c691c60790594aee7f09dac843dcb703ac7f35d967a10a5c4",
+  "remote_release_tag": "evict-dx-recovery-DX_step06_convnext_transformer_mil_seed1705_v1_mil-rolling",
+  "run_id": "DX_step06_convnext_transformer_mil_seed1705_v1_mil",
+  "split_hash": "e05298750b32d1bc09467d13d22c5dc45929aa142683357374272934d43e2256",
+  "status": "mil_training",
+  "updated_utc": "2026-10-05T09:50:58Z"
+}
