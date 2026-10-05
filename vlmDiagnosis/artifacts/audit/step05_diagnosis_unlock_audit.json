@@ -1,0 +1,76 @@
+{
+  "all_global_unlock_criteria_pass": false,
+  "completed_utc": "2026-10-05T09:31:51Z",
+  "diagnostic_disease_names_unlocked": false,
+  "held_out_test_predictions_reused_for_tuning": false,
+  "next_action": "KEEP_DIAGNOSIS_FIELDS_LOCKED_AND_DEVELOP_STRONGER_MODEL_WITHOUT_REUSING_HELD_OUT_TEST",
+  "project": "EViCT-Dx",
+  "run_id": "DX_step05_diagnosis_unlock_audit_v1",
+  "source_result": "vlmDiagnosis/artifacts/audit/step04_diagnosis_baseline_results.json",
+  "stage": "STEP_05_DIAGNOSIS_UNLOCK_AUDIT",
+  "test_inference_repeated": false,
+  "unlock_criteria": {
+    "CAP_AUROC": {
+      "pass": false,
+      "required": 0.85,
+      "value": 0.7993197278911564
+    },
+    "CAP_sensitivity": {
+      "pass": false,
+      "required": 0.8,
+      "value": 0.5833333333333334
+    },
+    "CAP_specificity": {
+      "pass": true,
+      "required": 0.8,
+      "value": 0.8979591836734694
+    },
+    "COVID-19_AUROC": {
+      "pass": false,
+      "required": 0.85,
+      "value": 0.7407407407407407
+    },
+    "COVID-19_sensitivity": {
+      "pass": false,
+      "required": 0.8,
+      "value": 0.7647058823529411
+    },
+    "COVID-19_specificity": {
+      "pass": false,
+      "required": 0.8,
+      "value": 0.6296296296296297
+    },
+    "Normal_AUROC": {
+      "pass": false,
+      "required": 0.85,
+      "value": 0.7478260869565218
+    },
+    "Normal_sensitivity": {
+      "pass": false,
+      "required": 0.8,
+      "value": 0.5333333333333333
+    },
+    "Normal_specificity": {
+      "pass": true,
+      "required": 0.8,
+      "value": 0.8913043478260869
+    },
+    "held_out_ECE": {
+      "pass": false,
+      "required_max": 0.1,
+      "value": 0.15656554650087826
+    },
+    "held_out_macro_F1": {
+      "pass": false,
+      "required": 0.8,
+      "value": 0.6325396825396826
+    }
+  },
+  "validation_only_abstention": {
+    "global_threshold_feasible": false,
+    "minimum_validation_coverage": 0.25,
+    "note": "Threshold search uses validation predictions only. It cannot override failed held-out global report-unlock criteria.",
+    "selected_global_threshold": null,
+    "target": "all predicted classes PPV >= 0.90 if feasible"
+  }
+}
