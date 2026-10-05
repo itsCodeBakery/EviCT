@@ -2,18 +2,18 @@
 
 - **run_id**: DX_step04_covid_ct_md_effb0_attention_seed1705_v1
 - **status**: training
-- **global_step**: 15
-- **epoch**: 15
-- **best_score**: 0.6367724867724868
+- **global_step**: 17
+- **epoch**: 17
+- **best_score**: 0.6473331219093931
 - **latest_checkpoint**: vlmDiagnosis/runs/DX_step04_covid_ct_md_effb0_attention_seed1705_v1/checkpoints/last.pt
-- **latest_checkpoint_sha256**: 1ac89ed565de1a3dc256b094c66dc7b118081d64367450450fef263260e43326
-- **remote_asset**: last_step_00000014.pt
-- **remote_checkpoint_sha256**: c83b960d87eb8aac6ca1683c2aa1a47eea3013510bd8177d2b1cfaf50e8adc20
+- **latest_checkpoint_sha256**: 02217e3f718431cadec2edb48293c48535feb5dac737800eed04756cb44e5d50
+- **remote_asset**: last_step_00000017.pt
+- **remote_checkpoint_sha256**: 02217e3f718431cadec2edb48293c48535feb5dac737800eed04756cb44e5d50
 - **config_hash**: c09b059bf06ab019cb7bc6048cf39569ea23ebe16c62c6d2cf74d6be92c8b512
 - **split_hash**: e05298750b32d1bc09467d13d22c5dc45929aa142683357374272934d43e2256
 - **manifest_hash**: 7cb89a3ca37b6f7a71ccf7758356c2873bbe7f9ac403d03e67bf81e56c7f4eb4
-- **git_commit**: 5b59331759de092163ca1f2656f97154cde8eab8
-- **updated_utc**: 2026-10-05T09:27:46Z
-- **next_action**: resume_from_step_16
+- **git_commit**: f0251fba7beb02b51e906d2eaef17c8de06288cf
+- **updated_utc**: 2026-10-05T09:27:50Z
+- **next_action**: resume_from_step_18
 
 This file is machine-managed. Scientific settings must not be changed from target results.
