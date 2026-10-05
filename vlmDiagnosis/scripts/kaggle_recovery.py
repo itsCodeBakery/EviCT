@@ -6,10 +6,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path("/kaggle/working/EviCT")
-if str(ROOT / "src") not in sys.path:
-    sys.path.insert(0, str(ROOT / "src"))
+DX = ROOT / "vlmDiagnosis"
+if str(DX) not in sys.path:
+    sys.path.insert(0, str(DX))
 
-from evict.recovery import (  # noqa: E402
+from runtime.recovery import (  # noqa: E402
     GitHubReleaseStore,
     RecoveryPolicy,
     RunRecoveryManager,
@@ -21,7 +22,7 @@ from evict.recovery import (  # noqa: E402
 
 
 def load_policy(root: Path) -> RecoveryPolicy:
-    path = root / "config" / "recovery_policy.json"
+    path = root / "vlmDiagnosis" / "config" / "recovery_policy.json"
     if not path.exists():
         return RecoveryPolicy()
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -116,7 +117,12 @@ def main() -> None:
 
     root = Path(args.repo_root)
     policy = load_policy(root)
-    manager = RunRecoveryManager(root, args.run_id, policy=policy)
+    manager = RunRecoveryManager(
+        root,
+        args.run_id,
+        policy=policy,
+        run_dir=root / "vlmDiagnosis" / "runs" / args.run_id,
+    )
 
     if args.command == "status":
         cmd_status(manager)

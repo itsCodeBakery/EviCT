@@ -9,10 +9,11 @@ import numpy as np
 import pytest
 import torch
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
+ROOT = Path(__file__).resolve().parents[2]
+DX = ROOT / "vlmDiagnosis"
+sys.path.insert(0, str(DX))
 
-from evict.recovery import (  # noqa: E402
+from runtime.recovery import (  # noqa: E402
     RecoveryPolicy,
     RunRecoveryManager,
     atomic_torch_save,
@@ -105,7 +106,7 @@ def test_run_manager_writes_machine_readable_and_markdown_state(tmp_path: Path):
         remote_checkpoint_every_steps=20,
         metadata_sync_every_steps=10,
     )
-    manager = RunRecoveryManager(tmp_path, "run-1", policy=policy)
+    manager = RunRecoveryManager(tmp_path, "run-1", policy=policy, run_dir=tmp_path / "vlmDiagnosis" / "runs" / "run-1")
     state = manager.write_state(
         status="training",
         global_step=10,
@@ -130,7 +131,7 @@ def test_checkpoint_intervals():
         remote_checkpoint_every_steps=500,
         metadata_sync_every_steps=250,
     )
-    manager = RunRecoveryManager(Path("."), "interval-test", policy=policy, run_dir=Path("/tmp/evict_interval_test"))
+    manager = RunRecoveryManager(Path("."), "interval-test", policy=policy, run_dir=Path("/tmp/evict_dx_interval_test"))
     assert manager.should_checkpoint(250)
     assert manager.should_checkpoint(500)
     assert not manager.should_checkpoint(251)

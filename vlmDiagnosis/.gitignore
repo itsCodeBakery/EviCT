@@ -1,0 +1,8 @@
+# EViCT-Dx runtime-only files
+runs/**/checkpoints/*.pt
+runs/**/checkpoints/*.pth
+runs/**/checkpoints/*.ckpt
+runs/**/checkpoints/*.bin
+runs/**/*.tmp
+__pycache__/
+*.py[cod]

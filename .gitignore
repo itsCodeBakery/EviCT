@@ -268,9 +268,3 @@ artifacts/large/*
 
 # Kaggle temporary material
 kaggle_temp/
-
-# Per-run binary checkpoints: keep metadata in Git, binary weights in release assets
-runs/**/checkpoints/*.pt
-runs/**/checkpoints/*.pth
-runs/**/checkpoints/*.ckpt
-runs/**/checkpoints/*.bin

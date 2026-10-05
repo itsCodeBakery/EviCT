@@ -1,6 +1,8 @@
-# EviCT Kaggle Recovery and GitHub Synchronization
+# EViCT-Dx Kaggle Recovery and GitHub Synchronization
 
-Long-running EviCT jobs must be resumable. Kaggle is the compute environment; GitHub is the control plane. Ordinary Git stores code, configurations, run state, hashes, logs, metrics, and manifests. Large model checkpoints are stored as rolling GitHub Release assets and are never committed to ordinary Git.
+**Isolation rule:** all new diagnostic-extension code, state, manifests, and run metadata remain under `vlmDiagnosis/`. Frozen EViCT-Core files are read-only.
+
+Long-running EViCT-Dx jobs must be resumable. Kaggle is the compute environment; GitHub is the control plane. Ordinary Git stores code, configurations, run state, hashes, logs, metrics, and manifests. Large model checkpoints are stored as rolling GitHub Release assets and are never committed to ordinary Git.
 
 ## Security
 
@@ -16,18 +18,18 @@ Add the repository source directory to Python and create one recovery manager pe
     import json, sys
 
     ROOT = Path('/kaggle/working/EviCT')
-    sys.path.insert(0, str(ROOT / 'src'))
+    sys.path.insert(0, str(ROOT / 'vlmDiagnosis'))
 
-    from evict.recovery import RecoveryPolicy, RunRecoveryManager
+    from runtime.recovery import RecoveryPolicy, RunRecoveryManager
 
-    policy_cfg = json.loads((ROOT / 'config/recovery_policy.json').read_text())
+    policy_cfg = json.loads((ROOT / 'vlmDiagnosis/config/recovery_policy.json').read_text())
     allowed = set(RecoveryPolicy.__dataclass_fields__)
     policy = RecoveryPolicy(**{k: v for k, v in policy_cfg.items() if k in allowed})
 
-    RUN_ID = 'C_s2_to_s1_evict_b050_seed17_v1'
-    recovery = RunRecoveryManager(ROOT, RUN_ID, policy=policy)
+    RUN_ID = 'DX_covid_ct_md_diagnosis_seed1705_v1'
+    recovery = RunRecoveryManager(ROOT, RUN_ID, policy=policy, run_dir=ROOT / 'vlmDiagnosis/runs' / RUN_ID)
 
-Before training, build the model, optimizer, scheduler, scaler and optional EMA teacher. If `runs/<RUN_ID>/STATE.json` exists, call `recovery.restore(...)` and continue from `global_step + 1`. Pass the expected configuration, split, and manifest hashes. A mismatch aborts the resume rather than silently changing the experiment.
+Before training, build the model, optimizer, scheduler, scaler and optional EMA teacher. If `vlmDiagnosis/runs/<RUN_ID>/STATE.json` exists, call `recovery.restore(...)` and continue from `global_step + 1`. Pass the expected configuration, split, and manifest hashes. A mismatch aborts the resume rather than silently changing the experiment.
 
 Example:
 
@@ -71,7 +73,7 @@ Every optimizer step, keep the scientific step counter explicit. At the configur
         if recovery.should_sync_metadata(global_step):
             recovery.sync_metadata(f'{RUN_ID}: checkpoint step {global_step}')
 
-The local file is written to a temporary path, loaded back for structural verification, and only then replaces `last.pt`. Previous generations are retained. A step-versioned remote checkpoint is uploaded at the configured remote interval (default 500 steps) to a prerelease named `evict-recovery-<RUN_ID>-rolling`. The newest two checkpoint assets are retained, so a failed upload cannot destroy the previous durable recovery point.
+The local file is written to a temporary path, loaded back for structural verification, and only then replaces `last.pt`. Previous generations are retained. A step-versioned remote checkpoint is uploaded at the configured remote interval (default 500 steps) to a prerelease named `evict-dx-recovery-<RUN_ID>-rolling`. The newest two checkpoint assets are retained, so a failed upload cannot destroy the previous durable recovery point.
 
 ## Graceful interruption
 
@@ -94,12 +96,12 @@ For SIGTERM/SIGINT, register a callback that immediately writes a remote checkpo
 
 Clone or attach the repository, then inspect the run:
 
-    !python /kaggle/working/EviCT/scripts/kaggle_recovery.py status --run-id C_s2_to_s1_evict_b050_seed17_v1
+    !python /kaggle/working/EviCT/vlmDiagnosis/scripts/kaggle_recovery.py status --run-id DX_covid_ct_md_diagnosis_seed1705_v1
 
 If the local checkpoint is absent but `STATE.json` records a rolling asset:
 
-    !python /kaggle/working/EviCT/scripts/kaggle_recovery.py pull-remote --run-id C_s2_to_s1_evict_b050_seed17_v1
-    !python /kaggle/working/EviCT/scripts/kaggle_recovery.py verify --run-id C_s2_to_s1_evict_b050_seed17_v1
+    !python /kaggle/working/EviCT/vlmDiagnosis/scripts/kaggle_recovery.py pull-remote --run-id DX_covid_ct_md_diagnosis_seed1705_v1
+    !python /kaggle/working/EviCT/vlmDiagnosis/scripts/kaggle_recovery.py verify --run-id DX_covid_ct_md_diagnosis_seed1705_v1
 
 Then rerun the model-construction cell and call `recovery.restore(...)`. The checkpoint restores optimizer/scheduler/scaler/EMA/RNG state; loading weights alone is not considered a valid resume.
 
@@ -124,10 +126,10 @@ If any of these change, create a new run ID instead of resuming the old run.
 
 ## Useful commands
 
-    python scripts/kaggle_recovery.py status --run-id <RUN_ID>
-    python scripts/kaggle_recovery.py verify --run-id <RUN_ID>
-    python scripts/kaggle_recovery.py pull-remote --run-id <RUN_ID>
-    python scripts/kaggle_recovery.py sync --run-id <RUN_ID>
+    python vlmDiagnosis/scripts/kaggle_recovery.py status --run-id <RUN_ID>
+    python vlmDiagnosis/scripts/kaggle_recovery.py verify --run-id <RUN_ID>
+    python vlmDiagnosis/scripts/kaggle_recovery.py pull-remote --run-id <RUN_ID>
+    python vlmDiagnosis/scripts/kaggle_recovery.py sync --run-id <RUN_ID>
 
 ## Recovery objective
 
