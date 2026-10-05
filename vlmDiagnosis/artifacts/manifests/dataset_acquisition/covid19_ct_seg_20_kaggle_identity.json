@@ -1,0 +1,47 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_03B",
+  "dataset": "COVID-19 CT Lung and Infection Segmentation Dataset",
+  "source_type": "Kaggle_dataset",
+  "kaggle_slug": "ipythonx/covid19-ct",
+  "kaggle_mount": "/kaggle/input/datasets/ipythonx/covid19-ct",
+  "mount_mode": "read_only",
+  "created_utc": "2026-10-05T07:29:15.770804+00:00",
+  "identity_status": "STRUCTURAL_MATCH_20_CASE_DATASET",
+  "file_count": 81,
+  "suffix_counts": {
+    ".txt": 1,
+    ".nii": 80
+  },
+  "medical_file_count": 80,
+  "classified_counts": {
+    "ct_volume": 20,
+    "infection_mask": 20,
+    "lung_mask": 20,
+    "lung_and_infection_mask": 20
+  },
+  "official_archive_audit": [
+    {
+      "expected_name": "COVID-19-CT-Seg_20cases.zip",
+      "found": false,
+      "expected_checksum": "md5:873617e1fdcbe92f8aa0ce83a4798a1f"
+    },
+    {
+      "expected_name": "Lung_Mask.zip",
+      "found": false,
+      "expected_checksum": "md5:972b3d9b4c7b64d2c518b936bd98cb47"
+    },
+    {
+      "expected_name": "Lung_and_Infection_Mask.zip",
+      "found": false,
+      "expected_checksum": "md5:40fa1fa124f6aab6daf9feea9c373313"
+    },
+    {
+      "expected_name": "Infection_Mask.zip",
+      "found": false,
+      "expected_checksum": "md5:98fa9f5401fa8409dccd1681a36febcf"
+    }
+  ],
+  "raw_data_copied_into_repository": false,
+  "training_performed": false
+}

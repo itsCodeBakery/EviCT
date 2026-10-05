@@ -1,0 +1,18 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_03B",
+  "status": "STRUCTURAL_MATCH_20_CASE_DATASET",
+  "timestamp_utc": "2026-10-05T07:29:15.772572+00:00",
+  "source": "/kaggle/input/datasets/ipythonx/covid19-ct",
+  "kaggle_slug": "ipythonx/covid19-ct",
+  "core_verified": true,
+  "raw_data_downloaded": false,
+  "raw_data_copied": false,
+  "training_performed": false,
+  "diagnostic_fields_enabled": [],
+  "ct_volume_candidates": 20,
+  "lung_mask_candidates": 20,
+  "infection_mask_candidates": 20,
+  "combined_mask_candidates": 20,
+  "next_step": "STEP_03C_CASE_PAIRING_GEOMETRY_AND_SPLIT_FREEZE"
+}
