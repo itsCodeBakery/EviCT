@@ -8,3 +8,4 @@ __pycache__/
 *.py[cod]
 runs/**/*.pt
 runs/**/feature_cache/*.npz
+runs/**/patient_shards/
