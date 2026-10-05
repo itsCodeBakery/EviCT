@@ -1,0 +1,135 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_07_FROZEN_DUAL_ENCODER_DEVELOPMENT",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "purpose": "Develop a lower-variance COVID-19/CAP/Normal patient classifier after Step06 overfit, without accessing the 61-patient held-out test set.",
+  "prior_results": {
+    "step04_validation_macro_F1": 0.7161742424242424,
+    "step04_test_macro_F1": 0.6325396825396826,
+    "step06_validation_macro_F1": 0.5825929938605995,
+    "step06_selected_strong_weight": 0,
+    "decision": "Do not carry Step06 model to held-out testing; use frozen pretrained encoders with low-capacity patient-level models."
+  },
+  "dataset": "COVID-CT-MD",
+  "seed": 1705,
+  "classes": [
+    "COVID-19",
+    "CAP",
+    "Normal"
+  ],
+  "allowed_splits": [
+    "train",
+    "validation"
+  ],
+  "forbidden_split": "test",
+  "input": {
+    "slices_per_patient": 48,
+    "sampling": "uniform_across_frozen_ordered_volume",
+    "resize": [
+      224,
+      224
+    ],
+    "channels": [
+      {
+        "name": "lung",
+        "hu_min": -1000,
+        "hu_max": 400
+      },
+      {
+        "name": "mediastinal",
+        "hu_min": -160,
+        "hu_max": 240
+      },
+      {
+        "name": "wide",
+        "hu_min": -1200,
+        "hu_max": 600
+      }
+    ],
+    "normalization": "each HU window -> [0,1] then ImageNet mean/std"
+  },
+  "encoders": [
+    {
+      "name": "EfficientNet-B0",
+      "weights": "IMAGENET1K_V1",
+      "frozen": true,
+      "feature_dim": 1280
+    },
+    {
+      "name": "ConvNeXt-Tiny",
+      "weights": "IMAGENET1K_V1",
+      "frozen": true,
+      "feature_dim": 768
+    }
+  ],
+  "patient_descriptor": {
+    "statistics": [
+      "mean",
+      "std",
+      "max",
+      "q25",
+      "median",
+      "q75"
+    ],
+    "dimension": 12288,
+    "dtype": "float32"
+  },
+  "train_only_model_selection": {
+    "split": "train_only",
+    "cv": "5-fold StratifiedKFold",
+    "metric_primary": "OOF macro-F1",
+    "metric_tiebreaker": "OOF macro-AUROC",
+    "logistic": {
+      "pca_components": [
+        32,
+        64,
+        96
+      ],
+      "C": [
+        0.1,
+        1,
+        10
+      ]
+    },
+    "rbf_svc": {
+      "pca_components": [
+        32,
+        64
+      ],
+      "C": [
+        0.5,
+        1,
+        2,
+        5
+      ],
+      "gamma": "scale",
+      "probability": true
+    },
+    "blend_weights": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ]
+  },
+  "validation": {
+    "use": "one development evaluation after all model and blend selection is frozen from train-only OOF predictions",
+    "reference_step04_macro_F1": 0.7161742424242424,
+    "test_access": false
+  },
+  "recovery": {
+    "descriptor_snapshot_every_patients": 25,
+    "release_assets": true,
+    "ordinary_git_large_binaries": false
+  },
+  "safeguards": [
+    "No test patient may be loaded for descriptor extraction.",
+    "No Step04 test prediction file may be read.",
+    "All hyperparameter and blend selection uses only OOF predictions from the 183 training patients.",
+    "Validation predictions are generated only after candidate and blend selection is frozen.",
+    "No diagnosis report field is unlocked by Step07.",
+    "Held-out test inference remains prohibited in Step07."
+  ],
+  "progress_display": "tqdm for descriptor extraction and model-selection search"
+}
