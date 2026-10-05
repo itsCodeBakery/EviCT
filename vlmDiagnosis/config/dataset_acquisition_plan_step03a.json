@@ -1,0 +1,31 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_03A",
+  "status": "IDENTITY_AND_AVAILABILITY_AUDIT_COMPLETE",
+  "created_utc": "2026-10-05T07:09:23.762645+00:00",
+  "large_data_downloaded": false,
+  "training_performed": false,
+  "datasets": {
+    "COVID-CT-MD": {
+      "identity_status": "METADATA_VERIFIED",
+      "full_data_status": "NOT_DOWNLOADED",
+      "next_action": "Acquire full DICOM collection from official Figshare source, then verify 169/60/76 patient-class counts."
+    },
+    "COVID19_CT_SEG_20": {
+      "identity_status": "ZENODO_FILE_INVENTORY_VERIFIED",
+      "full_data_status": "NOT_DOWNLOADED",
+      "next_action": "Download CT archive + Lung_and_Infection_Mask archive, verify checksums, pair all 20 volumes and masks."
+    },
+    "LongCIU": {
+      "identity_status": "PUBLIC_METADATA_VERIFIED",
+      "full_data_status": "NOT_DOWNLOADED",
+      "next_action": "Acquire DOI dataset and verify image, 3 annotators, STAPLE consensus and split metadata."
+    },
+    "CC_CCII_LESION": {
+      "identity_status": "PUBLICATION_VERIFIED_ACQUISITION_PENDING",
+      "full_data_status": "NOT_DOWNLOADED",
+      "next_action": "Do not train until exact 1302-slice annotation package and study identifiers are reproducibly obtained."
+    }
+  },
+  "next_stage": "STEP_03B_CONTROLLED_DATA_ACQUISITION"
+}

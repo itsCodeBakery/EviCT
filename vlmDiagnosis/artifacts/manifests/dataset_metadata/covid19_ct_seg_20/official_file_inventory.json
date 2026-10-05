@@ -1,0 +1,30 @@
+[
+  {
+    "name": "COVID-19-CT-Seg_20cases.zip",
+    "size_bytes": 1105395143,
+    "size_mb": 1054.187,
+    "checksum": "md5:873617e1fdcbe92f8aa0ce83a4798a1f",
+    "download_url": "https://zenodo.org/api/records/3757476/files/COVID-19-CT-Seg_20cases.zip/content"
+  },
+  {
+    "name": "Lung_Mask.zip",
+    "size_bytes": 10097061,
+    "size_mb": 9.629,
+    "checksum": "md5:972b3d9b4c7b64d2c518b936bd98cb47",
+    "download_url": "https://zenodo.org/api/records/3757476/files/Lung_Mask.zip/content"
+  },
+  {
+    "name": "Lung_and_Infection_Mask.zip",
+    "size_bytes": 11714838,
+    "size_mb": 11.172,
+    "checksum": "md5:40fa1fa124f6aab6daf9feea9c373313",
+    "download_url": "https://zenodo.org/api/records/3757476/files/Lung_and_Infection_Mask.zip/content"
+  },
+  {
+    "name": "Infection_Mask.zip",
+    "size_bytes": 2572173,
+    "size_mb": 2.453,
+    "checksum": "md5:98fa9f5401fa8409dccd1681a36febcf",
+    "download_url": "https://zenodo.org/api/records/3757476/files/Infection_Mask.zip/content"
+  }
+]

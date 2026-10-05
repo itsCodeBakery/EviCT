@@ -1,0 +1,146 @@
+{
+  "covid_ct_md": {
+    "expected_classes": {
+      "COVID-19": 169,
+      "CAP": 60,
+      "Normal": 76
+    },
+    "expected_total": 305,
+    "official_full_data_location": "Figshare collection 10.6084/m9.figshare.c.5129081.v1",
+    "metadata_files": {
+      "Index.csv": {
+        "status": "DOWNLOADED",
+        "path": "vlmDiagnosis/artifacts/manifests/dataset_metadata/covid_ct_md/Index.csv",
+        "bytes": 2205,
+        "sha256": "c08b69dbd2b50d542b735dae686394b56dc86516d681883710d860fc8f7f79ff"
+      },
+      "Slice-level-labels-updated-1.npy": {
+        "status": "DOWNLOADED",
+        "path": "vlmDiagnosis/artifacts/manifests/dataset_metadata/covid_ct_md/Slice-level-labels-updated-1.npy",
+        "bytes": 63328,
+        "sha256": "9a17b305fd09234817148ace456ce84c44db203b10c0d14fd93dd8d9fc566996"
+      },
+      "Lobe-level-labels-updated-1.npy": {
+        "status": "DOWNLOADED",
+        "path": "vlmDiagnosis/artifacts/manifests/dataset_metadata/covid_ct_md/Lobe-level-labels-updated-1.npy",
+        "bytes": 632128,
+        "sha256": "2384f737b573fa0136bb8fcfddf015146acff5df0872e64367dbd7681b8e2a06"
+      },
+      "README.md": {
+        "status": "DOWNLOADED",
+        "path": "vlmDiagnosis/artifacts/manifests/dataset_metadata/covid_ct_md/README.md",
+        "bytes": 7012,
+        "sha256": "233689ec6c94aa543c6ffd5f1b77b2c69a93330e7195f868f5169d407f079cf6"
+      }
+    },
+    "index_rows": 79,
+    "index_columns": [
+      "Label Index",
+      "Diagnosis",
+      "Relative Path",
+      "Folder/ID"
+    ],
+    "slice_label_shape": [
+      79,
+      200
+    ],
+    "slice_label_dtype": "int32",
+    "lobe_label_shape": [
+      79,
+      200,
+      5
+    ],
+    "lobe_label_dtype": "float64"
+  },
+  "covid19_ct_seg_20": {
+    "zenodo_record_id": 3757476,
+    "files": [
+      {
+        "name": "COVID-19-CT-Seg_20cases.zip",
+        "size_bytes": 1105395143,
+        "size_mb": 1054.187,
+        "checksum": "md5:873617e1fdcbe92f8aa0ce83a4798a1f",
+        "download_url": "https://zenodo.org/api/records/3757476/files/COVID-19-CT-Seg_20cases.zip/content"
+      },
+      {
+        "name": "Lung_Mask.zip",
+        "size_bytes": 10097061,
+        "size_mb": 9.629,
+        "checksum": "md5:972b3d9b4c7b64d2c518b936bd98cb47",
+        "download_url": "https://zenodo.org/api/records/3757476/files/Lung_Mask.zip/content"
+      },
+      {
+        "name": "Lung_and_Infection_Mask.zip",
+        "size_bytes": 11714838,
+        "size_mb": 11.172,
+        "checksum": "md5:40fa1fa124f6aab6daf9feea9c373313",
+        "download_url": "https://zenodo.org/api/records/3757476/files/Lung_and_Infection_Mask.zip/content"
+      },
+      {
+        "name": "Infection_Mask.zip",
+        "size_bytes": 2572173,
+        "size_mb": 2.453,
+        "checksum": "md5:98fa9f5401fa8409dccd1681a36febcf",
+        "download_url": "https://zenodo.org/api/records/3757476/files/Infection_Mask.zip/content"
+      }
+    ],
+    "large_data_downloaded": false
+  },
+  "longciu": {
+    "dataset": "Long COVID Iowa-UNICAMP",
+    "canonical_doi": "10.25820/data.007301",
+    "expected_selected_slices": 90,
+    "expected_annotators": 3,
+    "consensus": "STAPLE",
+    "expected_data_files": [
+      "longciu_img.nii.gz",
+      "longciu_1_tgt.nii.gz",
+      "longciu_2_tgt.nii.gz",
+      "longciu_3_tgt.nii.gz",
+      "longciu_STAPLE_tgt.nii.gz",
+      "longciu_splits.json"
+    ],
+    "metadata_files": {
+      "README.md": {
+        "status": "DOWNLOADED",
+        "path": "vlmDiagnosis/artifacts/manifests/dataset_metadata/longciu/README.md",
+        "bytes": 5935,
+        "sha256": "31cdba236340b56604ee0622444b4ba2070c5927bc8f8d92b485289362d6d309"
+      }
+    }
+  },
+  "cc_ccii": {
+    "expected_annotated_studies": 1302,
+    "expected_classes": [
+      "lung_field",
+      "consolidation",
+      "ground_glass_opacity",
+      "pulmonary_fibrosis",
+      "interstitial_thickening",
+      "pleural_effusion"
+    ],
+    "reported_original_split_counts": {
+      "train": 1035,
+      "validation": 134,
+      "test": 133
+    },
+    "split_unit": "CT study",
+    "acquisition_status": "PENDING_EXACT_ANNOTATION_PACKAGE_VERIFICATION",
+    "endpoint_audit": [
+      {
+        "label": "Official BIG/NcovAI endpoint",
+        "url": "http://ncov-ai.big.ac.cn/download?lang=en",
+        "http_status": 200,
+        "final_url": "http://ncov-ai.big.ac.cn/download?lang=en",
+        "reachable": true
+      },
+      {
+        "label": "Scientific Reports lesion-subset publication",
+        "url": "https://www.nature.com/articles/s41598-022-05532-0",
+        "http_status": 200,
+        "final_url": "https://www.nature.com/articles/s41598-022-05532-0",
+        "reachable": true
+      }
+    ]
+  }
+}

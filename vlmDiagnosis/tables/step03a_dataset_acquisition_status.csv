@@ -1,0 +1,5 @@
+dataset,role,identity,large_download,training
+COVID-CT-MD,COVID/CAP/Normal diagnosis,METADATA_VERIFIED,NO,NO
+COVID19_CT_SEG_20,Lungs + infection + involvement,ZENODO_FILE_INVENTORY_VERIFIED,NO,NO
+LongCIU,External GGO/consolidation,PUBLIC_METADATA_VERIFIED,NO,NO
+CC-CCII lesion subset,Primary GGO/consolidation/effusion,ACQUISITION_PENDING,NO,NO
