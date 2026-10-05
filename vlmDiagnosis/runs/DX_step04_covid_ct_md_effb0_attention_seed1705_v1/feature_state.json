@@ -299,11 +299,16 @@
     "Normal|normal068",
     "Normal|normal069",
     "Normal|normal070",
-    "Normal|normal071"
+    "Normal|normal071",
+    "Normal|normal072",
+    "Normal|normal073",
+    "Normal|normal074",
+    "Normal|normal075",
+    "Normal|normal076"
   ],
-  "completed_count": 300,
+  "completed_count": 305,
   "run_id": "DX_step04_covid_ct_md_effb0_attention_seed1705_v1",
   "stage": "STEP_04_FEATURE_CACHE",
   "total": 305,
-  "updated_utc": "2026-10-05T09:26:31Z"
+  "updated_utc": "2026-10-05T09:26:42Z"
 }
