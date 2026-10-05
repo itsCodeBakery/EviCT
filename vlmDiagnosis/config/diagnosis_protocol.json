@@ -1,0 +1,49 @@
+{
+  "project": "EViCT-Dx",
+  "root": "vlmDiagnosis/",
+  "version": "0.1",
+  "status": "INITIALIZED_NOT_TRAINED",
+  "core_commit": "a717ae6e51b1dd51d6040d063fb3ebbebcc7b751",
+  "core_write_access": false,
+  "training_started": false,
+  "validation_principle": "A diagnostic output may enter the final report only after it has a reference target, predefined metric, held-out evaluation and a frozen reliability/abstention rule where applicable.",
+  "planned_modules": {
+    "diagnosis": {
+      "classes": [
+        "COVID-19",
+        "CAP",
+        "Normal"
+      ],
+      "status": "NOT_TRAINED"
+    },
+    "lung_segmentation": {
+      "classes": [
+        "left_lung",
+        "right_lung"
+      ],
+      "status": "NOT_TRAINED"
+    },
+    "pathology_subtypes": {
+      "classes": [
+        "GGO",
+        "consolidation",
+        "pleural_effusion"
+      ],
+      "status": "NOT_TRAINED"
+    },
+    "quantification": {
+      "outputs": [
+        "left_lung_involvement_percent",
+        "right_lung_involvement_percent",
+        "total_lung_involvement_percent"
+      ],
+      "status": "NOT_VALIDATED"
+    },
+    "reporting": {
+      "vlm_may_invent_unsupported_fields": false,
+      "radiologist_review_required": true,
+      "status": "NOT_VALIDATED"
+    }
+  },
+  "next_step": "STEP_02_DATASET_AND_TARGET_PROTOCOL_FREEZE"
+}

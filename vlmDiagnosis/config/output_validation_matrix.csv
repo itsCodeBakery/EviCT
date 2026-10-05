@@ -1,0 +1,13 @@
+output,reference_target_required,planned_metric,current_status,allowed_in_final_report
+COVID-19 diagnosis,patient-level diagnostic label,AUROC; sensitivity; specificity; macro-F1; calibration,NOT_VALIDATED,NO
+CAP diagnosis,patient-level diagnostic label,AUROC; sensitivity; specificity; macro-F1; calibration,NOT_VALIDATED,NO
+Normal classification,patient-level diagnostic label,AUROC; sensitivity; specificity; macro-F1; calibration,NOT_VALIDATED,NO
+Ground-glass opacity,expert GGO mask/label,Dice; IoU; sensitivity; specificity,NOT_VALIDATED,NO
+Consolidation,expert consolidation mask/label,Dice; IoU; sensitivity; specificity,NOT_VALIDATED,NO
+Pleural effusion,expert effusion annotation,Dice or AUROC depending on annotation type,NOT_VALIDATED,NO
+Right lung involvement percentage,right-lung mask + lesion mask,MAE; CCC/correlation; Bland-Altman,NOT_VALIDATED,NO
+Left lung involvement percentage,left-lung mask + lesion mask,MAE; CCC/correlation; Bland-Altman,NOT_VALIDATED,NO
+Total lung involvement percentage,whole-lung mask + lesion mask,MAE; CCC/correlation; Bland-Altman,NOT_VALIDATED,NO
+Bilateral involvement,verified left/right anatomy + lesion reference,accuracy; sensitivity; specificity,NOT_VALIDATED,NO
+Lobar localization,lobe masks + lesion reference,localization accuracy,NOT_VALIDATED,NO
+Diagnostic narrative,validated structured evidence + reader assessment,factual consistency; unsupported-claim rate; radiologist review,NOT_VALIDATED,NO

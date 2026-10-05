@@ -1,0 +1,14 @@
+{
+  "project": "EViCT-Dx",
+  "directory": "vlmDiagnosis",
+  "stage": "STEP_01",
+  "status": "PASS",
+  "timestamp_utc": "2026-10-05T06:57:15.231179+00:00",
+  "frozen_core_commit": "a717ae6e51b1dd51d6040d063fb3ebbebcc7b751",
+  "frozen_core_tree": "4bc6dceb6c4d02cf09ab6b23ccdb0643aef7b839",
+  "locked_tracked_file_count": 1624,
+  "manifest_sha256": "9ab0875ae61f42209c0db46b7ed44e61f54aaecfde3b7162631a9a49a3be299e",
+  "existing_evict_file_modified": false,
+  "training_performed": false,
+  "next_step": "STEP_02_DATASET_AND_TARGET_PROTOCOL_FREEZE"
+}

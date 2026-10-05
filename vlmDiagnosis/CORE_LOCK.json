@@ -1,0 +1,40 @@
+{
+  "project": "EViCT",
+  "extension": "vlmDiagnosis",
+  "stage": "STEP_01_CORE_LOCK",
+  "status": "EVICT_CORE_READ_ONLY",
+  "created_utc": "2026-10-05T06:57:15.228836+00:00",
+  "frozen_core": {
+    "git_commit": "a717ae6e51b1dd51d6040d063fb3ebbebcc7b751",
+    "git_tree": "4bc6dceb6c4d02cf09ab6b23ccdb0643aef7b839",
+    "commit_message": "Finalize EViCT qualitative and ablation figures",
+    "tracked_file_count": 1624,
+    "manifest": "vlmDiagnosis/artifacts/manifests/evict_core_tracked_files_sha256.csv",
+    "manifest_sha256": "9ab0875ae61f42209c0db46b7ed44e61f54aaecfde3b7162631a9a49a3be299e"
+  },
+  "rules": {
+    "existing_evict_files_may_be_read": true,
+    "existing_evict_files_may_be_modified": false,
+    "existing_models_may_be_overwritten": false,
+    "existing_tables_may_be_modified": false,
+    "existing_figures_may_be_modified": false,
+    "existing_configs_may_be_modified": false,
+    "existing_experiments_may_be_modified": false,
+    "all_new_diagnostic_work_root": "vlmDiagnosis/"
+  },
+  "planned_extension": [
+    "COVID-19/CAP/Normal diagnosis",
+    "left/right lung segmentation",
+    "lobe segmentation",
+    "GGO segmentation",
+    "consolidation segmentation",
+    "pleural-effusion analysis",
+    "right lung involvement percentage",
+    "left lung involvement percentage",
+    "total lung involvement percentage",
+    "diagnostic calibration and abstention",
+    "VLM diagnostic reporting",
+    "diagnostic application"
+  ],
+  "large_checkpoint_policy": "Store large checkpoints in GitHub Releases; do not commit large binaries to ordinary Git."
+}
