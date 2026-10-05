@@ -1,0 +1,9 @@
+{
+  "held_out_test_accessed": false,
+  "next_action": "RETAIN_STEP04_AS_DIAGNOSIS_BASELINE_AND_DO_NOT_USE_STEP07_ON_TEST",
+  "run_id": "DX_step07_frozen_dual_encoder_seed1705_v1",
+  "selected_type": "blend",
+  "status": "COMPLETE",
+  "updated_utc": "2026-10-05T10:05:24Z",
+  "validation_macro_F1": 0.6844589687726943
+}

@@ -1,0 +1,80 @@
+{
+  "completed_utc": "2026-10-05T10:05:24Z",
+  "decision": "CANDIDATE_DID_NOT_IMPROVE_STEP04_BASELINE",
+  "descriptor": "48 ordered slices; frozen EfficientNet-B0 + frozen ConvNeXt-Tiny; mean/std/max/Q25/median/Q75",
+  "development_patients": {
+    "test": 0,
+    "train": 183,
+    "validation": 61
+  },
+  "held_out_test_accessed": false,
+  "held_out_test_inference_run": false,
+  "next_action": "RETAIN_STEP04_AS_DIAGNOSIS_BASELINE_AND_DO_NOT_USE_STEP07_ON_TEST",
+  "project": "EViCT-Dx",
+  "report_fields_unlocked": false,
+  "run_id": "DX_step07_frozen_dual_encoder_seed1705_v1",
+  "stage": "STEP_07_FROZEN_DUAL_ENCODER_DEVELOPMENT",
+  "step04_validation_macro_F1": 0.7161742424242424,
+  "train_only_selection": {
+    "best_blend": {
+      "OOF_macro_AUROC": 0.853225561466329,
+      "OOF_macro_F1": 0.7473880318950741,
+      "logistic_weight": 0.5
+    },
+    "best_logistic": {
+      "C": 0.1,
+      "OOF_macro_AUROC": 0.8543334801693391,
+      "OOF_macro_F1": 0.7318040215236477,
+      "kind": "logistic",
+      "pca_components": 96
+    },
+    "best_rbf_svc": {
+      "C": 5.0,
+      "OOF_macro_AUROC": 0.8486722971904667,
+      "OOF_macro_F1": 0.7292044872690034,
+      "kind": "rbf_svc",
+      "pca_components": 64
+    },
+    "selected_type": "blend"
+  },
+  "validation_macro_F1_delta_vs_step04": -0.03171527365154814,
+  "validation_metrics": {
+    "balanced_accuracy": 0.6980392156862746,
+    "confusion_matrix": [
+      [
+        27,
+        4,
+        3
+      ],
+      [
+        0,
+        10,
+        2
+      ],
+      [
+        7,
+        1,
+        7
+      ]
+    ],
+    "macro_AUROC": 0.8399510851039288,
+    "macro_F1": 0.6844589687726943,
+    "per_class": {
+      "CAP": {
+        "AUROC": 0.9336734693877551,
+        "sensitivity": 0.8333333333333334,
+        "specificity": 0.8979591836734694
+      },
+      "COVID-19": {
+        "AUROC": 0.8093681917211328,
+        "sensitivity": 0.7941176470588235,
+        "specificity": 0.7407407407407407
+      },
+      "Normal": {
+        "AUROC": 0.7768115942028986,
+        "sensitivity": 0.4666666666666667,
+        "specificity": 0.8913043478260869
+      }
+    }
+  }
+}
