@@ -251,42 +251,17 @@ def train_encoder(inventory, split_df):
 
     start_epoch = 1
     if recovery.state_path.exists():
-        try:
-            restored = recovery.restore(
-                student=model,
-                optimizer=optimizer,
-                scheduler=scheduler,
-                scaler=scaler,
-                expected_config_hash=config_hash,
-                expected_split_hash=split_hash,
-                expected_manifest_hash=manifest_hash,
-            )
-            start_epoch = int(restored["global_step"]) + 1
-            print(f"✓ Restored encoder adaptation at epoch {start_epoch}")
-        except FileNotFoundError:
-            print("ℹ Encoder recovery metadata exists but local checkpoint is absent; attempting remote pull.")
-            subprocess.run(
-                [
-                    sys.executable,
-                    str(DX / "scripts" / "kaggle_recovery.py"),
-                    "pull-remote",
-                    "--run-id",
-                    RUN_ID + "_encoder",
-                ],
-                cwd=str(ROOT),
-                check=False,
-            )
-            if recovery.checkpoint_path().exists():
-                restored = recovery.restore(
-                    student=model,
-                    optimizer=optimizer,
-                    scheduler=scheduler,
-                    scaler=scaler,
-                    expected_config_hash=config_hash,
-                    expected_split_hash=split_hash,
-                    expected_manifest_hash=manifest_hash,
-                )
-                start_epoch = int(restored["global_step"]) + 1
+        restored = recovery.restore(
+            student=model,
+            optimizer=optimizer,
+            scheduler=scheduler,
+            scaler=scaler,
+            expected_config_hash=config_hash,
+            expected_split_hash=split_hash,
+            expected_manifest_hash=manifest_hash,
+        )
+        start_epoch = int(restored["global_step"]) + 1
+        print(f"✓ Restored encoder adaptation at epoch {start_epoch}")
 
     if start_epoch > epochs and encoder_path.exists():
         print("✓ Encoder adaptation already complete.")
@@ -637,6 +612,42 @@ def fit_temperature(logits, y):
     return float((F.softplus(raw) + 1e-3).detach().cpu())
 
 
+def save_best_mil_asset(best_path: Path, epoch: int):
+    name = f"best_mil_epoch_{int(epoch):03d}.pt"
+    store = release_store()
+    store.upload_or_replace(RUN_ID, best_path, asset_name=name)
+    store.prune_assets(RUN_ID, prefix="best_mil_epoch_", keep=2)
+    atomic_json(RUN / "best_mil_remote.json", {
+        "asset": name,
+        "epoch": int(epoch),
+        "sha256": sha256_file(best_path),
+        "updated_utc": now(),
+    })
+    print(f"✓ durable best MIL asset: {name}")
+
+
+def restore_best_mil_if_needed(best_path: Path):
+    if best_path.exists():
+        return
+    meta = RUN / "best_mil_remote.json"
+    try:
+        store = release_store()
+        asset = None
+        if meta.exists():
+            asset = json.loads(meta.read_text(encoding="utf-8")).get("asset")
+        if not asset:
+            names = sorted(
+                n for n in store.list_assets(RUN_ID)
+                if n.startswith("best_mil_epoch_") and n.endswith(".pt")
+            )
+            asset = names[-1] if names else None
+        if asset:
+            store.download(RUN_ID, asset, best_path)
+            print(f"✓ restored durable best MIL asset: {asset}")
+    except Exception as exc:
+        print("ℹ No remote best MIL asset restored:", exc)
+
+
 def train_mil(manifest):
     train_df = manifest[manifest.split == "train"].copy()
     val_df = manifest[manifest.split == "validation"].copy()
@@ -683,22 +694,21 @@ def train_mil(manifest):
     patience = 0
 
     if recovery.state_path.exists():
-        try:
-            restored = recovery.restore(
-                student=model,
-                optimizer=optimizer,
-                scheduler=scheduler,
-                scaler=scaler,
-                expected_config_hash=config_hash,
-                expected_split_hash=split_hash,
-                expected_manifest_hash=manifest_hash,
-            )
-            start_epoch = int(restored["global_step"]) + 1
-            best_f1 = float(restored.get("best_score") or -1.0)
-            patience = int(restored.get("patience_counter") or 0)
-            print(f"✓ Restored MIL training at epoch {start_epoch}")
-        except Exception as exc:
-            print("ℹ MIL local restore unavailable:", exc)
+        restored = recovery.restore(
+            student=model,
+            optimizer=optimizer,
+            scheduler=scheduler,
+            scaler=scaler,
+            expected_config_hash=config_hash,
+            expected_split_hash=split_hash,
+            expected_manifest_hash=manifest_hash,
+        )
+        start_epoch = int(restored["global_step"]) + 1
+        best_f1 = float(restored.get("best_score") or -1.0)
+        patience = int(restored.get("patience_counter") or 0)
+        print(f"✓ Restored MIL training at epoch {start_epoch}")
+
+    restore_best_mil_if_needed(best_path)
 
     max_epochs = int(CFG["mil_training"]["max_epochs"])
     patience_limit = int(CFG["mil_training"]["early_stopping_patience"])
@@ -738,6 +748,7 @@ def train_mil(manifest):
                 "split_hash": split_hash,
                 "manifest_hash": manifest_hash,
             }, best_path)
+            save_best_mil_asset(best_path, epoch)
         else:
             patience += 1
 
@@ -781,8 +792,9 @@ def train_mil(manifest):
         if patience >= patience_limit:
             break
 
+    restore_best_mil_if_needed(best_path)
     if not best_path.exists():
-        raise RuntimeError("Step06 did not produce best_mil.pt")
+        raise RuntimeError("Step06 did not produce or recover best_mil.pt")
 
     best = torch.load(best_path, map_location=DEVICE, weights_only=False)
     model.load_state_dict(best["model"])
