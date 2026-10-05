@@ -1,0 +1,164 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_02_DATASET_PROTOCOL_FREEZE",
+  "version": "1.0",
+  "created_utc": "2026-10-05T07:06:06.819492+00:00",
+  "core_dependency": {
+    "commit": "a717ae6e51b1dd51d6040d063fb3ebbebcc7b751",
+    "write_access": false
+  },
+  "datasets": {
+    "covid_ct_md": {
+      "name": "COVID-CT-MD",
+      "role": "PRIMARY_VOLUME_LEVEL_DIAGNOSIS",
+      "canonical_source": "https://www.nature.com/articles/s41597-021-00900-3",
+      "complete_ct_volumes": true,
+      "documented_studies": 305,
+      "documented_classes": {
+        "COVID-19": 169,
+        "CAP": 60,
+        "Normal": 76
+      },
+      "available_labels": [
+        "patient_level_diagnosis",
+        "slice_level_infection_labels_on_labeled_subset",
+        "lobe_level_infection_labels_on_labeled_subset"
+      ],
+      "primary_targets": [
+        "COVID-19",
+        "CAP",
+        "Normal"
+      ],
+      "allowed_uses": [
+        "training",
+        "validation",
+        "held_out_test",
+        "diagnostic_calibration"
+      ],
+      "forbidden_uses": [
+        "slice-level random split",
+        "patient overlap across splits",
+        "using held-out test for threshold selection",
+        "using incomplete lobe labels without completeness audit"
+      ],
+      "acquisition_status": "NOT_ACQUIRED_IN_VLMDIAGNOSIS",
+      "notes": "Whole-volume patient-level diagnosis is the primary use. Lobe/slice labels are optional secondary targets and require completeness auditing before use."
+    },
+    "covid19_ct_seg_20": {
+      "name": "COVID-19 CT Lung and Infection Segmentation Dataset",
+      "role": "PRIMARY_LUNG_AND_INVOLVEMENT_QUANTIFICATION",
+      "canonical_source": "https://zenodo.org/records/3757476",
+      "documented_complete_volumes": 20,
+      "available_reference_masks": [
+        "left_lung",
+        "right_lung",
+        "infection"
+      ],
+      "primary_targets": [
+        "left_lung_segmentation",
+        "right_lung_segmentation",
+        "infection_segmentation",
+        "left_lung_involvement_percent",
+        "right_lung_involvement_percent",
+        "total_lung_involvement_percent",
+        "bilateral_involvement"
+      ],
+      "allowed_uses": [
+        "volume_level_cross_validation",
+        "out_of_fold_quantification"
+      ],
+      "forbidden_uses": [
+        "slice-level random split",
+        "same-volume slices in different folds",
+        "in-sample burden validation"
+      ],
+      "acquisition_status": "NOT_ACQUIRED_IN_VLMDIAGNOSIS",
+      "notes": "All burden metrics must be calculated from out-of-fold predictions only. Existing frozen EViCT-Core results are not rewritten or re-evaluated as new Dx results."
+    },
+    "cc_ccii_lesion_subset": {
+      "name": "CC-CCII pulmonary lesion segmentation subset",
+      "role": "PRIMARY_PATHOLOGY_SUBTYPE_SEGMENTATION",
+      "reference_publication": "https://www.nature.com/articles/s41598-022-05532-0",
+      "documented_annotation_scope": "One manually segmented slice per available CT study in the lesion-segmentation subset.",
+      "documented_annotated_studies": 1302,
+      "documented_classes": [
+        "lung_field",
+        "consolidation",
+        "ground_glass_opacity",
+        "pulmonary_fibrosis",
+        "interstitial_thickening",
+        "pleural_effusion"
+      ],
+      "evict_dx_classes_used": [
+        "ground_glass_opacity",
+        "consolidation",
+        "pleural_effusion"
+      ],
+      "primary_targets": [
+        "GGO_slice_segmentation",
+        "consolidation_slice_segmentation",
+        "pleural_effusion_slice_segmentation"
+      ],
+      "patient_or_study_disjoint_required": true,
+      "acquisition_status": "NOT_ACQUIRED_IN_VLMDIAGNOSIS",
+      "notes": "The exact downloadable source, identifiers, annotation inventory and study-disjoint split must be audited before training. If these cannot be reproduced reliably, this dataset is automatically marked UNAVAILABLE and no subtype training begins until a protocol amendment is explicitly recorded."
+    },
+    "longciu": {
+      "name": "Long COVID Iowa-UNICAMP (LongCIU)",
+      "role": "EXTERNAL_GGO_CONSOLIDATION_TEST_ONLY",
+      "canonical_publication": "https://www.nature.com/articles/s41597-025-04709-2",
+      "code_repository": "https://github.com/MICLab-Unicamp/LongCIU",
+      "documented_selected_slices": 90,
+      "annotation": "multi-expert plus STAPLE final consensus",
+      "classes": [
+        "ground_glass_opacity",
+        "consolidation"
+      ],
+      "allowed_uses": [
+        "external_test_only",
+        "interrater_context"
+      ],
+      "forbidden_uses": [
+        "training",
+        "model_selection",
+        "threshold_selection",
+        "calibration"
+      ],
+      "acquisition_status": "NOT_ACQUIRED_IN_VLMDIAGNOSIS"
+    },
+    "medseg_original": {
+      "name": "MedSeg Covid Dataset 1",
+      "role": "SECONDARY_EXTERNAL_IMAGE_LEVEL_SUBTYPE_CHECK",
+      "canonical_source": "https://figshare.com/articles/dataset/MedSeg_Covid_Dataset_1/13521488",
+      "documented_images": 100,
+      "documented_patient_scope": ">40 patients",
+      "classes": [
+        "ground_glass_opacity",
+        "consolidation",
+        "pleural_effusion"
+      ],
+      "patient_grouping_verified": false,
+      "allowed_uses": [
+        "image_level_external_evaluation"
+      ],
+      "forbidden_uses": [
+        "random slice training/test split",
+        "patient-independent performance claim",
+        "primary model selection",
+        "calibration"
+      ],
+      "acquisition_status": "EXISTING_KAGGLE_COPY_AVAILABLE_BUT_DX_COPY_NOT_FROZEN",
+      "notes": "Original annotation semantics must be used. The current EViCT-Core Kaggle channel representation is not silently treated as equivalent for pleural-effusion validation."
+    }
+  },
+  "deferred_dataset_requirements": {
+    "voxelwise_lobe_segmentation": {
+      "status": "DEFERRED",
+      "reason": "No lobe-mask dataset has yet been frozen for this extension. COVID-CT-MD lobe-level infection labels are classification labels, not voxelwise lobe masks."
+    },
+    "full_volume_pleural_effusion_validation": {
+      "status": "DEFERRED",
+      "reason": "Current frozen subtype plan validates effusion primarily at annotated-slice level. Full-volume effusion reporting requires an additional volume-level reference dataset."
+    }
+  }
+}

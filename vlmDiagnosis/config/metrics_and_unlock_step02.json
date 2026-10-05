@@ -1,0 +1,129 @@
+{
+  "project": "EViCT-Dx",
+  "version": "1.0",
+  "status": "FROZEN_BEFORE_TRAINING",
+  "diagnosis": {
+    "primary_metric": "macro_F1",
+    "secondary_metrics": [
+      "balanced_accuracy",
+      "per_class_sensitivity",
+      "per_class_specificity",
+      "per_class_precision",
+      "one_vs_rest_AUROC",
+      "macro_AUROC",
+      "confusion_matrix",
+      "Brier_score",
+      "negative_log_likelihood",
+      "expected_calibration_error"
+    ],
+    "confidence_intervals": "patient_level_bootstrap_95_percent",
+    "calibration": "temperature_scaling_on_validation_only",
+    "case_abstention_rule": {
+      "selection_data": "validation_only",
+      "target": "class_specific_PPV_at_least_0.90_if_feasible",
+      "minimum_validation_coverage": 0.25,
+      "failure_action": "INDETERMINATE"
+    },
+    "global_report_unlock_criteria": {
+      "held_out_macro_F1_min": 0.8,
+      "held_out_per_class_AUROC_min": 0.85,
+      "held_out_per_class_sensitivity_min": 0.8,
+      "held_out_per_class_specificity_min": 0.8,
+      "held_out_ECE_max": 0.1,
+      "rule": "If any criterion fails, disease-name generation stays disabled in the production diagnostic report."
+    }
+  },
+  "lung_segmentation": {
+    "primary_metrics": [
+      "Dice_left",
+      "Dice_right"
+    ],
+    "secondary_metrics": [
+      "IoU",
+      "sensitivity",
+      "specificity",
+      "HD95_if_geometry_valid"
+    ],
+    "evaluation_unit": "volume",
+    "prediction_requirement": "out_of_fold_only"
+  },
+  "pathology_subtypes": {
+    "segmentation_metrics": [
+      "per_class_Dice",
+      "per_class_IoU",
+      "per_class_sensitivity",
+      "per_class_specificity"
+    ],
+    "presence_metrics": [
+      "per_class_AUROC",
+      "per_class_sensitivity",
+      "per_class_specificity",
+      "per_class_precision"
+    ],
+    "external_test": {
+      "GGO": "LongCIU",
+      "consolidation": "LongCIU",
+      "pleural_effusion": "MedSeg_image_level_secondary_check"
+    },
+    "report_unlock_criteria": {
+      "internal_test_presence_AUROC_min": 0.85,
+      "internal_test_presence_sensitivity_min": 0.8,
+      "internal_test_presence_specificity_min": 0.8,
+      "segmentation_Dice_min": 0.6,
+      "rule": "A subtype field is unlocked independently. Failure of one class does not invalidate another class."
+    }
+  },
+  "lung_involvement_quantification": {
+    "reference_percentages": "computed from reference left/right lung masks and reference infection masks",
+    "prediction_percentages": "computed from strict out-of-fold predicted lung and infection masks",
+    "metrics": [
+      "MAE_percentage_points",
+      "median_absolute_error",
+      "RMSE_percentage_points",
+      "Pearson_r",
+      "Spearman_rho",
+      "CCC",
+      "Bland_Altman_bias",
+      "Bland_Altman_95_percent_limits"
+    ],
+    "report_unlock_criteria": {
+      "MAE_percentage_points_max": 5.0,
+      "CCC_min": 0.85,
+      "rule": "Percent involvement is disabled if either requirement is not reached on strict out-of-fold validation."
+    }
+  },
+  "bilateral_involvement": {
+    "reference": "reference infection intersects both verified left and right lung masks",
+    "metrics": [
+      "balanced_accuracy",
+      "sensitivity",
+      "specificity",
+      "F1"
+    ],
+    "unlock_criteria": {
+      "balanced_accuracy_min": 0.8,
+      "sensitivity_min": 0.8,
+      "specificity_min": 0.8
+    }
+  },
+  "lobar_localization": {
+    "status": "DEFERRED",
+    "reason": "Voxelwise lobe masks have not been frozen. COVID-CT-MD lobe-level infection labels may support a later multi-label lobe-presence classifier after completeness audit."
+  },
+  "diagnostic_narrative": {
+    "generation_input": "validated_structured_evidence_only",
+    "VLM_direct_image_diagnosis": false,
+    "ground_truth_given_to_VLM": false,
+    "unsupported_number_generation": false,
+    "mandatory_validator_checks": [
+      "allowed_field_whitelist",
+      "exact_numeric_copy",
+      "forbidden_disease_check",
+      "forbidden_treatment_check",
+      "abstention_respected",
+      "radiologist_review_statement_present"
+    ],
+    "reader_study": "REQUIRED_FOR_RADIOLOGIST_VALIDATED_REPORT_CLAIM",
+    "until_reader_study": "Use wording: Provisional AI Diagnostic Report - Radiologist Review Required"
+  }
+}

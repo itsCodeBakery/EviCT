@@ -31,8 +31,10 @@ A report field is enabled only after quantitative validation.
 
 ## Current status
 
-STEP 01 — Core isolation and lock.
+STEP 02 — Dataset, target, split, metric and report-field protocol frozen.
 
 No EViCT-Dx training has been performed yet.
 
-Next: STEP 02 — Dataset and diagnostic target protocol freeze.
+No diagnostic report field is enabled yet.
+
+Next: STEP 03 — Dataset acquisition and identity audit.

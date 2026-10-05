@@ -1,0 +1,57 @@
+{
+  "project": "EViCT-Dx",
+  "version": "1.0",
+  "status": "TARGETS_FROZEN_BEFORE_TRAINING",
+  "diagnosis": {
+    "unit": "complete_CT_study_patient",
+    "classes": [
+      "COVID-19",
+      "CAP",
+      "Normal"
+    ],
+    "task": "three_class_volume_level_classification",
+    "unknown_or_low_confidence_output": "INDETERMINATE",
+    "disease_names_may_not_be_emitted_before_validation": true
+  },
+  "lung_segmentation": {
+    "unit": "complete_CT_volume",
+    "targets": [
+      "left_lung",
+      "right_lung"
+    ],
+    "overlap_between_left_right_reference_masks": "not_allowed"
+  },
+  "infection_segmentation": {
+    "unit": "complete_CT_volume",
+    "target": "infection_mask",
+    "purpose": "Dx-specific out-of-fold burden quantification",
+    "relationship_to_frozen_evict_core": "Separate diagnostic-extension experiment. Does not replace or modify EViCT-Core."
+  },
+  "pathology_subtypes": {
+    "unit": "annotated_CT_slice",
+    "classes": [
+      "ground_glass_opacity",
+      "consolidation",
+      "pleural_effusion"
+    ],
+    "multilabel": true,
+    "absence_rule": "A class is absent only when its verified reference mask is empty for the analyzed annotated slice."
+  },
+  "quantification": {
+    "left_lung_involvement_percent": "100 * predicted_infection_voxels_inside_left_lung / predicted_left_lung_voxels",
+    "right_lung_involvement_percent": "100 * predicted_infection_voxels_inside_right_lung / predicted_right_lung_voxels",
+    "total_lung_involvement_percent": "100 * predicted_infection_voxels_inside_union_lungs / predicted_union_lung_voxels",
+    "bilateral_involvement": "infection burden > 0 in both left and right lung after the frozen post-processing rule",
+    "physical_volume_cm3": "DEFERRED_UNTIL_GEOMETRY_VALIDATION",
+    "physical_area_mm2": "DEFERRED_UNTIL_GEOMETRY_VALIDATION"
+  },
+  "explicitly_not_primary_targets": [
+    "treatment_recommendation",
+    "antibiotic_recommendation",
+    "ICU_decision",
+    "mortality_prediction",
+    "patient_management",
+    "cancer_diagnosis",
+    "pulmonary_embolism"
+  ]
+}

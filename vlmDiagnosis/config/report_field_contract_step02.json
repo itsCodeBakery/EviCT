@@ -1,0 +1,31 @@
+{
+  "project": "EViCT-Dx",
+  "version": "1.0",
+  "status": "ALL_DIAGNOSTIC_FIELDS_LOCKED_PENDING_VALIDATION",
+  "mandatory_title": "Provisional AI Diagnostic Report",
+  "mandatory_footer": "This AI-generated report must be reviewed, assessed, and finalized by a qualified radiologist before it is used for medical assessment, diagnosis, treatment planning, or any other clinical decision.",
+  "fields": {
+    "COVID-19": "LOCKED_PENDING_DIAGNOSIS_VALIDATION",
+    "CAP": "LOCKED_PENDING_DIAGNOSIS_VALIDATION",
+    "Normal": "LOCKED_PENDING_DIAGNOSIS_VALIDATION",
+    "GGO": "LOCKED_PENDING_SUBTYPE_VALIDATION",
+    "Consolidation": "LOCKED_PENDING_SUBTYPE_VALIDATION",
+    "Pleural_effusion_slice_level": "LOCKED_PENDING_SUBTYPE_VALIDATION",
+    "Pleural_effusion_complete_volume": "DEFERRED_NO_VOLUME_LEVEL_REFERENCE_YET",
+    "Bilateral_involvement": "LOCKED_PENDING_OOF_VALIDATION",
+    "Right_lung_involvement_percent": "LOCKED_PENDING_OOF_QUANTIFICATION_VALIDATION",
+    "Left_lung_involvement_percent": "LOCKED_PENDING_OOF_QUANTIFICATION_VALIDATION",
+    "Total_lung_involvement_percent": "LOCKED_PENDING_OOF_QUANTIFICATION_VALIDATION",
+    "Lobar_localization": "DEFERRED",
+    "Physical_area_mm2": "DEFERRED",
+    "Physical_volume_cm3": "DEFERRED",
+    "Treatment_recommendation": "PROHIBITED",
+    "Antibiotic_recommendation": "PROHIBITED",
+    "Clinical_management_decision": "PROHIBITED"
+  },
+  "case_level_abstention": {
+    "diagnosis": "emit INDETERMINATE if calibrated confidence rule fails",
+    "subtype": "omit/indeterminate independently per subtype",
+    "quantification": "withhold percentage if quantification eligibility fails"
+  }
+}

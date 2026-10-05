@@ -1,49 +1,50 @@
 {
   "project": "EViCT-Dx",
   "root": "vlmDiagnosis/",
-  "version": "0.1",
-  "status": "INITIALIZED_NOT_TRAINED",
+  "version": "0.2",
+  "status": "STEP_02_PROTOCOL_FROZEN",
   "core_commit": "a717ae6e51b1dd51d6040d063fb3ebbebcc7b751",
   "core_write_access": false,
   "training_started": false,
-  "validation_principle": "A diagnostic output may enter the final report only after it has a reference target, predefined metric, held-out evaluation and a frozen reliability/abstention rule where applicable.",
-  "planned_modules": {
+  "dataset_download_started": false,
+  "frozen_protocol_files": [
+    "config/dataset_registry_step02.json",
+    "config/target_contract_step02.json",
+    "config/split_protocol_step02.json",
+    "config/metrics_and_unlock_step02.json",
+    "config/report_field_contract_step02.json",
+    "config/output_validation_matrix.csv"
+  ],
+  "primary_modules": {
     "diagnosis": {
+      "dataset": "COVID-CT-MD",
       "classes": [
         "COVID-19",
         "CAP",
         "Normal"
-      ],
-      "status": "NOT_TRAINED"
+      ]
     },
-    "lung_segmentation": {
-      "classes": [
-        "left_lung",
-        "right_lung"
-      ],
-      "status": "NOT_TRAINED"
+    "lung_and_involvement": {
+      "dataset": "COVID-19 CT Lung and Infection Segmentation Dataset",
+      "validation": "five-fold strict out-of-fold"
     },
     "pathology_subtypes": {
-      "classes": [
-        "GGO",
-        "consolidation",
-        "pleural_effusion"
-      ],
-      "status": "NOT_TRAINED"
-    },
-    "quantification": {
-      "outputs": [
-        "left_lung_involvement_percent",
-        "right_lung_involvement_percent",
-        "total_lung_involvement_percent"
-      ],
-      "status": "NOT_VALIDATED"
-    },
-    "reporting": {
-      "vlm_may_invent_unsupported_fields": false,
-      "radiologist_review_required": true,
-      "status": "NOT_VALIDATED"
+      "primary": "CC-CCII lesion segmentation subset",
+      "external_GGO_consolidation": "LongCIU",
+      "secondary_external": "MedSeg Covid Dataset 1"
     }
   },
-  "next_step": "STEP_02_DATASET_AND_TARGET_PROTOCOL_FREEZE"
+  "currently_enabled_diagnostic_report_fields": [],
+  "currently_deferred_fields": [
+    "volume-level pleural effusion",
+    "lobar localization",
+    "physical lesion area",
+    "physical lesion volume"
+  ],
+  "currently_prohibited_fields": [
+    "treatment recommendation",
+    "antibiotic recommendation",
+    "autonomous clinical management"
+  ],
+  "next_step": "STEP_03_DATA_ACQUISITION_AND_IDENTITY_AUDIT"
 }

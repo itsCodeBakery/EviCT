@@ -1,0 +1,16 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_02",
+  "status": "DATASET_TARGET_SPLIT_METRIC_PROTOCOL_FROZEN",
+  "timestamp_utc": "2026-10-05T07:06:06.824782+00:00",
+  "frozen_core_commit": "a717ae6e51b1dd51d6040d063fb3ebbebcc7b751",
+  "step_start_git_commit": "e978a4ea8aa3a1c0e5d30422cf87e0ecb6cf1a08",
+  "core_verified_before_step": true,
+  "dataset_download_performed": false,
+  "training_performed": false,
+  "diagnostic_fields_enabled": [],
+  "protocol_manifest": "vlmDiagnosis/artifacts/manifests/step02_protocol_sha256.csv",
+  "protocol_manifest_sha256": "0e0d83ac4175bfd0d162dfa97105914e8aab5ea14fbcc927248869e49a194289",
+  "frozen_protocol_file_count": 7,
+  "next_step": "STEP_03_DATA_ACQUISITION_AND_IDENTITY_AUDIT"
+}

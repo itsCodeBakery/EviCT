@@ -1,13 +1,14 @@
-output,reference_target_required,planned_metric,current_status,allowed_in_final_report
-COVID-19 diagnosis,patient-level diagnostic label,AUROC; sensitivity; specificity; macro-F1; calibration,NOT_VALIDATED,NO
-CAP diagnosis,patient-level diagnostic label,AUROC; sensitivity; specificity; macro-F1; calibration,NOT_VALIDATED,NO
-Normal classification,patient-level diagnostic label,AUROC; sensitivity; specificity; macro-F1; calibration,NOT_VALIDATED,NO
-Ground-glass opacity,expert GGO mask/label,Dice; IoU; sensitivity; specificity,NOT_VALIDATED,NO
-Consolidation,expert consolidation mask/label,Dice; IoU; sensitivity; specificity,NOT_VALIDATED,NO
-Pleural effusion,expert effusion annotation,Dice or AUROC depending on annotation type,NOT_VALIDATED,NO
-Right lung involvement percentage,right-lung mask + lesion mask,MAE; CCC/correlation; Bland-Altman,NOT_VALIDATED,NO
-Left lung involvement percentage,left-lung mask + lesion mask,MAE; CCC/correlation; Bland-Altman,NOT_VALIDATED,NO
-Total lung involvement percentage,whole-lung mask + lesion mask,MAE; CCC/correlation; Bland-Altman,NOT_VALIDATED,NO
-Bilateral involvement,verified left/right anatomy + lesion reference,accuracy; sensitivity; specificity,NOT_VALIDATED,NO
-Lobar localization,lobe masks + lesion reference,localization accuracy,NOT_VALIDATED,NO
-Diagnostic narrative,validated structured evidence + reader assessment,factual consistency; unsupported-claim rate; radiologist review,NOT_VALIDATED,NO
+output,reference_target,evaluation_scope,metrics,current_status,allowed_in_final_report
+COVID-19 diagnosis,COVID-CT-MD patient label,held-out patient-level,macro-F1; AUROC; sensitivity; specificity; ECE,PROTOCOL_FROZEN_NOT_RUN,NO
+CAP diagnosis,COVID-CT-MD patient label,held-out patient-level,macro-F1; AUROC; sensitivity; specificity; ECE,PROTOCOL_FROZEN_NOT_RUN,NO
+Normal classification,COVID-CT-MD patient label,held-out patient-level,macro-F1; AUROC; sensitivity; specificity; ECE,PROTOCOL_FROZEN_NOT_RUN,NO
+Ground-glass opacity,expert GGO mask,study-disjoint + LongCIU external,Dice; IoU; AUROC; sensitivity; specificity,PROTOCOL_FROZEN_NOT_RUN,NO
+Consolidation,expert consolidation mask,study-disjoint + LongCIU external,Dice; IoU; AUROC; sensitivity; specificity,PROTOCOL_FROZEN_NOT_RUN,NO
+Pleural effusion slice-level,expert effusion mask,study-disjoint + MedSeg secondary external,Dice; AUROC; sensitivity; specificity,PROTOCOL_FROZEN_NOT_RUN,NO
+Pleural effusion volume-level,volume-level effusion reference,not yet available,TBD,DEFERRED,NO
+Right lung involvement percentage,right lung + infection masks,strict five-fold out-of-fold,MAE; CCC; Bland-Altman,PROTOCOL_FROZEN_NOT_RUN,NO
+Left lung involvement percentage,left lung + infection masks,strict five-fold out-of-fold,MAE; CCC; Bland-Altman,PROTOCOL_FROZEN_NOT_RUN,NO
+Total lung involvement percentage,bilateral lung + infection masks,strict five-fold out-of-fold,MAE; CCC; Bland-Altman,PROTOCOL_FROZEN_NOT_RUN,NO
+Bilateral involvement,left/right lung + infection masks,strict five-fold out-of-fold,balanced accuracy; sensitivity; specificity,PROTOCOL_FROZEN_NOT_RUN,NO
+Lobar localization,verified lobe target,not yet frozen,TBD,DEFERRED,NO
+Diagnostic narrative,validated structured evidence,validator + future reader study,unsupported claim rate; factual consistency,PROTOCOL_FROZEN_NOT_RUN,NO

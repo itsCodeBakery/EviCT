@@ -1,0 +1,63 @@
+{
+  "project": "EViCT-Dx",
+  "version": "1.0",
+  "status": "FROZEN_BEFORE_DATA_ACQUISITION_AND_TRAINING",
+  "global_seed": 1705,
+  "global_rules": [
+    "patient/study is the minimum split unit",
+    "no slices from one study may appear in more than one split",
+    "test sets are never used for checkpoint selection",
+    "test sets are never used for temperature scaling",
+    "test sets are never used for confidence-threshold selection",
+    "exact manifests must be hashed and frozen before model training"
+  ],
+  "covid_ct_md": {
+    "split_unit": "patient_CT_study",
+    "stratification": "diagnostic_class",
+    "train_fraction": 0.6,
+    "validation_fraction": 0.2,
+    "held_out_test_fraction": 0.2,
+    "seed": 1705,
+    "validation_use": [
+      "checkpoint_selection",
+      "temperature_scaling",
+      "abstention_threshold_selection"
+    ],
+    "test_use": [
+      "one_time_final_diagnostic_evaluation"
+    ],
+    "exact_counts": "generated after identity inventory; no patient is dropped to force aesthetically convenient class counts"
+  },
+  "covid19_ct_seg_20": {
+    "scheme": "five_fold_volume_level_cross_validation",
+    "folds": 5,
+    "split_unit": "complete_CT_volume",
+    "seed": 1705,
+    "primary_prediction_type": "strict_out_of_fold",
+    "metric_rule": "Every volume receives predictions only from a model whose training set excluded that volume.",
+    "quantification_rule": "Left/right/total involvement statistics are calculated only from strict out-of-fold predictions."
+  },
+  "cc_ccii_lesion_subset": {
+    "preferred_rule": "Use documented official study-disjoint train/validation/test partition if the distributed identifiers reproduce it exactly.",
+    "fallback_rule": "If official manifests are unavailable but stable study IDs exist, freeze deterministic study-level 80/10/10 split using seed 1705 before training.",
+    "fallback_train_fraction": 0.8,
+    "fallback_validation_fraction": 0.1,
+    "fallback_test_fraction": 0.1,
+    "slice_level_random_split": false
+  },
+  "longciu": {
+    "role": "external_test_only",
+    "training": false,
+    "validation": false,
+    "threshold_tuning": false,
+    "calibration": false,
+    "primary_reference": "STAPLE_consensus"
+  },
+  "medseg_original": {
+    "role": "secondary_external_image_level_test_only",
+    "training": false,
+    "model_selection": false,
+    "calibration": false,
+    "patient_level_claim": false
+  }
+}
