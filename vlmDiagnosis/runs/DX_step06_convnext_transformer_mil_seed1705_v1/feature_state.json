@@ -224,11 +224,30 @@
     "Normal|normal052",
     "Normal|normal053",
     "Normal|normal054",
-    "Normal|normal055"
+    "Normal|normal055",
+    "Normal|normal056",
+    "Normal|normal057",
+    "Normal|normal058",
+    "Normal|normal059",
+    "Normal|normal060",
+    "Normal|normal061",
+    "Normal|normal063",
+    "Normal|normal064",
+    "Normal|normal065",
+    "Normal|normal066",
+    "Normal|normal067",
+    "Normal|normal069",
+    "Normal|normal070",
+    "Normal|normal071",
+    "Normal|normal072",
+    "Normal|normal073",
+    "Normal|normal074",
+    "Normal|normal075",
+    "Normal|normal076"
   ],
-  "completed_count": 225,
+  "completed_count": 244,
   "run_id": "DX_step06_convnext_transformer_mil_seed1705_v1",
   "stage": "STEP_06_STRONG_FEATURE_CACHE",
   "total": 244,
-  "updated_utc": "2026-10-05T09:50:29Z"
+  "updated_utc": "2026-10-05T09:50:47Z"
 }
