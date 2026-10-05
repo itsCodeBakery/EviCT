@@ -1,0 +1,22 @@
+{
+  "best_blend": {
+    "OOF_macro_AUROC": 0.853225561466329,
+    "OOF_macro_F1": 0.7473880318950741,
+    "logistic_weight": 0.5
+  },
+  "best_logistic": {
+    "C": 0.1,
+    "OOF_macro_AUROC": 0.8543334801693391,
+    "OOF_macro_F1": 0.7318040215236477,
+    "kind": "logistic",
+    "pca_components": 96
+  },
+  "best_rbf_svc": {
+    "C": 5.0,
+    "OOF_macro_AUROC": 0.8486722971904667,
+    "OOF_macro_F1": 0.7292044872690034,
+    "kind": "rbf_svc",
+    "pca_components": 64
+  },
+  "selected_type": "blend"
+}
