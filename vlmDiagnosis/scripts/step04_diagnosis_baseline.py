@@ -30,9 +30,7 @@ from torch.utils.data import DataLoader, Dataset
 from torchvision.models import efficientnet_b0, EfficientNet_B0_Weights
 from torchvision.transforms.functional import resize
 
-ROOT = Path("/kaggle/working/EViCT")
-if not ROOT.exists():
-    ROOT = Path("/kaggle/working/EviCT")
+ROOT = Path(__file__).resolve().parents[2]
 DX = ROOT / "vlmDiagnosis"
 RUN_ID = "DX_step04_covid_ct_md_effb0_attention_seed1705_v1"
 RUN = DX / "runs" / RUN_ID
