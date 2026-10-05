@@ -1,0 +1,40 @@
+{
+  "counts": {
+    "CAP": {
+      "test": 12,
+      "train": 36,
+      "validation": 12
+    },
+    "COVID-19": {
+      "test": 34,
+      "train": 101,
+      "validation": 34
+    },
+    "Normal": {
+      "test": 15,
+      "train": 46,
+      "validation": 15
+    },
+    "total": {
+      "test": 61,
+      "train": 183,
+      "validation": 61
+    }
+  },
+  "dataset": "COVID-CT-MD",
+  "hard_failures": [],
+  "project": "EViCT-Dx",
+  "rules": {
+    "test_for_abstention_threshold": false,
+    "test_for_checkpoint_selection": false,
+    "test_for_temperature_scaling": false,
+    "validation_for_abstention_threshold": true,
+    "validation_for_checkpoint_selection": true,
+    "validation_for_temperature_scaling": true
+  },
+  "seed": 1705,
+  "split_unit": "patient_CT_study",
+  "stage": "STEP_03D",
+  "status": "SPLIT_FROZEN_BEFORE_TRAINING",
+  "stratification": "diagnostic_class"
+}

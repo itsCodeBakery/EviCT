@@ -1,0 +1,25 @@
+{
+  "archive_path": "/kaggle/working/evict_dx_figshare_temp/COVID-CT-MD.zip",
+  "archive_size_bytes": 11273767727,
+  "class_counts": {
+    "CAP": 60,
+    "COVID-19": 169,
+    "Normal": 76
+  },
+  "completed_utc": "2026-10-05T09:09:45Z",
+  "dataset": "COVID-CT-MD",
+  "dicom_files": 45471,
+  "hard_failures": [],
+  "hash_manifest": "vlmDiagnosis/artifacts/manifests/step03d_covid_ct_md_sha256.csv",
+  "patients": 305,
+  "patients_single_series_uid": 305,
+  "patients_single_study_uid": 305,
+  "patients_with_instance_sort": 0,
+  "patients_with_ipp_z_sort": 0,
+  "patients_with_slice_location_sort": 305,
+  "project": "EViCT-Dx",
+  "sample_pixel_decode_successes": 305,
+  "split_manifest": "vlmDiagnosis/tables/step03d_covid_ct_md_split_manifest.csv",
+  "stage": "STEP_03D",
+  "training_allowed": true
+}
