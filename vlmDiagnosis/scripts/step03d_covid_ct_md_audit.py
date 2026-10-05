@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 import pydicom
 
-ROOT = Path("/kaggle/working/EviCT")
+ROOT = Path(__file__).resolve().parents[2]
 DX = ROOT / "vlmDiagnosis"
 RUN_ID = "DX_step03d_covid_ct_md_audit_v1"
 RUN = DX / "runs" / RUN_ID
