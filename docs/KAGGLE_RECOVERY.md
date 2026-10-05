@@ -71,7 +71,7 @@ Every optimizer step, keep the scientific step counter explicit. At the configur
         if recovery.should_sync_metadata(global_step):
             recovery.sync_metadata(f'{RUN_ID}: checkpoint step {global_step}')
 
-The local file is written to a temporary path, loaded back for structural verification, and only then replaces `last.pt`. Previous generations are retained. A rolling remote checkpoint is uploaded at the configured remote interval (default 500 steps) to a prerelease named `evict-recovery-<RUN_ID>-rolling`.
+The local file is written to a temporary path, loaded back for structural verification, and only then replaces `last.pt`. Previous generations are retained. A step-versioned remote checkpoint is uploaded at the configured remote interval (default 500 steps) to a prerelease named `evict-recovery-<RUN_ID>-rolling`. The newest two checkpoint assets are retained, so a failed upload cannot destroy the previous durable recovery point.
 
 ## Graceful interruption
 
