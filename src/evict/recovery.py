@@ -549,6 +549,7 @@ class RunRecoveryManager:
         state = self.read_state()
         path = self.checkpoint_path()
 
+        downloaded_remote = False
         if not path.exists() and allow_remote and state.get("remote_asset"):
             token = token or kaggle_secret(self.policy.kaggle_secret_name)
             store = GitHubReleaseStore(
@@ -557,10 +558,13 @@ class RunRecoveryManager:
                 release_prefix=self.policy.rolling_release_prefix,
             )
             store.download(self.run_id, state["remote_asset"], path)
+            downloaded_remote = True
 
-        expected_sha = state.get("latest_checkpoint_sha256")
-        if state.get("remote_checkpoint_sha256") and not path.exists():
-            expected_sha = state["remote_checkpoint_sha256"]
+        expected_sha = (
+            state.get("remote_checkpoint_sha256")
+            if downloaded_remote
+            else state.get("latest_checkpoint_sha256")
+        )
 
         payload = load_checkpoint(path, expected_sha256=expected_sha)
 
