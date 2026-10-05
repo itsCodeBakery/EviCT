@@ -1,0 +1,114 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_06_STRONG_DIAGNOSIS_DEVELOPMENT",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "purpose": "Develop a stronger COVID-19/CAP/Normal volume-level classifier without reading the 61-patient held-out test set.",
+  "dataset": "COVID-CT-MD",
+  "allowed_splits": [
+    "train",
+    "validation"
+  ],
+  "forbidden_split": "test",
+  "seed": 1705,
+  "classes": [
+    "COVID-19",
+    "CAP",
+    "Normal"
+  ],
+  "input": {
+    "weak_slice_adaptation_slices_per_train_patient": 16,
+    "mil_slices_per_patient": 48,
+    "sampling": "uniform ordered slices from the frozen Step03D DICOM inventory",
+    "resize": [
+      224,
+      224
+    ],
+    "channels": [
+      {
+        "name": "lung",
+        "hu_min": -1000,
+        "hu_max": 400
+      },
+      {
+        "name": "mediastinal",
+        "hu_min": -160,
+        "hu_max": 240
+      },
+      {
+        "name": "wide",
+        "hu_min": -1200,
+        "hu_max": 600
+      }
+    ],
+    "normalization": "window -> [0,1] -> ImageNet mean/std"
+  },
+  "encoder": {
+    "architecture": "torchvision ConvNeXt-Tiny",
+    "weights": "IMAGENET1K_V1",
+    "adaptation": "weakly supervised patient-label slice adaptation on train patients only",
+    "frozen_blocks": "features[0:5]",
+    "trainable_blocks": "features[5:8] + classifier",
+    "adaptation_epochs": 6,
+    "batch_size": 16,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "loss": "class-weighted cross entropy",
+    "test_access": false
+  },
+  "feature_cache": {
+    "extraction_split": [
+      "train",
+      "validation"
+    ],
+    "feature_dim": 768,
+    "dtype": "float16",
+    "remote_snapshot_every_patients": 25,
+    "held_out_test_features": false
+  },
+  "aggregator": {
+    "architecture": "ordered slice transformer MIL",
+    "projection_dim": 256,
+    "transformer_layers": 2,
+    "attention_heads": 4,
+    "feedforward_dim": 512,
+    "dropout": 0.15,
+    "pooling": "learned attention + mean + max",
+    "classifier_hidden": 256
+  },
+  "mil_training": {
+    "max_epochs": 60,
+    "batch_size": 8,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "loss": "class-weighted cross entropy with label smoothing 0.05",
+    "selection_metric": "validation_macro_F1",
+    "early_stopping_patience": 10,
+    "scheduler": "ReduceLROnPlateau",
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 3,
+    "mixed_precision": true
+  },
+  "validation": {
+    "only_split": "validation",
+    "calibration": "temperature scaling on validation only after checkpoint selection",
+    "baseline_reference": "Step04 validation Macro-F1 0.7161742424",
+    "optional_ensemble": {
+      "with": "Step04 calibrated validation probabilities",
+      "weights": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "selection": "validation macro-F1 only"
+    }
+  },
+  "safeguards": [
+    "Step06 must fail if any patient with split=test is loaded for feature extraction or model evaluation.",
+    "No Step04 test-prediction file is read.",
+    "No report field is unlocked from Step06 validation results.",
+    "Final held-out evaluation requires a separately frozen Step07 protocol."
+  ],
+  "progress_display": "tqdm progress bars for encoder adaptation, feature extraction and MIL training"
+}

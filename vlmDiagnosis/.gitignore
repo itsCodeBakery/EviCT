@@ -9,3 +9,6 @@ __pycache__/
 runs/**/*.pt
 runs/**/feature_cache/*.npz
 runs/**/patient_shards/
+runs/**/feature_cache_strong/*.npz
+runs/**/encoder_adapted.pt
+runs/**/best_mil.pt
