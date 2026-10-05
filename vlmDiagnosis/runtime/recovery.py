@@ -642,14 +642,15 @@ class RunRecoveryManager:
         return global_step > 0 and global_step % self.policy.metadata_sync_every_steps == 0
 
     def sync_metadata(self, message: Optional[str] = None) -> int:
-        script = self.repo_root / "scripts" / "git_sync.py"
+        # Strict diagnostic-extension sync: never stage frozen EViCT-Core files.
+        script = self.repo_root / "vlmDiagnosis" / "scripts" / "git_sync_dx.py"
         if not script.exists():
             raise FileNotFoundError(script)
         r = subprocess.run(
             [
                 sys.executable,
                 str(script),
-                message or f"EviCT recovery state: {self.run_id}",
+                message or f"EViCT-Dx recovery state: {self.run_id}",
             ],
             cwd=str(self.repo_root),
             check=False,
