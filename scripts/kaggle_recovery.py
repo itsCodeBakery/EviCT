@@ -51,18 +51,30 @@ def cmd_verify(manager: RunRecoveryManager) -> None:
 
 
 def cmd_pull_remote(manager: RunRecoveryManager) -> None:
-    state = manager.read_state()
-    asset = state.get("remote_asset")
-    expected = state.get("remote_checkpoint_sha256")
-    if not asset:
-        raise RuntimeError("STATE.json does not contain a remote recovery asset.")
-
     token = kaggle_secret(manager.policy.kaggle_secret_name)
     store = GitHubReleaseStore(
         repository=manager.policy.github_repository,
         token=token,
         release_prefix=manager.policy.rolling_release_prefix,
     )
+
+    state = manager.read_state()
+    if not state:
+        # A previous metadata Git push may have been deferred by a concurrent
+        # main-branch update. Recovery metadata is therefore also mirrored as
+        # a release asset beside last.pt.
+        try:
+            store.download(manager.run_id, "STATE.json", manager.state_path)
+            state = manager.read_state()
+            print("✓ recovered STATE.json from rolling release")
+        except Exception as exc:
+            raise RuntimeError(
+                "No local run state and remote STATE.json recovery failed. "
+                f"Run ID: {manager.run_id}. Error: {exc}"
+            ) from exc
+
+    asset = state.get("remote_asset", "last.pt")
+    expected = state.get("remote_checkpoint_sha256")
     cp = manager.checkpoint_path()
     store.download(manager.run_id, asset, cp)
     actual = sha256_file(cp)
@@ -71,6 +83,16 @@ def cmd_pull_remote(manager: RunRecoveryManager) -> None:
         raise RuntimeError(
             f"Remote checkpoint hash mismatch: expected {expected}, got {actual}"
         )
+
+    try:
+        store.download(
+            manager.run_id,
+            "checkpoint_manifest.json",
+            manager.manifest_path,
+        )
+    except Exception:
+        pass
+
     print(f"✓ restored remote checkpoint: {cp}")
     print(f"✓ SHA256: {actual}")
 
