@@ -6,3 +6,5 @@ runs/**/checkpoints/*.bin
 runs/**/*.tmp
 __pycache__/
 *.py[cod]
+runs/**/*.pt
+runs/**/feature_cache/*.npz
