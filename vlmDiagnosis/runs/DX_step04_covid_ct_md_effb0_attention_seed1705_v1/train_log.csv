@@ -1,0 +1,2 @@
+epoch,train_loss,val_macro_F1,val_balanced_accuracy,lr,best_val_macro_F1,patience
+1,1.1071686347325642,0.3723137973137973,0.4013071895424836,0.0003,0.3723137973137973,0
