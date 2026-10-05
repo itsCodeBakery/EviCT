@@ -1,0 +1,39 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_03D_PREFLIGHT",
+  "dataset": "COVID-CT-MD",
+  "expected_classes": {
+    "COVID-19": 169,
+    "CAP": 60,
+    "Normal": 76
+  },
+  "expected_total_patients": 305,
+  "kaggle_candidate_paths": [],
+  "official_figshare": {
+    "collection_id": 5129081,
+    "article_count": 2,
+    "file_count": 2,
+    "total_bytes": 11273784558,
+    "total_gb": 10.499530060216784,
+    "files": [
+      {
+        "article_id": 12991592,
+        "article_title": "COVID-CT-MD: COVID-19 Computed Tomography Scan Dataset Applicable in Machine Learning and Deep Learning",
+        "name": "COVID-CT-MD.zip",
+        "size_bytes": 11273767727,
+        "download_url": "https://ndownloader.figshare.com/files/26069987",
+        "md5": "7cd2a4fdc7b1348c093b9a384d4b2240"
+      },
+      {
+        "article_id": 14125673,
+        "article_title": "Statistical Analysis and Visualization Code",
+        "name": "statistical_analysis.py",
+        "size_bytes": 16831,
+        "download_url": "https://ndownloader.figshare.com/files/26636960",
+        "md5": "6e0d497f05ef97e9e7fee30b761499d5"
+      }
+    ]
+  },
+  "kaggle_free_gb": 17.839702606201172,
+  "training_performed": false
+}
