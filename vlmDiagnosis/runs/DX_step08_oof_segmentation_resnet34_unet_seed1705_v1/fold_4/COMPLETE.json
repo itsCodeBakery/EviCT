@@ -1,0 +1,12 @@
+{
+  "best_validation_mean_dice": 0.9089193970146449,
+  "completed_utc": "2026-10-05T11:28:02Z",
+  "fold": 4,
+  "status": "COMPLETE",
+  "test_case_ids": [
+    "coronacases_003",
+    "coronacases_005",
+    "radiopaedia_29_86491_1",
+    "radiopaedia_4_85506_1"
+  ]
+}
