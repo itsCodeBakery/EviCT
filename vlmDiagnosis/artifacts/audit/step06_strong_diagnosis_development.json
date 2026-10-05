@@ -1,0 +1,33 @@
+{
+  "best_epoch": 2,
+  "completed_utc": "2026-10-05T09:51:30Z",
+  "development_patients": {
+    "test": 0,
+    "train": 183,
+    "validation": 61
+  },
+  "encoder": "ConvNeXt-Tiny ImageNet weakly adapted on train-patient slice labels only",
+  "held_out_test_accessed": false,
+  "held_out_test_inference_run": false,
+  "mil_model": "ordered 2-layer slice Transformer with attention+mean+max pooling",
+  "mil_slices_per_patient": 48,
+  "next_action": "FREEZE_STEP07_FINAL_EVALUATION_PROTOCOL_BEFORE_ANY_STRONG_MODEL_TEST_INFERENCE",
+  "project": "EViCT-Dx",
+  "report_fields_unlocked": false,
+  "run_id": "DX_step06_convnext_transformer_mil_seed1705_v1",
+  "selected_validation_ensemble": {
+    "balanced_accuracy": 0.7339869281045752,
+    "macro_AUROC": 0.848108905397908,
+    "macro_F1": 0.7161742424242424,
+    "strong_weight": 0.0
+  },
+  "stage": "STEP_06_STRONG_DIAGNOSIS_DEVELOPMENT",
+  "step04_baseline_validation_macro_F1": 0.7161742424,
+  "strong_validation_metrics": {
+    "balanced_accuracy": 0.588235294117647,
+    "macro_AUROC": 0.812891017920856,
+    "macro_F1": 0.5825929938605995
+  },
+  "temperature_validation_only": 2.139713764190674,
+  "validation_macro_F1_delta_vs_step04": -0.13358124853940057
+}

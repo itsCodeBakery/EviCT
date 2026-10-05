@@ -2,18 +2,18 @@
 
 - **run_id**: DX_step06_convnext_transformer_mil_seed1705_v1_mil
 - **status**: mil_training
-- **global_step**: 10
-- **epoch**: 10
+- **global_step**: 12
+- **epoch**: 12
 - **best_score**: 0.5825929938605995
 - **latest_checkpoint**: vlmDiagnosis/runs/DX_step06_convnext_transformer_mil_seed1705_v1/mil_recovery/checkpoints/last.pt
-- **latest_checkpoint_sha256**: e342c9a48709fa3c4da717fb5c1bb15dcbd9b382a4c461363f6bcb343a4248fc
+- **latest_checkpoint_sha256**: cb11f77afc103680d1f1e359ebeb5d770c8d94d947ab89dd196be555bec8e588
 - **remote_asset**: last_step_00000010.pt
 - **remote_checkpoint_sha256**: e342c9a48709fa3c4da717fb5c1bb15dcbd9b382a4c461363f6bcb343a4248fc
 - **config_hash**: 61aed5292c146bb9e68a91dc6860b94138554e11fbc58ae9f888588d09e7a76d
 - **split_hash**: e05298750b32d1bc09467d13d22c5dc45929aa142683357374272934d43e2256
 - **manifest_hash**: 982b87659792da2c8dd3adacca4adf03d91e1399d8e7220363dff5dff0de2532
-- **git_commit**: 2fbf50765700d8c84ee3225b525db55c2fc74139
-- **updated_utc**: 2026-10-05T09:51:23Z
-- **next_action**: resume_from_step_11
+- **git_commit**: 17028540c94b890d2a196b8be5325899e0eaa8e3
+- **updated_utc**: 2026-10-05T09:51:29Z
+- **next_action**: resume_from_step_13
 
 This file is machine-managed. Scientific settings must not be changed from target results.

@@ -1,0 +1,9 @@
+{
+  "best_validation_macro_F1": 0.5825929938605995,
+  "held_out_test_accessed": false,
+  "next_action": "FREEZE_STEP07_FINAL_EVALUATION_PROTOCOL_BEFORE_ANY_STRONG_MODEL_TEST_INFERENCE",
+  "run_id": "DX_step06_convnext_transformer_mil_seed1705_v1",
+  "selected_ensemble_strong_weight": 0.0,
+  "status": "COMPLETE",
+  "updated_utc": "2026-10-05T09:51:30Z"
+}
