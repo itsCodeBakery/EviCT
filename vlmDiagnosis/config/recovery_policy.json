@@ -1,0 +1,16 @@
+{
+  "checkpoint_every_steps": 250,
+  "remote_checkpoint_every_steps": 500,
+  "metadata_sync_every_steps": 250,
+  "keep_local_generations": 2,
+  "github_repository": "itsCodeBakery/EviCT",
+  "github_branch": "main",
+  "kaggle_secret_name": "pushEviCT",
+  "rolling_release_prefix": "evict-dx-recovery",
+  "max_release_asset_gb": 1.9,
+  "notes": {
+    "ordinary_git": "EViCT-Dx code, configs, STATE files, hashes, logs and metrics under vlmDiagnosis only.",
+    "large_checkpoints": "Rolling GitHub Release asset; do not commit model checkpoints to ordinary Git.",
+    "resume_rule": "Restore model, EMA teacher, optimizer, scheduler, AMP scaler, RNG, sampler position and scientific hashes before continuing."
+  }
+}
