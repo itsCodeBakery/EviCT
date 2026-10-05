@@ -1,0 +1,123 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_08_OOF_LUNG_INFECTION_SEGMENTATION_BASELINE",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "dataset": "COVID-19 CT Lung and Infection Segmentation Dataset",
+  "dataset_slug": "ipythonx/covid19-ct",
+  "split_manifest": "vlmDiagnosis/tables/step03c_20case_split_manifest.csv",
+  "case_manifest": "vlmDiagnosis/tables/step03c_20case_case_manifest.csv",
+  "seed": 1705,
+  "folds": 5,
+  "per_fold": {
+    "train_volumes": 12,
+    "validation_volumes": 4,
+    "test_volumes": 4
+  },
+  "targets": [
+    "left_lung",
+    "right_lung",
+    "infection"
+  ],
+  "preprocessing": {
+    "slice_axis": 2,
+    "resize": [
+      256,
+      256
+    ],
+    "corona_cases": {
+      "mode": "HU_three_window",
+      "channels": [
+        {
+          "name": "lung",
+          "min": -1000,
+          "max": 400
+        },
+        {
+          "name": "parenchyma",
+          "min": -600,
+          "max": 150
+        },
+        {
+          "name": "wide",
+          "min": -1200,
+          "max": 600
+        }
+      ]
+    },
+    "radiopaedia": {
+      "mode": "robust_normalized_grayscale_repeat3",
+      "lower_percentile": 0.5,
+      "upper_percentile": 99.5
+    },
+    "mask_interpolation": "nearest",
+    "image_interpolation": "bilinear"
+  },
+  "training": {
+    "architecture": "2D U-Net with ImageNet ResNet34 encoder",
+    "encoder_weights": "IMAGENET1K_V1",
+    "outputs": 3,
+    "output_activation": "sigmoid_independent_channels",
+    "loss": "0.5 weighted BCE + 0.5 soft Dice",
+    "positive_weights": {
+      "left_lung": 1,
+      "right_lung": 1,
+      "infection": 3
+    },
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "batch_size": 8,
+    "max_epochs": 20,
+    "early_stopping_patience": 5,
+    "selection_metric": "mean validation per-volume Dice across left/right/infection",
+    "fixed_threshold": 0.5,
+    "mixed_precision": true,
+    "train_slice_policy": "all slices containing lung or infection plus every fourth empty slice"
+  },
+  "evaluation": {
+    "prediction_requirement": "strict out-of-fold test prediction only",
+    "segmentation_metrics": [
+      "Dice_left",
+      "Dice_right",
+      "Dice_infection",
+      "IoU_infection",
+      "infection_sensitivity",
+      "infection_specificity"
+    ],
+    "quantification_metrics": [
+      "MAE_percentage_points",
+      "median_absolute_error",
+      "RMSE_percentage_points",
+      "Pearson_r",
+      "Spearman_rho",
+      "CCC",
+      "Bland_Altman_bias",
+      "Bland_Altman_95_percent_limits"
+    ],
+    "bilateral_metrics": [
+      "balanced_accuracy",
+      "sensitivity",
+      "specificity",
+      "F1"
+    ],
+    "test_prohibited_uses": [
+      "checkpoint selection",
+      "early stopping",
+      "threshold tuning",
+      "hyperparameter tuning"
+    ]
+  },
+  "outputs": {
+    "oof_case_metrics": "vlmDiagnosis/tables/step08_oof_case_metrics.csv",
+    "oof_quantification": "vlmDiagnosis/tables/step08_oof_involvement_predictions.csv",
+    "summary": "vlmDiagnosis/artifacts/audit/step08_oof_segmentation_baseline_results.json",
+    "predictions_storage": "GitHub Release assets per fold; not ordinary Git"
+  },
+  "safeguards": [
+    "Fold assignments are read only from the frozen Step03c manifest.",
+    "Validation selects checkpoints; test labels are used only after each fold checkpoint is frozen.",
+    "No OOF test prediction can influence any later fold training decision.",
+    "All writes stay under vlmDiagnosis/ except temporary Kaggle caches.",
+    "Diagnostic disease-name model is not modified in Step08."
+  ]
+}
