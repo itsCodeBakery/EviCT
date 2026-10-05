@@ -5,7 +5,7 @@ Only paths under vlmDiagnosis/ are staged and committed. Frozen EViCT-Core
 paths are never staged by this script.
 
 Kaggle usage:
-    !python /kaggle/working/EviCT/vlmDiagnosis/scripts/git_sync_dx.py "message"
+    !python <repo>/vlmDiagnosis/scripts/git_sync_dx.py "message"
 
 GitHub PAT is read from Kaggle Secret: pushEviCT
 """
