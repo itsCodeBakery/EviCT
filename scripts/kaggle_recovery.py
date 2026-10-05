@@ -62,7 +62,7 @@ def cmd_pull_remote(manager: RunRecoveryManager) -> None:
     if not state:
         # A previous metadata Git push may have been deferred by a concurrent
         # main-branch update. Recovery metadata is therefore also mirrored as
-        # a release asset beside last.pt.
+        # a release asset beside the step-versioned checkpoint.
         try:
             store.download(manager.run_id, "STATE.json", manager.state_path)
             state = manager.read_state()
