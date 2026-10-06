@@ -67,55 +67,72 @@ def atomic_csv(path: Path, df: pd.DataFrame):
     os.replace(tmp, path)
 
 
-def normalize_text(s: str):
-    return re.sub(r"\s+", " ", s.lower().replace("_", " ").replace("-", " ")).strip()
-
-
-def near_number(text: str, aliases, n: int, window: int = 80):
-    """True when a class alias and numeric label occur close together."""
-    t = normalize_text(text)
-    for alias in aliases:
-        a = normalize_text(alias)
-        for m in re.finditer(re.escape(a), t):
-            lo = max(0, m.start() - window)
-            hi = min(len(t), m.end() + window)
-            chunk = t[lo:hi]
-            if re.search(rf"(?<!\d){n}(?!\d)", chunk):
-                return True
-    return False
+def canonical_class_name(raw: str):
+    t = raw.lower().replace("_", " ").replace("-", " ")
+    t = re.sub(r"\s+", " ", t).strip()
+    if "background" in t or re.search(r"\bbg\b", t):
+        return "background"
+    if "lung field" in t or re.search(r"\blf\b", t):
+        return "lung_field"
+    if "ground glass opacity" in t or re.search(r"\bggo\b", t):
+        return "ground_glass_opacity"
+    if "consolidation" in t or re.search(r"\bco\b", t):
+        return "consolidation"
+    return None
 
 
 def infer_readme_mapping(text: str):
-    aliases = {
-        "background": ["background", "bg"],
-        "lung_field": ["lung field", "lung", "lf"],
-        "ground_glass_opacity": ["ground glass opacity", "ggo"],
-        "consolidation": ["consolidation", "cl"],
-    }
-    candidates = [
-        {
-            "name": "BG0_LF1_CL2_GGO3",
-            "mapping": {0:"background",1:"lung_field",2:"consolidation",3:"ground_glass_opacity"},
-        },
-        {
-            "name": "BG0_LF1_GGO2_CL3",
-            "mapping": {0:"background",1:"lung_field",2:"ground_glass_opacity",3:"consolidation"},
-        },
-    ]
-    scored = []
-    for c in candidates:
-        details = {}
-        score = 0
-        for num, cls in c["mapping"].items():
-            hit = near_number(text, aliases[cls], num)
-            details[f"{num}_{cls}"] = hit
-            score += int(hit)
-        scored.append({"name":c["name"], "mapping":c["mapping"], "score":score, "details":details})
+    """Parse the official README's explicit '<label>: <class>' lines.
 
-    scored = sorted(scored, key=lambda x: x["score"], reverse=True)
-    if scored[0]["score"] >= 4 and (len(scored) == 1 or scored[0]["score"] > scored[1]["score"]):
-        return True, scored[0]["mapping"], scored
-    return False, None, scored
+    Step10D v1 used a proximity heuristic over the whole README. Because the
+    README contains many other numbers (150 scans, 0..149 indices, 512x512,
+    0..3 range), that heuristic could mark multiple candidate mappings as
+    plausible even though the README explicitly lists the mapping line by line.
+
+    This parser accepts only explicit lines beginning with labels 0..3.
+    """
+    parsed = {}
+    evidence = []
+
+    for raw_line in text.splitlines():
+        m = re.match(r"^\s*([0-3])\s*:\s*(.*?)\s*$", raw_line)
+        if not m:
+            continue
+
+        label = int(m.group(1))
+        raw_class = m.group(2)
+        canonical = canonical_class_name(raw_class)
+        evidence.append({
+            "label": label,
+            "raw_text": raw_class,
+            "canonical_class": canonical,
+        })
+
+        if canonical is not None:
+            if label in parsed and parsed[label] != canonical:
+                return False, None, {
+                    "method": "explicit_readme_label_lines",
+                    "reason": f"conflicting explicit mapping for label {label}",
+                    "evidence": evidence,
+                }
+            parsed[label] = canonical
+
+    expected = {
+        0: "background",
+        1: "lung_field",
+        2: "ground_glass_opacity",
+        3: "consolidation",
+    }
+
+    verified = parsed == expected
+    details = {
+        "method": "explicit_readme_label_lines",
+        "expected_mapping": expected,
+        "parsed_mapping": parsed,
+        "evidence": evidence,
+        "verified": verified,
+    }
+    return verified, (parsed if verified else None), details
 
 
 def sync_git():
@@ -358,7 +375,7 @@ def main():
         "readme_mapping_detection":{
             "verified":mapping_verified,
             "selected_mapping":label_mapping,
-            "candidate_scores":mapping_scores,
+            "parser_details":mapping_scores,
         },
         "patient_split":{
             "seed":SEED,
