@@ -1,6 +1,6 @@
 {
   "archive_sha256": "6fc1bbdce26059a4d0905b6004ee203239162d3a4c85212b62ce61b9cfb2d018",
-  "completed_utc": "2026-10-06T08:24:58Z",
+  "completed_utc": "2026-10-06T08:32:25Z",
   "exact_structure": {
     "annotated_mask_files": 750,
     "checks": {
@@ -26,7 +26,7 @@
     "patient_or_scan_groups": 150,
     "verified": true
   },
-  "next_action": "REVIEW_OFFICIAL_README_NUMERIC_LABEL_MAPPING_BEFORE_TRAINING",
+  "next_action": "STEP_11_TRAIN_GGO_CONSOLIDATION_SEGMENTATION",
   "official_readme_file": "vlmDiagnosis/artifacts/audit/step10d_ncp_official_README.txt",
   "patient_split": {
     "leakage_free": true,
@@ -62,42 +62,51 @@
   "pleural_effusion": "LOCKED_NOT_PRESENT_IN_PUBLIC_750_SLICE_RESOURCE",
   "project": "EViCT-Dx",
   "readme_mapping_detection": {
-    "candidate_scores": [
-      {
-        "details": {
-          "0_background": true,
-          "1_lung_field": true,
-          "2_consolidation": true,
-          "3_ground_glass_opacity": true
+    "parser_details": {
+      "evidence": [
+        {
+          "canonical_class": "background",
+          "label": 0,
+          "raw_text": "Background (BG)"
         },
-        "mapping": {
-          "0": "background",
-          "1": "lung_field",
-          "2": "consolidation",
-          "3": "ground_glass_opacity"
+        {
+          "canonical_class": "lung_field",
+          "label": 1,
+          "raw_text": "Lung field (LF)"
         },
-        "name": "BG0_LF1_CL2_GGO3",
-        "score": 4
+        {
+          "canonical_class": "ground_glass_opacity",
+          "label": 2,
+          "raw_text": "Ground-glass opacity (GGO)"
+        },
+        {
+          "canonical_class": "consolidation",
+          "label": 3,
+          "raw_text": "Consolidation (CO)"
+        }
+      ],
+      "expected_mapping": {
+        "0": "background",
+        "1": "lung_field",
+        "2": "ground_glass_opacity",
+        "3": "consolidation"
       },
-      {
-        "details": {
-          "0_background": true,
-          "1_lung_field": true,
-          "2_ground_glass_opacity": true,
-          "3_consolidation": true
-        },
-        "mapping": {
-          "0": "background",
-          "1": "lung_field",
-          "2": "ground_glass_opacity",
-          "3": "consolidation"
-        },
-        "name": "BG0_LF1_GGO2_CL3",
-        "score": 4
-      }
-    ],
-    "selected_mapping": null,
-    "verified": false
+      "method": "explicit_readme_label_lines",
+      "parsed_mapping": {
+        "0": "background",
+        "1": "lung_field",
+        "2": "ground_glass_opacity",
+        "3": "consolidation"
+      },
+      "verified": true
+    },
+    "selected_mapping": {
+      "0": "background",
+      "1": "lung_field",
+      "2": "ground_glass_opacity",
+      "3": "consolidation"
+    },
+    "verified": true
   },
   "stage": "STEP_10D_PUBLIC_NCP_EXACT_LABEL_AND_SPLIT_FREEZE",
   "step10c_heuristic_correction": {
@@ -109,6 +118,6 @@
     "ground_glass_opacity",
     "consolidation"
   ],
-  "training_allowed": false,
+  "training_allowed": true,
   "training_performed": false
 }
