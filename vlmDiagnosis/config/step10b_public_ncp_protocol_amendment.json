@@ -1,0 +1,44 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_10B_PUBLIC_NCP_PROTOCOL_AMENDMENT_AND_SOURCE_PROBE",
+  "status": "FROZEN_BEFORE_SUBTYPE_TRAINING",
+  "rationale": [
+    "The originally targeted 1302-slice CC-CCII pulmonary-lesion annotation resource has not been reproduced from the mounted/public sources.",
+    "A separately documented public CC-CCII/NCP lesion segmentation resource contains 750 CT slices from 150 COVID-19 patients with background, lung field, GGO and consolidation masks.",
+    "Pleural-effusion segmentation remains locked because it is not part of the reproducible 750-slice public resource."
+  ],
+  "amended_primary_subtype_training_resource": {
+    "name": "Public CC-CCII/NCP 750-slice lesion segmentation resource",
+    "official_source": "http://ncov-ai.big.ac.cn/download?lang=en",
+    "expected_slices": 750,
+    "expected_patients_or_scans": 150,
+    "expected_slices_per_patient_or_scan": 5,
+    "classes": [
+      "background",
+      "lung_field",
+      "ground_glass_opacity",
+      "consolidation"
+    ],
+    "allowed_targets": [
+      "GGO_slice_segmentation",
+      "consolidation_slice_segmentation"
+    ],
+    "prohibited_target": "pleural_effusion"
+  },
+  "external_resources_preserved": {
+    "longciu": "EXTERNAL_TEST_ONLY_FOR_GGO_AND_CONSOLIDATION",
+    "medseg_original": "SECONDARY_EXTERNAL_IMAGE_LEVEL_SUBTYPE_CHECK",
+    "note": "Neither external resource may be repurposed for training or threshold selection."
+  },
+  "split_rule": {
+    "requirement": "patient_or_scan_disjoint",
+    "preferred": "use stable patient/scan identifiers distributed with the public resource",
+    "fallback": "if stable grouping exists but no official split is distributed, freeze deterministic patient/scan-level 80/10/10 split with seed 1705 before training",
+    "forbidden": "slice-level random split"
+  },
+  "next_gate": [
+    "Acquire or mount the public 750-slice NCP resource.",
+    "Verify image-mask pairing, label values, stable patient/scan grouping, exact counts and hashes.",
+    "Only after verification freeze Step11 subtype split and training config."
+  ]
+}
