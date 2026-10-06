@@ -1,0 +1,10 @@
+{
+  "label_mapping_verified": false,
+  "next_action": "REVIEW_OFFICIAL_README_NUMERIC_LABEL_MAPPING_BEFORE_TRAINING",
+  "patient_split_leakage_free": true,
+  "run_id": "DX_step10d_ncp_exact_freeze_v1",
+  "status": "COMPLETE",
+  "structure_verified": true,
+  "training_allowed": false,
+  "updated_utc": "2026-10-06T08:24:58Z"
+}

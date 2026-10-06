@@ -1,0 +1,114 @@
+{
+  "archive_sha256": "6fc1bbdce26059a4d0905b6004ee203239162d3a4c85212b62ce61b9cfb2d018",
+  "completed_utc": "2026-10-06T08:24:58Z",
+  "exact_structure": {
+    "annotated_mask_files": 750,
+    "checks": {
+      "all_mask_dimensions_512x512": true,
+      "all_masks_paired_to_same_patient_same_stem_image": true,
+      "exactly_5_masks_each_group": true,
+      "global_mask_labels_exactly_0_1_2_3": true,
+      "masks_750": true,
+      "patient_groups_150": true
+    },
+    "full_ct_image_files": 21470,
+    "global_mask_labels": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "mask_count_per_group_distribution": {
+      "5": 150
+    },
+    "missing_image_pairs": [],
+    "paired_annotated_slices": 750,
+    "patient_or_scan_groups": 150,
+    "verified": true
+  },
+  "next_action": "REVIEW_OFFICIAL_README_NUMERIC_LABEL_MAPPING_BEFORE_TRAINING",
+  "official_readme_file": "vlmDiagnosis/artifacts/audit/step10d_ncp_official_README.txt",
+  "patient_split": {
+    "leakage_free": true,
+    "method": "deterministic_permutation_then_exact_80_10_10",
+    "seed": 1705,
+    "summary": {
+      "test": {
+        "annotated_slices": 75,
+        "patients": 15,
+        "patients_with_label_2": 15,
+        "patients_with_label_3": 10,
+        "slices_with_label_2": 56,
+        "slices_with_label_3": 32
+      },
+      "train": {
+        "annotated_slices": 600,
+        "patients": 120,
+        "patients_with_label_2": 118,
+        "patients_with_label_3": 95,
+        "slices_with_label_2": 437,
+        "slices_with_label_3": 279
+      },
+      "validation": {
+        "annotated_slices": 75,
+        "patients": 15,
+        "patients_with_label_2": 15,
+        "patients_with_label_3": 10,
+        "slices_with_label_2": 47,
+        "slices_with_label_3": 31
+      }
+    }
+  },
+  "pleural_effusion": "LOCKED_NOT_PRESENT_IN_PUBLIC_750_SLICE_RESOURCE",
+  "project": "EViCT-Dx",
+  "readme_mapping_detection": {
+    "candidate_scores": [
+      {
+        "details": {
+          "0_background": true,
+          "1_lung_field": true,
+          "2_consolidation": true,
+          "3_ground_glass_opacity": true
+        },
+        "mapping": {
+          "0": "background",
+          "1": "lung_field",
+          "2": "consolidation",
+          "3": "ground_glass_opacity"
+        },
+        "name": "BG0_LF1_CL2_GGO3",
+        "score": 4
+      },
+      {
+        "details": {
+          "0_background": true,
+          "1_lung_field": true,
+          "2_ground_glass_opacity": true,
+          "3_consolidation": true
+        },
+        "mapping": {
+          "0": "background",
+          "1": "lung_field",
+          "2": "ground_glass_opacity",
+          "3": "consolidation"
+        },
+        "name": "BG0_LF1_GGO2_CL3",
+        "score": 4
+      }
+    ],
+    "selected_mapping": null,
+    "verified": false
+  },
+  "stage": "STEP_10D_PUBLIC_NCP_EXACT_LABEL_AND_SPLIT_FREEZE",
+  "step10c_heuristic_correction": {
+    "correct_rule": "Files under ct_lesion_seg/image are CT images; files under ct_lesion_seg/mask are segmentation masks.",
+    "impact": "Discovery-summary classification only; archive bytes, SHA256, ZIP integrity, dimensions and extracted files were unaffected.",
+    "issue": "The common path prefix ct_lesion_seg contains the token seg, so the Step10C substring heuristic marked every image path as a probable mask."
+  },
+  "targets_if_allowed": [
+    "ground_glass_opacity",
+    "consolidation"
+  ],
+  "training_allowed": false,
+  "training_performed": false
+}
