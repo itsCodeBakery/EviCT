@@ -1,0 +1,10 @@
+{
+  "external_test_accessed": true,
+  "fine_tuning_performed": false,
+  "next_action": "COMPLETE_FROZEN_LONGCIU_INFERENCE",
+  "run_id": "DX_step12b_longciu_reference_orientation_v1",
+  "status": "EXTERNAL_EVALUATION_RUNNING",
+  "threshold_search_performed": false,
+  "training_performed": false,
+  "updated_utc": "2026-10-06T09:25:12Z"
+}
