@@ -1,0 +1,39 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_10C_PUBLIC_NCP_DOWNLOAD_AND_CONTENT_AUDIT",
+  "status": "AUDIT_ONLY_NO_TRAINING",
+  "source": {
+    "official_page": "http://ncov-ai.big.ac.cn/download?lang=en",
+    "direct_https": "https://download.cncb.ac.cn/covid-ct/ct_lesion_seg.zip",
+    "expected_archive_name": "ct_lesion_seg.zip"
+  },
+  "documented_contract": {
+    "expected_slices": 750,
+    "expected_patients_or_scans": 150,
+    "expected_slices_per_patient_or_scan": 5,
+    "expected_classes": [
+      "background",
+      "lung_field",
+      "ground_glass_opacity",
+      "consolidation"
+    ],
+    "expected_image_size": [
+      512,
+      512
+    ]
+  },
+  "rules": [
+    "Download only the official lesion-segmentation archive discovered from the official source page.",
+    "No training in Step10C.",
+    "Do not infer patient independence from slice count alone.",
+    "Do not freeze a split until stable patient/scan grouping is verified from archive structure/identifiers.",
+    "Do not repurpose LongCIU or MedSeg for training."
+  ],
+  "outputs": {
+    "archive_audit": "vlmDiagnosis/artifacts/audit/step10c_public_ncp_content_audit.json",
+    "member_inventory": "vlmDiagnosis/tables/step10c_public_ncp_archive_members.csv",
+    "image_inventory": "vlmDiagnosis/tables/step10c_public_ncp_image_inventory.csv",
+    "pairing_summary": "vlmDiagnosis/tables/step10c_public_ncp_pairing_summary.csv",
+    "state": "vlmDiagnosis/runs/DX_step10c_public_ncp_content_audit_v1/STATE.json"
+  }
+}
