@@ -1,0 +1,101 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_12_LONGCIU_EXTERNAL_GGO_CONSOLIDATION_EVALUATION",
+  "run_id": "DX_step12_longciu_external_ggo_consolidation_v1",
+  "status": "FROZEN_BEFORE_EXTERNAL_TEST_ACCESS",
+  "source": {
+    "name": "Long COVID Iowa-UNICAMP (LongCIU)",
+    "doi": "10.25820/data.007301",
+    "code_repository": "https://github.com/MICLab-Unicamp/LongCIU",
+    "expected_selected_slices": 90,
+    "primary_reference": "longciu_STAPLE_tgt.nii.gz",
+    "individual_raters": [
+      "longciu_1_tgt.nii.gz",
+      "longciu_2_tgt.nii.gz",
+      "longciu_3_tgt.nii.gz"
+    ],
+    "image": "longciu_img.nii.gz",
+    "label_mapping": {
+      "0": "background",
+      "1": "ground_glass_opacity",
+      "2": "consolidation"
+    }
+  },
+  "frozen_model": {
+    "step11_run_id": "DX_step11_ncp_ggo_co_resnet34_unet_seed1705_v1",
+    "checkpoint_asset": "best.pt",
+    "architecture": "2D U-Net with ImageNet ResNet34 encoder",
+    "input_size": [
+      320,
+      320
+    ],
+    "ncp_output_mapping": {
+      "0": "background",
+      "1": "lung_field",
+      "2": "ground_glass_opacity",
+      "3": "consolidation"
+    }
+  },
+  "preprocessing": {
+    "source": "LongCIU reference repository convention",
+    "HU_clip": [
+      -1024,
+      600
+    ],
+    "scale_to_0_1": true,
+    "repeat_to_rgb": true,
+    "imagenet_normalization": true,
+    "orientation_rule": "use distributed axial slice order exactly as stored; no test-time orientation tuning",
+    "resize_to_model_input": [
+      320,
+      320
+    ],
+    "resize_prediction_back_to_reference": true
+  },
+  "presence": {
+    "score": "mean of top 0.5 percent per-pixel softmax probabilities",
+    "thresholds_source": "frozen Step11 validation-only thresholds",
+    "test_threshold_tuning": false
+  },
+  "metrics": {
+    "primary_reference": "STAPLE consensus",
+    "segmentation": [
+      "Dice",
+      "IoU",
+      "sensitivity",
+      "specificity"
+    ],
+    "presence": [
+      "AUROC",
+      "sensitivity",
+      "specificity",
+      "precision",
+      "balanced_accuracy"
+    ],
+    "descriptive_interrater_context": true
+  },
+  "external_confirmatory_gate": {
+    "rationale": "Step02 specified LongCIU as the external test but did not separately specify external numeric cutoffs. Before accessing LongCIU outcomes, Step12 freezes the same minimums used by the pre-specified internal subtype gate.",
+    "segmentation_Dice_min": 0.6,
+    "presence_AUROC_min": 0.85,
+    "presence_sensitivity_min": 0.8,
+    "presence_specificity_min": 0.8,
+    "rule": "Each subtype is confirmed independently. Report-field unlock requires Step11 internal gate PASS and Step12 STAPLE external confirmatory gate PASS."
+  },
+  "prohibited": [
+    "training on LongCIU",
+    "fine-tuning on LongCIU",
+    "checkpoint selection on LongCIU",
+    "presence-threshold selection on LongCIU",
+    "orientation selection by LongCIU performance",
+    "using individual raters instead of STAPLE to choose a better result"
+  ],
+  "outputs": {
+    "source_audit": "vlmDiagnosis/artifacts/audit/step12_longciu_source_audit.json",
+    "slice_metrics": "vlmDiagnosis/tables/step12_longciu_slice_metrics.csv",
+    "external_metrics": "vlmDiagnosis/tables/step12_longciu_external_metrics.csv",
+    "results": "vlmDiagnosis/artifacts/audit/step12_longciu_external_results.json",
+    "permissions": "vlmDiagnosis/config/report_field_permissions_step12.json",
+    "state": "vlmDiagnosis/runs/DX_step12_longciu_external_ggo_consolidation_v1/STATE.json"
+  }
+}
