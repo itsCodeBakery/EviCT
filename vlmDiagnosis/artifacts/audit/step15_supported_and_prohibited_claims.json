@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-10-06T09:54:08Z",
+  "prohibited_or_unsupported_claims": [
+    "Do not claim validated etiologic diagnosis for COVID-19, CAP, or Normal.",
+    "Do not claim externally validated GGO or consolidation detection/segmentation.",
+    "Do not claim bilateral-involvement classification is validated.",
+    "Do not claim validated pleural-effusion reporting.",
+    "Do not claim lobar localization, physical lesion area, or physical lesion volume.",
+    "Do not claim autonomous clinical decision support, treatment recommendation, antibiotic recommendation, or management recommendation.",
+    "Do not describe Step14 as direct image-to-text diagnosis or direct VLM interpretation of CT images; no CT image was provided to the Step14 language model.",
+    "Do not claim expert-level or radiologist-equivalent report quality without a reader study.",
+    "Do not hide the corrected LongCIU external-domain failure or replace it with tuned LongCIU results.",
+    "Do not use Step08 OOF labels, Step11 internal-test labels, or LongCIU labels for post-hoc threshold tuning.",
+    "Do not treat the invalidated Step12 v1 orientation run as the valid external evaluation; Step12B is the corrected reference-convention result."
+  ],
+  "project": "EViCT-Dx",
+  "stage": "STEP_15_SUPPORTED_AND_PROHIBITED_CLAIMS",
+  "supported_claims": [
+    "The diagnostic baseline did not satisfy the pre-specified disease-name unlock criteria, and COVID-19/CAP/Normal remain withheld from generated reports.",
+    "Strict five-fold OOF evaluation on the 20-volume segmentation cohort produced high left/right lung Dice and unlocked left, right, and total lung-involvement percentages under the pre-specified MAE/CCC gates.",
+    "Bilateral-involvement classification failed its pre-specified OOF gate and remains withheld.",
+    "GGO and consolidation passed the frozen internal NCP subtype gates but failed independent corrected LongCIU STAPLE external validation, demonstrating a substantial cross-domain generalization gap.",
+    "The external LongCIU evaluation used the frozen Step11 model and thresholds without training, fine-tuning, checkpoint selection, threshold search, or performance-based orientation search.",
+    "Step13 generated 20/20 valid deterministic provisional reports from prediction-only structured evidence, with reference columns excluded before evidence construction.",
+    "Qwen2.5-VL-3B-Instruct was used in Step14 as a text-only structured-evidence realizer; it did not receive CT images or ground truth.",
+    "Step14 accepted 11/20 raw VLM reports, used deterministic fallback for 9/20, and achieved 20/20 validated final reports.",
+    "Raw VLM generations had 85% exact numeric-copy compliance and a 35% prohibited recommendation/management-language violation rate under the frozen validator.",
+    "Only left, right, and total lung-involvement percentages are currently unlocked for the Provisional AI Diagnostic Report, and mandatory radiologist review remains required."
+  ]
+}

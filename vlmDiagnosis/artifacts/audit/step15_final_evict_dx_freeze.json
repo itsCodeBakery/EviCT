@@ -1,0 +1,73 @@
+{
+  "completed_utc": "2026-10-06T09:54:08Z",
+  "diagnosis": {
+    "fields_unlocked": false,
+    "later_development_test_accessed": false,
+    "test_ECE": 0.15656554650087826,
+    "test_balanced_accuracy": 0.6271241830065359,
+    "test_macro_AUROC": 0.7626288518628063,
+    "test_macro_F1": 0.6325396825396826
+  },
+  "execution_base_commit": "87eb9393450406e76758e089445110053af23d9e",
+  "execution_branch": "main",
+  "final_document": "vlmDiagnosis/docs/FINAL_EVICT_DX_FREEZE.md",
+  "final_permissions": {
+    "Antibiotic_recommendation": "PROHIBITED",
+    "Bilateral_involvement": "LOCKED_FAILED_OOF_VALIDATION",
+    "CAP": "LOCKED_FAILED_DIAGNOSIS_VALIDATION",
+    "COVID-19": "LOCKED_FAILED_DIAGNOSIS_VALIDATION",
+    "Clinical_management_decision": "PROHIBITED",
+    "Consolidation": "LOCKED_FAILED_EXTERNAL_SUBTYPE_VALIDATION",
+    "GGO": "LOCKED_FAILED_EXTERNAL_SUBTYPE_VALIDATION",
+    "Left_lung_involvement_percent": "UNLOCKED_FOR_PROVISIONAL_AI_REPORT_WITH_MANDATORY_RADIOLOGIST_REVIEW",
+    "Lobar_localization": "DEFERRED",
+    "Normal": "LOCKED_FAILED_DIAGNOSIS_VALIDATION",
+    "Physical_area_mm2": "DEFERRED",
+    "Physical_volume_cm3": "DEFERRED",
+    "Pleural_effusion_complete_volume": "DEFERRED_NO_VOLUME_LEVEL_REFERENCE_YET",
+    "Pleural_effusion_slice_level": "LOCKED_PENDING_SUBTYPE_VALIDATION",
+    "Right_lung_involvement_percent": "UNLOCKED_FOR_PROVISIONAL_AI_REPORT_WITH_MANDATORY_RADIOLOGIST_REVIEW",
+    "Total_lung_involvement_percent": "UNLOCKED_FOR_PROVISIONAL_AI_REPORT_WITH_MANDATORY_RADIOLOGIST_REVIEW",
+    "Treatment_recommendation": "PROHIBITED"
+  },
+  "model_changed": false,
+  "next_action": "MANUSCRIPT_WRITING_AND_OPTIONAL_FUTURE_NEW_PROTOCOLS_ONLY",
+  "oof_segmentation_quantification": {
+    "bilateral_involvement_unlocked": false,
+    "cases": 20,
+    "infection_Dice": 0.705021236261302,
+    "left_involvement_unlocked": true,
+    "left_lung_Dice": 0.9726091025824533,
+    "right_involvement_unlocked": true,
+    "right_lung_Dice": 0.9768709839476026,
+    "total_involvement_unlocked": true
+  },
+  "project": "EViCT-Dx",
+  "reporting": {
+    "CT_image_given_to_step14_model": false,
+    "fallback_rate": 0.45,
+    "final_safe_rate": 1.0,
+    "ground_truth_given_to_step14_model": false,
+    "raw_acceptance_rate": 0.55,
+    "raw_numeric_copy_rate": 0.85,
+    "raw_prohibited_recommendation_rate": 0.35,
+    "step13_deterministic_safe_rate": 1.0,
+    "step14_model": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "step14_model_role": "text_only_evidence_realizer"
+  },
+  "run_id": "DX_step15_final_reliability_traceability_freeze_v1",
+  "stage": "STEP_15_FINAL_RELIABILITY_AND_MANUSCRIPT_TRACEABILITY_FREEZE",
+  "status": "FINAL_EVICT_DX_EXPERIMENTAL_FREEZE_COMPLETE",
+  "subtypes": {
+    "GGO_external_gate_pass": false,
+    "GGO_internal_gate_pass": true,
+    "consolidation_external_gate_pass": false,
+    "consolidation_internal_gate_pass": true,
+    "invalidated_external_run_retained": "DX_step12_longciu_external_ggo_consolidation_v1",
+    "valid_external_run": "DX_step12b_longciu_reference_orientation_v1"
+  },
+  "supported_claims_file": "vlmDiagnosis/artifacts/audit/step15_supported_and_prohibited_claims.json",
+  "test_reinference_performed": false,
+  "threshold_search_performed": false,
+  "training_performed": false
+}

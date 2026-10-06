@@ -1,0 +1,34 @@
+section,component,metric,value,unit,evaluation_split_or_reference,interpretation
+Diagnosis,COVID-CT-MD baseline,Macro-F1,0.6325396825396826,,held-out test n=61,Below unlock criterion
+Diagnosis,COVID-CT-MD baseline,Balanced accuracy,0.6271241830065359,,held-out test n=61,Below unlock criterion
+Diagnosis,COVID-CT-MD baseline,Macro-AUROC,0.7626288518628063,,held-out test n=61,Below unlock criterion
+Diagnosis,COVID-CT-MD baseline,ECE,0.15656554650087826,,held-out test n=61,Above maximum unlock criterion
+Segmentation,Left lung,Dice,0.9726091025824533,,20-case strict OOF,Descriptive lung-mask performance
+Segmentation,Right lung,Dice,0.9768709839476026,,20-case strict OOF,Descriptive lung-mask performance
+Segmentation,Generic infection,Dice,0.705021236261302,,20-case strict OOF,Supports quantification; no independent report field
+Quantification,Left lung involvement,MAE,3.6929796239761474,percentage points,20-case strict OOF,Pass <=5 pp
+Quantification,Left lung involvement,CCC,0.8976678258523966,,20-case strict OOF,Pass >=0.85
+Quantification,Right lung involvement,MAE,3.2720009583128657,percentage points,20-case strict OOF,Pass <=5 pp
+Quantification,Right lung involvement,CCC,0.8956048518169379,,20-case strict OOF,Pass >=0.85
+Quantification,Total lung involvement,MAE,3.3048350476835067,percentage points,20-case strict OOF,Pass <=5 pp
+Quantification,Total lung involvement,CCC,0.9040797837202961,,20-case strict OOF,Pass >=0.85
+Quantification,Bilateral involvement,Balanced accuracy,0.5666666666666667,,20-case strict OOF,Fail <0.80
+Quantification,Bilateral involvement,Sensitivity,0.9333333333333333,,20-case strict OOF,Pass >=0.80
+Quantification,Bilateral involvement,Specificity,0.2,,20-case strict OOF,Fail <0.80
+Subtype internal,GGO,Segmentation Dice,0.7799568169868102,,NCP internal test 75 slices / 15 groups,Internal gate pass
+Subtype internal,GGO,Presence AUROC,0.9063636363636364,,NCP internal test 75 slices / 15 groups,Internal gate pass
+Subtype internal,GGO,Presence sensitivity,0.8727272727272727,,NCP internal test 75 slices / 15 groups,Internal gate pass
+Subtype internal,GGO,Presence specificity,0.8,,NCP internal test 75 slices / 15 groups,Internal gate pass
+Subtype external,GGO,STAPLE Dice,0.24455036241166309,,LongCIU 90 selected slices,External gate fail
+Subtype internal,Consolidation,Segmentation Dice,0.7352784480867467,,NCP internal test 75 slices / 15 groups,Internal gate pass
+Subtype internal,Consolidation,Presence AUROC,0.9898255813953488,,NCP internal test 75 slices / 15 groups,Internal gate pass
+Subtype internal,Consolidation,Presence sensitivity,0.96875,,NCP internal test 75 slices / 15 groups,Internal gate pass
+Subtype internal,Consolidation,Presence specificity,0.9302325581395349,,NCP internal test 75 slices / 15 groups,Internal gate pass
+Subtype external,Consolidation,STAPLE Dice,0.004690534031589654,,LongCIU 90 selected slices,External gate fail
+Reporting,Step13 deterministic baseline,Validated final report rate,1.0,,20 strict-OOF cases,20/20 pass
+Reporting,Step14 controlled VLM,Raw acceptance rate,0.55,,20 evidence records,11/20 accepted
+Reporting,Step14 controlled VLM,Fallback rate,0.45,,20 evidence records,9/20 deterministic fallback
+Reporting,Step14 controlled VLM,Exact numeric copy rate,0.85,,20 raw generations,85%
+Reporting,Step14 controlled VLM,Raw prohibited-recommendation violation rate,0.35,,20 raw generations,35%; blocked by validator
+Reporting,Step14 controlled VLM,Final safe report rate,1.0,,20 delivered reports,20/20 after deterministic fallback
+Reporting,Step14 controlled VLM,Raw locked-field violation rate,0.0,,20 raw generations,0%

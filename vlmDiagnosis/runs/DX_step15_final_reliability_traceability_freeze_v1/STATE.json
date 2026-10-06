@@ -1,0 +1,33 @@
+{
+  "execution_base_commit": "87eb9393450406e76758e089445110053af23d9e",
+  "final_locked_or_deferred_report_fields": [
+    "Antibiotic_recommendation",
+    "Bilateral_involvement",
+    "CAP",
+    "COVID-19",
+    "Clinical_management_decision",
+    "Consolidation",
+    "GGO",
+    "Lobar_localization",
+    "Normal",
+    "Physical_area_mm2",
+    "Physical_volume_cm3",
+    "Pleural_effusion_complete_volume",
+    "Pleural_effusion_slice_level",
+    "Treatment_recommendation"
+  ],
+  "final_unlocked_report_fields": [
+    "Left_lung_involvement_percent",
+    "Right_lung_involvement_percent",
+    "Total_lung_involvement_percent"
+  ],
+  "model_changed": false,
+  "next_action": "MANUSCRIPT_WRITING_AND_OPTIONAL_FUTURE_NEW_PROTOCOLS_ONLY",
+  "run_id": "DX_step15_final_reliability_traceability_freeze_v1",
+  "status": "COMPLETE",
+  "test_reinference_performed": false,
+  "threshold_search_performed": false,
+  "traceability_files_hashed": 19,
+  "training_performed": false,
+  "updated_utc": "2026-10-06T09:54:08Z"
+}
