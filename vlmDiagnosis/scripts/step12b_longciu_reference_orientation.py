@@ -54,7 +54,7 @@ RESULTS_JSON = AUDIT_DIR / "step12b_longciu_external_results.json"
 PERMISSIONS_OUT = DX / "config" / "report_field_permissions_step12b.json"
 STATE_JSON = RUN / "STATE.json"
 CORRECTION_AUDIT = AUDIT_DIR / "step12b_orientation_correction_audit.json"
-HASH_MANIFEST = MANIFEST_DIR / "step12_longciu_source_sha256.csv"
+HASH_MANIFEST = MANIFEST_DIR / "step12b_longciu_source_sha256.csv"
 
 WORK = Path("/kaggle/working/evict_dx_longciu")
 WORK.mkdir(parents=True, exist_ok=True)
@@ -714,7 +714,7 @@ def main():
 
     source_audit = {
         "project": "EViCT-Dx",
-        "stage": "STEP_12_LONGCIU_SOURCE_AUDIT",
+        "stage": "STEP_12B_LONGCIU_SOURCE_AUDIT",
         "completed_utc": now(),
         "data_dir": str(data_dir),
         "acquisition": acquisition,
