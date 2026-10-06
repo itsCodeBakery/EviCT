@@ -176,22 +176,30 @@ def extract_archive():
     return members
 
 
-def unique_signature(arr):
-    if arr.ndim == 2:
-        flat = arr.reshape(-1)
-        vals = np.unique(flat)
-        if len(vals) <= 32:
-            return len(vals), ",".join(str(v) for v in vals.tolist())
-        return len(vals), ""
-    if arr.ndim == 3 and arr.shape[-1] in (3, 4):
-        rgb = arr[..., :3].reshape(-1, 3)
-        # exact color count can be expensive; use unique on full 512^2 safely enough
-        vals = np.unique(rgb, axis=0)
-        if len(vals) <= 32:
-            sig = ";".join(",".join(str(int(x)) for x in v) for v in vals.tolist())
-            return len(vals), sig
-        return len(vals), ""
-    return -1, ""
+def fast_color_signature(im: Image.Image):
+    """Return exact color/value signature only when the image has <=32 colors.
+
+    PIL's getcolors(maxcolors=33) is implemented in C and stops once the
+    threshold is exceeded. This avoids the previous np.unique over every
+    pixel of every RGB image, which was extremely slow on ~22k files.
+    """
+    colors = im.getcolors(maxcolors=33)
+    if colors is None:
+        return 33, ""
+
+    values = []
+    for _, value in colors:
+        if isinstance(value, tuple):
+            values.append(tuple(int(x) for x in value[:3]))
+        else:
+            values.append(int(value))
+
+    values = sorted(values, key=lambda x: str(x))
+    if values and isinstance(values[0], tuple):
+        sig = ";".join(",".join(str(x) for x in v) for v in values)
+    else:
+        sig = ",".join(str(v) for v in values)
+    return len(values), sig
 
 
 def probable_group_id(path: Path):
@@ -222,22 +230,38 @@ def inspect_images():
         p for p in EXTRACT.rglob("*")
         if p.is_file() and p.suffix.lower() in IMG_EXTS
     )
-    print(f"Image-like files discovered: {len(image_paths)}")
+    total = len(image_paths)
+    print(f"Image-like files discovered: {total}")
+    print("Fast audit enabled: PIL bounded-color scan + progress every 500 files.")
 
-    for p in image_paths:
+    checkpoint_every = 500
+    t0 = time.time()
+
+    for idx, p in enumerate(image_paths, start=1):
         rel = str(p.relative_to(EXTRACT)).replace("\\", "/")
         low = rel.lower()
         word_mask = any(w in low for w in MASK_WORDS)
+
         try:
             with Image.open(p) as im:
-                arr = np.array(im)
                 width, height = im.size
                 mode = im.mode
-            n_unique, sig = unique_signature(arr)
+                n_unique, sig = fast_color_signature(im)
+                extrema = im.getextrema()
+
+            # getcolors returns None above 32 colors; encoded here as 33.
             low_cardinality = (0 <= n_unique <= 16)
             probable_mask = bool(word_mask or low_cardinality)
-            minv = float(np.min(arr))
-            maxv = float(np.max(arr))
+
+            if isinstance(extrema, tuple) and extrema and isinstance(extrema[0], tuple):
+                mins = [float(x[0]) for x in extrema]
+                maxs = [float(x[1]) for x in extrema]
+                minv, maxv = min(mins), max(maxs)
+            elif isinstance(extrema, tuple) and len(extrema) == 2:
+                minv, maxv = float(extrema[0]), float(extrema[1])
+            else:
+                minv = maxv = float("nan")
+
         except Exception as exc:
             width = height = -1
             mode = "READ_ERROR"
@@ -245,7 +269,7 @@ def inspect_images():
             sig = ""
             low_cardinality = False
             probable_mask = word_mask
-            minv = maxv = np.nan
+            minv = maxv = float("nan")
             print(f"⚠ Could not inspect {rel}: {exc}")
 
         rows.append({
@@ -267,6 +291,18 @@ def inspect_images():
             "probable_group_id": probable_group_id(p),
             "bytes": p.stat().st_size,
         })
+
+        if idx % checkpoint_every == 0 or idx == total:
+            elapsed = max(time.time() - t0, 1e-6)
+            rate = idx / elapsed
+            eta = (total - idx) / max(rate, 1e-6)
+            print(
+                f"  audited {idx:,}/{total:,} files "
+                f"({100.0*idx/max(total,1):.1f}%) — "
+                f"{rate:.1f} files/s — ETA {eta/60:.1f} min"
+            )
+            # Save a restart-safe partial inventory. This is overwritten at completion.
+            atomic_csv(IMAGE_CSV, pd.DataFrame(rows))
 
     df = pd.DataFrame(rows)
     atomic_csv(IMAGE_CSV, df)
