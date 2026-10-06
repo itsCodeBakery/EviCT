@@ -1,0 +1,33 @@
+{
+  "candidate_link_count": 192,
+  "completed_utc": "2026-10-06T07:24:07Z",
+  "external_test_resources_preserved": {
+    "LongCIU": "EXTERNAL_TEST_ONLY",
+    "MedSeg": "SECONDARY_EXTERNAL_TEST_ONLY"
+  },
+  "mounted_candidate_count": 0,
+  "next_action": "Review candidate links; acquire only the documented 750-slice NCP lesion-segmentation resource, then run exact content audit.",
+  "official_source_probe": {
+    "content_type": "text/html;charset=UTF-8",
+    "error": null,
+    "final_url": "http://ncov-ai.big.ac.cn/download?lang=en",
+    "reachable": true,
+    "status_code": 200,
+    "url": "http://ncov-ai.big.ac.cn/download?lang=en"
+  },
+  "project": "EViCT-Dx",
+  "public_resource_contract": {
+    "expected_classes": [
+      "background",
+      "lung_field",
+      "ground_glass_opacity",
+      "consolidation"
+    ],
+    "expected_patients_or_scans": 150,
+    "expected_slices": 750,
+    "pleural_effusion_available": false
+  },
+  "stage": "STEP_10B_PUBLIC_NCP_PROTOCOL_AMENDMENT_AND_SOURCE_PROBE",
+  "status": "OFFICIAL_SOURCE_REACHABLE_CANDIDATE_DOWNLOAD_LINKS_FOUND",
+  "training_performed": false
+}
