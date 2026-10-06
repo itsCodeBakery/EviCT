@@ -1,10 +1,14 @@
 {
+  "GGO_external_gate_pass": false,
+  "GGO_report_field_unlocked": false,
+  "consolidation_external_gate_pass": false,
+  "consolidation_report_field_unlocked": false,
   "external_test_accessed": true,
   "fine_tuning_performed": false,
-  "next_action": "COMPLETE_FROZEN_LONGCIU_INFERENCE",
+  "next_action": "STEP_13_STRUCTURED_EVIDENCE_AND_REPORT_GENERATION",
   "run_id": "DX_step12_longciu_external_ggo_consolidation_v1",
-  "status": "EXTERNAL_EVALUATION_RUNNING",
+  "status": "COMPLETE",
   "threshold_search_performed": false,
   "training_performed": false,
-  "updated_utc": "2026-10-06T09:18:12Z"
+  "updated_utc": "2026-10-06T09:18:18Z"
 }
