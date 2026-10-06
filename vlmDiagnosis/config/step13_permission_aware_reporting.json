@@ -1,0 +1,56 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_13_PERMISSION_AWARE_STRUCTURED_EVIDENCE_AND_REPORTING",
+  "run_id": "DX_step13_permission_aware_reporting_v1",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "inputs": {
+    "quantitative_predictions": "vlmDiagnosis/tables/step08_oof_involvement_predictions.csv",
+    "permissions": "vlmDiagnosis/config/report_field_permissions_step12b.json",
+    "report_contract": "vlmDiagnosis/config/report_field_contract_step02.json",
+    "step12b_results": "vlmDiagnosis/artifacts/audit/step12b_longciu_external_results.json"
+  },
+  "report_scope": {
+    "evaluation_cases": "the 20 strict OOF COVID19_CT_SEG_20 cases from Step08",
+    "evidence_source": "prediction-only columns from the frozen Step08 OOF quantification table",
+    "ground_truth_allowed_in_evidence_builder": false,
+    "disease_predictions_allowed": false,
+    "subtype_predictions_allowed": false,
+    "bilateral_prediction_allowed": false
+  },
+  "numeric_policy": {
+    "fields": [
+      "Left_lung_involvement_percent",
+      "Right_lung_involvement_percent",
+      "Total_lung_involvement_percent"
+    ],
+    "report_precision_decimals": 1,
+    "clamp_percent_range": [
+      0,
+      100
+    ],
+    "exact_copy_after_rounding": true
+  },
+  "locked_content_policy": {
+    "etiologic_diagnosis": "WITHHELD",
+    "pathology_subtype": "WITHHELD",
+    "bilateral_involvement": "WITHHELD",
+    "pleural_effusion": "WITHHELD",
+    "lobar_localization": "WITHHELD",
+    "physical_area_volume": "WITHHELD",
+    "treatment_recommendation": "PROHIBITED"
+  },
+  "deterministic_template": {
+    "title": "Provisional AI Diagnostic Report",
+    "findings_prefix": "AI-estimated lung involvement",
+    "mandatory_footer": "This AI-generated report must be reviewed, assessed, and finalized by a qualified radiologist before it is used for medical assessment, diagnosis, treatment planning, or any other clinical decision."
+  },
+  "outputs": {
+    "evidence_dir": "vlmDiagnosis/evidence/step13_permission_aware",
+    "reports_dir": "vlmDiagnosis/reports/step13_permission_aware",
+    "validation_table": "vlmDiagnosis/tables/step13_report_validation.csv",
+    "report_index": "vlmDiagnosis/tables/step13_report_index.csv",
+    "audit": "vlmDiagnosis/artifacts/audit/step13_permission_aware_reporting.json",
+    "state": "vlmDiagnosis/runs/DX_step13_permission_aware_reporting_v1/STATE.json"
+  },
+  "next_stage": "STEP_14_CONTROLLED_VLM_REALIZATION_AND_VALIDATION"
+}
