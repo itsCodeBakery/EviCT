@@ -1,0 +1,32 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_10_CC_CCII_SUBTYPE_ACQUISITION_AUDIT",
+  "status": "AUDIT_ONLY_NO_TRAINING",
+  "target_resource": {
+    "name": "CC-CCII pulmonary lesion segmentation subset",
+    "documented_annotated_studies": 1302,
+    "required_classes": [
+      "ground_glass_opacity",
+      "consolidation",
+      "pleural_effusion"
+    ],
+    "additional_documented_classes": [
+      "pulmonary_fibrosis",
+      "interstitial_thickening"
+    ],
+    "required_split_property": "study_disjoint"
+  },
+  "rules": [
+    "Do not train during Step10.",
+    "Do not assume a Kaggle dataset is the exact target resource from its title alone.",
+    "Inventory candidate roots, images, masks, metadata, class tokens, and possible study identifiers.",
+    "If exact annotation semantics or study IDs cannot be verified, mark the resource UNVERIFIED.",
+    "Do not silently substitute a different CC-CCII subset."
+  ],
+  "outputs": {
+    "candidate_summary": "vlmDiagnosis/tables/step10_cc_ccii_candidate_summary.csv",
+    "candidate_files": "vlmDiagnosis/tables/step10_cc_ccii_candidate_file_inventory.csv",
+    "audit": "vlmDiagnosis/artifacts/audit/step10_cc_ccii_acquisition_audit.json",
+    "state": "vlmDiagnosis/runs/DX_step10_cc_ccii_acquisition_audit_v1/STATE.json"
+  }
+}
