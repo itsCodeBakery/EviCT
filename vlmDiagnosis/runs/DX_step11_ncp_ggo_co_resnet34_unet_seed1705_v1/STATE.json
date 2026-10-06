@@ -1,10 +1,10 @@
 {
   "best_validation_target_mean_dice": 0.7726997489986793,
-  "current_epoch": 15,
-  "next_action": "CONTINUE_STEP11_TRAINING",
-  "patience": 5,
+  "current_epoch": 16,
+  "next_action": "COMPLETE_ONE_TIME_INTERNAL_TEST",
+  "patience": 6,
   "run_id": "DX_step11_ncp_ggo_co_resnet34_unet_seed1705_v1",
-  "status": "RUNNING",
-  "test_accessed": false,
-  "updated_utc": "2026-10-06T08:36:30Z"
+  "status": "TEST_EVALUATION_RUNNING",
+  "test_accessed": true,
+  "updated_utc": "2026-10-06T08:36:41Z"
 }
