@@ -1,0 +1,2 @@
+epoch,train_loss,validation_target_mean_dice,best_validation_target_mean_dice,patience,lr
+1,0.6090681318442027,0.5066278941869129,0.5066278941869129,0,0.0003
