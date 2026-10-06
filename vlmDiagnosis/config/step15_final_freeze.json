@@ -1,0 +1,39 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_15_FINAL_RELIABILITY_AND_MANUSCRIPT_TRACEABILITY_FREEZE",
+  "run_id": "DX_step15_final_reliability_traceability_freeze_v1",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "source_artifacts": [
+    "vlmDiagnosis/artifacts/audit/step04_diagnosis_baseline_results.json",
+    "vlmDiagnosis/artifacts/audit/step05_diagnosis_unlock_audit.json",
+    "vlmDiagnosis/artifacts/audit/step06_strong_diagnosis_development.json",
+    "vlmDiagnosis/artifacts/audit/step07_frozen_dual_encoder_development.json",
+    "vlmDiagnosis/artifacts/audit/step08_oof_segmentation_baseline_results.json",
+    "vlmDiagnosis/artifacts/audit/step09_segmentation_quantification_unlock_audit.json",
+    "vlmDiagnosis/artifacts/audit/step11_ncp_ggo_consolidation_results.json",
+    "vlmDiagnosis/artifacts/audit/step12b_longciu_external_results.json",
+    "vlmDiagnosis/artifacts/audit/step13_permission_aware_reporting.json",
+    "vlmDiagnosis/artifacts/audit/step14_controlled_vlm_reporting.json",
+    "vlmDiagnosis/config/report_field_permissions_step12b.json",
+    "vlmDiagnosis/config/report_field_contract_step02.json"
+  ],
+  "final_interpretation": {
+    "diagnosis": "FAILED_PRE_SPECIFIED_UNLOCK_CRITERIA_KEEP_DISEASE_FIELDS_LOCKED",
+    "lung_infection_segmentation": "STRICT_OOF_COMPLETE",
+    "involvement_quantification": "LEFT_RIGHT_TOTAL_UNLOCKED_WITH_MANDATORY_RADIOLOGIST_REVIEW",
+    "bilateral_involvement": "FAILED_OOF_GATE_LOCKED",
+    "subtype_internal": "GGO_AND_CONSOLIDATION_INTERNAL_GATES_PASS",
+    "subtype_external": "LONGCIU_EXTERNAL_GATES_FAIL_GGO_AND_CONSOLIDATION_LOCKED",
+    "reporting": "DETERMINISTIC_BASELINE_20_OF_20_VALID_CONTROLLED_VLM_FINAL_20_OF_20_SAFE_WITH_FALLBACK"
+  },
+  "outputs": {
+    "component_summary": "vlmDiagnosis/tables/step15_component_summary.csv",
+    "manuscript_results": "vlmDiagnosis/tables/step15_manuscript_results.csv",
+    "report_permissions": "vlmDiagnosis/tables/step15_report_permissions.csv",
+    "claims": "vlmDiagnosis/artifacts/audit/step15_supported_and_prohibited_claims.json",
+    "final_audit": "vlmDiagnosis/artifacts/audit/step15_final_evict_dx_freeze.json",
+    "traceability_manifest": "vlmDiagnosis/artifacts/manifests/step15_traceability_sha256.csv",
+    "final_document": "vlmDiagnosis/docs/FINAL_EVICT_DX_FREEZE.md",
+    "state": "vlmDiagnosis/runs/DX_step15_final_reliability_traceability_freeze_v1/STATE.json"
+  }
+}
