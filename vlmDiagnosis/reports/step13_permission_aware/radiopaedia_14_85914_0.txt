@@ -1,0 +1,12 @@
+Provisional AI Diagnostic Report
+
+Findings
+AI-estimated lung involvement: left lung 16.1%, right lung 13.6%, total lung 14.7%.
+
+Validation-aware limitations
+Etiologic disease classification is withheld because the frozen diagnostic validation criteria were not met.
+Pathology subtype classification is withheld because independent external subtype validation criteria were not met.
+Bilateral-involvement classification is withheld because its pre-specified validation criteria were not met.
+Pleural-effusion classification, lobar localization, and physical area or volume measurements are not emitted because their required validation or geometry prerequisites are incomplete.
+
+This AI-generated report must be reviewed, assessed, and finalized by a qualified radiologist before it is used for medical assessment, diagnosis, treatment planning, or any other clinical decision.

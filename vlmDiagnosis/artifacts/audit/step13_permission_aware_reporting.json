@@ -1,0 +1,39 @@
+{
+  "cases": 20,
+  "completed_utc": "2026-10-06T09:29:36Z",
+  "deterministic_reports": 20,
+  "evidence_records": 20,
+  "ground_truth_used_for_evidence_construction": false,
+  "llm_used": false,
+  "locked_fields_withheld": [
+    "etiologic_diagnosis",
+    "pathology_subtype",
+    "bilateral_involvement",
+    "pleural_effusion",
+    "lobar_localization",
+    "physical_area_volume"
+  ],
+  "mandatory_footer_exact": "This AI-generated report must be reviewed, assessed, and finalized by a qualified radiologist before it is used for medical assessment, diagnosis, treatment planning, or any other clinical decision.",
+  "mandatory_title_exact": "Provisional AI Diagnostic Report",
+  "next_action": "STEP_14_CONTROLLED_VLM_REALIZATION_AND_VALIDATION",
+  "permissions_sha256": "3bade6f5e6fc8081453456a4a173779058b996aa018ab505c9ebecca3484fc78",
+  "prediction_only_input_sha256": "a48fc58e3816770f3024b2478a224ea57970dd85bed64878124a7410b7630457",
+  "prohibited_fields_not_generated": [
+    "Treatment_recommendation",
+    "Antibiotic_recommendation",
+    "Clinical_management_decision"
+  ],
+  "project": "EViCT-Dx",
+  "reference_columns_excluded_before_evidence_construction": true,
+  "report_contract_sha256": "f8ebabb51ec5372db12f1fd74676bda5675f3126bd87808b36e59d7e54f72853",
+  "reports_valid": 20,
+  "run_id": "DX_step13_permission_aware_reporting_v1",
+  "stage": "STEP_13_PERMISSION_AWARE_STRUCTURED_EVIDENCE_AND_REPORTING",
+  "strict_oof_cases": 20,
+  "validated_numeric_fields_emitted": [
+    "Left_lung_involvement_percent",
+    "Right_lung_involvement_percent",
+    "Total_lung_involvement_percent"
+  ],
+  "validation_rate": 1.0
+}

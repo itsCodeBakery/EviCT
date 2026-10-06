@@ -1,0 +1,13 @@
+{
+  "GGO_emitted_as_case_finding": false,
+  "cases": 20,
+  "consolidation_emitted_as_case_finding": false,
+  "disease_name_emitted": false,
+  "ground_truth_used_for_evidence_construction": false,
+  "llm_used": false,
+  "next_action": "STEP_14_CONTROLLED_VLM_REALIZATION_AND_VALIDATION",
+  "reports_valid": 20,
+  "run_id": "DX_step13_permission_aware_reporting_v1",
+  "status": "COMPLETE",
+  "updated_utc": "2026-10-06T09:29:36Z"
+}

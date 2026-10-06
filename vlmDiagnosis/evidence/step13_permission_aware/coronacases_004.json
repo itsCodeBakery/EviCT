@@ -1,0 +1,54 @@
+{
+  "case_id": "coronacases_004",
+  "evaluation_unit": "complete_CT_volume_case",
+  "generation_constraints": {
+    "may_emit_bilateral_classification": false,
+    "may_emit_disease_name": false,
+    "may_emit_only_validated_numeric_fields": true,
+    "may_emit_subtype_name_as_case_finding": false,
+    "may_emit_treatment_recommendation": false,
+    "radiologist_review_required": true
+  },
+  "ground_truth_used_to_construct_this_evidence": false,
+  "prohibited_fields": [
+    "Treatment_recommendation",
+    "Antibiotic_recommendation",
+    "Clinical_management_decision"
+  ],
+  "project": "EViCT-Dx",
+  "provenance": {
+    "prediction_only_input_file": "vlmDiagnosis/runs/DX_step13_permission_aware_reporting_v1/prediction_only_input.csv",
+    "prediction_only_input_sha256": "a48fc58e3816770f3024b2478a224ea57970dd85bed64878124a7410b7630457",
+    "reference_columns_excluded_before_evidence_construction": true,
+    "report_contract_sha256": "f8ebabb51ec5372db12f1fd74676bda5675f3126bd87808b36e59d7e54f72853",
+    "source_run_id": "DX_step08_oof_segmentation_resnet34_unet_seed1705_v1",
+    "source_step08_table_sha256": "e8371c9ff568cc4d6a0788ca2bd6788543659957c6154f67429e66462aa0c61c",
+    "step12b_permissions_sha256": "3bade6f5e6fc8081453456a4a173779058b996aa018ab505c9ebecca3484fc78"
+  },
+  "stage": "STEP_13_PERMISSION_AWARE_STRUCTURED_EVIDENCE",
+  "validated_measurements": {
+    "Left_lung_involvement_percent": {
+      "permission": "UNLOCKED_FOR_PROVISIONAL_AI_REPORT_WITH_MANDATORY_RADIOLOGIST_REVIEW",
+      "unit": "percent",
+      "value": 2.1
+    },
+    "Right_lung_involvement_percent": {
+      "permission": "UNLOCKED_FOR_PROVISIONAL_AI_REPORT_WITH_MANDATORY_RADIOLOGIST_REVIEW",
+      "unit": "percent",
+      "value": 0.0
+    },
+    "Total_lung_involvement_percent": {
+      "permission": "UNLOCKED_FOR_PROVISIONAL_AI_REPORT_WITH_MANDATORY_RADIOLOGIST_REVIEW",
+      "unit": "percent",
+      "value": 1.0
+    }
+  },
+  "withheld_fields": {
+    "bilateral_involvement": "WITHHELD_FAILED_OOF_VALIDATION",
+    "etiologic_diagnosis": "WITHHELD_FAILED_DIAGNOSIS_VALIDATION",
+    "lobar_localization": "WITHHELD_DEFERRED",
+    "pathology_subtype": "WITHHELD_FAILED_EXTERNAL_SUBTYPE_VALIDATION",
+    "physical_area_volume": "WITHHELD_DEFERRED",
+    "pleural_effusion": "WITHHELD_PENDING_VALIDATION"
+  }
+}
