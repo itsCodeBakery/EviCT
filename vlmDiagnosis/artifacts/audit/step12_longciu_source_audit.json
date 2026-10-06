@@ -1,0 +1,14 @@
+{
+  "acquisition": {
+    "mode": "existing_directory",
+    "path": "/kaggle/working/evict_dx_longciu/hf_verified"
+  },
+  "completed_utc": "2026-10-06T09:18:11Z",
+  "data_dir": "/kaggle/working/evict_dx_longciu/hf_verified",
+  "project": "EViCT-Dx",
+  "required_files_present": true,
+  "source_hash_manifest": "vlmDiagnosis/artifacts/manifests/step12_longciu_source_sha256.csv",
+  "stage": "STEP_12_LONGCIU_SOURCE_AUDIT",
+  "threshold_search_performed": false,
+  "training_performed": false
+}

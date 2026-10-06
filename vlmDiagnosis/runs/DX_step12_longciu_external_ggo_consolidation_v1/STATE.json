@@ -1,10 +1,10 @@
 {
-  "candidate_zip_urls": [],
-  "external_test_accessed": false,
-  "landing_page": "https://iro.uiowa.edu/esploro/outputs/dataset/9984632558202771",
-  "next_action": "Attach/download the official longciu.zip from DOI 10.25820/data.007301 into Kaggle, then rerun Step12 unchanged.",
+  "external_test_accessed": true,
+  "fine_tuning_performed": false,
+  "next_action": "COMPLETE_FROZEN_LONGCIU_INFERENCE",
   "run_id": "DX_step12_longciu_external_ggo_consolidation_v1",
-  "status": "WAITING_FOR_LONGCIU_DATASET",
+  "status": "EXTERNAL_EVALUATION_RUNNING",
+  "threshold_search_performed": false,
   "training_performed": false,
-  "updated_utc": "2026-10-06T08:57:07Z"
+  "updated_utc": "2026-10-06T09:18:12Z"
 }
