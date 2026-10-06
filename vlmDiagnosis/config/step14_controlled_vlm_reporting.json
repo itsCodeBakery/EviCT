@@ -1,0 +1,61 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_14_CONTROLLED_VLM_REALIZATION_AND_VALIDATION",
+  "run_id": "DX_step14_qwen25vl3b_evidence_realization_v1",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "model": {
+    "repository": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "role": "text_only_evidence_realizer",
+    "visual_inputs_provided": false,
+    "do_sample": false,
+    "max_new_tokens": 260,
+    "temperature": null
+  },
+  "inputs": {
+    "evidence_dir": "vlmDiagnosis/evidence/step13_permission_aware",
+    "deterministic_reports_dir": "vlmDiagnosis/reports/step13_permission_aware",
+    "step13_audit": "vlmDiagnosis/artifacts/audit/step13_permission_aware_reporting.json",
+    "permissions": "vlmDiagnosis/config/report_field_permissions_step12b.json",
+    "report_contract": "vlmDiagnosis/config/report_field_contract_step02.json"
+  },
+  "generation_policy": {
+    "only_validated_evidence": true,
+    "may_name_disease": false,
+    "may_name_pathology_subtype_as_case_finding": false,
+    "may_emit_bilateral_classification": false,
+    "may_emit_pleural_effusion": false,
+    "may_emit_lobar_localization": false,
+    "may_emit_physical_area_or_volume": false,
+    "may_recommend_treatment": false,
+    "case_id_must_not_appear": true,
+    "only_allowed_numeric_literals": "the three one-decimal percentages already present in structured evidence",
+    "mandatory_title_exact": true,
+    "mandatory_footer_exact": true
+  },
+  "fallback_policy": {
+    "trigger": "any validator failure",
+    "replacement": "frozen Step13 deterministic report",
+    "preserve_raw_generation": true,
+    "final_output_must_validate": true
+  },
+  "metrics": [
+    "raw_acceptance_rate",
+    "fallback_rate",
+    "final_safe_rate",
+    "exact_numeric_copy_rate",
+    "title_compliance_rate",
+    "footer_compliance_rate",
+    "locked_field_violation_rate",
+    "prohibited_recommendation_rate"
+  ],
+  "outputs": {
+    "raw_dir": "vlmDiagnosis/reports/step14_vlm_raw",
+    "final_dir": "vlmDiagnosis/reports/step14_vlm_final",
+    "validation_table": "vlmDiagnosis/tables/step14_vlm_validation.csv",
+    "report_index": "vlmDiagnosis/tables/step14_vlm_report_index.csv",
+    "audit": "vlmDiagnosis/artifacts/audit/step14_controlled_vlm_reporting.json",
+    "state": "vlmDiagnosis/runs/DX_step14_qwen25vl3b_evidence_realization_v1/STATE.json",
+    "progress": "vlmDiagnosis/runs/DX_step14_qwen25vl3b_evidence_realization_v1/progress.json"
+  },
+  "next_stage": "STEP_15_FINAL_EVICT_DX_RELIABILITY_AND_MANUSCRIPT_TRACEABILITY"
+}
