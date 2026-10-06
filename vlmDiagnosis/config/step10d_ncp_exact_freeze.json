@@ -1,0 +1,56 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_10D_PUBLIC_NCP_EXACT_LABEL_AND_SPLIT_FREEZE",
+  "status": "FROZEN_BEFORE_SUBTYPE_TRAINING",
+  "supersedes_step10c_heuristic_note": "Step10C mask-path heuristic overcalled masks because the common root name ct_lesion_seg contains the token seg. Step10D uses exact archive subdirectories image and mask instead of substring heuristics.",
+  "source": {
+    "archive_sha256": "6fc1bbdce26059a4d0905b6004ee203239162d3a4c85212b62ce61b9cfb2d018",
+    "expected_archive_bytes": 884253723,
+    "archive_path": "/kaggle/working/evict_dx_ncp_source/ct_lesion_seg.zip",
+    "extracted_root": "/kaggle/working/evict_dx_ncp_source/ct_lesion_seg_extracted/ct_lesion_seg"
+  },
+  "exact_structure_contract": {
+    "patient_or_scan_groups": 150,
+    "masks_total": 750,
+    "masks_per_group": 5,
+    "image_size": [
+      512,
+      512
+    ],
+    "required_dirs": [
+      "image",
+      "mask"
+    ],
+    "every_mask_requires_matching_image_same_group_same_stem": true
+  },
+  "label_mapping_policy": {
+    "primary_source": "official archive README.txt if it explicitly identifies numeric labels",
+    "fallback_crosscheck": "peer-reviewed publications using the public 750-slice/150-patient CC-CCII segmentation resource",
+    "training_blocked_if_mapping_ambiguous": true
+  },
+  "split": {
+    "unit": "patient_or_scan_folder",
+    "seed": 1705,
+    "method": "deterministic_permutation_then_exact_80_10_10",
+    "train_groups": 120,
+    "validation_groups": 15,
+    "test_groups": 15,
+    "slice_level_random_split": false
+  },
+  "targets": [
+    "ground_glass_opacity",
+    "consolidation"
+  ],
+  "prohibited_or_locked": [
+    "pleural_effusion"
+  ],
+  "outputs": {
+    "paired_manifest": "vlmDiagnosis/tables/step10d_ncp_750_pair_manifest.csv",
+    "patient_split": "vlmDiagnosis/tables/step10d_ncp_patient_split.csv",
+    "split_slice_manifest": "vlmDiagnosis/tables/step10d_ncp_slice_split_manifest.csv",
+    "readme_copy": "vlmDiagnosis/artifacts/audit/step10d_ncp_official_README.txt",
+    "audit": "vlmDiagnosis/artifacts/audit/step10d_ncp_exact_freeze.json",
+    "hashes": "vlmDiagnosis/artifacts/manifests/step10d_ncp_freeze_sha256.csv",
+    "state": "vlmDiagnosis/runs/DX_step10d_ncp_exact_freeze_v1/STATE.json"
+  }
+}
