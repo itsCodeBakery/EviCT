@@ -1,0 +1,34 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_12B_LONGCIU_REFERENCE_ORIENTATION_CORRECTION",
+  "run_id": "DX_step12b_longciu_reference_orientation_v1",
+  "status": "FROZEN_TECHNICAL_CORRECTION_BEFORE_REEVALUATION",
+  "invalidates": {
+    "prior_run_id": "DX_step12_longciu_external_ggo_consolidation_v1",
+    "reason": "Step12 v1 loaded LongCIU NIfTI volumes with nibabel and moved the 90-slice axis to the front, yielding [z,x,y]. The official LongCIU reference code uses SimpleITK.GetArrayFromImage, yielding [z,y,x]. Thus Step12 v1 evaluated a deterministic in-plane transpose of the reference image convention.",
+    "discovered_by": "post-run implementation audit against the official LongCIU repository",
+    "scientific_interpretation": "Step12 v1 metrics are retained for traceability but treated as technically invalid for external-validation claims. Step12B performs one corrected reevaluation using the official array convention only; no orientation search is permitted."
+  },
+  "frozen_components": {
+    "model": "unchanged Step11 best.pt",
+    "model_run_id": "DX_step11_ncp_ggo_co_resnet34_unet_seed1705_v1",
+    "thresholds": "unchanged Step11 validation-only thresholds",
+    "preprocessing_except_axis_order": "unchanged",
+    "gate": "unchanged STAPLE Dice >= 0.60",
+    "longciu_source": "same verified source files and hashes"
+  },
+  "corrected_array_convention": {
+    "official_reference": "SimpleITK.GetArrayFromImage",
+    "nibabel_equivalent_for_standard_3d_nifti": "transpose native nibabel [x,y,z] -> [z,y,x]",
+    "orientation_search": false,
+    "performance_based_variant_selection": false
+  },
+  "outputs": {
+    "correction_audit": "vlmDiagnosis/artifacts/audit/step12b_orientation_correction_audit.json",
+    "slice_metrics": "vlmDiagnosis/tables/step12b_longciu_slice_metrics.csv",
+    "external_metrics": "vlmDiagnosis/tables/step12b_longciu_external_metrics.csv",
+    "results": "vlmDiagnosis/artifacts/audit/step12b_longciu_external_results.json",
+    "permissions": "vlmDiagnosis/config/report_field_permissions_step12b.json",
+    "state": "vlmDiagnosis/runs/DX_step12b_longciu_reference_orientation_v1/STATE.json"
+  }
+}
