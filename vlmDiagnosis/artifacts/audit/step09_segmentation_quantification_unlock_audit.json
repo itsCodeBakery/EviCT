@@ -1,0 +1,78 @@
+{
+  "bilateral_gate": {
+    "balanced_accuracy": 0.5666666666666667,
+    "balanced_accuracy_pass": false,
+    "balanced_accuracy_required_min": 0.8,
+    "field_gate_pass": false,
+    "sensitivity": 0.9333333333333333,
+    "sensitivity_pass": true,
+    "sensitivity_required_min": 0.8,
+    "specificity": 0.2,
+    "specificity_pass": false,
+    "specificity_required_min": 0.8
+  },
+  "completed_utc": "2026-10-06T07:10:33Z",
+  "diagnosis_disease_names_unlocked": false,
+  "failure_review_file": "vlmDiagnosis/tables/step09_case_failure_review.csv",
+  "failure_review_is_descriptive_only_not_for_tuning": true,
+  "infection_segmentation_interpretation": {
+    "mean_Dice": 0.705021236261302,
+    "mean_IoU": 0.5685280003762342,
+    "mean_sensitivity": 0.685875001415636,
+    "mean_specificity": 0.9983600381830151,
+    "report_unlock_decision": "NO_INDEPENDENT_GENERIC_INFECTION_REPORT_FIELD_EXISTS"
+  },
+  "lung_segmentation_interpretation": {
+    "mean_Dice_left": 0.9726091025824533,
+    "mean_Dice_right": 0.9768709839476026,
+    "report_unlock_decision": "NO_FROZEN_REPORT_FIELD_THRESHOLD_EXISTS"
+  },
+  "next_action": "FREEZE_STEP09_PERMISSIONS_THEN_DEVELOP_NEXT_COMPONENT_WITHOUT_TUNING_ON_STEP08_OOF_LABELS",
+  "project": "EViCT-Dx",
+  "quantification_gates": {
+    "left": {
+      "CCC": 0.8976678258523966,
+      "CCC_pass": true,
+      "CCC_required_min": 0.85,
+      "MAE_pass": true,
+      "MAE_percentage_points": 3.6929796239761474,
+      "MAE_required_max": 5.0,
+      "field_gate_pass": true
+    },
+    "right": {
+      "CCC": 0.8956048518169379,
+      "CCC_pass": true,
+      "CCC_required_min": 0.85,
+      "MAE_pass": true,
+      "MAE_percentage_points": 3.2720009583128657,
+      "MAE_required_max": 5.0,
+      "field_gate_pass": true
+    },
+    "total": {
+      "CCC": 0.9040797837202961,
+      "CCC_pass": true,
+      "CCC_required_min": 0.85,
+      "MAE_pass": true,
+      "MAE_percentage_points": 3.3048350476835067,
+      "MAE_required_max": 5.0,
+      "field_gate_pass": true
+    }
+  },
+  "report_permissions_file": "vlmDiagnosis/config/report_field_permissions_step09.json",
+  "run_id": "DX_step09_formal_unlock_audit_v1",
+  "source_hash_manifest": "vlmDiagnosis/artifacts/manifests/step09_source_sha256.csv",
+  "stage": "STEP_09_FORMAL_SEGMENTATION_QUANTIFICATION_UNLOCK_AUDIT",
+  "status": "PASS_AUDIT_COMPLETED",
+  "step08_segmentation_summary": {
+    "mean_Dice_infection": 0.705021236261302,
+    "mean_Dice_left": 0.9726091025824533,
+    "mean_Dice_right": 0.9768709839476026,
+    "mean_IoU_infection": 0.5685280003762342,
+    "mean_infection_sensitivity": 0.685875001415636,
+    "mean_infection_specificity": 0.9983600381830151
+  },
+  "strict_oof_cases_verified": 20,
+  "test_reinference_performed": false,
+  "threshold_search_performed": false,
+  "training_performed": false
+}

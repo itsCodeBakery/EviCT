@@ -1,0 +1,12 @@
+{
+  "bilateral_involvement_unlocked": false,
+  "diagnosis_disease_names_unlocked": false,
+  "left_involvement_unlocked": true,
+  "next_action": "FREEZE_STEP09_PERMISSIONS_THEN_DEVELOP_NEXT_COMPONENT_WITHOUT_TUNING_ON_STEP08_OOF_LABELS",
+  "right_involvement_unlocked": true,
+  "run_id": "DX_step09_formal_unlock_audit_v1",
+  "status": "COMPLETE",
+  "strict_oof_cases_verified": 20,
+  "total_involvement_unlocked": true,
+  "updated_utc": "2026-10-06T07:10:33Z"
+}
