@@ -45,7 +45,7 @@
     "class_weighting": "inverse_sqrt_frequency_from_training_pixels_only_normalized_to_mean_1",
     "augmentation": [
       "random_horizontal_flip_p0.5",
-      "random_rotation_k90_p0.25"
+      "random_rotation_degrees_7_p0.25"
     ],
     "selection_metric": "mean_validation_Dice_GGO_and_consolidation",
     "mixed_precision": true
