@@ -370,10 +370,15 @@ def threshold_metrics(y, score, threshold):
 def select_presence_threshold(y, score):
     y = np.asarray(y, dtype=bool)
     score = np.asarray(score, dtype=float)
+    ordered = np.sort(np.unique(score))
+    midpoints = (
+        (ordered[:-1] + ordered[1:]) / 2.0
+        if len(ordered) > 1 else np.array([], dtype=float)
+    )
     candidates = np.unique(np.concatenate([
         [0.0],
-        score,
-        [(score[i] + score[i+1]) / 2 for i in range(len(score)-1)] if len(score) > 1 else [],
+        ordered,
+        midpoints,
         [1.0],
     ]))
     candidates = np.unique(np.clip(candidates, 0, 1))
@@ -466,6 +471,14 @@ def main():
     print("EViCT-Dx STEP 11 — NCP GGO + CONSOLIDATION SEGMENTATION")
     print("PATIENT-DISJOINT 120/15/15 — VALIDATION-ONLY SELECTION — TEST ONCE")
     print("=" * 112)
+
+    existing_state_path = RUN / "STATE.json"
+    if existing_state_path.exists():
+        existing_state = json.loads(existing_state_path.read_text())
+        if existing_state.get("status") == "COMPLETE":
+            print("✓ Step11 is already COMPLETE. Refusing to retrain or re-access the internal test.")
+            print(json.dumps(existing_state, indent=2))
+            return
 
     step10d = verify_inputs()
     print("✓ Step10D permits training.")
