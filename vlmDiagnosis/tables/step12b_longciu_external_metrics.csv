@@ -1,0 +1,3 @@
+class,STAPLE_Dice,STAPLE_IoU,STAPLE_sensitivity,STAPLE_specificity,mean_slice_Dice,presence_AUROC_descriptive,presence_sensitivity_descriptive,presence_specificity_descriptive,presence_precision_descriptive,external_confirmatory_gate_pass,final_subtype_validation_pass
+GGO,0.24455036241166309,0.13930924429574068,0.4214441064128704,0.9020590560174876,0.23177897550076373,,1.0,,1.0,False,False
+consolidation,0.004690534031589654,0.002350780223113478,0.005242291576633284,0.9972190430828481,0.013995380369359925,0.3378582202111614,1.0,0.0,0.5666666666666667,False,False

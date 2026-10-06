@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-10-06T09:25:17Z",
+  "derived_from": [
+    "vlmDiagnosis/config/report_field_permissions_step09.json",
+    "vlmDiagnosis/artifacts/audit/step11_ncp_ggo_consolidation_results.json",
+    "vlmDiagnosis/artifacts/audit/step12b_longciu_external_results.json"
+  ],
+  "derived_from_frozen_contract": "vlmDiagnosis/config/report_field_contract_step02.json",
+  "fields": {
+    "Antibiotic_recommendation": "PROHIBITED",
+    "Bilateral_involvement": "LOCKED_FAILED_OOF_VALIDATION",
+    "CAP": "LOCKED_FAILED_DIAGNOSIS_VALIDATION",
+    "COVID-19": "LOCKED_FAILED_DIAGNOSIS_VALIDATION",
+    "Clinical_management_decision": "PROHIBITED",
+    "Consolidation": "LOCKED_FAILED_EXTERNAL_SUBTYPE_VALIDATION",
+    "GGO": "LOCKED_FAILED_EXTERNAL_SUBTYPE_VALIDATION",
+    "Left_lung_involvement_percent": "UNLOCKED_FOR_PROVISIONAL_AI_REPORT_WITH_MANDATORY_RADIOLOGIST_REVIEW",
+    "Lobar_localization": "DEFERRED",
+    "Normal": "LOCKED_FAILED_DIAGNOSIS_VALIDATION",
+    "Physical_area_mm2": "DEFERRED",
+    "Physical_volume_cm3": "DEFERRED",
+    "Pleural_effusion_complete_volume": "DEFERRED_NO_VOLUME_LEVEL_REFERENCE_YET",
+    "Pleural_effusion_slice_level": "LOCKED_PENDING_SUBTYPE_VALIDATION",
+    "Right_lung_involvement_percent": "UNLOCKED_FOR_PROVISIONAL_AI_REPORT_WITH_MANDATORY_RADIOLOGIST_REVIEW",
+    "Total_lung_involvement_percent": "UNLOCKED_FOR_PROVISIONAL_AI_REPORT_WITH_MANDATORY_RADIOLOGIST_REVIEW",
+    "Treatment_recommendation": "PROHIBITED"
+  },
+  "generic_infection_mask": "EVALUATED_FOR_QUANTIFICATION_ONLY_NO_INDEPENDENT_REPORT_FIELD_UNLOCK_RULE",
+  "important_scope": "Unlock means the field passed the pre-specified research protocol for use in the Provisional AI Diagnostic Report. It is not autonomous clinical clearance and the mandatory radiologist-review statement remains required.",
+  "left_right_lung_masks": "EVALUATED_NO_FROZEN_REPORT_FIELD_UNLOCK_THRESHOLD",
+  "mandatory_footer": "This AI-generated report must be reviewed, assessed, and finalized by a qualified radiologist before it is used for medical assessment, diagnosis, treatment planning, or any other clinical decision.",
+  "mandatory_title": "Provisional AI Diagnostic Report",
+  "oof_results_may_not_be_used_for_further_threshold_tuning": true,
+  "project": "EViCT-Dx",
+  "stage": "STEP_12B_DERIVED_REPORT_FIELD_PERMISSIONS"
+}

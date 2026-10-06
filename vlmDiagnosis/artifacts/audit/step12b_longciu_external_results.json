@@ -1,0 +1,190 @@
+{
+  "checkpoint_selection_performed": false,
+  "completed_utc": "2026-10-06T09:25:17Z",
+  "external_confirmatory_gate": {
+    "GGO": {
+      "external_Dice_required_min": 0.6,
+      "external_STAPLE_Dice": 0.24455036241166309,
+      "external_confirmatory_gate_pass": false,
+      "final_subtype_validation_pass": false,
+      "internal_step11_gate_pass": true
+    },
+    "consolidation": {
+      "external_Dice_required_min": 0.6,
+      "external_STAPLE_Dice": 0.004690534031589654,
+      "external_confirmatory_gate_pass": false,
+      "final_subtype_validation_pass": false,
+      "internal_step11_gate_pass": true
+    }
+  },
+  "fine_tuning_performed": false,
+  "frozen_step11_presence_thresholds": {
+    "GGO": 0.07033497281372547,
+    "consolidation": 0.008533809566870332
+  },
+  "frozen_threshold_presence_metrics_descriptive": {
+    "GGO": {
+      "AUROC": NaN,
+      "balanced_accuracy": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "n": 90,
+      "negatives": 0,
+      "positives": 90,
+      "precision": 1.0,
+      "role": "DESCRIPTIVE_NON_GATING_ON_LONGCIU",
+      "sensitivity": 1.0,
+      "specificity": NaN,
+      "threshold": 0.07033497281372547,
+      "tn": 0,
+      "tp": 90
+    },
+    "consolidation": {
+      "AUROC": 0.3378582202111614,
+      "balanced_accuracy": 0.5,
+      "fn": 0,
+      "fp": 39,
+      "n": 90,
+      "negatives": 39,
+      "positives": 51,
+      "precision": 0.5666666666666667,
+      "role": "DESCRIPTIVE_NON_GATING_ON_LONGCIU",
+      "sensitivity": 1.0,
+      "specificity": 0.0,
+      "threshold": 0.008533809566870332,
+      "tn": 0,
+      "tp": 51
+    }
+  },
+  "individual_rater_metrics_descriptive": {
+    "GGO": {
+      "rater1": {
+        "Dice": 0.2616853569657138,
+        "IoU": 0.15053969545405962,
+        "fn_pixels": 1004830,
+        "fp_pixels": 2110671,
+        "mean_slice_Dice": 0.2516449704307536,
+        "sensitivity": 0.3546176409949433,
+        "specificity": 0.9042171750989187,
+        "tn_pixels": 19925336,
+        "tp_pixels": 552123
+      },
+      "rater2": {
+        "Dice": 0.21937646922392462,
+        "IoU": 0.12320204997420794,
+        "fn_pixels": 623101,
+        "fp_pixels": 2257965,
+        "mean_slice_Dice": 0.21277603712907742,
+        "sensitivity": 0.39382934635626937,
+        "specificity": 0.8999352094812194,
+        "tn_pixels": 20307065,
+        "tp_pixels": 404829
+      },
+      "rater3": {
+        "Dice": 0.18321082242429695,
+        "IoU": 0.10084319341266156,
+        "fn_pixels": 345887,
+        "fp_pixels": 2359389,
+        "mean_slice_Dice": 0.172715572351125,
+        "sensitivity": 0.4672859052629634,
+        "specificity": 0.897166006760558,
+        "tn_pixels": 20584279,
+        "tp_pixels": 303405
+      }
+    },
+    "consolidation": {
+      "rater1": {
+        "Dice": 0.0035872264101565743,
+        "IoU": 0.0017968360339160794,
+        "fn_pixels": 90644,
+        "fp_pixels": 65461,
+        "mean_slice_Dice": 0.013323857925236635,
+        "sensitivity": 0.003090459169645312,
+        "specificity": 0.9972146667299236,
+        "tn_pixels": 23436574,
+        "tp_pixels": 281
+      },
+      "rater2": {
+        "Dice": 0.0036748026494873424,
+        "IoU": 0.001840783582937527,
+        "fn_pixels": 110270,
+        "fp_pixels": 65418,
+        "mean_slice_Dice": 0.01352828307457116,
+        "sensitivity": 0.0029296345190516666,
+        "specificity": 0.9972141648758903,
+        "tn_pixels": 23416948,
+        "tp_pixels": 324
+      },
+      "rater3": {
+        "Dice": 0.001863112421431935,
+        "IoU": 0.0009324248168451252,
+        "fn_pixels": 31853,
+        "fp_pixels": 65651,
+        "mean_slice_Dice": 0.012532570442159451,
+        "sensitivity": 0.0028487352867518157,
+        "specificity": 0.997213575170103,
+        "tn_pixels": 23495365,
+        "tp_pixels": 91
+      }
+    }
+  },
+  "next_action": "STEP_13_STRUCTURED_EVIDENCE_AND_REPORT_GENERATION",
+  "orientation_search_performed": false,
+  "primary_STAPLE_metrics": {
+    "GGO": {
+      "Dice": 0.24455036241166309,
+      "IoU": 0.13930924429574068,
+      "fn_pixels": 629658,
+      "fp_pixels": 2204125,
+      "mean_slice_Dice": 0.23177897550076373,
+      "sensitivity": 0.4214441064128704,
+      "specificity": 0.9020590560174876,
+      "tn_pixels": 20300508,
+      "tp_pixels": 458669
+    },
+    "consolidation": {
+      "Dice": 0.004690534031589654,
+      "IoU": 0.002350780223113478,
+      "fn_pixels": 52942,
+      "fp_pixels": 65463,
+      "mean_slice_Dice": 0.013995380369359925,
+      "sensitivity": 0.005242291576633284,
+      "specificity": 0.9972190430828481,
+      "tn_pixels": 23474276,
+      "tp_pixels": 279
+    }
+  },
+  "project": "EViCT-Dx",
+  "report_field_permissions_file": "vlmDiagnosis/config/report_field_permissions_step12b.json",
+  "run_id": "DX_step12b_longciu_reference_orientation_v1",
+  "source": {
+    "STAPLE_labels_observed": [
+      0,
+      1,
+      2
+    ],
+    "doi": "10.25820/data.007301",
+    "label_mapping": {
+      "0": "background",
+      "1": "ground_glass_opacity",
+      "2": "consolidation"
+    },
+    "name": "Long COVID Iowa-UNICAMP (LongCIU)",
+    "reference": "STAPLE consensus",
+    "shape_after_slice_axis_normalization": [
+      90,
+      512,
+      512
+    ]
+  },
+  "stage": "STEP_12B_LONGCIU_REFERENCE_ORIENTATION_CORRECTED_EXTERNAL_EVALUATION",
+  "technical_correction": {
+    "array_convention": "official LongCIU SimpleITK-compatible [z,y,x]",
+    "orientation_search": false,
+    "performance_based_variant_selection": false,
+    "prior_step12_v1_interpretation": "INVALIDATED_TECHNICAL_PREPROCESSING_ORIENTATION_MISMATCH",
+    "prior_step12_v1_retained": true
+  },
+  "threshold_search_performed": false,
+  "training_performed": false
+}
