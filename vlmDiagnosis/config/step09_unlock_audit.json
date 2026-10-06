@@ -1,0 +1,48 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_09_FORMAL_SEGMENTATION_QUANTIFICATION_UNLOCK_AUDIT",
+  "status": "FROZEN_AUDIT_ONLY_NO_MODEL_TUNING",
+  "source_step": "STEP_08_OOF_LUNG_INFECTION_SEGMENTATION_BASELINE",
+  "source_run_id": "DX_step08_oof_segmentation_resnet34_unet_seed1705_v1",
+  "source_files": [
+    "vlmDiagnosis/artifacts/audit/step08_oof_segmentation_baseline_results.json",
+    "vlmDiagnosis/tables/step08_oof_case_metrics.csv",
+    "vlmDiagnosis/tables/step08_oof_involvement_predictions.csv",
+    "vlmDiagnosis/config/metrics_and_unlock_step02.json",
+    "vlmDiagnosis/config/report_field_contract_step02.json",
+    "vlmDiagnosis/artifacts/audit/step05_diagnosis_unlock_audit.json"
+  ],
+  "rules": {
+    "no_training": true,
+    "no_threshold_search": true,
+    "no_test_reinference": true,
+    "no_oof_result_reuse_for_tuning": true,
+    "strict_oof_case_count": 20,
+    "quantification_gate": {
+      "MAE_percentage_points_max": 5,
+      "CCC_min": 0.85,
+      "gate_source": "frozen Step02 metrics contract"
+    },
+    "bilateral_gate": {
+      "balanced_accuracy_min": 0.8,
+      "sensitivity_min": 0.8,
+      "specificity_min": 0.8,
+      "gate_source": "frozen Step02 metrics contract"
+    },
+    "infection_segmentation": {
+      "review_only": true,
+      "reason": "Generic infection segmentation has no independent report-field unlock rule in the frozen Step02 report contract."
+    },
+    "lung_segmentation": {
+      "review_only": true,
+      "reason": "Frozen Step02 metrics define lung Dice/IoU evaluation but no report-field unlock threshold."
+    }
+  },
+  "outputs": {
+    "audit": "vlmDiagnosis/artifacts/audit/step09_segmentation_quantification_unlock_audit.json",
+    "report_permissions": "vlmDiagnosis/config/report_field_permissions_step09.json",
+    "failure_review": "vlmDiagnosis/tables/step09_case_failure_review.csv",
+    "source_hashes": "vlmDiagnosis/artifacts/manifests/step09_source_sha256.csv",
+    "state": "vlmDiagnosis/runs/DX_step09_formal_unlock_audit_v1/STATE.json"
+  }
+}
