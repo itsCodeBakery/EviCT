@@ -170,9 +170,24 @@ def extract_archive():
             })
         atomic_csv(MEMBER_CSV, pd.DataFrame(rows))
 
-        if not EXTRACT.exists():
+        expected_files = sum(1 for m in members if not m.is_dir())
+        existing_files = (
+            sum(1 for p in EXTRACT.rglob("*") if p.is_file())
+            if EXTRACT.exists()
+            else 0
+        )
+
+        if existing_files == expected_files and expected_files > 0:
+            print(
+                f"✓ Existing extraction is complete "
+                f"({existing_files:,}/{expected_files:,} files); skipping re-extraction."
+            )
+        else:
             EXTRACT.mkdir(parents=True, exist_ok=True)
-        zf.extractall(EXTRACT)
+            print(
+                f"Extracting archive: currently {existing_files:,}/{expected_files:,} files present..."
+            )
+            zf.extractall(EXTRACT)
     return members
 
 
