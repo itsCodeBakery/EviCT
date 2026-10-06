@@ -1,12 +1,14 @@
 {
-  "completed_cases": 20,
+  "cases": 20,
+  "fallback_cases": 9,
+  "final_safe_reports": 20,
   "fine_tuning_performed": false,
   "model": "Qwen/Qwen2.5-VL-3B-Instruct",
-  "next_action": "CONTINUE_CONTROLLED_VLM_REALIZATION",
+  "next_action": "STEP_15_FINAL_EVICT_DX_RELIABILITY_AND_MANUSCRIPT_TRACEABILITY",
+  "raw_accepted": 11,
   "run_id": "DX_step14_qwen25vl3b_evidence_realization_v1",
-  "status": "RUNNING",
-  "total_cases": 20,
+  "status": "COMPLETE",
   "training_performed": false,
-  "updated_utc": "2026-10-06T09:45:01Z",
+  "updated_utc": "2026-10-06T09:45:02Z",
   "visual_inputs_provided": false
 }

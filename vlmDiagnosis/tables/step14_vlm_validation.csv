@@ -1,0 +1,21 @@
+case_id,raw_valid,fallback_used,final_valid,raw_title_ok,raw_footer_ok,raw_numeric_copy_ok,raw_no_extra_numbers,raw_locked_field_violation,raw_prohibited_recommendation_violation,raw_errors,generation_seconds,final_source
+coronacases_001,True,False,True,True,True,True,True,False,False,,12.976131439208984,VLM_ACCEPTED
+coronacases_002,False,True,True,True,True,True,True,False,True,PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\btreatment\b|PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\bmanagement\b,10.695509195327759,STEP13_DETERMINISTIC_FALLBACK
+coronacases_003,True,False,True,True,True,True,True,False,False,,8.158588171005249,VLM_ACCEPTED
+coronacases_004,False,True,True,True,True,True,True,False,True,PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\btreatment\b|PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\bmanagement\b,10.172456502914429,STEP13_DETERMINISTIC_FALLBACK
+coronacases_005,False,True,True,True,True,False,False,False,False,"PROTECTED_PERCENT_MISMATCH expected=['0.1%', '3.8%', '2.1%'] seen=['10.0%', '38.0%', '21.0%']|UNSUPPORTED_NUMERIC_LITERAL",8.171539068222046,STEP13_DETERMINISTIC_FALLBACK
+coronacases_006,False,True,True,True,True,True,True,False,True,PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\btreatment\b|PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\bmanagement\b,10.473569631576538,STEP13_DETERMINISTIC_FALLBACK
+coronacases_007,False,True,True,True,True,True,True,False,True,PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\btreatment\b|PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\bmanagement\b,9.982336044311523,STEP13_DETERMINISTIC_FALLBACK
+coronacases_008,True,False,True,True,True,True,True,False,False,,8.001488208770752,VLM_ACCEPTED
+coronacases_009,True,False,True,True,True,True,True,False,False,,7.973705053329468,VLM_ACCEPTED
+coronacases_010,True,False,True,True,True,True,True,False,False,,8.155284404754639,VLM_ACCEPTED
+radiopaedia_10_85902_1,False,True,True,True,True,True,True,False,True,PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\btreatment\b|PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\bmanagement\b,10.48253607749939,STEP13_DETERMINISTIC_FALLBACK
+radiopaedia_10_85902_3,False,True,True,True,True,False,False,False,False,"PROTECTED_PERCENT_MISMATCH expected=['0.9%', '8.7%', '4.9%'] seen=['90%', '87%', '49%']|UNSUPPORTED_NUMERIC_LITERAL",7.793710947036743,STEP13_DETERMINISTIC_FALLBACK
+radiopaedia_14_85914_0,True,False,True,True,True,True,True,False,False,,8.162347555160522,VLM_ACCEPTED
+radiopaedia_27_86410_0,True,False,True,True,True,True,True,False,False,,8.106085777282715,VLM_ACCEPTED
+radiopaedia_29_86490_1,False,True,True,True,True,False,False,False,True,"PROTECTED_PERCENT_MISMATCH expected=['0.5%', '0.7%', '0.6%'] seen=['50%', '70%', '60%']|UNSUPPORTED_NUMERIC_LITERAL|PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\btreatment\b|PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\bmanagement\b",9.504851341247559,STEP13_DETERMINISTIC_FALLBACK
+radiopaedia_29_86491_1,False,True,True,True,True,True,True,False,True,PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\btreatment\b|PROHIBITED_RECOMMENDATION_OR_MANAGEMENT:\bmanagement\b,10.480623960494995,STEP13_DETERMINISTIC_FALLBACK
+radiopaedia_36_86526_0,True,False,True,True,True,True,True,False,False,,8.08156681060791,VLM_ACCEPTED
+radiopaedia_40_86625_0,True,False,True,True,True,True,True,False,False,,8.25062108039856,VLM_ACCEPTED
+radiopaedia_4_85506_1,True,False,True,True,True,True,True,False,False,,8.119484186172485,VLM_ACCEPTED
+radiopaedia_7_85703_0,True,False,True,True,True,True,True,False,False,,8.18840765953064,VLM_ACCEPTED
