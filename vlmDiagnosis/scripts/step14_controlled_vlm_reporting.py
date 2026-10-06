@@ -338,15 +338,31 @@ def validate_report(report, e, title, footer):
     body_lower = body_for_safety.lower()
 
     locked_patterns = {
+        # Disease/subtype names are never needed in this reporting stage.
         "DISEASE_NAME_COVID": r"\bcovid\b|\bcoronavirus\b",
         "DISEASE_NAME_CAP": r"\bcommunity[- ]acquired pneumonia\b|\bcap\b",
         "NORMAL_DIAGNOSIS": r"\bnormal (scan|ct|lungs?)\b|\bdiagnosis\s*:\s*normal\b",
         "SUBTYPE_GGO": r"\bggo\b|\bground[- ]glass",
         "SUBTYPE_CONSOLIDATION": r"\bconsolidation\b",
-        "PLEURAL_EFFUSION": r"\bpleural effusion\b",
-        "BILATERAL_ASSERTION": r"\bbilateral\b",
-        "LOBAR_ASSERTION": r"\b(lobar|lobe)\b",
-        "PHYSICAL_AREA_VOLUME": r"\b(mm2|mm²|cm3|cm³|millimeter|centimeter|volume)\b",
+
+        # The deterministic fallback legitimately names some locked field categories
+        # only to say they are withheld/not emitted. Therefore these patterns reject
+        # affirmative case-level findings rather than the field name itself.
+        "PLEURAL_EFFUSION_ASSERTION": (
+            r"\bpleural[- ]effusion\b.{0,60}"
+            r"\b(present|detected|seen|identified|evident|positive)\b"
+        ),
+        "BILATERAL_ASSERTION": (
+            r"\bbilateral(?:[- ]involvement)?\b.{0,60}"
+            r"\b(present|detected|yes|positive)\b"
+        ),
+        "LOBAR_ASSERTION": (
+            r"\b(lobar|lobe)\b.{0,80}"
+            r"\b(present|detected|located|involved|predominant)\b"
+        ),
+        "PHYSICAL_AREA_VOLUME_ASSERTION": (
+            r"\b(area|volume)\b\s*(?:is|=|:)\s*"
+        ),
     }
 
     locked_hits = []
