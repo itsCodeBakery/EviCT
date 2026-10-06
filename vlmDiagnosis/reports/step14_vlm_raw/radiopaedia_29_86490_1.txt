@@ -1,0 +1,11 @@
+Provisional AI Diagnostic Report
+
+Findings: 
+- Left lung involvement: 50%
+- Right lung involvement: 70%
+- Total lung involvement: 60%
+
+Validation-aware limitations: 
+The following diagnostic, subtype, anatomical, and treatment-related fields are withheld due to the lack of validation prerequisites: etiologic diagnosis, pathology subtype, bilateral involvement, pleural effusion, lobar localization, physical area or volume, and treatment or management recommendation.
+
+This AI-generated report must be reviewed, assessed, and finalized by a qualified radiologist before it is used for medical assessment, diagnosis, treatment planning, or any other clinical decision.
