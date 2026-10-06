@@ -1,0 +1,126 @@
+{
+  "best_validation_target_mean_dice": 0.7726997489986793,
+  "completed_utc": "2026-10-06T08:36:43Z",
+  "dataset": {
+    "annotated_slices": 750,
+    "archive_sha256": "6fc1bbdce26059a4d0905b6004ee203239162d3a4c85212b62ce61b9cfb2d018",
+    "label_mapping": {
+      "0": "background",
+      "1": "lung_field",
+      "2": "ground_glass_opacity",
+      "3": "consolidation"
+    },
+    "patient_or_scan_groups": 150,
+    "split": {
+      "test": 15,
+      "train": 120,
+      "validation": 15
+    }
+  },
+  "external_test_accessed": false,
+  "important_scope": "Passing the internal gate does not unlock report fields yet because the frozen Step02 protocol also specifies LongCIU as the external test for GGO and consolidation.",
+  "internal_test_presence": {
+    "GGO": {
+      "AUROC": 0.9063636363636364,
+      "balanced_accuracy": 0.8363636363636364,
+      "fn": 7,
+      "fp": 4,
+      "n": 75,
+      "negatives": 20,
+      "positives": 55,
+      "precision": 0.9230769230769231,
+      "sensitivity": 0.8727272727272727,
+      "specificity": 0.8,
+      "threshold": 0.07033497281372547,
+      "tn": 16,
+      "tp": 48
+    },
+    "consolidation": {
+      "AUROC": 0.9898255813953488,
+      "balanced_accuracy": 0.9494912790697674,
+      "fn": 1,
+      "fp": 3,
+      "n": 75,
+      "negatives": 43,
+      "positives": 32,
+      "precision": 0.9117647058823529,
+      "sensitivity": 0.96875,
+      "specificity": 0.9302325581395349,
+      "threshold": 0.008533809566870332,
+      "tn": 40,
+      "tp": 31
+    }
+  },
+  "internal_test_segmentation": {
+    "GGO": {
+      "Dice": 0.7799568169868102,
+      "IoU": 0.6392862382629108,
+      "fn_pixels": 9139,
+      "fp_pixels": 30199,
+      "sensitivity": 0.8841066741062936,
+      "specificity": 0.9960270448799609,
+      "tn_pixels": 7570944,
+      "tp_pixels": 69718
+    },
+    "consolidation": {
+      "Dice": 0.7352784480867467,
+      "IoU": 0.5813757557736148,
+      "fn_pixels": 5438,
+      "fp_pixels": 3009,
+      "sensitivity": 0.6832663521463103,
+      "specificity": 0.9996073252822618,
+      "tn_pixels": 7659822,
+      "tp_pixels": 11731
+    }
+  },
+  "internal_unlock_gate": {
+    "GGO": {
+      "external_validation_still_required": true,
+      "internal_gate_pass": true,
+      "presence_AUROC_pass": true,
+      "presence_sensitivity_pass": true,
+      "presence_specificity_pass": true,
+      "report_field_unlocked": false,
+      "segmentation_Dice_pass": true
+    },
+    "consolidation": {
+      "external_validation_still_required": true,
+      "internal_gate_pass": true,
+      "presence_AUROC_pass": true,
+      "presence_sensitivity_pass": true,
+      "presence_specificity_pass": true,
+      "report_field_unlocked": false,
+      "segmentation_Dice_pass": true
+    }
+  },
+  "next_action": "STEP_12_EXTERNAL_LONGCIU_GGO_CONSOLIDATION_EVALUATION",
+  "project": "EViCT-Dx",
+  "run_id": "DX_step11_ncp_ggo_co_resnet34_unet_seed1705_v1",
+  "stage": "STEP_11_NCP_GGO_CONSOLIDATION_SEGMENTATION",
+  "validation_segmentation": {
+    "GGO": {
+      "Dice": 0.7155504360704295,
+      "IoU": 0.5570872194322025,
+      "fn_pixels": 9552,
+      "fp_pixels": 16377,
+      "sensitivity": 0.7734614016364283,
+      "specificity": 0.9978558059973801,
+      "tn_pixels": 7621458,
+      "tp_pixels": 32613
+    },
+    "consolidation": {
+      "Dice": 0.8298490619269291,
+      "IoU": 0.7091812132317484,
+      "fn_pixels": 5242,
+      "fp_pixels": 6820,
+      "sensitivity": 0.8487419205909511,
+      "specificity": 0.9991079538082263,
+      "tn_pixels": 7638524,
+      "tp_pixels": 29414
+    }
+  },
+  "validation_selected_presence_thresholds": {
+    "GGO": 0.07033497281372547,
+    "consolidation": 0.008533809566870332
+  }
+}

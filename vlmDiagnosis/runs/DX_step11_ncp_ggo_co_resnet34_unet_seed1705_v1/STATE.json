@@ -1,10 +1,12 @@
 {
+  "GGO_internal_gate_pass": true,
   "best_validation_target_mean_dice": 0.7726997489986793,
-  "current_epoch": 16,
-  "next_action": "COMPLETE_ONE_TIME_INTERNAL_TEST",
-  "patience": 6,
+  "consolidation_internal_gate_pass": true,
+  "external_test_accessed": false,
+  "next_action": "STEP_12_EXTERNAL_LONGCIU_GGO_CONSOLIDATION_EVALUATION",
+  "report_fields_unlocked": false,
   "run_id": "DX_step11_ncp_ggo_co_resnet34_unet_seed1705_v1",
-  "status": "TEST_EVALUATION_RUNNING",
+  "status": "COMPLETE",
   "test_accessed": true,
-  "updated_utc": "2026-10-06T08:36:41Z"
+  "updated_utc": "2026-10-06T08:36:43Z"
 }
