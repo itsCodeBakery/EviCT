@@ -1,0 +1,9 @@
+{
+  "archive_sha256": "6fc1bbdce26059a4d0905b6004ee203239162d3a4c85212b62ce61b9cfb2d018",
+  "audit_status": "OFFICIAL_ARCHIVE_DOWNLOADED_CONTENT_STRUCTURE_NOT_YET_CONSISTENT_WITH_CONTRACT",
+  "next_action": "Review Step10C image inventory, pairing summary, directory structure and mask signatures; then freeze exact class mapping and patient/scan-disjoint split before Step11 training.",
+  "run_id": "DX_step10c_public_ncp_content_audit_v1",
+  "status": "COMPLETE",
+  "training_allowed": false,
+  "updated_utc": "2026-10-06T07:52:31Z"
+}
