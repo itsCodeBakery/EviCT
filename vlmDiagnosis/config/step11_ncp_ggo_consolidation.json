@@ -1,0 +1,95 @@
+{
+  "project": "EViCT-Dx",
+  "stage": "STEP_11_NCP_GGO_CONSOLIDATION_SEGMENTATION",
+  "run_id": "DX_step11_ncp_ggo_co_resnet34_unet_seed1705_v1",
+  "seed": 1705,
+  "source_contract": {
+    "archive_sha256": "6fc1bbdce26059a4d0905b6004ee203239162d3a4c85212b62ce61b9cfb2d018",
+    "data_root": "/kaggle/working/evict_dx_ncp_source/ct_lesion_seg_extracted/ct_lesion_seg",
+    "pair_manifest": "vlmDiagnosis/tables/step10d_ncp_750_pair_manifest.csv",
+    "patient_split": "vlmDiagnosis/tables/step10d_ncp_patient_split.csv",
+    "expected_pairs": 750,
+    "expected_patient_groups": 150,
+    "label_mapping": {
+      "0": "background",
+      "1": "lung_field",
+      "2": "ground_glass_opacity",
+      "3": "consolidation"
+    }
+  },
+  "model": {
+    "architecture": "2D U-Net with ImageNet ResNet34 encoder",
+    "input_size": [
+      320,
+      320
+    ],
+    "output_classes": 4,
+    "class_order": [
+      "background",
+      "lung_field",
+      "ground_glass_opacity",
+      "consolidation"
+    ]
+  },
+  "training": {
+    "batch_size": 8,
+    "max_epochs": 30,
+    "early_stopping_patience": 6,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "scheduler": "ReduceLROnPlateau",
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 2,
+    "loss": "0.5 weighted cross entropy + 0.5 soft Dice over foreground classes",
+    "class_weighting": "inverse_sqrt_frequency_from_training_pixels_only_normalized_to_mean_1",
+    "augmentation": [
+      "random_horizontal_flip_p0.5",
+      "random_rotation_degrees_7_p0.25"
+    ],
+    "selection_metric": "mean_validation_Dice_GGO_and_consolidation",
+    "mixed_precision": true
+  },
+  "presence": {
+    "score": "mean of top 0.5 percent per-pixel softmax probabilities for each subtype",
+    "threshold_selection": "validation_only_maximize_balanced_accuracy_then_sensitivity_specificity",
+    "test_threshold_tuning": false
+  },
+  "evaluation": {
+    "segmentation": [
+      "Dice",
+      "IoU",
+      "sensitivity",
+      "specificity"
+    ],
+    "presence": [
+      "AUROC",
+      "sensitivity",
+      "specificity",
+      "precision"
+    ],
+    "internal_test_once": true,
+    "patient_bootstrap_ci": false
+  },
+  "unlock_criteria": {
+    "internal_test_presence_AUROC_min": 0.85,
+    "internal_test_presence_sensitivity_min": 0.8,
+    "internal_test_presence_specificity_min": 0.8,
+    "segmentation_Dice_min": 0.6
+  },
+  "recovery": {
+    "local_checkpoint_every_epoch": true,
+    "remote_checkpoint_on_improvement": true,
+    "remote_checkpoint_every_n_epochs": 5,
+    "preserve_rng": true,
+    "resume_hashes": [
+      "config",
+      "pair_manifest",
+      "patient_split"
+    ]
+  },
+  "external_test_not_used_here": [
+    "LongCIU",
+    "MedSeg"
+  ]
+}
