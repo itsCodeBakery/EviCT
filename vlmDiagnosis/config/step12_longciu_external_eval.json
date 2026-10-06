@@ -75,12 +75,10 @@
     "descriptive_interrater_context": true
   },
   "external_confirmatory_gate": {
-    "rationale": "Step02 specified LongCIU as the external test but did not separately specify external numeric cutoffs. Before accessing LongCIU outcomes, Step12 freezes the same minimums used by the pre-specified internal subtype gate.",
+    "rationale": "Step02 specifies LongCIU as the external GGO/consolidation test and a segmentation Dice minimum of 0.60, while its AUROC/sensitivity/specificity thresholds are explicitly named internal-test presence criteria. Step12 therefore uses STAPLE-consensus external Dice >=0.60 as the confirmatory external gate. Slice-presence metrics are reported with frozen Step11 thresholds when mathematically estimable but are descriptive because LongCIU is a pathology-selected segmentation set and may not provide adequate negatives for every subtype.",
     "segmentation_Dice_min": 0.6,
-    "presence_AUROC_min": 0.85,
-    "presence_sensitivity_min": 0.8,
-    "presence_specificity_min": 0.8,
-    "rule": "Each subtype is confirmed independently. Report-field unlock requires Step11 internal gate PASS and Step12 STAPLE external confirmatory gate PASS."
+    "presence_metrics_role": "descriptive_non_gating",
+    "rule": "Each subtype is confirmed independently. Report-field unlock requires Step11 internal gate PASS and Step12 STAPLE external Dice >=0.60."
   },
   "prohibited": [
     "training on LongCIU",
