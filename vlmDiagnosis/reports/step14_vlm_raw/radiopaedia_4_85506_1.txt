@@ -1,0 +1,11 @@
+Provisional AI Diagnostic Report
+
+Findings: The provided data indicates the following percentages of lung involvement:
+
+- left lung involvement: 14.4%
+- right lung involvement: 11.5%
+- total lung involvement: 12.9%
+
+Validation-aware limitations: Unavailable diagnostic, subtype, anatomical fields are withheld because validation prerequisites were not met.
+
+This AI-generated report must be reviewed, assessed, and finalized by a qualified radiologist before it is used for medical assessment, diagnosis, treatment planning, or any other clinical decision.
