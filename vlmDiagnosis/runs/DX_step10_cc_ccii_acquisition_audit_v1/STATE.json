@@ -1,0 +1,9 @@
+{
+  "audit_status": "NO_CC_CCII_CANDIDATE_MOUNTED",
+  "candidate_count": 0,
+  "exact_resource_verified": false,
+  "next_action": "Attach one or more candidate CC-CCII lesion-segmentation datasets to the Kaggle notebook, then rerun Step10. Do not begin subtype training yet.",
+  "run_id": "DX_step10_cc_ccii_acquisition_audit_v1",
+  "status": "COMPLETE",
+  "updated_utc": "2026-10-06T07:20:03Z"
+}

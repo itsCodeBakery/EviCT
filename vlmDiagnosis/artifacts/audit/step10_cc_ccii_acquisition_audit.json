@@ -1,0 +1,21 @@
+{
+  "annotation_semantics_verified": false,
+  "candidate_count": 0,
+  "candidate_file_inventory_csv": "vlmDiagnosis/tables/step10_cc_ccii_candidate_file_inventory.csv",
+  "candidate_roots": [],
+  "candidate_summary_csv": "vlmDiagnosis/tables/step10_cc_ccii_candidate_summary.csv",
+  "completed_utc": "2026-10-06T07:20:03Z",
+  "exact_1302_slice_resource_verified": false,
+  "important_note": "Counts, directory names, and filename tokens are discovery evidence only. They do not prove that a mounted dataset is the exact published 1,302-slice resource.",
+  "next_action": "Attach one or more candidate CC-CCII lesion-segmentation datasets to the Kaggle notebook, then rerun Step10. Do not begin subtype training yet.",
+  "project": "EViCT-Dx",
+  "required_classes": [
+    "ground_glass_opacity",
+    "consolidation",
+    "pleural_effusion"
+  ],
+  "stage": "STEP_10_CC_CCII_SUBTYPE_ACQUISITION_AUDIT",
+  "status": "NO_CC_CCII_CANDIDATE_MOUNTED",
+  "study_disjoint_identifiers_verified": false,
+  "training_performed": false
+}
