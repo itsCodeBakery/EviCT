@@ -69,23 +69,89 @@ def norm(s: str):
 
 
 def download():
+    """Resumable downloader tolerant of temporary CNCB connection refusals.
+
+    The CNCB server may close a long transfer and then refuse immediate reconnects.
+    We therefore keep the existing partial file and launch multiple independent
+    wget -c rounds with increasing cool-downs instead of treating one wget exit
+    code as a fatal scientific-pipeline error.
+    """
     url = CFG["source"]["direct_https"]
     print(f"Official archive: {url}")
     print(f"Destination     : {ARCHIVE}")
-    cmd = [
-        "wget",
-        "-c",
-        "--tries=10",
-        "--timeout=60",
-        "--read-timeout=60",
-        "--progress=bar:force:noscroll",
-        "-O",
-        str(ARCHIVE),
-        url,
-    ]
-    subprocess.run(cmd, check=True)
+
+    expected_bytes = 884253723  # HTTP Content-Length observed from official server
+    max_rounds = 30
+
+    for round_idx in range(1, max_rounds + 1):
+        existing = ARCHIVE.stat().st_size if ARCHIVE.exists() else 0
+
+        if existing == expected_bytes:
+            print(f"✓ Archive already complete ({existing:,} bytes).")
+            break
+        if existing > expected_bytes:
+            raise RuntimeError(
+                f"Partial archive is larger than expected: {existing:,} > {expected_bytes:,}. "
+                "Do not delete it; send this output for inspection."
+            )
+
+        pct = 100.0 * existing / expected_bytes
+        print(
+            f"\nDownload round {round_idx}/{max_rounds} — "
+            f"already have {existing:,}/{expected_bytes:,} bytes ({pct:.2f}%)."
+        )
+
+        cmd = [
+            "wget",
+            "-c",
+            "--tries=4",
+            "--retry-connrefused",
+            "--waitretry=10",
+            "--timeout=60",
+            "--read-timeout=60",
+            "--progress=bar:force:noscroll",
+            "-O",
+            str(ARCHIVE),
+            url,
+        ]
+        result = subprocess.run(cmd, check=False)
+
+        existing_after = ARCHIVE.stat().st_size if ARCHIVE.exists() else 0
+        if existing_after == expected_bytes:
+            print(f"✓ Download complete ({existing_after:,} bytes).")
+            break
+
+        if result.returncode == 0 and existing_after != expected_bytes:
+            print(
+                f"⚠ wget returned success but archive size is {existing_after:,}; "
+                f"expected {expected_bytes:,}. Continuing resume loop."
+            )
+        else:
+            print(
+                f"⚠ wget round {round_idx} ended with code {result.returncode}. "
+                f"Partial archive preserved at {existing_after:,} bytes."
+            )
+
+        if round_idx == max_rounds:
+            raise RuntimeError(
+                "Official server remained unavailable after all resume rounds. "
+                f"Partial archive is preserved at {ARCHIVE} ({existing_after:,} bytes). "
+                "Rerun Step10C later; wget -c will continue from this exact byte."
+            )
+
+        # Give the remote server time to reopen the connection. Cap wait at 60 s.
+        wait_s = min(10 + round_idx * 5, 60)
+        print(f"Waiting {wait_s}s before the next resume attempt...")
+        time.sleep(wait_s)
+
     if not ARCHIVE.exists() or ARCHIVE.stat().st_size == 0:
         raise RuntimeError("Archive download did not produce a non-empty file.")
+
+    if ARCHIVE.stat().st_size != expected_bytes:
+        raise RuntimeError(
+            f"Archive is incomplete: {ARCHIVE.stat().st_size:,}/{expected_bytes:,} bytes. "
+            "Rerun Step10C; the partial file is intentionally preserved."
+        )
 
 
 def extract_archive():
