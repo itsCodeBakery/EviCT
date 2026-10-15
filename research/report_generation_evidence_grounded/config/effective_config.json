@@ -1,0 +1,23 @@
+{
+  "prediction_root": "",
+  "checkpoint_path": "",
+  "input_roots": [
+    "/kaggle/input",
+    "/kaggle/working/evict",
+    "/kaggle/working"
+  ],
+  "max_cases": 0,
+  "segmentation_threshold": null,
+  "case_uncertainty_limit": null,
+  "generate_llm": true,
+  "model_id": "Qwen/Qwen2.5-3B-Instruct",
+  "max_new_tokens": 220,
+  "offline_only": false,
+  "allow_label_evaluation": true,
+  "github_sync": true,
+  "github_repo": "itsCodeBakery/EviCT",
+  "github_branch": "main",
+  "github_subdir": "research/report_generation_evidence_grounded",
+  "github_max_file_mb": 8,
+  "save_preview_count": 12
+}
