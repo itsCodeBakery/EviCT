@@ -1,0 +1,70 @@
+{
+  "project": "EViCT",
+  "stage": "NOTEBOOK_10_FINAL",
+  "status": "NOTEBOOK_10_COMPLETE",
+  "timestamp_utc": "2026-10-01T18:46:30.973714+00:00",
+  "completed_substages": {
+    "10A_measurement_contract": "PASS",
+    "10B_prediction_only_evidence": "PASS",
+    "10C_independent_evaluation": "PASS",
+    "10D_final_audit_export": "PASS"
+  },
+  "evidence_records": {
+    "expected": 900,
+    "constructed": 900,
+    "independently_verified": 900,
+    "fidelity_mismatches": 0
+  },
+  "supported_external_measurements": [
+    "binary predicted target-opacity presence",
+    "lesion extent in pixels on original 512x512 grid",
+    "lesion image fraction",
+    "prediction uncertainty",
+    "source-derived eligibility coverage"
+  ],
+  "unsupported_external_measurements": [
+    "physical lesion area in mm2",
+    "lesion volume",
+    "whole-lung involvement percentage",
+    "patient-level burden",
+    "laterality",
+    "lobar localization"
+  ],
+  "source_p80_external_results": {
+    "supervised": {
+      "mean_coverage": 0.05,
+      "mean_retained_dice": 0.6746884388178803
+    },
+    "confidence_only_ema": {
+      "mean_coverage": 0.0366666666666666,
+      "mean_retained_dice": 0.7396258215288141
+    },
+    "agreement_filtered_ema": {
+      "mean_coverage": 0.04,
+      "mean_retained_dice": 0.6575452810618595
+    }
+  },
+  "supported_interpretations": [
+    "The evidence constructor reproduced all preserved prediction-derived lesion extents and uncertainty values without ground-truth access.",
+    "The predeclared source-derived p80 uncertainty gate transferred to MedSeg with very low external coverage.",
+    "The low coverage indicates that the source-calibration uncertainty distribution did not directly transfer to the external target domain.",
+    "Retained-set Dice is descriptive because each method and seed may retain a different subset of target cases.",
+    "No genuine four-view lesion-extent stability range could be evaluated because individual aligned view outputs were not preserved."
+  ],
+  "prohibited_interpretations": [
+    "Do not claim the p80 gate provides 80 percent external-target coverage.",
+    "Do not tune the source uncertainty gate using MedSeg.",
+    "Do not rank methods using unmatched retained-set Dice.",
+    "Do not describe the four-view aggregate as a confidence interval.",
+    "Do not claim physical area, lesion volume, lung burden, laterality, or lobar localization."
+  ],
+  "next_stage": "NOTEBOOK_11_STRUCTURED_REPORTING",
+  "notebook12_deferred_analysis": [
+    "matched-coverage comparisons",
+    "stress testing",
+    "coverage/completeness/fallback analysis",
+    "same-hardware latency",
+    "peak VRAM",
+    "optional reader evaluation"
+  ]
+}

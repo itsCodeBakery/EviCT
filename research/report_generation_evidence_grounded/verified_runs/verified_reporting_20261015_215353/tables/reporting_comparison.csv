@@ -1,0 +1,4 @@
+Reporting arm,Generator,Records,Directly valid / accepted,Direct validity / acceptance (%),Fallback records,Fallback rate (%),Final safe reports,Final safe delivery (%),Protected numerical integrity (%),Lesion-pixel value exposed to LLM,Raw LLM prose
+Deterministic,Python templates,900,900,100.0,0,0.0,900,100.0,100.0,No LLM,No
+Strict sentence-ID,Qwen ID selection + Python rendering,900,896,99.55555555555556,4,0.4444444444444444,900,100.0,100.0,No,No
+Controlled free text,Qwen prose + validator + fallback,900,896,99.55555555555556,4,0.4444444444444444,900,100.0,100.0,Eligible fields only,Yes

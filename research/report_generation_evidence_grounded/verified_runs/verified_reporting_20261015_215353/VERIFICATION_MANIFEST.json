@@ -1,0 +1,71 @@
+{
+  "run_id": "verified_reporting_20261015_215353",
+  "timestamp_utc": "2026-10-15T21:54:08.453403+00:00",
+  "status": "verified_existing_results",
+  "new_model_training": false,
+  "new_llm_generation": false,
+  "original_frozen_core_modified": false,
+  "mask_mapping": {
+    "0": "ground_glass_opacity",
+    "1": "consolidation",
+    "2": "lungs_other",
+    "3": "background"
+  },
+  "foreground_definition": "channel_0_OR_channel_1",
+  "verified_artifacts": {
+    "external_segmentation": {
+      "source": "reproducibility/notebook09_qualitative_bundle/tables/notebook09_corrected_target_method_summary.csv",
+      "rows": 6,
+      "sha256": "5860b09064aa436b35ca9c215dbea730fa2e7e5ad538d8edba10f70d05af8776"
+    },
+    "external_seed_results": {
+      "source": "reproducibility/notebook09_qualitative_bundle/tables/notebook09_corrected_target_seed_summary.csv",
+      "rows": 18,
+      "sha256": "7e003505a3c83f29ea9016ca399f3ef1b4b4793298dcc53b6b9c874dfe1f44d9"
+    },
+    "paired_bootstrap": {
+      "source": "reproducibility/notebook09_qualitative_bundle/tables/notebook09_corrected_paired_bootstrap.csv",
+      "rows": 6,
+      "sha256": "050324eaff800bd359916b488ba0ecdcd1f0b66d7646cbfbb76b6e4c2767a10f"
+    },
+    "evidence_coverage": {
+      "source": "tables/notebook10_default_p80_method_summary.csv",
+      "rows": 3,
+      "sha256": "e86fb0fef595349fba7ede55992581552a6e36d403a429c8269f1acc2bf9d716"
+    },
+    "evidence_coverage_curve": {
+      "source": "tables/notebook10_coverage_curve_method_mean.csv",
+      "rows": 15,
+      "sha256": "edbaacf4a819be828e80578be6d32d4caa98205b6bcd547accce2d745d9f286c"
+    },
+    "reporting_comparison": {
+      "source": "tables/notebook11_reporting_arm_summary.csv",
+      "rows": 3,
+      "sha256": "bf0ec792cfef35fabea2f2409bf07f0c4be78011cfb99435b9899f94d422aa02"
+    },
+    "matched_coverage": {
+      "source": "tables/notebook12a_selective_risk_auc.csv",
+      "rows": 12,
+      "sha256": "0c22634a8ba6516a8fee3ac36c4b4c5f76708177adb4456e6f54fec5d7f3b7ab"
+    },
+    "uncertainty_correlation": {
+      "source": "tables/notebook12a_uncertainty_error_correlation.csv",
+      "rows": 9,
+      "sha256": "c0a8c00473d1af0608c75c305ee92078a50952dfb12c8fc56cb9b1587eb334d5"
+    },
+    "synthetic_robustness": {
+      "source": "tables/notebook12b_stress_method_summary.csv",
+      "rows": 9,
+      "sha256": "addb175059d8299a21bdb25be2ec3b07832b69776974ec95da8fb720fa2b09c3"
+    },
+    "efficiency": {
+      "source": "tables/notebook12c_efficiency.csv",
+      "rows": 5,
+      "sha256": "190522bac966fadc7d95f42f524d38ab3ad357b2d7e8b57c22a7eba654610e58"
+    }
+  },
+  "missing_optional_artifacts": [],
+  "total_reporting_records_per_arm": 900,
+  "number_of_reporting_arms": 3,
+  "clinical_validation": false
+}

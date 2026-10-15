@@ -1,0 +1,7 @@
+seed,comparison,mean_dice_difference,ci95_low,ci95_high,bootstrap_unit,n_images,bootstrap_replicates
+17,confidence_only_ema_minus_supervised,0.01481120050879257,0.006833665117261005,0.023830624077997943,image_level_selected_slice,100,10000
+17,agreement_filtered_ema_minus_supervised,0.014842312589573385,0.0067199648442411155,0.023871076087082502,image_level_selected_slice,100,10000
+42,confidence_only_ema_minus_supervised,-0.01813176043174281,-0.02922114380732668,-0.0072974885969361684,image_level_selected_slice,100,10000
+42,agreement_filtered_ema_minus_supervised,-0.006287550103464629,-0.02346451940054935,0.012445861206093494,image_level_selected_slice,100,10000
+2026,confidence_only_ema_minus_supervised,0.08004352936335332,0.03742816240635936,0.12376231745354173,image_level_selected_slice,100,10000
+2026,agreement_filtered_ema_minus_supervised,0.08291285071778486,0.04018665308469958,0.12507209311425188,image_level_selected_slice,100,10000
