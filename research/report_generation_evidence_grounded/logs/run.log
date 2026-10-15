@@ -1,0 +1,9 @@
+2026-10-15T21:33:06.310130+00:00 EviCT report generation launched
+2026-10-15T21:33:14.111410+00:00 Searching attached predictions. Raw checkpoint alone cannot be interpreted without its model class/preprocessing.
+2026-10-15T21:33:14.173815+00:00 No validated predictions found. Export artifacts and STOP (no fabricated reports).
+2026-10-15T21:33:14.235783+00:00 GitHub sync skipped: set GITHUB_TOKEN in Kaggle secrets/environment. No credentials stored.
+2026-10-15T21:33:14.236896+00:00 GitHub sync status missing_token
+2026-10-15T21:33:14.240351+00:00 Finished. Local outputs: /kaggle/working/evict_reporting ZIP: /kaggle/working/evict_reporting_outputs.zip
+2026-10-15T21:35:24.976596+00:00 EviCT report generation launched
+2026-10-15T21:35:24.978615+00:00 Searching attached predictions. Raw checkpoint alone cannot be interpreted without its model class/preprocessing.
+2026-10-15T21:35:25.022073+00:00 No validated predictions found. Export artifacts and STOP (no fabricated reports).
