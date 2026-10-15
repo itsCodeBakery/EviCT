@@ -1,0 +1,7 @@
+{
+  "status": "BLOCKED_NO_VERIFIED_PREDICTIONS",
+  "time": "2026-10-15T21:35:25.020939+00:00",
+  "required": "Attach EviCT original-grid model probability .npz files with case_id and frozen source-selected threshold. If only .pt exists, supply matching model class and preprocessing code.",
+  "candidate_npz_count": 0,
+  "skipped": []
+}
