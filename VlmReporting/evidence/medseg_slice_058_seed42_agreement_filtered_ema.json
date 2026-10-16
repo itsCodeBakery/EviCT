@@ -1,0 +1,27 @@
+{
+  "case_id": "medseg_slice_058_seed42_agreement_filtered_ema",
+  "slice_index": 58,
+  "seed": 42,
+  "method": "agreement_filtered_ema",
+  "view": "single",
+  "dataset": "medseg",
+  "pdf": "/kaggle/working/EViCT_Premium_HighDice20_Reports/pdf_reports/medseg_slice_058_seed42_agreement_filtered_ema.pdf",
+  "pngs": [
+    "/kaggle/working/EViCT_Premium_HighDice20_Reports/visual_panels/medseg_slice_058_seed42_agreement_filtered_ema_0.png",
+    "/kaggle/working/EViCT_Premium_HighDice20_Reports/visual_panels/medseg_slice_058_seed42_agreement_filtered_ema_1.png",
+    "/kaggle/working/EViCT_Premium_HighDice20_Reports/visual_panels/medseg_slice_058_seed42_agreement_filtered_ema_2.png"
+  ],
+  "predicted_target_present": true,
+  "predicted_lesion_pixels": 31028,
+  "fraction_of_full_image_grid_percent": 11.83624267578125,
+  "uncertainty_score": 0.5606401562690735,
+  "source_gate_status": "NOT RECOVERED; DO NOT TREAT AS VALIDATED ELIGIBILITY",
+  "vlm_model": "Qwen/Qwen2.5-VL-3B-Instruct",
+  "vlm_screen": "withheld",
+  "vlm_display": "VLM wording withheld by conservative screening. Raw text retained for audit.",
+  "vlm_raw": "On this selected CT slice, there is a region of increased density in the right upper lobe, which appears to be consistent with ground-glass opacities (GGO). The texture within this area suggests a mixture of solid and fluid components, potentially indicative of a chronic process.",
+  "vlm_note": "\\b(left|right|bilateral|lobe|lobar|segmental|basal|upper|lower|middle)\\b",
+  "research_gt_audit": null,
+  "clinical_validation": false,
+  "warning": "VLM draft is unverified; descriptive numerical fields are not source-gated."
+}
